@@ -17,7 +17,8 @@ import datetime
 import hashlib
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-file_out = dir_path + "\\" + "covid19.ttl"
+print(dir_path.replace("\\py","\\ttl"))
+file_out = dir_path.replace("\\py","\\ttl") + "\\" + "covid19.ttl"
 
 response = requests.get("https://pomber.github.io/covid19/timeseries.json")
 data = response.json()
