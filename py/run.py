@@ -44,7 +44,7 @@ for c in countriesJHU:
         m.update(cstring + str(item['date']) + "JHU")
         UUID = str(int(m.hexdigest(), 16))[0:16]
         lines.append("covid19:" + UUID + " " + "rdf:type" + " covid19:JHU_Dataset .")
-        lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + str(cstring).replace(" ","_") + " .")
+        lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + str(cstring).replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","") + " .")
         lines.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + str(item['date']) + "'" + ".")
         lines.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + str(item['confirmed']) + "'" + ".")
         lines.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + str(item['deaths']) + "'" + ".")
@@ -61,7 +61,7 @@ for item in dataECDC:
     m.update(ccode + dstr + "ECDC")
     UUID = str(int(m.hexdigest(), 16))[0:16]
     lines.append("covid19:" + UUID + " " + "rdf:type" + " covid19:ECDC_Dataset .")
-    lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + cstr + " .")
+    lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + cstr.replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","") + " .")
     lines.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + dstr + "'" + ".")
     lines.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + castr + "'" + ".")
     lines.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + destr + "'" + ".")
