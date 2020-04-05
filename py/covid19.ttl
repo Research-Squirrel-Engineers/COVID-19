@@ -1,5 +1,23 @@
 # create triples from https://pomber.github.io/covid19/timeseries.json
-# on 2020-04-05 10:51
+# on 2020-04-05 10:58
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX covid19: <http://covid19.squirrel.link/ontology#> 
+PREFIX world: <http://world.squirrel.link/ontology#> 
+
+covid19:SCRIPT rdf:type rdfs:Resource .
+covid19:SCRIPT <http://purl.org/dc/elements/1.1/created> '2020-04-05T10:53:21.259+0100' .
+covid19:SCRIPT <http://purl.org/dc/elements/1.1/modified> '2020-04-05T10:58:33.000+0100' .
+covid19:SCRIPT <http://purl.org/dc/elements/1.1/creator> 'Florian Thiery' .
+covid19:SCRIPT <http://purl.org/dc/elements/1.1/contributor> 'Timo Homburg' .
+covid19:SCRIPT <http://purl.org/dc/elements/1.1/language> 'en' .
+covid19:SCRIPT <http://purl.org/dc/elements/1.1/type> 'ontology' .
+covid19:SCRIPT <http://purl.org/dc/elements/1.1/title> 'COVID-19 data by JHU' .
+covid19:SCRIPT <http://purl.org/dc/elements/1.1/subject> 'COVID-19' .
+covid19:SCRIPT <http://purl.org/dc/elements/1.1/rights> 'CC BY 4.0' .
 
 covid19:3235028382073875 rdf:type covid19:JHU_Dataset .
 covid19:3235028382073875 covid19:country world:Canada .
