@@ -26,6 +26,10 @@ dataJHU = responseJHU.json()
 responseECDC = requests.get("https://opendata.ecdc.europa.eu/covid19/casedistribution/json/")
 dataECDC = responseECDC.json()['records']
 
+#responseRKI = requests.get("https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0.geojson")
+#dataRKI = responseRKI.json()['features']
+#print(len(dataRKI))
+
 countriesJHU = []
 for item in dataJHU:
     countriesJHU.append(str(item))
