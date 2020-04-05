@@ -20,20 +20,24 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 print(dir_path.replace("\\py","\\ttl"))
 file_out = dir_path.replace("\\py","\\ttl") + "\\" + "covid19.ttl"
 
-response = requests.get("https://pomber.github.io/covid19/timeseries.json")
-data = response.json()
+responseJHU = requests.get("https://pomber.github.io/covid19/timeseries.json")
+dataJHU = responseJHU.json()
 
-countries = []
-for item in data:
-    countries.append(str(item))
+responseECDC = requests.get("https://opendata.ecdc.europa.eu/covid19/casedistribution/json/")
+dataECDC = responseECDC.json()['records']
+
+countriesJHU = []
+for item in dataJHU:
+    countriesJHU.append(str(item))
 
 lines = []
-for c in countries:
+
+for c in countriesJHU:
     cstring = str(c)
-    thiscountry = data[c]
+    thiscountry = dataJHU[c]
     for item in thiscountry:
         m = hashlib.md5()
-        m.update("Germany" + str(item['date']))
+        m.update(cstring + str(item['date']) + "JHU")
         UUID = str(int(m.hexdigest(), 16))[0:16]
         lines.append("covid19:" + UUID + " " + "rdf:type" + " covid19:JHU_Dataset .")
         lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + str(cstring).replace(" ","_") + " .")
@@ -44,6 +48,24 @@ for c in countries:
         lines.append("covid19:" + UUID + " " + "dc:creator" + " " + "'" + "Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)" + "'" + ".")
         lines.append("covid19:" + UUID + " " + "dc:rights" + " " + "'" + "Copyright 2020 Johns Hopkins University" + "'" + ".")
         lines.append("")
+
+'''for item in dataECDC:
+    c = str(item['countriesAndTerritories'])
+    cstr = unicode(c, "utf-8")
+    d = str(item['dateRep'])
+    dstr = unicode(d, "utf-8")
+    m = hashlib.md5()
+    m.update(cstr + dstr + "ECDC")
+    UUID = str(int(m.hexdigest(), 16))[0:16]
+    lines.append("covid19:" + UUID + " " + "rdf:type" + " covid19:ECDC_Dataset .")
+    lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + cstr + " .")
+    lines.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + dstr + "'" + ".")
+    #lines.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + str(item['confirmed']) + "'" + ".")
+    #lines.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + str(item['deaths']) + "'" + ".")
+    #lines.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'" + str(item['recovered']) + "'" + ".")
+    #lines.append("covid19:" + UUID + " " + "dc:creator" + " " + "'" + "Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)" + "'" + ".")
+    #lines.append("covid19:" + UUID + " " + "dc:rights" + " " + "'" + "Copyright 2020 Johns Hopkins University" + "'" + ".")
+    lines.append("")'''
 
 file = codecs.open(file_out, "w", "utf-8")
 file.write("# create triples from https://pomber.github.io/covid19/timeseries.json" + "\r\n")
