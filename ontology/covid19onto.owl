@@ -14,19 +14,19 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:road="http://hadrianswall.squirrel.link/road#"
      xmlns:site="http://hadrianswall.squirrel.link/site#"
-     xmlns:wall="http://hadrianswall.squirrel.link/wall#"
+     xmlns:world="http://world.squirrel.link/ontology#"
      xmlns:semgis="http://semgis.de/geodata#"
      xmlns:ontology="http://covid19.squirrel.link/ontology#"
      xmlns:geosparql="http://www.opengis.net/ont/geosparql#">
     <owl:Ontology rdf:about="http://covid19.squirrel.link/ontology#">
-        <dc:contributor>Florian Thiery</dc:contributor>
+        <dc:contributor>Timo Homburg</dc:contributor>
         <dc:creator>Florian Thiery</dc:creator>
-        <dc:description xml:lang="en">This ontology contains classes to descibe the Hadrian&apos;s Wall dataset in RDF.</dc:description>
+        <dc:description xml:lang="en">This ontology contains classes to descibe COVID-19 datasets in RDF.</dc:description>
         <dc:publisher>Research Squirrel Engineers (RSE)</dc:publisher>
         <dc:rights>CC BY 4.0</dc:rights>
-        <dc:subject>Hadrian&apos;s Wall</dc:subject>
-        <rdfs:comment xml:lang="en">This ontology contains classes to descibe the Hadrian&apos;s Wall dataset in RDF.</rdfs:comment>
-        <rdfs:label xml:lang="en">The Hadrian&apos;s Wall Ontology</rdfs:label>
+        <dc:subject>COVID-19</dc:subject>
+        <rdfs:comment xml:lang="en">This ontology contains classes to descibe COVID-19 datasets in RDF.</rdfs:comment>
+        <rdfs:label xml:lang="en">The COVID-19 Ontology</rdfs:label>
         <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
     </owl:Ontology>
     
@@ -168,6 +168,16 @@
     
 
 
+    <!-- http://world.squirrel.link/ontology#hasAdm0_a3 -->
+
+    <owl:DatatypeProperty rdf:about="http://world.squirrel.link/ontology#hasAdm0_a3">
+        <rdfs:domain rdf:resource="http://world.squirrel.link/ontology#Country"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">has admin code 3</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.opengis.net/ont/geosparql#asGeoJSON -->
 
     <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asGeoJSON">
@@ -240,6 +250,14 @@
 
     <owl:Class rdf:about="http://covid19.squirrel.link/ontology#Wikidata_Classes">
         <rdfs:label xml:lang="en">Wikidata Classes</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://world.squirrel.link/ontology#Country -->
+
+    <owl:Class rdf:about="http://world.squirrel.link/ontology#Country">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
     </owl:Class>
     
 
