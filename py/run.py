@@ -45,8 +45,6 @@ for c in countriesJHU:
         lines.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + str(item['confirmed']) + "'" + ".")
         lines.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + str(item['deaths']) + "'" + ".")
         lines.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'" + str(item['recovered']) + "'" + ".")
-        lines.append("covid19:" + UUID + " " + "dc:creator" + " " + "'" + "Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)" + "'" + ".")
-        lines.append("covid19:" + UUID + " " + "dc:rights" + " " + "'" + "Copyright 2020 Johns Hopkins University" + "'" + ".")
         lines.append("")
 
 '''for item in dataECDC:
@@ -63,8 +61,6 @@ for c in countriesJHU:
     #lines.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + str(item['confirmed']) + "'" + ".")
     #lines.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + str(item['deaths']) + "'" + ".")
     #lines.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'" + str(item['recovered']) + "'" + ".")
-    #lines.append("covid19:" + UUID + " " + "dc:creator" + " " + "'" + "Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)" + "'" + ".")
-    #lines.append("covid19:" + UUID + " " + "dc:rights" + " " + "'" + "Copyright 2020 Johns Hopkins University" + "'" + ".")
     lines.append("")'''
 
 file = codecs.open(file_out, "w", "utf-8")
