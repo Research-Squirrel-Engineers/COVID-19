@@ -73,6 +73,39 @@ for item in dataECDC:
 
 for item in dataRKI:
     bundesland = str(item["properties"]["IdBundesland"])
+    blcode = "0"
+    if bundesland == "1":
+        blcode = "SchleswigHolstein"
+    elif bundesland == "2":
+        blcode = "Hamburg"
+    elif bundesland == "3":
+        blcode = "Niedersachsen"
+    elif bundesland == "4":
+        blcode = "Bremen"
+    elif bundesland == "5":
+        blcode = "NordrheinWestfalen"
+    elif bundesland == "6":
+        blcode = "Hessen"
+    elif bundesland == "7":
+        blcode = "RheinlandPfalz"
+    elif bundesland == "8":
+        blcode = "BadenWuerttemberg"
+    elif bundesland == "9":
+        blcode = "Bayern"
+    elif bundesland == "10":
+        blcode = "Saarland"
+    elif bundesland == "11":
+        blcode = "Berlin"
+    elif bundesland == "12":
+        blcode = "Brandenburg"
+    elif bundesland == "13":
+        blcode = "MecklenburgVorpommern"
+    elif bundesland == "14":
+        blcode = "Sachsen"
+    elif bundesland == "15":
+        blcode = "SachsenAnhalt"
+    elif bundesland == "16":
+        blcode = "Thueringen"
     geschlecht = str(item["properties"]["Geschlecht"])
     altersgruppe = str(item["properties"]["Altersgruppe"])
     faelle = str(item["properties"]["AnzahlFall"])
@@ -80,13 +113,16 @@ for item in dataRKI:
     meldedatum = str(item["properties"]["Meldedatum"])
     genesen = str(item["properties"]["AnzahlGenesen"])
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "rdf:type" + " covid19:RKI_Dataset .")
-    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:bundesland" + " world:" + bundesland + " .")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:bundesland" + " world:" + blcode + " .")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:date" + " " + "'" + meldedatum + "'" + ".")
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:geschlecht" + " " + "'" + geschlecht + "'" + ".")
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:altersgruppe" + " " + "'" + altersgruppe + "'" + ".")
-    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:confirmed" + " " + "'" + faelle + "'" + ".")
-    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:deaths" + " " + "'" + todesfall + "'" + ".")
-    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:date" + " " + "'" + meldedatum + "'" + ".")
-    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:recovered" + " " + "'" + genesen + "'" + ".")
+    if int(faelle) > 0:
+        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:confirmed" + " " + "'" + faelle + "'" + ".")
+    if int(todesfall) > 0:
+        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:deaths" + " " + "'" + todesfall + "'" + ".")
+    if int(genesen) > 0:
+        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:recovered" + " " + "'" + genesen + "'" + ".")
     lines2.append("")
 
 file = codecs.open(file_out, "w", "utf-8")
