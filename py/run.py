@@ -22,13 +22,15 @@ file_out = dir_path.replace("\\py","\\ttl") + "\\" + "covid19.ttl"
 
 responseJHU = requests.get("https://pomber.github.io/covid19/timeseries.json")
 dataJHU = responseJHU.json()
+print("dataJHU", len(dataJHU))
 
 responseECDC = requests.get("https://opendata.ecdc.europa.eu/covid19/casedistribution/json/")
 dataECDC = responseECDC.json()['records']
+print("dataECDC", len(dataECDC))
 
-#responseRKI = requests.get("https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0.geojson")
-#dataRKI = responseRKI.json()['features']
-#print(len(dataRKI))
+responseRKI = requests.get("https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0.geojson")
+dataRKI = responseRKI.json()['features']
+print("dataRKI", len(dataRKI))
 
 countriesJHU = []
 for item in dataJHU:
