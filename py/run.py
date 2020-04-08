@@ -17,8 +17,9 @@ import datetime
 import hashlib
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-print(dir_path.replace("\\py","\\ttl"))
+#print(dir_path.replace("\\py","\\ttl"))
 file_out = dir_path.replace("\\py","\\ttl") + "\\" + "covid19.ttl"
+file_out_rki = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki.ttl"
 
 responseJHU = requests.get("https://pomber.github.io/covid19/timeseries.json")
 dataJHU = responseJHU.json()
@@ -37,6 +38,7 @@ for item in dataJHU:
     countriesJHU.append(str(item))
 
 lines = []
+lines2 = []
 
 for c in countriesJHU:
     cstring = str(c)
@@ -69,6 +71,24 @@ for item in dataECDC:
     lines.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + destr + "'" + ".")
     lines.append("")
 
+for item in dataRKI:
+    bundesland = str(item["properties"]["IdBundesland"])
+    geschlecht = str(item["properties"]["Geschlecht"])
+    altersgruppe = str(item["properties"]["Altersgruppe"])
+    faelle = str(item["properties"]["AnzahlFall"])
+    todesfall = str(item["properties"]["AnzahlTodesfall"])
+    meldedatum = str(item["properties"]["Meldedatum"])
+    genesen = str(item["properties"]["AnzahlGenesen"])
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "rdf:type" + " covid19:RKI_Dataset .")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:bundesland" + " world:" + bundesland + " .")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:geschlecht" + " " + "'" + geschlecht + "'" + ".")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:altersgruppe" + " " + "'" + altersgruppe + "'" + ".")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:confirmed" + " " + "'" + faelle + "'" + ".")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:deaths" + " " + "'" + todesfall + "'" + ".")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:date" + " " + "'" + meldedatum + "'" + ".")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:recovered" + " " + "'" + genesen + "'" + ".")
+    lines2.append("")
+
 file = codecs.open(file_out, "w", "utf-8")
 file.write("# create triples from JHU and ECDC" + "\r\n")
 file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
@@ -89,3 +109,26 @@ for line in lines:
     file.write(line)
     file.write("\r\n")
 file.close()
+print("success write covid19.ttl")
+
+file = codecs.open(file_out_rki, "w", "utf-8")
+file.write("# create triples from RKI" + "\r\n")
+file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
+prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dc: <http://purl.org/dc/elements/1.1/> \r\nPREFIX covid19: <http://covid19.squirrel.link/ontology#> \r\nPREFIX world: <http://world.squirrel.link/ontology#> \r\n\r\n";
+file.write(prefixes)
+file.write("covid19:COVID19_DataRKI rdf:type rdfs:Resource .\r\n")
+file.write("covid19:COVID19_DataRKI rdf:type covid19:Dataset .\r\n")
+file.write("covid19:COVID19_DataRKI dc:created '2020-04-05T10:53:21.259+0100' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:modified '" + datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000+0100") + "' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:creator 'Florian Thiery' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:contributor 'Timo Homburg' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:language 'en' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:type 'ontology' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:title 'COVID-19 data by RKI' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:subject 'COVID-19' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:rights 'CC BY 4.0' .\r\n\r\n")
+for line in lines2:
+    file.write(line)
+    file.write("\r\n")
+file.close()
+print("success write covid19_rki.ttl")
