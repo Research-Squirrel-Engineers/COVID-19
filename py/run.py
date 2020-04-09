@@ -47,9 +47,11 @@ for c in countriesJHU:
         m = hashlib.md5()
         m.update(cstring + str(item['date']) + "JHU")
         UUID = str(int(m.hexdigest(), 16))[0:16]
+        dstrArr = str(item['date']).split("-")
+        dstr = str(dstrArr[0]).zfill(2) + "-" + str(dstrArr[1]).zfill(2) + "-" + str(dstrArr[2]).zfill(2) + "T00:00:00.000Z"
         lines.append("covid19:" + UUID + " " + "rdf:type" + " covid19:JHU_Dataset .")
         lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + str(cstring).replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","") + " .")
-        lines.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + str(item['date']) + "'" + ".")
+        lines.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + dstr + "'" + ".")
         lines.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + str(item['confirmed']) + "'" + ".")
         lines.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + str(item['deaths']) + "'" + ".")
         lines.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'" + str(item['recovered']) + "'" + ".")
@@ -57,7 +59,8 @@ for c in countriesJHU:
 
 for item in dataECDC:
     cstr = item['countriesAndTerritories']
-    dstr = item['dateRep']
+    dstrArr = str(item['dateRep']).split("/")
+    dstr = str(dstrArr[2]).zfill(2) + "-" + str(dstrArr[1]).zfill(2) + "-" + str(dstrArr[0]).zfill(2) + "T00:00:00.000Z"
     castr = item['cases']
     destr = item['deaths']
     ccode = item['countryterritoryCode']
