@@ -74,8 +74,8 @@ for item in dataECDC:
     m.update(ccode + dstr + "ECDC")
     UUID = str(int(m.hexdigest(), 16))[0:16]
     lines.append("covid19:" + UUID + " " + "rdf:type" + " covid19:ECDC_Dataset .")
-    if str(cstring).replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","") == "United_States_of_America":
-        cstring = "United_States"
+    if cstr.replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","") == "United_States_of_America":
+        cstr = "United_States"
     lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + cstr.replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","") + " .")
     lines.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + dstr + "'" + ".")
     lines.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + castr + "'" + ".")
