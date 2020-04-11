@@ -11,6 +11,7 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <link rel="stylesheet" href="dark-unica.css">
+    <title>Linked COVID-19 Data</title>
     <style>
         body {
             background-color: #1d1d1d;
@@ -95,6 +96,14 @@
         <div id="containerECDC"></div>
         <p class="highcharts-description"></p>
     </figure>
+    <hr width="80%">
+    <h4>
+        <center>Credits: Research Squirrel Engineers, Florian Thiery M.Sc.</center>
+    </h4>
+    <h5>
+        <center>Data: Johns Hopkins University and European Centre for Disease Prevention and Control</center>
+        <center>via <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/tree/master/ttl" target="_blank">github.com/Research-Squirrel-Engineers/COVID-19</a></center>
+    </h5>
     <script>
         let JHU_INIT =
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:JHU_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. FILTER(?country = world:#COUNTRY#) } ORDER BY DESC(?date)"
