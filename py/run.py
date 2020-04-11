@@ -44,6 +44,7 @@ lines2 = []
 i = 0
 for c in countriesJHU:
     cstring = str(c)
+    cstring = cstring.replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","")
     thiscountry = dataJHU[c]
     for item in thiscountry:
         i = i+1
@@ -53,9 +54,9 @@ for c in countriesJHU:
         dstrArr = str(item['date']).split("-")
         dstr = str(dstrArr[0]).zfill(2) + "-" + str(dstrArr[1]).zfill(2) + "-" + str(dstrArr[2]).zfill(2) + "T00:00:00.000Z"
         lines.append("covid19:" + UUID + " " + "rdf:type" + " covid19:JHU_Dataset .")
-        if str(cstring).replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","") == "US":
+        if cstring == "US":
             cstring = "United_States"
-        lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + str(cstring).replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","") + " .")
+        lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + cstring + " .")
         lines.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + dstr + "'" + ".")
         lines.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + str(item['confirmed']) + "'" + ".")
         lines.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + str(item['deaths']) + "'" + ".")
@@ -65,6 +66,7 @@ print("datasetsJHU", int(i))
 
 for item in dataECDC:
     cstr = item['countriesAndTerritories']
+    cstr = cstr.replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","")
     dstrArr = str(item['dateRep']).split("/")
     dstr = str(dstrArr[2]).zfill(2) + "-" + str(dstrArr[1]).zfill(2) + "-" + str(dstrArr[0]).zfill(2) + "T00:00:00.000Z"
     castr = item['cases']
@@ -74,9 +76,9 @@ for item in dataECDC:
     m.update(ccode + dstr + "ECDC")
     UUID = str(int(m.hexdigest(), 16))[0:16]
     lines.append("covid19:" + UUID + " " + "rdf:type" + " covid19:ECDC_Dataset .")
-    if cstr.replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","") == "United_States_of_America":
+    if cstr == "United_States_of_America":
         cstr = "United_States"
-    lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + cstr.replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","") + " .")
+    lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + cstr + " .")
     lines.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + dstr + "'" + ".")
     lines.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + castr + "'" + ".")
     lines.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + destr + "'" + ".")
