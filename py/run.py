@@ -23,15 +23,15 @@ file_out_rki = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki.ttl"
 
 responseJHU = requests.get("https://pomber.github.io/covid19/timeseries.json")
 dataJHU = responseJHU.json()
-print("dataJHU", len(dataJHU))
+print("countriesJHU", len(dataJHU))
 
 responseECDC = requests.get("https://opendata.ecdc.europa.eu/covid19/casedistribution/json/")
 dataECDC = responseECDC.json()['records']
-print("dataECDC", len(dataECDC))
+print("datasetsECDC", len(dataECDC))
 
 responseRKI = requests.get("https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0.geojson")
 dataRKI = responseRKI.json()['features']
-print("dataRKI", len(dataRKI))
+print("datasetsRKI", len(dataRKI))
 
 countriesJHU = []
 for item in dataJHU:
@@ -40,10 +40,12 @@ for item in dataJHU:
 lines = []
 lines2 = []
 
+i = 0
 for c in countriesJHU:
     cstring = str(c)
     thiscountry = dataJHU[c]
     for item in thiscountry:
+        i = i+1
         m = hashlib.md5()
         m.update(cstring + str(item['date']) + "JHU")
         UUID = str(int(m.hexdigest(), 16))[0:16]
@@ -56,6 +58,7 @@ for c in countriesJHU:
         lines.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + str(item['deaths']) + "'" + ".")
         lines.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'" + str(item['recovered']) + "'" + ".")
         lines.append("")
+print("datasetsJHU", int(i))
 
 for item in dataECDC:
     cstr = item['countriesAndTerritories']
