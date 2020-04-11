@@ -5,6 +5,10 @@
 <head>
     <link rel="stylesheet" type="text/css" href="http://143.93.113.149/css/vendor/bootstrap.min.css" />
     <script src="http://143.93.113.149/js/vendor/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <script src="https://unpkg.com/terraformer@1.0.7"></script>
+    <script src="https://unpkg.com/terraformer-wkt-parser@1.1.2"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -67,6 +71,13 @@
         label {
             font-weight: normal !important;
         }
+
+        #mapid {
+            height: 500px;
+            min-width: 310px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
     </style>
 
 </head>
@@ -92,6 +103,7 @@
         <div id="containerJHU"></div>
         <p class="highcharts-description"></p>
     </figure>
+    <div id="mapid"></div>
     <figure class="highcharts-figure">
         <div id="containerECDC"></div>
         <p class="highcharts-description"></p>
@@ -106,13 +118,13 @@
     </h5>
     <script>
         let JHU_INIT =
-            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:JHU_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. FILTER(?country = world:#COUNTRY#) } ORDER BY DESC(?date)"
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r ?wkt_geom WHERE { ?item a covid19:JHU_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. FILTER(?country = world:#COUNTRY#) ?country geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom .} ORDER BY ASC(?date)";
         let ECDC_INIT =
-            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:ECDC_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. FILTER(?country = world:#COUNTRY#) } ORDER BY ASC(?date)"
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r ?wkt_geom WHERE { ?item a covid19:ECDC_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. FILTER(?country = world:#COUNTRY#) } ORDER BY ASC(?date)";
         let JHU =
-            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:JHU_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. FILTER(?country = world:#COUNTRY#) } ORDER BY DESC(?date)"
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r ?wkt_geom WHERE { ?item a covid19:JHU_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. FILTER(?country = world:#COUNTRY#) ?country geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom .} ORDER BY ASC(?date)";
         let ECDC =
-            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:ECDC_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. FILTER(?country = world:#COUNTRY#) } ORDER BY ASC(?date)"
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r ?wkt_geom WHERE { ?item a covid19:ECDC_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. FILTER(?country = world:#COUNTRY#) } ORDER BY ASC(?date)";
         var queryStore = function(query, callback) {
             $.ajax({
                 url: "https://java-dev.rgzm.de/rdf4j-server/repositories/corona",
@@ -148,6 +160,7 @@
             confirmed = [];
             recovered = [];
             deaths = [];
+            geom = "";
             for (var i in bindings) {
                 //console.log(bindings[i]['date'], bindings[i]['c']);
                 let tmpArrC = [];
@@ -162,14 +175,17 @@
                 tmpArrR.push(new Date(bindings[i]['date']).getTime());
                 tmpArrR.push(parseInt(bindings[i]['r']));
                 recovered.push(tmpArrR);
+                geom = bindings[i]['wkt_geom'].replace("<http://www.opengis.net/def/crs/EPSG/0/4326> ", "").replace("^^<http://www.opengis.net/ont/geosparql#wktLiteral>", "");
             }
             createChart1(confirmed, deaths, recovered, "containerJHU", 'JHU Data');
+            createMap1(geom);
         };
         let transformDataECDC = (bindings) => {
             console.log(bindings);
             confirmed = [];
             recovered = [];
             deaths = [];
+            //geom = "";
             let sumC = 0;
             let sumD = 0;
             for (var i in bindings) {
@@ -185,6 +201,7 @@
                 tmpArrD.push(sumD);
                 deaths.push(tmpArrD);
                 recovered = [];
+                //geom = bindings[i]['wkt_geom'].replace("<http://www.opengis.net/def/crs/EPSG/0/4326> ", "").replace("^^<http://www.opengis.net/ont/geosparql#wktLiteral>", "");
             }
             createChart1(confirmed, deaths, recovered, "containerECDC", 'ECDC Data');
         };
@@ -265,6 +282,28 @@
                     }]
                 }
             });
+        };
+        // map
+        var mymap = L.map('mapid').setView([51.505, -0.09], 2);
+        let createMap1 = (geom) => {
+            mymap.eachLayer(function(layer) {
+                mymap.removeLayer(layer);
+            });
+            L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
+                attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                subdomains: 'abcd',
+                minZoom: 0,
+                maxZoom: 20,
+                ext: 'png'
+            }).addTo(mymap);
+            var wkt = geom;
+            var geojson = Terraformer.WKT.parse(wkt);
+            var layer = L.geoJson(geojson, {}).addTo(mymap);
+            var bounds = geojson.bbox();
+            mymap.fitBounds([
+                [bounds[1], bounds[0]],
+                [bounds[3], bounds[2]]
+            ]);
         };
     </script>
 </body>
