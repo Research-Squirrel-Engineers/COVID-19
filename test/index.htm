@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="http://143.93.113.149/css/vendor/bootstrap.min.css" />
+    <script src="http://143.93.113.149/js/vendor/jquery-3.1.1.min.js"></script>
+    <script>
+        var queryStore = function(query, callback) {
+            $.ajax({
+                url: "https://java-dev.rgzm.de/rdf4j-server/repositories/corona",
+                //url: "https://sandbox.mainzed.org/covid19/",
+                dataType: 'jsonp',
+                type: 'GET',
+                data: {
+                    queryLn: 'SPARQL',
+                    query: query,
+                    Accept: 'application/json'
+                },
+                success: function(data) {
+                    var bindings = data.results.bindings;
+                    for (var i in bindings) {
+                        for (var j in bindings[i]) {
+                            if (bindings[i][j].value)
+                                bindings[i][j] = bindings[i][j].value;
+                        }
+                    }
+                    callback(bindings);
+                },
+                error: function(data) {
+                    console.log("Es ist ein Fehler aufgetreten: " + data);
+                    callback([]);
+                }
+            });
+        };
+        let JHU_GERMANY =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:JHU_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. FILTER(?country = world:Germany) } ORDER BY DESC(?date)"
+        let ECDC_GERMANY =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:ECDC_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. FILTER(?country = world:Germany) } ORDER BY DESC(?date)"
+        queryStore(JHU_GERMANY, console.log)
+        queryStore(ECDC_GERMANY, console.log)
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
