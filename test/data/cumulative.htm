@@ -141,8 +141,7 @@
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r ?wkt_geom WHERE { ?item a covid19:ECDC_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. FILTER(?country = world:#COUNTRY#) } ORDER BY ASC(?date)";
         var queryStore = function(query, callback) {
             $.ajax({
-                url: "https://java-dev.rgzm.de/rdf4j-server/repositories/corona",
-                //url: "https://sandbox.mainzed.org/covid19/",
+                url: "https://sandbox.mainzed.org/covid19/sparql",
                 dataType: 'jsonp',
                 type: 'GET',
                 data: {

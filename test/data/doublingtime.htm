@@ -171,61 +171,72 @@
         let transformDataJHU = (bindings) => {
             console.log(bindings);
             confirmed = [];
-            recovered = [];
-            deaths = [];
             geom = "";
-            let thisC = 0;
-            let thisD = 0;
-            let thisR = 0;
-            for (var i in bindings) {
-                //console.log(bindings[i]['date'], bindings[i]['c']);
+            let tminus1 = -1;
+            for (i = 1; i < bindings.length; i++) {
                 let tmpArrC = [];
                 tmpArrC.push(new Date(bindings[i]['date']).getTime());
-                calcC = parseInt(bindings[i]['c']) - thisC;
-                thisC = parseInt(bindings[i]['c']);
-                tmpArrC.push(calcC);
+                // https://www.rainer-gerhards.de/corona-verdopplungszeit/
+                let w = -1;
+                let sf1 = false;
+                let sf2 = false;
+                if (bindings[i - 1]['c'] == 0 && bindings[i]['c'] == 0) {
+                    sf1 = true;
+                } else if (bindings[i - 1]['c'] == bindings[i]['c']) {
+                    sf2 = true;
+                }
+                w = parseInt(bindings[i]['c']) / parseInt(bindings[i - 1]['c']); // wachstumsfaktor
+                if (sf1 == true) {
+                    t = 0;
+                } else if (sf2 == true) {
+                    t = tminus1;
+                } else {
+                    t = Math.log(2) / Math.log(w);
+                    tminus1 = t;
+                }
+                console.log(bindings[i - 1]['c'], bindings[i]['c'], w, t);
+                tmpArrC.push(t);
                 confirmed.push(tmpArrC);
-                let tmpArrD = [];
-                tmpArrD.push(new Date(bindings[i]['date']).getTime());
-                calcD = parseInt(bindings[i]['d']) - thisD;
-                thisD = parseInt(bindings[i]['d']);
-                tmpArrD.push(calcD);
-                deaths.push(tmpArrD);
-                let tmpArrR = [];
-                tmpArrR.push(new Date(bindings[i]['date']).getTime());
-                calcR = parseInt(bindings[i]['r']) - thisR;
-                thisR = parseInt(bindings[i]['r']);
-                tmpArrR.push(calcR);
-                recovered.push(tmpArrR);
                 geom = bindings[i]['wkt_geom'].replace("<http://www.opengis.net/def/crs/EPSG/0/4326> ", "").replace("^^<http://www.opengis.net/ont/geosparql#wktLiteral>", "");
             }
-            createChart1(confirmed, deaths, recovered, "containerJHU", 'JHU Data');
+            createChart1(confirmed, "containerJHU", 'JHU Data');
             createMap1(geom);
         };
         let transformDataECDC = (bindings) => {
             console.log(bindings);
             confirmed = [];
-            recovered = [];
-            deaths = [];
-            //geom = "";
             let sumC = 0;
-            let sumD = 0;
-            for (var i in bindings) {
+            let sumCminus1 = 0;
+            let tminus1 = -1;
+            for (i = 1; i < bindings.length; i++) {
                 //console.log(bindings[i]['date'], bindings[i]['c']);
                 let tmpArrC = [];
                 tmpArrC.push(new Date(bindings[i]['date']).getTime());
-                //sumC = sumC + parseInt(bindings[i]['c']);
-                tmpArrC.push(parseInt(bindings[i]['c']));
+                // https://www.rainer-gerhards.de/corona-verdopplungszeit/
+                let w = -1;
+                let sf1 = false;
+                let sf2 = false;
+                sumCminus1 = sumC;
+                sumC = sumC + parseInt(bindings[i]['c']);
+                if (sumCminus1 == 0 && sumC == 0) {
+                    sf1 = true;
+                } else if (sumCminus1 == sumC) {
+                    sf2 = true;
+                }
+                w = sumC / sumCminus1; // wachstumsfaktor
+                if (sf1 == true) {
+                    t = 0;
+                } else if (sf2 == true) {
+                    t = tminus1;
+                } else {
+                    t = Math.log(2) / Math.log(w);
+                    tminus1 = t;
+                }
+                console.log(sumCminus1, sumC, w, t);
+                tmpArrC.push(t);
                 confirmed.push(tmpArrC);
-                let tmpArrD = [];
-                tmpArrD.push(new Date(bindings[i]['date']).getTime());
-                //sumD = sumD + parseInt(bindings[i]['d']);
-                tmpArrD.push(parseInt(bindings[i]['d']));
-                deaths.push(tmpArrD);
-                recovered = [];
-                //geom = bindings[i]['wkt_geom'].replace("<http://www.opengis.net/def/crs/EPSG/0/4326> ", "").replace("^^<http://www.opengis.net/ont/geosparql#wktLiteral>", "");
             }
-            createChart1(confirmed, deaths, recovered, "containerECDC", 'ECDC Data');
+            createChart1(confirmed, "containerECDC", 'ECDC Data');
         };
         $("#inp-country").change(function() {
             JHU = JHU.replace("#COUNTRY#", $("#inp-country").val());
@@ -245,7 +256,7 @@
             ECDC = ECDC_INIT;
         }).trigger("change");
         // highcharts
-        let createChart1 = (confirmed, deaths, recovered, container, title) => {
+        let createChart1 = (doublingtime, container, title) => {
             let subtitletext = $("#inp-country option:selected").text();
             Highcharts.chart(container, {
                 chart: {
@@ -287,14 +298,8 @@
                 },
                 colors: ['#6495ed', '#abf737', '#d80000'],
                 series: [{
-                    name: "confirmed",
-                    data: confirmed
-                }, {
-                    name: "recovered",
-                    data: recovered
-                }, {
-                    name: "deaths",
-                    data: deaths
+                    name: "doubling time",
+                    data: doublingtime
                 }],
                 responsive: {
                     rules: [{
