@@ -92,6 +92,7 @@
             <select id="inp-state">
                 <option value="RheinlandPfalz" selected>Rheinland-Pfalz</option>
                 <option value="Bayern">Bayern</option>
+                <option value="NordrheinWestfalen">Nordrhein-Westfalen</option>
             </select>
         </center>
     </h2>
@@ -106,6 +107,10 @@
     </h5>
     <figure class="highcharts-figure">
         <div id="containerRKI"></div>
+        <p class="highcharts-description"></p>
+    </figure>
+    <figure class="highcharts-figure">
+        <div id="containerRKI2"></div>
         <p class="highcharts-description"></p>
     </figure>
     <div id="mapid"></div>
@@ -155,6 +160,9 @@
         let confirmed = [];
         let recovered = [];
         let deaths = [];
+        let confirmed2 = [];
+        let recovered2 = [];
+        let deaths2 = [];
         let transformDataRKI = (bindings) => {
             console.log(bindings);
             confirmed = [];
@@ -169,12 +177,18 @@
             let carr = {};
             let darr = {};
             let rarr = {};
+            let carr2 = {};
+            let darr2 = {};
+            let rarr2 = {};
             // get unique dates
             for (i = 0; i < bindings.length; i++) {
                 dates.push(new Date(bindings[i]['date']).getTime());
                 carr[new Date(bindings[i]['date']).getTime()] = 0;
                 darr[new Date(bindings[i]['date']).getTime()] = 0;
                 rarr[new Date(bindings[i]['date']).getTime()] = 0;
+                carr2[new Date(bindings[i]['date']).getTime()] = 0;
+                darr2[new Date(bindings[i]['date']).getTime()] = 0;
+                rarr2[new Date(bindings[i]['date']).getTime()] = 0;
             }
             dates = dates.filter(onlyUnique);
             console.log(dates);
@@ -199,7 +213,25 @@
                     }
                 }
             }
-            console.log(carr, darr, rarr);
+            console.log(carr);
+            let thisSumC = 0;
+            let thisSumR = 0;
+            let thisSumD = 0;
+            for (i in carr) {
+                thisSumC = thisSumC + carr[i];
+                carr2[i] = thisSumC;
+            }
+            console.log(carr2);
+            for (i in darr) {
+                thisSumD = thisSumD + darr[i];
+                darr2[i] = thisSumD;
+            }
+            console.log(darr2);
+            for (i in rarr) {
+                thisSumR = thisSumR + rarr[i];
+                rarr2[i] = thisSumR;
+            }
+            console.log(rarr2);
             let sumC = 0;
             let sumR = 0;
             let sumD = 0;
@@ -227,9 +259,31 @@
                 tmpArrD.push(thisD);
                 deaths.push(tmpArrD);
             }
+            for (i in carr2) {
+                let tmpArrC = [];
+                tmpArrC.push(parseInt(i));
+                thisC = carr2[i];
+                tmpArrC.push(thisC);
+                confirmed2.push(tmpArrC);
+            }
+            for (i in rarr2) {
+                let tmpArrR = [];
+                tmpArrR.push(parseInt(i));
+                thisR = rarr2[i];
+                tmpArrR.push(thisR);
+                recovered2.push(tmpArrR);
+            }
+            for (i in darr2) {
+                let tmpArrD = [];
+                tmpArrD.push(parseInt(i));
+                thisD = darr2[i];
+                tmpArrD.push(thisD);
+                deaths2.push(tmpArrD);
+            }
             console.log(sumC, sumR, sumD);
             console.log(confirmed, recovered, deaths);
             createChart1(confirmed, deaths, recovered, "containerRKI", 'RKI Data');
+            createChart1(confirmed2, deaths2, recovered2, "containerRKI2", 'RKI Data');
             //createMap1(geom);
         };
         $("#inp-state").change(function() {
