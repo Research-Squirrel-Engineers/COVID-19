@@ -131,12 +131,9 @@ for item in dataRKI:
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:date" + " " + "'" + meldedatum + "'" + ".")
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:geschlecht" + " " + "'" + geschlecht + "'" + ".")
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:altersgruppe" + " " + "'" + altersgruppe + "'" + ".")
-    if int(faelle) > 0:
-        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:confirmed" + " " + "'" + faelle + "'" + ".")
-    if int(todesfall) > 0:
-        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:deaths" + " " + "'" + todesfall + "'" + ".")
-    if int(genesen) > 0:
-        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:recovered" + " " + "'" + genesen + "'" + ".")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:confirmed" + " " + "'" + faelle + "'" + ".")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:deaths" + " " + "'" + todesfall + "'" + ".")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:recovered" + " " + "'" + genesen + "'" + ".")
     lines2.append("")
 
 file = codecs.open(file_out, "w", "utf-8")
