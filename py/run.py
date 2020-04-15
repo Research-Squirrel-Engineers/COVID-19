@@ -133,10 +133,16 @@ for item in dataRKI:
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:altersgruppe" + " " + "'" + altersgruppe + "'" + ".")
     if int(faelle) > -1:
         lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:confirmed" + " " + "'" + faelle + "'" + ".")
+    else:
+        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:confirmed" + " " + "'0'" + ".")
     if int(todesfall) > -1:
         lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:deaths" + " " + "'" + todesfall + "'" + ".")
+    else:
+        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:deaths" + " " + "'0'" + ".")
     if int(genesen) > -1:
         lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:recovered" + " " + "'" + genesen + "'" + ".")
+    else:
+        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:recovered" + " " + "'0'" + ".")
     lines2.append("")
 
 file = codecs.open(file_out, "w", "utf-8")
