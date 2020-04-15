@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="http://143.93.113.149/css/vendor/bootstrap.min.css" />
+    <script src="http://143.93.113.149/js/vendor/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <script src="https://unpkg.com/terraformer@1.0.7"></script>
+    <script src="https://unpkg.com/terraformer-wkt-parser@1.1.2"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" href="dark-unica.css">
+    <title>Linked COVID-19 Data</title>
+    <style>
+        body {
+            background-color: #1d1d1d;
+            color: white;
+            font-family: 'Unica One', sans-serif !important;
+        }
+
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 310px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            color: black !important;
+        }
+
+        h1 {
+            font-weight: 700;
+        }
+
+        label {
+            font-weight: normal !important;
+        }
+
+        #mapid {
+            height: 500px;
+            min-width: 310px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>
+        <center>Linked COVID-19 Data</center>
+    </h1>
+    <h2>
+        <center>
+            <label for="inp-state">choose a country:</label>
+            <select id="inp-state">
+                <option value="RheinlandPfalz" selected>Rheinland-Pfalz</option>
+                <option value="Bayern">Bayern</option>
+            </select>
+        </center>
+    </h2>
+    <h5>
+        <center>
+            <label for="inp-scale">choose a diagram scale:</label>
+            <select id="inp-scale">
+                <option value="linear" selected>linear</option>
+                <option value="logarithmic">logarithmic</option>
+            </select>
+        </center>
+    </h5>
+    <figure class="highcharts-figure">
+        <div id="containerRKI"></div>
+        <p class="highcharts-description"></p>
+    </figure>
+    <div id="mapid"></div>
+    <hr width="80%">
+    <h4>
+        <center>Credits: Research Squirrel Engineers, Florian Thiery M.Sc.</center>
+    </h4>
+    <h5>
+        <center>Data: Robert-Koch Institut</center>
+        <center>via <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/tree/master/ttl" target="_blank">github.com/Research-Squirrel-Engineers/COVID-19</a></center>
+    </h5>
+    <script>
+        let RKI_INIT =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:RKI_Dataset. ?item covid19:date ?date. OPTIONAL {?item covid19:confirmed ?c.} OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:bundesland ?state. FILTER(?state = world:#STATE#) } ORDER BY ASC(?date)";
+        let RKI =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:RKI_Dataset. ?item covid19:date ?date. OPTIONAL {?item covid19:confirmed ?c.} OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:bundesland ?state. FILTER(?state = world:#STATE#) } ORDER BY ASC(?date)";
+
+        function onlyUnique(value, index, self) {
+            return self.indexOf(value) === index;
+        };
+        var queryStore = function(query, callback) {
+            $.ajax({
+                url: "https://sandbox.mainzed.org/covid19/sparql",
+                dataType: 'jsonp',
+                type: 'GET',
+                data: {
+                    queryLn: 'SPARQL',
+                    query: query,
+                    Accept: 'application/json'
+                },
+                success: function(data) {
+                    var bindings = data.results.bindings;
+                    for (var i in bindings) {
+                        for (var j in bindings[i]) {
+                            if (bindings[i][j].value)
+                                bindings[i][j] = bindings[i][j].value;
+                        }
+                    }
+                    callback(bindings);
+                },
+                error: function(data) {
+                    console.log("Es ist ein Fehler aufgetreten: " + data);
+                    callback([]);
+                }
+            });
+        };
+        let confirmed = [];
+        let recovered = [];
+        let deaths = [];
+        let transformDataRKI = (bindings) => {
+            console.log(bindings);
+            confirmed = [];
+            recovered = [];
+            deaths = [];
+            geom = "";
+            let thisC = 0;
+            let thisD = 0;
+            let thisR = 0;
+            let bindingsExtended = [];
+            let dates = [];
+            let carr = {};
+            let darr = {};
+            let rarr = {};
+            // get unique dates
+            for (i = 0; i < bindings.length; i++) {
+                dates.push(new Date(bindings[i]['date']).getTime());
+                carr[new Date(bindings[i]['date']).getTime()] = 0;
+                darr[new Date(bindings[i]['date']).getTime()] = 0;
+                rarr[new Date(bindings[i]['date']).getTime()] = 0;
+            }
+            dates = dates.filter(onlyUnique);
+            console.log(dates);
+            for (i = 1; i < dates.length; i++) {
+                for (ii = 0; ii < bindings.length; ii++) {
+                    if (new Date(bindings[ii]['date']).getTime() === dates[i]) {
+                        if (typeof bindings[ii]['c'] == "undefined") {
+                            carr[dates[i]] = carr[dates[i]] + 0;
+                        } else {
+                            carr[dates[i]] = carr[dates[i]] + parseInt(bindings[ii]['c']);
+                        }
+                        if (typeof bindings[ii]['d'] == "undefined") {
+                            darr[dates[i]] = darr[dates[i]] + 0;
+                        } else {
+                            darr[dates[i]] = darr[dates[i]] + parseInt(bindings[ii]['d']);
+                        }
+                        if (typeof bindings[ii]['r'] == "undefined") {
+                            rarr[dates[i]] = rarr[dates[i]] + 0;
+                        } else {
+                            rarr[dates[i]] = rarr[dates[i]] + parseInt(bindings[ii]['r']);
+                        }
+                    }
+                }
+            }
+            console.log(carr, darr, rarr);
+            let sumC = 0;
+            let sumR = 0;
+            let sumD = 0;
+            for (i in carr) {
+                sumC = sumC + carr[i];
+                let tmpArrC = [];
+                tmpArrC.push(parseInt(i));
+                thisC = carr[i];
+                tmpArrC.push(thisC);
+                confirmed.push(tmpArrC);
+            }
+            for (i in rarr) {
+                sumR = sumR + rarr[i];
+                let tmpArrR = [];
+                tmpArrR.push(parseInt(i));
+                thisR = rarr[i];
+                tmpArrR.push(thisR);
+                recovered.push(tmpArrR);
+            }
+            for (i in darr) {
+                sumD = sumD + darr[i];
+                let tmpArrD = [];
+                tmpArrD.push(parseInt(i));
+                thisD = darr[i];
+                tmpArrD.push(thisD);
+                deaths.push(tmpArrD);
+            }
+            console.log(sumC, sumR, sumD);
+            console.log(confirmed, recovered, deaths);
+            createChart1(confirmed, deaths, recovered, "containerRKI", 'RKI Data');
+            //createMap1(geom);
+        };
+        $("#inp-state").change(function() {
+            RKI = RKI.replace("#STATE#", $("#inp-state").val());
+            queryStore(RKI, transformDataRKI);
+            RKI = RKI_INIT;
+        }).trigger("change");
+        $("#inp-scale").change(function() {
+            RKI = RKI.replace("#STATE#", $("#inp-state").val());
+            $("#inp-scale").val();
+            queryStore(RKI, transformDataRKI);
+            RKI = RKI_INIT;
+        }).trigger("change");
+        // highcharts
+        let createChart1 = (confirmed, deaths, recovered, container, title) => {
+            let subtitletext = $("#inp-country option:selected").text();
+            Highcharts.chart(container, {
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                    text: title
+                },
+                subtitle: {
+                    text: subtitletext
+                },
+                xAxis: {
+                    type: 'datetime',
+                    dateTimeLabelFormats: { // don't display the dummy year
+                        month: '%e. %b',
+                        year: '%b'
+                    },
+                    title: {
+                        text: 'Date'
+                    }
+                },
+                yAxis: {
+                    type: $("#inp-scale").val(),
+                    title: {
+                        text: 'cases'
+                    },
+                    min: 1
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.x:%e. %b}: {point.y}'
+                },
+                plotOptions: {
+                    series: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                colors: ['#6495ed', '#abf737', '#d80000'],
+                series: [{
+                    name: "confirmed",
+                    data: confirmed
+                }, {
+                    name: "recovered",
+                    data: recovered
+                }, {
+                    name: "deaths",
+                    data: deaths
+                }],
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            plotOptions: {
+                                series: {
+                                    marker: {
+                                        radius: 2.5
+                                    }
+                                }
+                            }
+                        }
+                    }]
+                }
+            });
+        };
+        // map
+        var mymap = L.map('mapid').setView([51.505, -0.09], 2);
+        let createMap1 = (geom) => {
+            mymap.eachLayer(function(layer) {
+                mymap.removeLayer(layer);
+            });
+            L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
+                attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                subdomains: 'abcd',
+                minZoom: 0,
+                maxZoom: 20,
+                ext: 'png'
+            }).addTo(mymap);
+            var wkt = geom;
+            var geojson = Terraformer.WKT.parse(wkt);
+            var layer = L.geoJson(geojson, {}).addTo(mymap);
+            var bounds = geojson.bbox();
+            mymap.fitBounds([
+                [bounds[1], bounds[0]],
+                [bounds[3], bounds[2]]
+            ]);
+        };
+    </script>
+</body>
+
+</html>
