@@ -126,6 +126,7 @@ for item in dataRKI:
     meldedatum = str(item["properties"]["Meldedatum"])
     genesen = str(item["properties"]["AnzahlGenesen"])
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "rdf:type" + " covid19:RKI_Dataset .")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:bundeslandcode" + " " + "'" + bundesland + "'" + ".")
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:bundesland" + " world:" + blcode + " .")
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:date" + " " + "'" + meldedatum + "'" + ".")
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:geschlecht" + " " + "'" + geschlecht + "'" + ".")
