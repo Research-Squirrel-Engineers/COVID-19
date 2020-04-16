@@ -148,14 +148,12 @@
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:RKI_Dataset. ?item covid19:date ?date. OPTIONAL {?item covid19:confirmed ?c.} OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:bundesland ?state. FILTER(?state = world:#STATE#) } ORDER BY ASC(?date)";
         let RKI =
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:RKI_Dataset. ?item covid19:date ?date. OPTIONAL {?item covid19:confirmed ?c.} OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:bundesland ?state. FILTER(?state = world:#STATE#) } ORDER BY ASC(?date)";
-        let GEOMQUERY =
-            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT DISTINCT ?wkt_geom ?country WHERE { ?item a covid19:RKI_Dataset. ?item covid19:bundesland ?bl. ?bl geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . FILTER(?bl IN (world:#STATE#)) }";
         let GEOMQUERY_INIT =
-            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT DISTINCT ?wkt_geom ?country WHERE { ?item a covid19:RKI_Dataset. ?item covid19:bundesland ?bl. ?bl geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . FILTER(?bl IN (world:#STATE#)) }";
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT DISTINCT ?wkt_geom ?bl ?wd WHERE { ?item a covid19:RKI_Dataset. ?item covid19:bundesland ?bl. ?bl geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . ?bl owl:sameAs ?wd. FILTER(?bl IN (world:#STATE#)) }";
+        let GEOMQUERY =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT DISTINCT ?wkt_geom ?bl ?wd WHERE { ?item a covid19:RKI_Dataset. ?item covid19:bundesland ?bl. ?bl geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . ?bl owl:sameAs ?wd. FILTER(?bl IN (world:#STATE#)) }";
         let RKIALL =
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:RKI_Dataset. ?item covid19:date ?date. OPTIONAL {?item covid19:confirmed ?c.} OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} } ORDER BY ASC(?date)";
-        let RKITEST =
-            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date { ?item a covid19:RKI_Dataset. ?item covid19:date ?date. } ORDER BY ASC(?date)";
 
         function onlyUnique(value, index, self) {
             return self.indexOf(value) === index;
@@ -164,7 +162,7 @@
             $.ajax({
                 url: "https://sandbox.mainzed.org/covid19/sparql",
                 dataType: 'jsonp',
-                ascnc: false,
+                ascnc: true,
                 type: 'GET',
                 data: {
                     queryLn: 'SPARQL',
@@ -184,6 +182,32 @@
                 error: function(data) {
                     console.log("Es ist ein Fehler aufgetreten: " + data);
                     callback([]);
+                }
+            });
+        };
+        var queryWikidata = function(query, callback) {
+            $.ajax({
+                url: "https://query.wikidata.org/sparql",
+                dataType: 'json',
+                ascnc: true,
+                type: 'GET',
+                data: {
+                    queryLn: 'SPARQL',
+                    query: query,
+                    Accept: 'application/json'
+                },
+                success: function(data) {
+                    var bindings = data.results.bindings;
+                    for (var i in bindings) {
+                        for (var j in bindings[i]) {
+                            if (bindings[i][j].value)
+                                bindings[i][j] = bindings[i][j].value;
+                        }
+                    }
+                    callback(bindings);
+                },
+                error: function(data) {
+                    console.log("Es ist ein Fehler aufgetreten: " + data);
                 }
             });
         };
@@ -437,7 +461,7 @@
             createChart1(confirmed4, deaths4, recovered4, "containerRKI4", 'RKI Data');
         };
         let transformGeoms = (bindings) => {
-            //console.log(bindings);
+            console.log("geom", bindings);
             let geoms = [];
             geom = "";
             createMap0();
@@ -450,13 +474,17 @@
             for (g in geoms) {
                 createMap1(geoms[g]);
             }
+            // search in wikidata
+            for (var i in bindings) {
+                let WDQ = "SELECT ?point WHERE { <" + bindings[i]['wd'] + "> wdt:P625 ?point. }";
+                queryWikidata(WDQ, createMap2);
+            }
         };
         $("#inp-state").change(function() {
             RKI = RKI.replace("#STATE#", $("#inp-state").val());
             GEOMQUERY = GEOMQUERY.replace("#STATE#", $("#inp-state").val());
             queryStore(RKI, transformDataRKI);
             queryStore(RKIALL, transformDataRKI2);
-            //queryStore(RKITEST, console.log);
             queryStore(GEOMQUERY, transformGeoms);
             RKI = RKI_INIT;
             GEOMQUERY = GEOMQUERY_INIT;
@@ -466,8 +494,7 @@
             GEOMQUERY = GEOMQUERY.replace("#STATE#", $("#inp-state").val());
             $("#inp-scale").val();
             queryStore(RKI, transformDataRKI);
-            //queryStore(RKIALL, transformDataRKI2);
-            //queryStore(RKITEST, console.log);
+            queryStore(RKIALL, transformDataRKI2);
             queryStore(GEOMQUERY, transformGeoms);
             RKI = RKI_INIT;
             GEOMQUERY = GEOMQUERY_INIT;
@@ -560,6 +587,25 @@
             var wkt = geom;
             var geojson = Terraformer.WKT.parse(wkt);
             var layer = L.geoJson(geojson, {}).addTo(mymap);
+        };
+        let createMap2 = (bindings) => {
+            let geojsonMarkerOptions = {
+                radius: 8,
+                fillColor: "#ff7800",
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8
+            };
+            for (var i in bindings) {
+                wkt = bindings[i]['point'].replace("Point", "POINT");
+                geojson = Terraformer.WKT.parse(wkt);
+                L.geoJSON(geojson, {
+                    pointToLayer: function(feature, latlng) {
+                        return L.circleMarker(latlng, geojsonMarkerOptions);
+                    }
+                }).addTo(mymap);
+            }
         };
     </script>
 </body>
