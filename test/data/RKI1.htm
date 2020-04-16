@@ -127,6 +127,14 @@
         <p class="highcharts-description"></p>
     </figure>
     <div id="mapid"></div>
+    <figure class="highcharts-figure">
+        <div id="containerRKI3"></div>
+        <p class="highcharts-description"></p>
+    </figure>
+    <figure class="highcharts-figure">
+        <div id="containerRKI4"></div>
+        <p class="highcharts-description"></p>
+    </figure>
     <hr width="80%">
     <h4>
         <center>Credits: Research Squirrel Engineers, Florian Thiery M.Sc.</center>
@@ -144,6 +152,10 @@
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT DISTINCT ?wkt_geom ?country WHERE { ?item a covid19:RKI_Dataset. ?item covid19:bundesland ?bl. ?bl geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . FILTER(?bl IN (world:#STATE#)) }";
         let GEOMQUERY_INIT =
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT DISTINCT ?wkt_geom ?country WHERE { ?item a covid19:RKI_Dataset. ?item covid19:bundesland ?bl. ?bl geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . FILTER(?bl IN (world:#STATE#)) }";
+        let RKIALL =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:RKI_Dataset. ?item covid19:date ?date. OPTIONAL {?item covid19:confirmed ?c.} OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} } ORDER BY ASC(?date)";
+        let RKITEST =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date { ?item a covid19:RKI_Dataset. ?item covid19:date ?date. } ORDER BY ASC(?date)";
 
         function onlyUnique(value, index, self) {
             return self.indexOf(value) === index;
@@ -152,6 +164,7 @@
             $.ajax({
                 url: "https://sandbox.mainzed.org/covid19/sparql",
                 dataType: 'jsonp',
+                ascnc: false,
                 type: 'GET',
                 data: {
                     queryLn: 'SPARQL',
@@ -174,20 +187,14 @@
                 }
             });
         };
-        let confirmed = [];
-        let recovered = [];
-        let deaths = [];
-        let confirmed2 = [];
-        let recovered2 = [];
-        let deaths2 = [];
         let transformDataRKI = (bindings) => {
-            confirmed = [];
-            recovered = [];
-            deaths = [];
-            confirmed2 = [];
-            recovered2 = [];
-            deaths2 = [];
-            console.log(bindings);
+            let confirmed = [];
+            let recovered = [];
+            let deaths = [];
+            let confirmed2 = [];
+            let recovered2 = [];
+            let deaths2 = [];
+            console.log(bindings.length);
             confirmed = [];
             recovered = [];
             deaths = [];
@@ -214,8 +221,8 @@
                 rarr2[new Date(bindings[i]['date']).getTime()] = 0;
             }
             dates = dates.filter(onlyUnique);
-            console.log(dates);
-            for (i = 1; i < dates.length; i++) {
+            //console.log(dates);
+            for (i = 0; i < dates.length; i++) {
                 for (ii = 0; ii < bindings.length; ii++) {
                     if (new Date(bindings[ii]['date']).getTime() === dates[i]) {
                         if (typeof bindings[ii]['c'] == "undefined") {
@@ -236,7 +243,7 @@
                     }
                 }
             }
-            console.log(carr);
+            //console.log(carr);
             let thisSumC = 0;
             let thisSumR = 0;
             let thisSumD = 0;
@@ -248,12 +255,12 @@
                 thisSumD = thisSumD + darr[i];
                 darr2[i] = thisSumD;
             }
-            console.log(darr2);
+            //console.log(darr2);
             for (i in rarr) {
                 thisSumR = thisSumR + rarr[i];
                 rarr2[i] = thisSumR;
             }
-            console.log(rarr2);
+            //console.log(rarr2);
             let sumC = 0;
             let sumR = 0;
             let sumD = 0;
@@ -303,14 +310,134 @@
                 deaths2.push(tmpArrD);
             }
             console.log(sumC, sumR, sumD);
-            console.log(confirmed, recovered, deaths);
-            console.log(confirmed2, recovered2, deaths2);
+            //console.log(confirmed, recovered, deaths);
+            //console.log(confirmed2, recovered2, deaths2);
             createChart1(confirmed, deaths, recovered, "containerRKI", 'RKI Data');
             createChart1(confirmed2, deaths2, recovered2, "containerRKI2", 'RKI Data');
             //createMap1(geom);
         };
+        let transformDataRKI2 = (bindings) => {
+            let confirmed3 = [];
+            let recovered3 = [];
+            let deaths3 = [];
+            let confirmed4 = [];
+            let recovered4 = [];
+            let deaths4 = [];
+            console.log(bindings.length);
+            let dates2 = [];
+            let carr3 = {};
+            let darr3 = {};
+            let rarr3 = {};
+            let carr4 = {};
+            let darr4 = {};
+            let rarr4 = {};
+            // get unique dates
+            for (i = 0; i < bindings.length; i++) {
+                dates2.push(new Date(bindings[i]['date']).getTime());
+                carr3[new Date(bindings[i]['date']).getTime()] = 0;
+                darr3[new Date(bindings[i]['date']).getTime()] = 0;
+                rarr3[new Date(bindings[i]['date']).getTime()] = 0;
+                carr4[new Date(bindings[i]['date']).getTime()] = 0;
+                darr4[new Date(bindings[i]['date']).getTime()] = 0;
+                rarr4[new Date(bindings[i]['date']).getTime()] = 0;
+            }
+            dates2 = dates2.filter(onlyUnique);
+            //console.log(dates2);
+            for (k = 0; k < dates2.length; k++) {
+                for (kk = 0; kk < bindings.length; kk++) {
+                    if (new Date(bindings[kk]['date']).getTime() === dates2[k]) {
+                        if (typeof bindings[ii]['c'] == "undefined") {
+                            carr3[dates2[k]] = carr3[dates2[k]] + 0;
+                        } else {
+                            carr3[dates2[k]] = carr3[dates2[k]] + parseInt(bindings[kk]['c']);
+                        }
+                        if (typeof bindings[kk]['d'] == "undefined") {
+                            darr3[dates2[k]] = darr3[dates2[k]] + 0;
+                        } else {
+                            darr3[dates2[k]] = darr3[dates2[k]] + parseInt(bindings[kk]['d']);
+                        }
+                        if (typeof bindings[kk]['r'] == "undefined") {
+                            rarr3[dates2[k]] = rarr3[dates2[k]] + 0;
+                        } else {
+                            rarr3[dates2[k]] = rarr3[dates2[k]] + parseInt(bindings[kk]['r']);
+                        }
+                    }
+                }
+            }
+            //console.log(carr3);
+            let thisSumC = 0;
+            let thisSumR = 0;
+            let thisSumD = 0;
+            for (i in carr3) {
+                thisSumC = thisSumC + carr3[i];
+                carr4[i] = thisSumC;
+            }
+            for (i in darr3) {
+                thisSumD = thisSumD + darr3[i];
+                darr4[i] = thisSumD;
+            }
+            //console.log(darr2);
+            for (i in rarr3) {
+                thisSumR = thisSumR + rarr3[i];
+                rarr4[i] = thisSumR;
+            }
+            //console.log(rarr2);
+            let sumC = 0;
+            let sumR = 0;
+            let sumD = 0;
+            for (i in carr3) {
+                sumC = sumC + carr3[i];
+                let tmpArrC = [];
+                tmpArrC.push(parseInt(i));
+                thisC = carr3[i];
+                tmpArrC.push(thisC);
+                confirmed3.push(tmpArrC);
+            }
+            for (i in rarr3) {
+                sumR = sumR + rarr3[i];
+                let tmpArrR = [];
+                tmpArrR.push(parseInt(i));
+                thisR = rarr3[i];
+                tmpArrR.push(thisR);
+                recovered3.push(tmpArrR);
+            }
+            for (i in darr3) {
+                sumD = sumD + darr3[i];
+                let tmpArrD = [];
+                tmpArrD.push(parseInt(i));
+                thisD = darr3[i];
+                tmpArrD.push(thisD);
+                deaths3.push(tmpArrD);
+            }
+            for (i in carr4) {
+                let tmpArrC = [];
+                tmpArrC.push(parseInt(i));
+                thisC = carr4[i];
+                tmpArrC.push(thisC);
+                confirmed4.push(tmpArrC);
+            }
+            for (i in rarr4) {
+                let tmpArrR = [];
+                tmpArrR.push(parseInt(i));
+                thisR = rarr4[i];
+                tmpArrR.push(thisR);
+                recovered4.push(tmpArrR);
+            }
+            for (i in darr4) {
+                let tmpArrD = [];
+                tmpArrD.push(parseInt(i));
+                thisD = darr4[i];
+                tmpArrD.push(thisD);
+                deaths4.push(tmpArrD);
+            }
+            console.log(sumC, sumR, sumD);
+            //console.log(confirmed3, recovered3, deaths3);
+            //console.log(confirmed4, recovered4, deaths4);
+            createChart1(confirmed3, deaths3, recovered3, "containerRKI3", 'RKI Data');
+            createChart1(confirmed4, deaths4, recovered4, "containerRKI4", 'RKI Data');
+        };
         let transformGeoms = (bindings) => {
-            console.log(bindings);
+            //console.log(bindings);
             let geoms = [];
             geom = "";
             createMap0();
@@ -319,7 +446,7 @@
                 geoms.push(geom);
             }
             geoms = geoms.filter(onlyUnique);
-            console.log(geoms);
+            //console.log(geoms);
             for (g in geoms) {
                 createMap1(geoms[g]);
             }
@@ -328,6 +455,8 @@
             RKI = RKI.replace("#STATE#", $("#inp-state").val());
             GEOMQUERY = GEOMQUERY.replace("#STATE#", $("#inp-state").val());
             queryStore(RKI, transformDataRKI);
+            queryStore(RKIALL, transformDataRKI2);
+            //queryStore(RKITEST, console.log);
             queryStore(GEOMQUERY, transformGeoms);
             RKI = RKI_INIT;
             GEOMQUERY = GEOMQUERY_INIT;
@@ -337,6 +466,8 @@
             GEOMQUERY = GEOMQUERY.replace("#STATE#", $("#inp-state").val());
             $("#inp-scale").val();
             queryStore(RKI, transformDataRKI);
+            //queryStore(RKIALL, transformDataRKI2);
+            //queryStore(RKITEST, console.log);
             queryStore(GEOMQUERY, transformGeoms);
             RKI = RKI_INIT;
             GEOMQUERY = GEOMQUERY_INIT;
