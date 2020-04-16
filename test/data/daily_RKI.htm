@@ -127,6 +127,10 @@
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:RKI_Dataset. ?item covid19:date ?date. OPTIONAL {?item covid19:confirmed ?c.} OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:bundesland ?state. FILTER(?state = world:#STATE#) } ORDER BY ASC(?date)";
         let RKI =
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:RKI_Dataset. ?item covid19:date ?date. OPTIONAL {?item covid19:confirmed ?c.} OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:bundesland ?state. FILTER(?state = world:#STATE#) } ORDER BY ASC(?date)";
+        let GEOMQUERY =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT DISTINCT ?wkt_geom ?country WHERE { ?item a covid19:RKI_Dataset. ?item covid19:bundesland ?bl. ?bl geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . FILTER(?bl IN (world:#STATE#)) }";
+        let GEOMQUERY_INIT =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT DISTINCT ?wkt_geom ?country WHERE { ?item a covid19:RKI_Dataset. ?item covid19:bundesland ?bl. ?bl geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . FILTER(?bl IN (world:#STATE#)) }";
 
         function onlyUnique(value, index, self) {
             return self.indexOf(value) === index;
@@ -164,6 +168,12 @@
         let recovered2 = [];
         let deaths2 = [];
         let transformDataRKI = (bindings) => {
+            confirmed = [];
+            recovered = [];
+            deaths = [];
+            confirmed2 = [];
+            recovered2 = [];
+            deaths2 = [];
             console.log(bindings);
             confirmed = [];
             recovered = [];
@@ -221,7 +231,6 @@
                 thisSumC = thisSumC + carr[i];
                 carr2[i] = thisSumC;
             }
-            console.log(carr2);
             for (i in darr) {
                 thisSumD = thisSumD + darr[i];
                 darr2[i] = thisSumD;
@@ -282,20 +291,42 @@
             }
             console.log(sumC, sumR, sumD);
             console.log(confirmed, recovered, deaths);
+            console.log(confirmed2, recovered2, deaths2);
             createChart1(confirmed, deaths, recovered, "containerRKI", 'RKI Data');
             createChart1(confirmed2, deaths2, recovered2, "containerRKI2", 'RKI Data');
             //createMap1(geom);
         };
+        let transformGeoms = (bindings) => {
+            console.log(bindings);
+            let geoms = [];
+            geom = "";
+            createMap0();
+            for (var i in bindings) {
+                geom = bindings[i]['wkt_geom'].replace("<http://www.opengis.net/def/crs/EPSG/0/4326> ", "").replace("^^<http://www.opengis.net/ont/geosparql#wktLiteral>", "");
+                geoms.push(geom);
+            }
+            geoms = geoms.filter(onlyUnique);
+            console.log(geoms);
+            for (g in geoms) {
+                createMap1(geoms[g]);
+            }
+        };
         $("#inp-state").change(function() {
             RKI = RKI.replace("#STATE#", $("#inp-state").val());
+            GEOMQUERY = GEOMQUERY.replace("#STATE#", $("#inp-state").val());
             queryStore(RKI, transformDataRKI);
+            queryStore(GEOMQUERY, transformGeoms);
             RKI = RKI_INIT;
+            GEOMQUERY = GEOMQUERY_INIT;
         }).trigger("change");
         $("#inp-scale").change(function() {
             RKI = RKI.replace("#STATE#", $("#inp-state").val());
+            GEOMQUERY = GEOMQUERY.replace("#STATE#", $("#inp-state").val());
             $("#inp-scale").val();
             queryStore(RKI, transformDataRKI);
+            queryStore(GEOMQUERY, transformGeoms);
             RKI = RKI_INIT;
+            GEOMQUERY = GEOMQUERY_INIT;
         }).trigger("change");
         // highcharts
         let createChart1 = (confirmed, deaths, recovered, container, title) => {
@@ -368,8 +399,8 @@
             });
         };
         // map
-        var mymap = L.map('mapid').setView([51.505, -0.09], 2);
-        let createMap1 = (geom) => {
+        var mymap = L.map('mapid').setView([51.130028, 10.447694], 5);
+        let createMap0 = () => {
             mymap.eachLayer(function(layer) {
                 mymap.removeLayer(layer);
             });
@@ -380,14 +411,11 @@
                 maxZoom: 20,
                 ext: 'png'
             }).addTo(mymap);
+        };
+        let createMap1 = (geom) => {
             var wkt = geom;
             var geojson = Terraformer.WKT.parse(wkt);
             var layer = L.geoJson(geojson, {}).addTo(mymap);
-            var bounds = geojson.bbox();
-            mymap.fitBounds([
-                [bounds[1], bounds[0]],
-                [bounds[3], bounds[2]]
-            ]);
         };
     </script>
 </body>
