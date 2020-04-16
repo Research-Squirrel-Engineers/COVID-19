@@ -152,6 +152,8 @@
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT DISTINCT ?wkt_geom ?bl ?wd WHERE { ?item a covid19:RKI_Dataset. ?item covid19:bundesland ?bl. ?bl geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . ?bl owl:sameAs ?wd. FILTER(?bl IN (world:#STATE#)) }";
         let GEOMQUERY =
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT DISTINCT ?wkt_geom ?bl ?wd WHERE { ?item a covid19:RKI_Dataset. ?item covid19:bundesland ?bl. ?bl geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . ?bl owl:sameAs ?wd. FILTER(?bl IN (world:#STATE#)) }";
+        let GEOMQUERY2 =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT DISTINCT ?wd WHERE { ?item a covid19:RKI_Dataset. ?item covid19:bundesland ?bl. ?bl owl:sameAs ?wd. }";
         let RKIALL =
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:RKI_Dataset. ?item covid19:date ?date. OPTIONAL {?item covid19:confirmed ?c.} OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} } ORDER BY ASC(?date)";
 
@@ -474,6 +476,9 @@
             for (g in geoms) {
                 createMap1(geoms[g]);
             }
+        };
+        let wikidataGeoms = (bindings) => {
+            console.log("geom", bindings);
             // search in wikidata
             for (var i in bindings) {
                 let WDQ = "SELECT ?point WHERE { <" + bindings[i]['wd'] + "> wdt:P625 ?point. }";
@@ -484,8 +489,9 @@
             RKI = RKI.replace("#STATE#", $("#inp-state").val());
             GEOMQUERY = GEOMQUERY.replace("#STATE#", $("#inp-state").val());
             queryStore(RKI, transformDataRKI);
-            queryStore(RKIALL, transformDataRKI2);
+            //queryStore(RKIALL, transformDataRKI2);
             queryStore(GEOMQUERY, transformGeoms);
+            queryStore(GEOMQUERY2, wikidataGeoms);
             RKI = RKI_INIT;
             GEOMQUERY = GEOMQUERY_INIT;
         }).trigger("change");
@@ -494,8 +500,9 @@
             GEOMQUERY = GEOMQUERY.replace("#STATE#", $("#inp-state").val());
             $("#inp-scale").val();
             queryStore(RKI, transformDataRKI);
-            queryStore(RKIALL, transformDataRKI2);
+            //queryStore(RKIALL, transformDataRKI2);
             queryStore(GEOMQUERY, transformGeoms);
+            queryStore(GEOMQUERY2, wikidataGeoms);
             RKI = RKI_INIT;
             GEOMQUERY = GEOMQUERY_INIT;
         }).trigger("change");
@@ -590,7 +597,7 @@
         };
         let createMap2 = (bindings) => {
             let geojsonMarkerOptions = {
-                radius: 8,
+                radius: 10000,
                 fillColor: "#ff7800",
                 color: "#000",
                 weight: 1,
@@ -602,7 +609,7 @@
                 geojson = Terraformer.WKT.parse(wkt);
                 L.geoJSON(geojson, {
                     pointToLayer: function(feature, latlng) {
-                        return L.circleMarker(latlng, geojsonMarkerOptions);
+                        return L.circle(latlng, geojsonMarkerOptions);
                     }
                 }).addTo(mymap);
             }
