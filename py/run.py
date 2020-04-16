@@ -31,6 +31,7 @@ print("datasetsECDC", len(dataECDC))
 
 responseRKI = requests.get("https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0.geojson")
 # docu https://www.arcgis.com/home/item.html?id=dd4580c810204019a7b8eb3e0b329dd6
+# data https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0/data
 dataRKI = responseRKI.json()['features']
 print("datasetsRKI", len(dataRKI))
 
