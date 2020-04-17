@@ -19,8 +19,11 @@ import hashlib
 dir_path = os.path.dirname(os.path.realpath(__file__))
 #print(dir_path.replace("\\py","\\ttl"))
 file_out = dir_path.replace("\\py","\\ttl") + "\\" + "covid19.ttl"
-file_out_rki = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki.ttl"
+file_out_rki1 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki1.ttl"
 file_out_rki2 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki2.ttl"
+file_out_rki3 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki3.ttl"
+file_out_rki4 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki4.ttl"
+file_out_rki5 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki5.ttl"
 
 responseJHU = requests.get("https://pomber.github.io/covid19/timeseries.json")
 dataJHU = responseJHU.json()
@@ -147,6 +150,8 @@ for item in dataRKI:
         lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:recovered" + " " + "'0'" + ".")
     lines2.append("")
 
+print(len(lines2))
+
 file = codecs.open(file_out, "w", "utf-8")
 file.write("# create triples from JHU and ECDC" + "\r\n")
 file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
@@ -169,7 +174,7 @@ for line in lines:
 file.close()
 print("success write covid19.ttl")
 
-file = codecs.open(file_out_rki, "w", "utf-8")
+file = codecs.open(file_out_rki1, "w", "utf-8")
 file.write("# create triples from RKI" + "\r\n")
 file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
 prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dc: <http://purl.org/dc/elements/1.1/> \r\nPREFIX covid19: <http://covid19.squirrel.link/ontology#> \r\nPREFIX world: <http://world.squirrel.link/ontology#> \r\n\r\n";
@@ -186,13 +191,13 @@ file.write("covid19:COVID19_DataRKI dc:title 'COVID-19 data by RKI' .\r\n")
 file.write("covid19:COVID19_DataRKI dc:subject 'COVID-19' .\r\n")
 file.write("covid19:COVID19_DataRKI dc:rights 'CC BY 4.0' .\r\n\r\n")
 i = 0
-for line in lines2:
-    if i < 500000:
+for i, line in enumerate (lines2):
+    if (i>0 and i<500000):
         file.write(line)
         file.write("\r\n")
-    i = i+1
+        print(i)
 file.close()
-print("success write covid19_rki.ttl")
+print("success write covid19_rki1.ttl")
 
 file = codecs.open(file_out_rki2, "w", "utf-8")
 file.write("# create triples from RKI" + "\r\n")
@@ -211,10 +216,81 @@ file.write("covid19:COVID19_DataRKI dc:title 'COVID-19 data by RKI' .\r\n")
 file.write("covid19:COVID19_DataRKI dc:subject 'COVID-19' .\r\n")
 file.write("covid19:COVID19_DataRKI dc:rights 'CC BY 4.0' .\r\n\r\n")
 i = 500000
-for line in lines2:
-    if i < 1000000:
+for i, line in enumerate (lines2):
+    if (i>500000 and i<1000000):
         file.write(line)
         file.write("\r\n")
-    i = i+1
 file.close()
 print("success write covid19_rki2.ttl")
+
+file = codecs.open(file_out_rki3, "w", "utf-8")
+file.write("# create triples from RKI" + "\r\n")
+file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
+prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dc: <http://purl.org/dc/elements/1.1/> \r\nPREFIX covid19: <http://covid19.squirrel.link/ontology#> \r\nPREFIX world: <http://world.squirrel.link/ontology#> \r\n\r\n";
+file.write(prefixes)
+file.write("covid19:COVID19_DataRKI rdf:type rdfs:Resource .\r\n")
+file.write("covid19:COVID19_DataRKI rdf:type covid19:Dataset .\r\n")
+file.write("covid19:COVID19_DataRKI dc:created '2020-04-05T10:53:21.259+0100' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:modified '" + datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000+0100") + "' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:creator 'Florian Thiery' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:contributor 'Timo Homburg' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:language 'en' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:type 'ontology' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:title 'COVID-19 data by RKI' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:subject 'COVID-19' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:rights 'CC BY 4.0' .\r\n\r\n")
+i = 1500000
+for i, line in enumerate (lines2):
+    if (i>1500000 and i<2000000):
+        file.write(line)
+        file.write("\r\n")
+file.close()
+print("success write covid19_rki3.ttl")
+
+file = codecs.open(file_out_rki4, "w", "utf-8")
+file.write("# create triples from RKI" + "\r\n")
+file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
+prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dc: <http://purl.org/dc/elements/1.1/> \r\nPREFIX covid19: <http://covid19.squirrel.link/ontology#> \r\nPREFIX world: <http://world.squirrel.link/ontology#> \r\n\r\n";
+file.write(prefixes)
+file.write("covid19:COVID19_DataRKI rdf:type rdfs:Resource .\r\n")
+file.write("covid19:COVID19_DataRKI rdf:type covid19:Dataset .\r\n")
+file.write("covid19:COVID19_DataRKI dc:created '2020-04-05T10:53:21.259+0100' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:modified '" + datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000+0100") + "' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:creator 'Florian Thiery' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:contributor 'Timo Homburg' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:language 'en' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:type 'ontology' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:title 'COVID-19 data by RKI' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:subject 'COVID-19' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:rights 'CC BY 4.0' .\r\n\r\n")
+i = 2000000
+for i, line in enumerate (lines2):
+    if (i>2000000 and i<2500000):
+        file.write(line)
+        file.write("\r\n")
+file.close()
+print("success write covid19_rki4.ttl")
+
+file = codecs.open(file_out_rki5, "w", "utf-8")
+file.write("# create triples from RKI" + "\r\n")
+file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
+prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dc: <http://purl.org/dc/elements/1.1/> \r\nPREFIX covid19: <http://covid19.squirrel.link/ontology#> \r\nPREFIX world: <http://world.squirrel.link/ontology#> \r\n\r\n";
+file.write(prefixes)
+file.write("covid19:COVID19_DataRKI rdf:type rdfs:Resource .\r\n")
+file.write("covid19:COVID19_DataRKI rdf:type covid19:Dataset .\r\n")
+file.write("covid19:COVID19_DataRKI dc:created '2020-04-05T10:53:21.259+0100' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:modified '" + datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000+0100") + "' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:creator 'Florian Thiery' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:contributor 'Timo Homburg' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:language 'en' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:type 'ontology' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:title 'COVID-19 data by RKI' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:subject 'COVID-19' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:rights 'CC BY 4.0' .\r\n\r\n")
+i = 2500000
+for i, line in enumerate (lines2):
+    if (i>2500000 and i<3000000):
+        file.write(line)
+        file.write("\r\n")
+file.close()
+print("success write covid19_rki5.ttl")
