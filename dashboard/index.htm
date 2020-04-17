@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Linked COVID-19 Data">
+    <meta name="keywords" content="sparql,covid19">
+    <meta name="author" content="Sophie C. Schmidt,Florian Thiery,Timo Homburg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked COVID-19 Data</title>
+    <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">About</h4>
+                        <p class="text-muted">This is a dashboard for the Linked COVID-19 Data project by the Research Squirrel Engineers.</p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Contact</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="http://fthiery.de/legal-notice/" target="_blank" class="text-white">Legal Notice</a></li>
+                            <li><a href="http://squirrel.link/" target="_blank" class="text-white">Research Squirrel Engineers</a></li>
+                            <li><a href="https://twitter.com/RSESquirrel" target="_blank" class="text-white">Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <img src="SARS-CoV-2_without_background.png" height="30">&nbsp;&nbsp;
+                    <strong>Linked COVID-19 Data Dashboard</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Linked COVID-19 Data</h1>
+                <p>
+                    <center><img src="SARS-CoV-2_without_background.png" height="300"></center>
+                </p>
+                <br>
+                <p class="lead text-muted">Please choose one of the Dashboards</p>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="SARS-CoV-2_without_background2.png" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">Demo data visualisation from the RKI.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.open('data/RKI1.htm')">View</button>
+                                    </div>
+                                    <small class="text-muted"><i>beta</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="SARS-CoV-2_without_background2.png" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">overall statistics (JHU + ECDC)</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.open('data/overall.htm')">View</button>
+                                    </div>
+                                    <small class="text-muted"><i>beta</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="SARS-CoV-2_without_background2.png" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">cumulative country compare (JHU + ECDC)</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.open('data/cumulative_ccc.htm')">View</button>
+                                    </div>
+                                    <small class="text-muted"><i>beta</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="SARS-CoV-2_without_background2.png" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">cumulative data (JHU + ECDC)</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.open('data/cumulative.htm')">View</button>
+                                    </div>
+                                    <small class="text-muted"><i>beta</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="SARS-CoV-2_without_background2.png" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">daily data (JHU + ECDC)</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.open('data/daily.htm')">View</button>
+                                    </div>
+                                    <small class="text-muted"><i>beta</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="SARS-CoV-2_without_background2.png" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">doubling time (JHU + ECDC)</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.open('data/doublingtime.htm')">View</button>
+                                    </div>
+                                    <small class="text-muted"><i>beta</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>Linked COVID-19 Data</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>
+        window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')
+    </script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
+</body>
+
+</html>
