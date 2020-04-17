@@ -150,7 +150,11 @@ for item in dataRKI:
         lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:recovered" + " " + "'0'" + ".")
     lines2.append("")
 
-print(len(lines2))
+meldedaten = set()
+for item in dataRKI:
+    meldedaten.add(str(item["properties"]["Meldedatum"]))
+meldetdaten = sorted(meldedaten)
+print(meldedaten)
 
 file = codecs.open(file_out, "w", "utf-8")
 file.write("# create triples from JHU and ECDC" + "\r\n")
@@ -195,7 +199,6 @@ for i, line in enumerate (lines2):
     if (i>0 and i<500000):
         file.write(line)
         file.write("\r\n")
-        print(i)
 file.close()
 print("success write covid19_rki1.ttl")
 
