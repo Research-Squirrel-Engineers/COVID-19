@@ -1,5 +1,5 @@
 # create triples from RKI
-# on 2020-04-17 14:09
+# on 2020-04-17 19:14
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX owl: <http://www.w3.org/2002/07/owl#> 
@@ -9,15 +9,15 @@ PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX covid19: <http://covid19.squirrel.link/ontology#> 
 PREFIX world: <http://world.squirrel.link/ontology#> 
 
-covid19:COVID19_DataRKI rdf:type rdfs:Resource .
-covid19:COVID19_DataRKI rdf:type covid19:Dataset .
-covid19:COVID19_DataRKI dc:created '2020-04-05T10:53:21.259+0100' .
-covid19:COVID19_DataRKI dc:modified '2020-04-17T14:09:11.000+0100' .
-covid19:COVID19_DataRKI dc:creator 'Florian Thiery' .
-covid19:COVID19_DataRKI dc:contributor 'Timo Homburg' .
-covid19:COVID19_DataRKI dc:language 'en' .
-covid19:COVID19_DataRKI dc:type 'ontology' .
-covid19:COVID19_DataRKI dc:title 'COVID-19 data by RKI' .
-covid19:COVID19_DataRKI dc:subject 'COVID-19' .
-covid19:COVID19_DataRKI dc:rights 'CC BY 4.0' .
+covid19:COVID19_DataRKI3 rdf:type rdfs:Resource .
+covid19:COVID19_DataRKI3 rdf:type covid19:Dataset .
+covid19:COVID19_DataRKI3 dc:created '2020-04-05T10:53:21.259+0100' .
+covid19:COVID19_DataRKI3 dc:modified '2020-04-17T19:14:19.000+0100' .
+covid19:COVID19_DataRKI3 dc:creator 'Florian Thiery' .
+covid19:COVID19_DataRKI3 dc:contributor 'Timo Homburg' .
+covid19:COVID19_DataRKI3 dc:language 'en' .
+covid19:COVID19_DataRKI3 dc:type 'ontology' .
+covid19:COVID19_DataRKI3 dc:title 'COVID-19 data by RKI' .
+covid19:COVID19_DataRKI3 dc:subject 'COVID-19' .
+covid19:COVID19_DataRKI3 dc:rights 'CC BY 4.0' .
 
