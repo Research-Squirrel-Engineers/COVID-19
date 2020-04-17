@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="http://143.93.113.149/css/vendor/bootstrap.min.css" />
+    <script src="http://143.93.113.149/js/vendor/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <script src="https://unpkg.com/terraformer@1.0.7"></script>
+    <script src="https://unpkg.com/terraformer-wkt-parser@1.1.2"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" href="dark-unica.css">
+    <title>Linked COVID-19 Data</title>
+    <style>
+        body {
+            background-color: #1d1d1d;
+            color: white;
+            font-family: 'Unica One', sans-serif !important;
+        }
+
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 310px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            color: black !important;
+        }
+
+        h1 {
+            font-weight: 700;
+        }
+
+        label {
+            font-weight: normal !important;
+        }
+
+        #mapid {
+            height: 350px;
+            min-width: 310px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>
+        <center>Linked COVID-19 Data</center>
+    </h1>
+    <h5>
+        <center>
+            <label for="inp-scale">choose a diagram scale:</label>
+            <select id="inp-scale">
+                <option value="linear" selected>linear</option>
+                <option value="logarithmic">logarithmic</option>
+            </select>
+        </center>
+    </h5>
+    <figure class="highcharts-figure">
+        <div id="containerJHU"></div>
+        <p class="highcharts-description"></p>
+    </figure>
+    <div id="mapid"></div>
+    <figure class="highcharts-figure">
+        <div id="containerECDC"></div>
+        <p class="highcharts-description"></p>
+    </figure>
+    <hr width="80%">
+    <h4>
+        <center>Credits: Research Squirrel Engineers, Florian Thiery M.Sc.</center>
+    </h4>
+    <h5>
+        <center>Data: Johns Hopkins University and European Centre for Disease Prevention and Control</center>
+        <center>via <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/tree/master/ttl" target="_blank">github.com/Research-Squirrel-Engineers/COVID-19</a></center>
+    </h5>
+    <script>
+        let JHU =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r ?country WHERE { ?item a covid19:JHU_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} ?item covid19:country ?country. } ORDER BY ASC(?date)";
+        let ECDC =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d WHERE { ?item a covid19:ECDC_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. OPTIONAL {?item covid19:deaths ?d.} ?item covid19:country ?country. } ORDER BY ASC(?date)";
+        let GEOMQUERY =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT DISTINCT ?wkt_geom ?country WHERE { ?item a covid19:JHU_Dataset. ?item covid19:country ?country. OPTIONAL { ?country geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . } }";
+        var queryStore = function(query, callback) {
+            $.ajax({
+                url: "https://sandbox.mainzed.org/covid19/sparql",
+                dataType: 'jsonp',
+                type: 'GET',
+                data: {
+                    queryLn: 'SPARQL',
+                    query: query,
+                    Accept: 'application/json'
+                },
+                success: function(data) {
+                    var bindings = data.results.bindings;
+                    for (var i in bindings) {
+                        for (var j in bindings[i]) {
+                            if (bindings[i][j].value)
+                                bindings[i][j] = bindings[i][j].value;
+                        }
+                    }
+                    callback(bindings);
+                },
+                error: function(data) {
+                    console.log("Es ist ein Fehler aufgetreten: " + data);
+                    callback([]);
+                }
+            });
+        };
+
+        function onlyUnique(value, index, self) {
+            return self.indexOf(value) === index;
+        };
+        let confirmed = [];
+        let recovered = [];
+        let deaths = [];
+        let transformDataJHU = (bindings) => {
+            console.log(bindings);
+            dates = [];
+            datesObj = [];
+            for (i = 0; i < bindings.length; i++) {
+                dates.push(bindings[i]['date']);
+            }
+            dates = dates.filter(onlyUnique);
+            //console.log(dates);
+            for (i = 0; i < dates.length; i++) {
+                let tmpObj = {};
+                tmpObj.date = dates[i];
+                tmpObj.c = 0;
+                tmpObj.d = 0;
+                tmpObj.r = 0;
+                datesObj.push(tmpObj);
+            }
+            //console.log(datesObj);
+            for (i = 0; i < bindings.length; i++) {
+                for (ii = 0; ii < dates.length; ii++) {
+                    if (dates[ii] === bindings[i]['date']) {
+                        let thisC = parseInt(bindings[i]['c']);
+                        let sumC = parseInt(datesObj[ii]['c']);
+                        let newC = sumC + thisC;
+                        datesObj[ii]['c'] = newC;
+                        let thisD = parseInt(bindings[i]['d']);
+                        let sumD = parseInt(datesObj[ii]['d']);
+                        let newD = sumD + thisD;
+                        datesObj[ii]['d'] = newD;
+                        let thisR = parseInt(bindings[i]['r']);
+                        let sumR = parseInt(datesObj[ii]['r']);
+                        let newR = sumR + thisR;
+                        datesObj[ii]['r'] = newR;
+                    }
+                }
+            }
+            //console.log(datesObj);
+            confirmed = [];
+            recovered = [];
+            deaths = [];
+            for (i = 0; i < datesObj.length; i++) {
+                let tmpArrC = [];
+                tmpArrC.push(new Date(datesObj[i]['date']).getTime());
+                tmpArrC.push(parseInt(datesObj[i]['c']));
+                confirmed.push(tmpArrC);
+                let tmpArrD = [];
+                tmpArrD.push(new Date(datesObj[i]['date']).getTime());
+                tmpArrD.push(parseInt(datesObj[i]['d']));
+                deaths.push(tmpArrD);
+                let tmpArrR = [];
+                tmpArrR.push(new Date(datesObj[i]['date']).getTime());
+                tmpArrR.push(parseInt(datesObj[i]['r']));
+                recovered.push(tmpArrR);
+            }
+            //console.log(confirmed, deaths, recovered);
+            createChart1(confirmed, deaths, recovered, "containerJHU", 'JHU Data');
+            createMap0();
+        };
+        let transformGeoms = (bindings) => {
+            //console.log(bindings);
+            let geoms = [];
+            geom = "";
+            createMap0();
+            for (var i in bindings) {
+                if (bindings[i]['wkt_geom']) {
+                    geom = bindings[i]['wkt_geom'].replace("<http://www.opengis.net/def/crs/EPSG/0/4326> ", "").replace("^^<http://www.opengis.net/ont/geosparql#wktLiteral>", "");
+                    geoms.push(geom);
+                }
+            }
+            geoms = geoms.filter(onlyUnique);
+            //console.log(geoms);
+            for (g in geoms) {
+                createMap1(geoms[g]);
+            }
+        };
+        let transformDataECDC = (bindings) => {
+            console.log(bindings);
+            dates = [];
+            datesObj = [];
+            for (i = 0; i < bindings.length; i++) {
+                dates.push(bindings[i]['date']);
+            }
+            dates = dates.filter(onlyUnique);
+            //console.log(dates);
+            for (i = 0; i < dates.length; i++) {
+                let tmpObj = {};
+                tmpObj.date = dates[i];
+                tmpObj.c = 0;
+                tmpObj.d = 0;
+                tmpObj.r = 0;
+                datesObj.push(tmpObj);
+            }
+            //console.log(datesObj);
+            for (i = 0; i < bindings.length; i++) {
+                for (ii = 0; ii < dates.length; ii++) {
+                    if (dates[ii] === bindings[i]['date']) {
+                        let thisC = parseInt(bindings[i]['c']);
+                        let sumC = parseInt(datesObj[ii]['c']);
+                        let newC = sumC + thisC;
+                        datesObj[ii]['c'] = newC;
+                        let thisD = parseInt(bindings[i]['d']);
+                        let sumD = parseInt(datesObj[ii]['d']);
+                        let newD = sumD + thisD;
+                        datesObj[ii]['d'] = newD;
+                        let thisR = parseInt(bindings[i]['r']);
+                        let sumR = parseInt(datesObj[ii]['r']);
+                        let newR = sumR + thisR;
+                        datesObj[ii]['r'] = newR;
+                    }
+                }
+            }
+            confirmed = [];
+            recovered = [];
+            deaths = [];
+            for (i = 1; i < datesObj.length; i++) {
+                thisC = parseInt(datesObj[i]['c']);
+                lastC = parseInt(datesObj[i - 1]['c']);
+                datesObj[i]['c'] = lastC + thisC;
+                thisD = parseInt(datesObj[i]['d']);
+                lastD = parseInt(datesObj[i - 1]['d']);
+                datesObj[i]['d'] = lastD + thisD;
+            }
+            for (i = 0; i < datesObj.length; i++) {
+                let tmpArrC = [];
+                tmpArrC.push(new Date(datesObj[i]['date']).getTime());
+                tmpArrC.push(parseInt(datesObj[i]['c']));
+                confirmed.push(tmpArrC);
+                let tmpArrD = [];
+                tmpArrD.push(new Date(datesObj[i]['date']).getTime());
+                tmpArrD.push(parseInt(datesObj[i]['d']));
+                deaths.push(tmpArrD);
+                let tmpArrR = [];
+            }
+            //console.log(confirmed, deaths);
+            createChart1(confirmed, deaths, recovered, "containerECDC", 'ECDC Data');
+        };
+        $("#inp-scale").change(function() {
+            JHU = JHU.replace("#COUNTRY#", $("#inp-country").val());
+            ECDC = ECDC.replace("#COUNTRY#", $("#inp-country").val());
+            $("#inp-scale").val();
+            queryStore(JHU, transformDataJHU);
+            queryStore(ECDC, transformDataECDC);
+            //queryStore(GEOMQUERY, transformGeoms);
+        }).trigger("change");
+        // highcharts
+        let createChart1 = (confirmed, deaths, recovered, container, title) => {
+            let subtitletext = $("#inp-country option:selected").text();
+            Highcharts.chart(container, {
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                    text: title
+                },
+                subtitle: {
+                    text: subtitletext
+                },
+                xAxis: {
+                    type: 'datetime',
+                    dateTimeLabelFormats: { // don't display the dummy year
+                        month: '%e. %b',
+                        year: '%b'
+                    },
+                    title: {
+                        text: 'Date'
+                    }
+                },
+                yAxis: {
+                    type: $("#inp-scale").val(),
+                    title: {
+                        text: 'cases'
+                    },
+                    min: 1
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.x:%e. %b}: {point.y}'
+                },
+                plotOptions: {
+                    series: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                colors: ['#6495ed', '#abf737', '#d80000'],
+                series: [{
+                    name: "confirmed",
+                    data: confirmed
+                }, {
+                    name: "recovered",
+                    data: recovered
+                }, {
+                    name: "deaths",
+                    data: deaths
+                }],
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            plotOptions: {
+                                series: {
+                                    marker: {
+                                        radius: 2.5
+                                    }
+                                }
+                            }
+                        }
+                    }]
+                }
+            });
+        };
+        // map
+        var mymap = L.map('mapid').setView([45, 0], 1);
+        let createMap0 = () => {
+            mymap.eachLayer(function(layer) {
+                mymap.removeLayer(layer);
+            });
+            L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
+                attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                subdomains: 'abcd',
+                minZoom: 0,
+                maxZoom: 20,
+                ext: 'png'
+            }).addTo(mymap);
+        };
+        let createMap1 = (geom) => {
+            var wkt = geom;
+            var geojson = Terraformer.WKT.parse(wkt);
+            var layer = L.geoJson(geojson, {}).addTo(mymap);
+        };
+    </script>
+</body>
+
+</html>
