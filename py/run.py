@@ -154,7 +154,62 @@ meldedaten = set()
 for item in dataRKI:
     meldedaten.add(str(item["properties"]["Meldedatum"]))
 meldetdaten = sorted(meldedaten)
-print(meldedaten)
+#print(meldedaten)
+
+carr = {}
+darr = {}
+rarr = {}
+carr2 = {}
+darr2 = {}
+rarr2 = {}
+
+for item in dataRKI:
+    carr[str(item["properties"]["Meldedatum"])] = 0
+    darr[str(item["properties"]["Meldedatum"])] = 0
+    rarr[str(item["properties"]["Meldedatum"])] = 0
+    carr2[str(item["properties"]["Meldedatum"])] = 0
+    darr2[str(item["properties"]["Meldedatum"])] = 0
+    rarr2[str(item["properties"]["Meldedatum"])] = 0
+#print(carr)
+
+sumC = 0
+sumD = 0
+sumR = 0
+for date in meldedaten:
+    for item in dataRKI:
+        meldedatum = str(item["properties"]["Meldedatum"])
+        faelle = 0
+        if int(faelle) > -1:
+            faelle = int(item["properties"]["AnzahlFall"])
+        todesfall = 0
+        if int(todesfall) > -1:
+            todesfall = int(item["properties"]["AnzahlTodesfall"])
+        genesen = 0
+        if int(genesen) > -1:
+            genesen = int(item["properties"]["AnzahlGenesen"])
+        if date == meldedatum:
+            sumC = sumC + faelle
+            sumD = sumD + todesfall
+            sumR = sumR + genesen
+            carr[meldedatum] = carr[meldedatum] + faelle
+            darr[meldedatum] = darr[meldedatum] + todesfall
+            rarr[meldedatum] = rarr[meldedatum] + genesen
+
+carr_sort=sorted(carr.keys(), key=lambda x:x.lower())
+for i in carr_sort:
+   values=carr[i]
+   print(i,values)
+print("faelle",sumC)
+darr_sort=sorted(darr.keys(), key=lambda x:x.lower())
+for i in darr_sort:
+   values=darr[i]
+   print(i,values)
+print("todesfall",sumD)
+rarr_sort=sorted(rarr.keys(), key=lambda x:x.lower())
+for i in rarr_sort:
+   values=rarr[i]
+   print(i,values)
+print("genesen",sumR)
 
 file = codecs.open(file_out, "w", "utf-8")
 file.write("# create triples from JHU and ECDC" + "\r\n")
