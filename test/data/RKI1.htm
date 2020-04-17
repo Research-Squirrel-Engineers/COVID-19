@@ -481,7 +481,7 @@
             console.log("geom", bindings);
             // search in wikidata
             for (var i in bindings) {
-                let WDQ = "SELECT ?point WHERE { <" + bindings[i]['wd'] + "> wdt:P625 ?point. }";
+                let WDQ = "SELECT * WHERE { ?state wdt:P625 ?point; wdt:P1082 ?population. ?state rdfs:label ?statelabel filter (lang(?statelabel) = 'en'). FILTER(?state = <" + bindings[i]['wd'] + ">) }";
                 queryWikidata(WDQ, createMap2);
             }
         };
@@ -607,11 +607,13 @@
             for (var i in bindings) {
                 wkt = bindings[i]['point'].replace("Point", "POINT");
                 geojson = Terraformer.WKT.parse(wkt);
-                L.geoJSON(geojson, {
+                let l = L.geoJSON(geojson, {
                     pointToLayer: function(feature, latlng) {
                         return L.circle(latlng, geojsonMarkerOptions);
                     }
                 }).addTo(mymap);
+                l.bindPopup("<b>" + bindings[i]['statelabel'] + "</b><br>" + bindings[i]['population'] + "<br><a href='" + bindings[i]['state'] + "' target='_blank'>" + bindings[i]['state'].replace("http://www.wikidata.org/entity/", "wd:") +
+                    "</a>");
             }
         };
     </script>
