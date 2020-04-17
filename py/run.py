@@ -24,6 +24,7 @@ file_out_rki2 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki2.ttl"
 file_out_rki3 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki3.ttl"
 file_out_rki4 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki4.ttl"
 file_out_rki5 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki5.ttl"
+file_out_rki_cum = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki_cum.ttl"
 
 responseJHU = requests.get("https://pomber.github.io/covid19/timeseries.json")
 dataJHU = responseJHU.json()
@@ -45,6 +46,7 @@ for item in dataJHU:
 
 lines = []
 lines2 = []
+lines3 = []
 
 i = 0
 for c in countriesJHU:
@@ -195,21 +197,27 @@ for date in meldedaten:
             darr[meldedatum] = darr[meldedatum] + todesfall
             rarr[meldedatum] = rarr[meldedatum] + genesen
 
-carr_sort=sorted(carr.keys(), key=lambda x:x.lower())
-for i in carr_sort:
-   values=carr[i]
-   print(i,values)
-print("faelle",sumC)
-darr_sort=sorted(darr.keys(), key=lambda x:x.lower())
-for i in darr_sort:
-   values=darr[i]
-   print(i,values)
-print("todesfall",sumD)
-rarr_sort=sorted(rarr.keys(), key=lambda x:x.lower())
-for i in rarr_sort:
-   values=rarr[i]
-   print(i,values)
-print("genesen",sumR)
+for item in carr:
+    #print(item,carr[item])
+    m = hashlib.md5()
+    m.update(item + "RKI_Dataset_CUM")
+    UUID = str(int(m.hexdigest(), 16))[0:16]
+    lines3.append("covid19:" + UUID + " " + "rdf:type" + " covid19:RKI_Dataset_CUM .")
+    lines3.append("covid19:" + UUID + " " + "covid19:country" + " world:Germany .")
+    lines3.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + item + "'" + ".")
+    if int(faelle) > -1:
+        lines3.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + str(carr[item]) + "'" + ".")
+    else:
+        lines3.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'0'" + ".")
+    if int(todesfall) > -1:
+        lines3.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + str(darr[item]) + "'" + ".")
+    else:
+        lines3.append("covid19:" + UUID+ " " + "covid19:deaths" + " " + "'0'" + ".")
+    if int(genesen) > -1:
+        lines3.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'" + str(rarr[item]) + "'" + ".")
+    else:
+        lines3.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'0'" + ".")
+    lines3.append("")
 
 file = codecs.open(file_out, "w", "utf-8")
 file.write("# create triples from JHU and ECDC" + "\r\n")
@@ -352,3 +360,25 @@ for i, line in enumerate (lines2):
         file.write("\r\n")
 file.close()
 print("success write covid19_rki5.ttl")
+
+file = codecs.open(file_out_rki_cum, "w", "utf-8")
+file.write("# create triples from RKI" + "\r\n")
+file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
+prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dc: <http://purl.org/dc/elements/1.1/> \r\nPREFIX covid19: <http://covid19.squirrel.link/ontology#> \r\nPREFIX world: <http://world.squirrel.link/ontology#> \r\n\r\n";
+file.write(prefixes)
+file.write("covid19:COVID19_DataRKI rdf:type rdfs:Resource .\r\n")
+file.write("covid19:COVID19_DataRKI rdf:type covid19:Dataset .\r\n")
+file.write("covid19:COVID19_DataRKI dc:created '2020-04-05T10:53:21.259+0100' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:modified '" + datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000+0100") + "' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:creator 'Florian Thiery' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:contributor 'Timo Homburg' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:language 'en' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:type 'ontology' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:title 'COVID-19 data by RKI' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:subject 'COVID-19' .\r\n")
+file.write("covid19:COVID19_DataRKI dc:rights 'CC BY 4.0' .\r\n\r\n")
+for line in lines3:
+    file.write(line)
+    file.write("\r\n")
+file.close()
+print("success write covid19_rki_cum.ttl")
