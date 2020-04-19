@@ -147,6 +147,14 @@
     
 
 
+    <!-- http://covid19.squirrel.link/ontology#bundeslandcode -->
+
+    <owl:DatatypeProperty rdf:about="http://covid19.squirrel.link/ontology#bundeslandcode">
+        <rdfs:label xml:lang="de">bundesland code</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://covid19.squirrel.link/ontology#confirmed -->
 
     <owl:DatatypeProperty rdf:about="http://covid19.squirrel.link/ontology#confirmed">
@@ -284,6 +292,28 @@
         <dc:creator rdf:resource="http://www.wikidata.org/entity/Q679041"/>
         <dc:rights xml:lang="en">Copyright 2020 Robert-Koch-Institut</dc:rights>
         <rdfs:label xml:lang="en">Dataset of the Robert Koch-Institut</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://covid19.squirrel.link/ontology#RKI_Dataset_CUM -->
+
+    <owl:Class rdf:about="http://covid19.squirrel.link/ontology#RKI_Dataset_CUM">
+        <rdfs:subClassOf rdf:resource="http://covid19.squirrel.link/ontology#RKI_Dataset"/>
+        <dc:creator rdf:resource="http://www.wikidata.org/entity/Q679041"/>
+        <dc:rights xml:lang="en">Copyright 2020 Robert-Koch-Institut</dc:rights>
+        <rdfs:label xml:lang="en">Dataset of the Robert Koch-Institut (cumulative data)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://covid19.squirrel.link/ontology#RKI_Dataset_FS -->
+
+    <owl:Class rdf:about="http://covid19.squirrel.link/ontology#RKI_Dataset_FS">
+        <rdfs:subClassOf rdf:resource="http://covid19.squirrel.link/ontology#RKI_Dataset"/>
+        <dc:creator rdf:resource="http://www.wikidata.org/entity/Q679041"/>
+        <dc:rights xml:lang="en">Copyright 2020 Robert-Koch-Institut</dc:rights>
+        <rdfs:label xml:lang="en">Dataset of the Robert Koch-Institut (state data)</rdfs:label>
     </owl:Class>
     
 
