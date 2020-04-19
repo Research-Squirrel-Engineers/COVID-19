@@ -25,6 +25,7 @@ file_out_rki3 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki3.ttl"
 file_out_rki4 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki4.ttl"
 file_out_rki5 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki5.ttl"
 file_out_rki_cum = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki_cum.ttl"
+file_out_rki_fs = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki_fs.ttl"
 
 responseJHU = requests.get("https://pomber.github.io/covid19/timeseries.json")
 dataJHU = responseJHU.json()
@@ -47,6 +48,7 @@ for item in dataJHU:
 lines = []
 lines2 = []
 lines3 = []
+lines4 = []
 
 i = 0
 for c in countriesJHU:
@@ -158,12 +160,25 @@ for item in dataRKI:
 meldetdaten = sorted(meldedaten)
 #print(meldedaten)
 
+fedstates = set()
+for item in dataRKI:
+    fedstates.add(int(item["properties"]["IdBundesland"]))
+fedstates = sorted(fedstates)
+#print(fedstates)
+
 carr = {}
 darr = {}
 rarr = {}
 carr2 = {}
 darr2 = {}
 rarr2 = {}
+
+carr3 = {}
+darr3 = {}
+rarr3 = {}
+carr4 = {}
+darr4 = {}
+rarr4 = {}
 
 for item in dataRKI:
     carr[str(item["properties"]["Meldedatum"])] = 0
@@ -172,12 +187,24 @@ for item in dataRKI:
     carr2[str(item["properties"]["Meldedatum"])] = 0
     darr2[str(item["properties"]["Meldedatum"])] = 0
     rarr2[str(item["properties"]["Meldedatum"])] = 0
-#print(carr)
+print(len(carr),len(darr),len(rarr),len(carr2),len(darr2),len(rarr2))
+
+for md in meldedaten:
+    for fs in fedstates:
+        MDBL = str(md) + ";" + str(fs)
+        carr3[MDBL] = 0
+        darr3[MDBL] = 0
+        rarr3[MDBL] = 0
+        carr4[MDBL] = 0
+        darr4[MDBL] = 0
+        rarr4[MDBL] = 0
+print(len(carr3),len(darr3),len(rarr3),len(carr4),len(darr4),len(rarr4))
 
 sumC = 0
 sumD = 0
 sumR = 0
 for date in meldedaten:
+    print(date)
     for item in dataRKI:
         meldedatum = str(item["properties"]["Meldedatum"])
         faelle = 0
@@ -196,6 +223,37 @@ for date in meldedaten:
             carr[meldedatum] = carr[meldedatum] + faelle
             darr[meldedatum] = darr[meldedatum] + todesfall
             rarr[meldedatum] = rarr[meldedatum] + genesen
+print(sumC,sumD,sumR)
+
+sumC = 0
+sumD = 0
+sumR = 0
+lauf = 1;
+for md in meldedaten:
+    for fs in fedstates:
+        print(md,fs,lauf)
+        lauf = lauf + 1
+        for item in dataRKI:
+            meldedatum = str(item["properties"]["Meldedatum"])
+            state = int(item["properties"]["IdBundesland"])
+            MDBL = str(meldedatum) + ";" + str(state)
+            faelle = 0
+            if int(faelle) > -1:
+                faelle = int(item["properties"]["AnzahlFall"])
+            todesfall = 0
+            if int(todesfall) > -1:
+                todesfall = int(item["properties"]["AnzahlTodesfall"])
+            genesen = 0
+            if int(genesen) > -1:
+                genesen = int(item["properties"]["AnzahlGenesen"])
+            if (md == meldedatum and fs == state):
+                sumC = sumC + faelle
+                sumD = sumD + todesfall
+                sumR = sumR + genesen
+                carr3[MDBL] = carr3[MDBL] + faelle
+                darr3[MDBL] = darr3[MDBL] + todesfall
+                rarr3[MDBL] = rarr3[MDBL] + genesen
+print(sumC,sumD,sumR)
 
 for item in carr:
     #print(item,carr[item])
@@ -218,6 +276,63 @@ for item in carr:
     else:
         lines3.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'0'" + ".")
     lines3.append("")
+
+for item in carr3:
+    m = hashlib.md5()
+    m.update(item + "RKI_Dataset_FS")
+    UUID = str(int(m.hexdigest(), 16))[0:16]
+    split = item.split(';')
+    bundesland = str(split[1])
+    blcode = "0"
+    if bundesland == "1":
+        blcode = "SchleswigHolstein"
+    elif bundesland == "2":
+        blcode = "Hamburg"
+    elif bundesland == "3":
+        blcode = "Niedersachsen"
+    elif bundesland == "4":
+        blcode = "Bremen"
+    elif bundesland == "5":
+        blcode = "NordrheinWestfalen"
+    elif bundesland == "6":
+        blcode = "Hessen"
+    elif bundesland == "7":
+        blcode = "RheinlandPfalz"
+    elif bundesland == "8":
+        blcode = "BadenWuerttemberg"
+    elif bundesland == "9":
+        blcode = "Bayern"
+    elif bundesland == "10":
+        blcode = "Saarland"
+    elif bundesland == "11":
+        blcode = "Berlin"
+    elif bundesland == "12":
+        blcode = "Brandenburg"
+    elif bundesland == "13":
+        blcode = "MecklenburgVorpommern"
+    elif bundesland == "14":
+        blcode = "Sachsen"
+    elif bundesland == "15":
+        blcode = "SachsenAnhalt"
+    elif bundesland == "16":
+        blcode = "Thueringen"
+    lines4.append("covid19:" + UUID + " " + "rdf:type" + " covid19:RKI_Dataset_FS .")
+    lines4.append("covid19:" + UUID + " " + "covid19:bundeslandcode" + " " + "'" + bundesland + "'" + ".")
+    lines4.append("covid19:" + UUID + " " + "covid19:bundesland" + " world:" + blcode + " .")
+    lines4.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + str(split[0]) + "'" + ".")
+    if int(faelle) > -1:
+        lines4.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + str(carr3[item]) + "'" + ".")
+    else:
+        lines4.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'0'" + ".")
+    if int(todesfall) > -1:
+        lines4.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + str(darr3[item]) + "'" + ".")
+    else:
+        lines4.append("covid19:" + UUID+ " " + "covid19:deaths" + " " + "'0'" + ".")
+    if int(genesen) > -1:
+        lines4.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'" + str(rarr3[item]) + "'" + ".")
+    else:
+        lines4.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'0'" + ".")
+    lines4.append("")
 
 file = codecs.open(file_out, "w", "utf-8")
 file.write("# create triples from JHU and ECDC" + "\r\n")
@@ -382,3 +497,25 @@ for line in lines3:
     file.write("\r\n")
 file.close()
 print("success write covid19_rki_cum.ttl")
+
+file = codecs.open(file_out_rki_fs, "w", "utf-8")
+file.write("# create triples from RKI" + "\r\n")
+file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
+prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dc: <http://purl.org/dc/elements/1.1/> \r\nPREFIX covid19: <http://covid19.squirrel.link/ontology#> \r\nPREFIX world: <http://world.squirrel.link/ontology#> \r\n\r\n";
+file.write(prefixes)
+file.write("covid19:COVID19_DataRKIFS rdf:type rdfs:Resource .\r\n")
+file.write("covid19:COVID19_DataRKIFS rdf:type covid19:Dataset .\r\n")
+file.write("covid19:COVID19_DataRKIFS dc:created '2020-04-05T10:53:21.259+0100' .\r\n")
+file.write("covid19:COVID19_DataRKIFS dc:modified '" + datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000+0100") + "' .\r\n")
+file.write("covid19:COVID19_DataRKIFS dc:creator 'Florian Thiery' .\r\n")
+file.write("covid19:COVID19_DataRKIFS dc:contributor 'Timo Homburg' .\r\n")
+file.write("covid19:COVID19_DataRKIFS dc:language 'en' .\r\n")
+file.write("covid19:COVID19_DataRKIFS dc:type 'ontology' .\r\n")
+file.write("covid19:COVID19_DataRKIFS dc:title 'COVID-19 data by RKI' .\r\n")
+file.write("covid19:COVID19_DataRKIFS dc:subject 'COVID-19' .\r\n")
+file.write("covid19:COVID19_DataRKIFS dc:rights 'CC BY 4.0' .\r\n\r\n")
+for line in lines4:
+    file.write(line)
+    file.write("\r\n")
+file.close()
+print("success write covid19_rki_fs.ttl")
