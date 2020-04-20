@@ -1,153 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>404 | Page not found</title>
+    <style>
+        * {
+            transition: all 0.6s;
+        }
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>COVID-19 Vocabulary</title>
-    <meta name="viewport" content="width=device-width">
-    <link href="./index_files/css" rel="stylesheet" type="text/css">
+        html {
+            height: 100%;
+        }
 
-    <!-- syntax highlighting CSS -->
-    <link rel="stylesheet" href="./index_files/syntax.css">
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #888;
+            margin: 0;
+        }
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./index_files/main.css">
+        #main {
+            display: table;
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .fof {
+            display: table-cell;
+            vertical-align: middle;
+            animation: slideDown 1s;
+        }
+
+        .fof h1 {
+            font-size: 50px;
+            display: inline-block;
+            padding-right: 12px;
+            animation: type .5s alternate infinite;
+        }
+
+        @keyframes type {
+            from {
+                box-shadow: inset -3px 0px 0px #888;
+            }
+
+            to {
+                box-shadow: inset -3px 0px 0px transparent;
+            }
+        }
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <section class="content">
-        <article class="splash">
-            <h1 id="geojson-ld-vocabulary">COVID-19</h1>
-
-            <p><strong>Author</strong>: Florian Thiery (Research Squirrel Engineers)</p>
-
-            <p><strong>Revision</strong>: 1.0</p>
-
-            <p><strong>Date</strong>: 2020-04-20</p>
-
-            <p><strong>Abstract</strong>: A vocabulary for <a href="http://www.covid19data.link/">COVID-19 data</a>.</p>
-
-            <p><strong>Copyright</strong>: This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0
-                    International License</a>.</p>
-
-            <h2 id="ontology">Vocabulary</h2>
-
-            <p>The COVID-19 Vocabulary Vocabulary is published as RDF/XML on
-                <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">GitHub</a>.</p>
-
-            <p>An HTML version is published at
-                <a href="http://covid19.squirrel.link/ontology">http://covid19.squirrel.link/ontology/</a>.</p>
-
-            <p>This document is based on <a href="http://geojson.org/geojson-ld/">GEOJSON-LD</a> by Sean Gillies (Mapbox) with a CC BY 4.0 license.</p>
-
-            <h2 id="namespace">Namespace</h2>
-
-            <p>Hadrian's Wall namespace is <code class="highlighter-rouge">http://covid19.squirrel.link/ontology#</code>.</p>
-
-            <h2 id="github-repository">GitHub repository</h2>
-
-            <p>See <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/">https://github.com/Research-Squirrel-Engineers/COVID-19/</a>
-                for ontology developments.</p>
-
-            <h2 id="outstanding-issues">Outstanding issues</h2>
-
-            <p>TBD</p>
-
-            <h2 id="see-also">About this Document</h2>
-
-            <p>This document is based on the <a href="http://geojson.org/geojson-ld/vocab.html">GEOJSON-LD VOCABULARY</a> by Sean Gillies (Mapbox) with a CC BY 4.0 license.</p>
-
-            <h2 id="core">Core</h2>
-
-            <p><em>This section describes the core classes and properties.</em></p>
-
-            <h2 id="classes">Core Classes</h2>
-
-            <h3><a name="COVID19_Classes">COVID19_Classes</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#COVID19_Classes</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="Dataset">Dataset</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#Dataset</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="ECDC_Dataset">ECDC_Dataset</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#ECDC_Dataset</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="JHU_Dataset">JHU_Dataset</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#JHU_Dataset</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="RKI_Dataset">RKI_Dataset</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#RKI_Dataset</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="RKI_Dataset_FS">RKI_Dataset_FS</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#RKI_Dataset_FS</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="RKI_Dataset_CUM">RKI_Dataset_CUM</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#RKI_Dataset_CUM</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h2 id="properties">Core Properties</h2>
-
-            <h3>Object Properties</h3>
-
-            <h3><a name="bundesland">bundesland</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#bundesland</em></p>
-            <p><em>covid19:Dataset > owl:Thing</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="country">country</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#country</em></p>
-            <p><em>covid19:Dataset > owl:Thing</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3>Data Properties</h3>
-
-            <h3><a name="altersgruppe">altersgruppe</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#altersgruppe</em></p>
-            <p><em>covid19:Dataset > xsd:string</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="bundeslandcode">bundeslandcode</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#bundeslandcode</em></p>
-            <p><em>covid19:Dataset > xsd:string</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="confirmed">confirmed</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#confirmed</em></p>
-            <p><em>covid19:Dataset > xsd:int</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="date">date</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#date</em></p>
-            <p><em>covid19:Dataset > xsd:string</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="deaths">deaths</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#deaths</em></p>
-            <p><em>covid19:Dataset > xsd:int</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="geschlecht">geschlecht</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#geschlecht</em></p>
-            <p><em>covid19:Dataset > xsd:string</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-            <h3><a name="recovered">recovered</a></h3>
-            <p><em>http://covid19.squirrel.link/ontology#recovered</em></p>
-            <p><em>covid19:Dataset > xsd:int</em></p>
-            <p>Description, see <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/blob/master/ontology/covid19onto.owl">here</a>.</p>
-
-        </article>
-
-    </section>
-
+    <div id="main">
+        <div class="fof">
+            <h1>Error 404</h1>
+            <div>Page not found</div>
+        </div>
+    </div>
 </body>
 
 </html>
