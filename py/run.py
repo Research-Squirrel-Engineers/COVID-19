@@ -132,7 +132,7 @@ for item in dataRKI:
     altersgruppe = str(item["properties"]["Altersgruppe"])
     faelle = str(item["properties"]["AnzahlFall"])
     todesfall = str(item["properties"]["AnzahlTodesfall"])
-    meldedatum = str(item["properties"]["Meldedatum"])
+    meldedatum = str(item["properties"]["Refdatum"])
     genesen = str(item["properties"]["AnzahlGenesen"])
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "rdf:type" + " covid19:RKI_Dataset .")
     lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:bundeslandcode" + " " + "'" + bundesland + "'" + ".")
@@ -156,7 +156,7 @@ for item in dataRKI:
 
 meldedaten = set()
 for item in dataRKI:
-    meldedaten.add(str(item["properties"]["Meldedatum"]))
+    meldedaten.add(str(item["properties"]["Refdatum"]))
 meldetdaten = sorted(meldedaten)
 #print(meldedaten)
 
@@ -181,12 +181,12 @@ darr4 = {}
 rarr4 = {}
 
 for item in dataRKI:
-    carr[str(item["properties"]["Meldedatum"])] = 0
-    darr[str(item["properties"]["Meldedatum"])] = 0
-    rarr[str(item["properties"]["Meldedatum"])] = 0
-    carr2[str(item["properties"]["Meldedatum"])] = 0
-    darr2[str(item["properties"]["Meldedatum"])] = 0
-    rarr2[str(item["properties"]["Meldedatum"])] = 0
+    carr[str(item["properties"]["Refdatum"])] = 0
+    darr[str(item["properties"]["Refdatum"])] = 0
+    rarr[str(item["properties"]["Refdatum"])] = 0
+    carr2[str(item["properties"]["Refdatum"])] = 0
+    darr2[str(item["properties"]["Refdatum"])] = 0
+    rarr2[str(item["properties"]["Refdatum"])] = 0
 print(len(carr),len(darr),len(rarr),len(carr2),len(darr2),len(rarr2))
 
 for md in meldedaten:
@@ -206,7 +206,7 @@ sumR = 0
 for date in meldedaten:
     print(date)
     for item in dataRKI:
-        meldedatum = str(item["properties"]["Meldedatum"])
+        meldedatum = str(item["properties"]["Refdatum"])
         faelle = 0
         if int(faelle) > -1:
             faelle = int(item["properties"]["AnzahlFall"])
@@ -234,7 +234,7 @@ for md in meldedaten:
         print(md,fs,lauf)
         lauf = lauf + 1
         for item in dataRKI:
-            meldedatum = str(item["properties"]["Meldedatum"])
+            meldedatum = str(item["properties"]["Refdatum"])
             state = int(item["properties"]["IdBundesland"])
             MDBL = str(meldedatum) + ";" + str(state)
             faelle = 0
