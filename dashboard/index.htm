@@ -9,10 +9,19 @@
     <meta name="author" content="Sophie C. Schmidt,Florian Thiery,Timo Homburg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linked COVID-19 Data</title>
-    <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+    <link rel="icon" href="favicon.ico">
     <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164325180-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-164325180-1');
+</script>
+
 </head>
 
 <body>
@@ -55,10 +64,15 @@
             <div class="container">
                 <h1 class="jumbotron-heading">Linked COVID-19 Data</h1>
                 <p>
-                    <center><img src="SARS-CoV-2_without_background.png" height="300"></center>
+                    <center><img src="SARS-CoV-2_without_background.png" height="200"></center>
                 </p>
+                <p class="lead text-muted">The <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/tree/master/py" target="_blank"><b>Linked COVID-19 Data Transformer<b></a> transforms data from the JHU, ECDC and RKI interfaces into
+                    RDF.</p>
                 <br>
-                <p class="lead text-muted">Please choose one of the Dashboards</p>
+                <p class="lead text-muted">The official data and python script is available on Zenodo:</p>
+                <p class="lead text-muted">py script: <b>DOI</b> <a href="https://doi.org/10.5281/zenodo.3763504" target="_blank">10.5281/zenodo.3763504</a></p>
+                <p class="lead text-muted">RKI: <b>DOI</b> <a href="https://doi.org/10.5281/zenodo.3757283" target="_blank">10.5281/zenodo.3757283</a></p>
+                <p class="lead text-muted">JHU/ECDC: <b>DOI</b> <a href="https://doi.org/10.5281/zenodo.3757279" target="_blank">10.5281/zenodo.3757279</a></p>
             </div>
         </section>
 
