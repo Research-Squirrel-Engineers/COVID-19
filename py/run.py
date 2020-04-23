@@ -17,7 +17,7 @@ import datetime
 import hashlib
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-#print(dir_path.replace("\\py","\\ttl"))
+# py script into a "py" folder -> ttl into a "ttl" folder
 file_out = dir_path.replace("\\py","\\ttl") + "\\" + "covid19.ttl"
 file_out_rki1 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki1.ttl"
 file_out_rki2 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki2.ttl"
@@ -158,13 +158,11 @@ meldedaten = set()
 for item in dataRKI:
     meldedaten.add(str(item["properties"]["Refdatum"]))
 meldetdaten = sorted(meldedaten)
-#print(meldedaten)
 
 fedstates = set()
 for item in dataRKI:
     fedstates.add(int(item["properties"]["IdBundesland"]))
 fedstates = sorted(fedstates)
-#print(fedstates)
 
 carr = {}
 darr = {}
