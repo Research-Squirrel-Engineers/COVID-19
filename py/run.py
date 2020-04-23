@@ -5,7 +5,7 @@ __license__ = "MIT"
 __version__ = "1.0"
 __maintainer__ = "Florian Thiery"
 __email__ = "rse@fthiery.de"
-__status__ = "draft"
+__status__ = "final"
 
 import json
 import requests
