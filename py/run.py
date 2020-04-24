@@ -24,8 +24,16 @@ file_out_rki2 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki2.ttl"
 file_out_rki3 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki3.ttl"
 file_out_rki4 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki4.ttl"
 file_out_rki5 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki5.ttl"
-file_out_rki_cum = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki_cum.ttl"
+file_out_rki_cum = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki_ger.ttl"
 file_out_rki_fs = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki_fs.ttl"
+os.remove(file_out)
+os.remove(file_out_rki1)
+os.remove(file_out_rki2)
+os.remove(file_out_rki3)
+os.remove(file_out_rki4)
+os.remove(file_out_rki5)
+os.remove(covid19_rki_ger)
+os.remove(file_out_rki_fs)
 
 responseJHU = requests.get("https://pomber.github.io/covid19/timeseries.json")
 dataJHU = responseJHU.json()
