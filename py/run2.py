@@ -17,6 +17,13 @@ import codecs
 import datetime
 import hashlib
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+# py script into a "py" folder -> ttl into a "ttl" folder
+file_out = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki_fs_cum.ttl"
+file_out2 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki_ger_cum.ttl"
+os.remove(file_out)
+os.remove(file_out2)
+
 endpoint_url = "http://sandbox.mainzed.org/covid19/sparql"
 
 query = "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?date ?c ?d ?r ?bl WHERE { ?item a covid19:RKI_Dataset_FS. ?item covid19:date ?date. ?item covid19:bundesland ?bl. OPTIONAL {?item covid19:confirmed ?c.} OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} } ORDER BY ASC(?date)"
@@ -46,15 +53,27 @@ fedstates = sorted(fedstates)
 carr = {}
 darr = {}
 rarr = {}
+carr2 = {}
+darr2 = {}
+rarr2 = {}
+carr3 = {}
+darr3 = {}
+rarr3 = {}
 
 for md in meldedaten:
     for fs in fedstates:
         MDBL = str(md) + ";" + str(fs)
+        MD = str(md)
         carr[MDBL] = 0
         darr[MDBL] = 0
         rarr[MDBL] = 0
+        carr2[MD] = 0
+        darr2[MD] = 0
+        rarr2[MD] = 0
+        carr3[MD] = 0
+        darr3[MD] = 0
+        rarr3[MD] = 0
 
-lauf = 1;
 for fs in fedstates:
     thisc = 0;
     thisr = 0;
@@ -82,6 +101,45 @@ for fs in fedstates:
                 thisd = darr[MDBL]
                 thisr = rarr[MDBL]
 print(carr)
+
+for md in meldedaten:
+    thisc = 0;
+    thisr = 0;
+    thisd = 0;
+    print(md)
+    for item in bindings:
+        meldedatum = item["date"]["value"]
+        MD = str(meldedatum)
+        faelle = 0
+        if int(faelle) > -1:
+            faelle = int(item["c"]["value"])
+        todesfall = 0
+        if int(todesfall) > -1:
+            todesfall = int(item["d"]["value"])
+        genesen = 0
+        if int(genesen) > -1:
+            genesen = int(item["r"]["value"])
+        if (md == meldedatum):
+            print(thisc,faelle)
+            carr2[MD] = thisc + faelle
+            darr2[MD] = thisd + todesfall
+            rarr2[MD] = thisr + genesen
+            thisc = carr2[MD]
+            thisd = darr2[MD]
+            thisr = rarr2[MD]
+print(carr2)
+
+thisc = 0
+thisr = 0
+thisd = 0
+for md in meldedaten:
+    carr3[md] = thisc + carr2[md]
+    thisc = carr3[md]
+    darr3[md] = thisd + darr2[md]
+    thisd = darr3[md]
+    rarr3[md] = thisr + rarr2[md]
+    thisr = rarr3[md]
+print(carr3)
 
 linesFSCUM = []
 for key, value in carr.items():
@@ -143,28 +201,70 @@ for key, value in carr.items():
         linesFSCUM.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'0'" + ".")
     linesFSCUM.append("")
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-# py script into a "py" folder -> ttl into a "ttl" folder
-file_out = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki_fs_cum.ttl"
+linesGERCUM = []
+for key, value in carr3.items():
+    meldedatum = key
+    MD = str(meldedatum)
+    m = hashlib.md5()
+    m.update(MDBL + "RKI_Dataset_GER_CUM")
+    UUID = str(int(m.hexdigest(), 16))[0:16]
+    linesGERCUM.append("covid19:" + UUID + " " + "rdf:type" + " covid19:RKI_Dataset_GER_CUM .")
+    linesGERCUM.append("covid19:" + UUID + " " + "covid19:country world:Germany .")
+    linesGERCUM.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + str(meldedatum) + "'" + ".")
+    if int(faelle) > -1:
+        linesGERCUM.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + str(carr3[MD]) + "'" + ".")
+    else:
+        linesGERCUM.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'0'" + ".")
+    if int(todesfall) > -1:
+        linesGERCUM.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + str(darr3[MD]) + "'" + ".")
+    else:
+        linesGERCUM.append("covid19:" + UUID+ " " + "covid19:deaths" + " " + "'0'" + ".")
+    if int(genesen) > -1:
+        linesGERCUM.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'" + str(rarr3[MD]) + "'" + ".")
+    else:
+        linesGERCUM.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'0'" + ".")
+    linesGERCUM.append("")
 
 file = codecs.open(file_out, "w", "utf-8")
 file.write("# create triples from RKI" + "\r\n")
 file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
 prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dc: <http://purl.org/dc/elements/1.1/> \r\nPREFIX covid19: <http://covid19.squirrel.link/ontology#> \r\nPREFIX world: <http://world.squirrel.link/ontology#> \r\n\r\n";
 file.write(prefixes)
-file.write("covid19:COVID19_Data rdf:type rdfs:Resource .\r\n")
-file.write("covid19:COVID19_Data rdf:type covid19:Dataset .\r\n")
-file.write("covid19:COVID19_Data dc:created '2020-04-24T17:17:21.386+0100' .\r\n")
-file.write("covid19:COVID19_Data dc:modified '" + datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000+0100") + "' .\r\n")
-file.write("covid19:COVID19_Data dc:creator 'Florian Thiery' .\r\n")
-file.write("covid19:COVID19_Data dc:contributor 'Timo Homburg' .\r\n")
-file.write("covid19:COVID19_Data dc:language 'en' .\r\n")
-file.write("covid19:COVID19_Data dc:type 'ontology' .\r\n")
-file.write("covid19:COVID19_Data dc:title 'COVID-19 data by RKI' .\r\n")
-file.write("covid19:COVID19_Data dc:subject 'COVID-19' .\r\n")
-file.write("covid19:COVID19_Data dc:rights 'CC BY 4.0' .\r\n\r\n")
+file.write("covid19:COVID19_DataRKIFSCUM rdf:type rdfs:Resource .\r\n")
+file.write("covid19:COVID19_DataRKIFSCUM rdf:type covid19:Dataset .\r\n")
+file.write("covid19:COVID19_DataRKIFSCUM dc:created '2020-04-24T17:17:21.386+0100' .\r\n")
+file.write("covid19:COVID19_DataRKIFSCUM dc:modified '" + datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000+0100") + "' .\r\n")
+file.write("covid19:COVID19_DataRKIFSCUM dc:creator 'Florian Thiery' .\r\n")
+file.write("covid19:COVID19_DataRKIFSCUM dc:contributor 'Timo Homburg' .\r\n")
+file.write("covid19:COVID19_DataRKIFSCUM dc:language 'en' .\r\n")
+file.write("covid19:COVID19_DataRKIFSCUM dc:type 'ontology' .\r\n")
+file.write("covid19:COVID19_DataRKIFSCUM dc:title 'COVID-19 data by RKI' .\r\n")
+file.write("covid19:COVID19_DataRKIFSCUM dc:subject 'COVID-19' .\r\n")
+file.write("covid19:COVID19_DataRKIFSCUM dc:rights 'CC BY 4.0' .\r\n\r\n")
 for line in linesFSCUM:
     file.write(line)
     file.write("\r\n")
 file.close()
 print("success write covid19_rki_fs_cum.ttl")
+
+file = codecs.open(file_out2, "w", "utf-8")
+file.write("# create triples from RKI" + "\r\n")
+file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
+prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dc: <http://purl.org/dc/elements/1.1/> \r\nPREFIX covid19: <http://covid19.squirrel.link/ontology#> \r\nPREFIX world: <http://world.squirrel.link/ontology#> \r\n\r\n";
+file.write(prefixes)
+file.write("covid19:COVID19_DataRKIGERCUM rdf:type rdfs:Resource .\r\n")
+file.write("covid19:COVID19_DataRKIGERCUM rdf:type covid19:Dataset .\r\n")
+file.write("covid19:COVID19_DataRKIGERCUM dc:created '2020-04-24T17:17:21.386+0100' .\r\n")
+file.write("covid19:COVID19_DataRKIGERCUM dc:modified '" + datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000+0100") + "' .\r\n")
+file.write("covid19:COVID19_DataRKIGERCUM dc:creator 'Florian Thiery' .\r\n")
+file.write("covid19:COVID19_DataRKIGERCUM dc:contributor 'Timo Homburg' .\r\n")
+file.write("covid19:COVID19_DataRKIGERCUM dc:language 'en' .\r\n")
+file.write("covid19:COVID19_DataRKIGERCUM dc:type 'ontology' .\r\n")
+file.write("covid19:COVID19_DataRKIGERCUM dc:title 'COVID-19 data by RKI' .\r\n")
+file.write("covid19:COVID19_DataRKIGERCUM dc:subject 'COVID-19' .\r\n")
+file.write("covid19:COVID19_DataRKIGERCUM dc:rights 'CC BY 4.0' .\r\n\r\n")
+for line in linesGERCUM:
+    file.write(line)
+    file.write("\r\n")
+file.close()
+print("success write covid19_rki_ger_cum.ttl")
