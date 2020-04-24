@@ -32,7 +32,7 @@ os.remove(file_out_rki2)
 os.remove(file_out_rki3)
 os.remove(file_out_rki4)
 os.remove(file_out_rki5)
-os.remove(covid19_rki_ger)
+os.remove(file_out_rki_cum)
 os.remove(file_out_rki_fs)
 
 responseJHU = requests.get("https://pomber.github.io/covid19/timeseries.json")
