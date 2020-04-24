@@ -1,5 +1,5 @@
 # create triples from RKI
-# on 2020-04-24 18:19
+# on 2020-04-24 19:23
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX owl: <http://www.w3.org/2002/07/owl#> 
@@ -9,677 +9,677 @@ PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX covid19: <http://covid19.squirrel.link/ontology#> 
 PREFIX world: <http://world.squirrel.link/ontology#> 
 
-covid19:COVID19_DataRKICUM rdf:type rdfs:Resource .
-covid19:COVID19_DataRKICUM rdf:type covid19:Dataset .
-covid19:COVID19_DataRKICUM dc:created '2020-04-05T10:53:21.259+0100' .
-covid19:COVID19_DataRKICUM dc:modified '2020-04-24T18:19:38.000+0100' .
-covid19:COVID19_DataRKICUM dc:creator 'Florian Thiery' .
-covid19:COVID19_DataRKICUM dc:contributor 'Timo Homburg' .
-covid19:COVID19_DataRKICUM dc:language 'en' .
-covid19:COVID19_DataRKICUM dc:type 'ontology' .
-covid19:COVID19_DataRKICUM dc:title 'COVID-19 data by RKI' .
-covid19:COVID19_DataRKICUM dc:subject 'COVID-19' .
-covid19:COVID19_DataRKICUM dc:rights 'CC BY 4.0' .
+covid19:COVID19_DataRKIGER rdf:type rdfs:Resource .
+covid19:COVID19_DataRKIGER rdf:type covid19:Dataset .
+covid19:COVID19_DataRKIGER dc:created '2020-04-05T10:53:21.259+0100' .
+covid19:COVID19_DataRKIGER dc:modified '2020-04-24T19:23:46.000+0100' .
+covid19:COVID19_DataRKIGER dc:creator 'Florian Thiery' .
+covid19:COVID19_DataRKIGER dc:contributor 'Timo Homburg' .
+covid19:COVID19_DataRKIGER dc:language 'en' .
+covid19:COVID19_DataRKIGER dc:type 'ontology' .
+covid19:COVID19_DataRKIGER dc:title 'COVID-19 data by RKI' .
+covid19:COVID19_DataRKIGER dc:subject 'COVID-19' .
+covid19:COVID19_DataRKIGER dc:rights 'CC BY 4.0' .
 
-covid19:2384168324898960 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2384168324898960 rdf:type covid19:RKI_Dataset_GER .
 covid19:2384168324898960 covid19:country world:Germany .
 covid19:2384168324898960 covid19:date '2020-02-29T00:00:00.000Z'.
 covid19:2384168324898960 covid19:confirmed '173'.
 covid19:2384168324898960 covid19:deaths '2'.
 covid19:2384168324898960 covid19:recovered '171'.
 
-covid19:1446279367109685 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1446279367109685 rdf:type covid19:RKI_Dataset_GER .
 covid19:1446279367109685 covid19:country world:Germany .
 covid19:1446279367109685 covid19:date '2020-02-04T00:00:00.000Z'.
 covid19:1446279367109685 covid19:confirmed '3'.
 covid19:1446279367109685 covid19:deaths '0'.
 covid19:1446279367109685 covid19:recovered '3'.
 
-covid19:9933467800387028 rdf:type covid19:RKI_Dataset_CUM .
+covid19:9933467800387028 rdf:type covid19:RKI_Dataset_GER .
 covid19:9933467800387028 covid19:country world:Germany .
 covid19:9933467800387028 covid19:date '2020-01-18T00:00:00.000Z'.
 covid19:9933467800387028 covid19:confirmed '1'.
 covid19:9933467800387028 covid19:deaths '0'.
 covid19:9933467800387028 covid19:recovered '1'.
 
-covid19:2743537902671544 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2743537902671544 rdf:type covid19:RKI_Dataset_GER .
 covid19:2743537902671544 covid19:country world:Germany .
 covid19:2743537902671544 covid19:date '2020-02-21T00:00:00.000Z'.
 covid19:2743537902671544 covid19:confirmed '21'.
 covid19:2743537902671544 covid19:deaths '0'.
 covid19:2743537902671544 covid19:recovered '21'.
 
-covid19:4393264077721247 rdf:type covid19:RKI_Dataset_CUM .
+covid19:4393264077721247 rdf:type covid19:RKI_Dataset_GER .
 covid19:4393264077721247 covid19:country world:Germany .
 covid19:4393264077721247 covid19:date '2020-03-13T00:00:00.000Z'.
 covid19:4393264077721247 covid19:confirmed '3568'.
 covid19:4393264077721247 covid19:deaths '64'.
 covid19:4393264077721247 covid19:recovered '3502'.
 
-covid19:2996882006211662 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2996882006211662 rdf:type covid19:RKI_Dataset_GER .
 covid19:2996882006211662 covid19:country world:Germany .
 covid19:2996882006211662 covid19:date '2020-02-01T00:00:00.000Z'.
 covid19:2996882006211662 covid19:confirmed '2'.
 covid19:2996882006211662 covid19:deaths '0'.
 covid19:2996882006211662 covid19:recovered '2'.
 
-covid19:2683338448097245 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2683338448097245 rdf:type covid19:RKI_Dataset_GER .
 covid19:2683338448097245 covid19:country world:Germany .
 covid19:2683338448097245 covid19:date '2020-04-08T00:00:00.000Z'.
 covid19:2683338448097245 covid19:confirmed '3634'.
 covid19:2683338448097245 covid19:deaths '180'.
 covid19:2683338448097245 covid19:recovered '2081'.
 
-covid19:1590295422021758 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1590295422021758 rdf:type covid19:RKI_Dataset_GER .
 covid19:1590295422021758 covid19:country world:Germany .
 covid19:1590295422021758 covid19:date '2020-02-23T00:00:00.000Z'.
 covid19:1590295422021758 covid19:confirmed '47'.
 covid19:1590295422021758 covid19:deaths '1'.
 covid19:1590295422021758 covid19:recovered '46'.
 
-covid19:1291054688256002 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1291054688256002 rdf:type covid19:RKI_Dataset_GER .
 covid19:1291054688256002 covid19:country world:Germany .
 covid19:1291054688256002 covid19:date '2020-03-03T00:00:00.000Z'.
 covid19:1291054688256002 covid19:confirmed '272'.
 covid19:1291054688256002 covid19:deaths '9'.
 covid19:1291054688256002 covid19:recovered '263'.
 
-covid19:5680218309714504 rdf:type covid19:RKI_Dataset_CUM .
+covid19:5680218309714504 rdf:type covid19:RKI_Dataset_GER .
 covid19:5680218309714504 covid19:country world:Germany .
 covid19:5680218309714504 covid19:date '2020-04-23T00:00:00.000Z'.
 covid19:5680218309714504 covid19:confirmed '542'.
 covid19:5680218309714504 covid19:deaths '0'.
 covid19:5680218309714504 covid19:recovered '-4'.
 
-covid19:6266777894335713 rdf:type covid19:RKI_Dataset_CUM .
+covid19:6266777894335713 rdf:type covid19:RKI_Dataset_GER .
 covid19:6266777894335713 covid19:country world:Germany .
 covid19:6266777894335713 covid19:date '2020-04-01T00:00:00.000Z'.
 covid19:6266777894335713 covid19:confirmed '4516'.
 covid19:6266777894335713 covid19:deaths '215'.
 covid19:6266777894335713 covid19:recovered '2690'.
 
-covid19:1437341339302982 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1437341339302982 rdf:type covid19:RKI_Dataset_GER .
 covid19:1437341339302982 covid19:country world:Germany .
 covid19:1437341339302982 covid19:date '2020-02-20T00:00:00.000Z'.
 covid19:1437341339302982 covid19:confirmed '34'.
 covid19:1437341339302982 covid19:deaths '1'.
 covid19:1437341339302982 covid19:recovered '33'.
 
-covid19:2878914231562059 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2878914231562059 rdf:type covid19:RKI_Dataset_GER .
 covid19:2878914231562059 covid19:country world:Germany .
 covid19:2878914231562059 covid19:date '2020-03-07T00:00:00.000Z'.
 covid19:2878914231562059 covid19:confirmed '752'.
 covid19:2878914231562059 covid19:deaths '19'.
 covid19:2878914231562059 covid19:recovered '733'.
 
-covid19:1051073967424237 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1051073967424237 rdf:type covid19:RKI_Dataset_GER .
 covid19:1051073967424237 covid19:country world:Germany .
 covid19:1051073967424237 covid19:date '2020-04-03T00:00:00.000Z'.
 covid19:1051073967424237 covid19:confirmed '4791'.
 covid19:1051073967424237 covid19:deaths '271'.
 covid19:1051073967424237 covid19:recovered '2677'.
 
-covid19:7758567430027468 rdf:type covid19:RKI_Dataset_CUM .
+covid19:7758567430027468 rdf:type covid19:RKI_Dataset_GER .
 covid19:7758567430027468 covid19:country world:Germany .
 covid19:7758567430027468 covid19:date '2020-02-17T00:00:00.000Z'.
 covid19:7758567430027468 covid19:confirmed '11'.
 covid19:7758567430027468 covid19:deaths '0'.
 covid19:7758567430027468 covid19:recovered '11'.
 
-covid19:1417967999349078 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1417967999349078 rdf:type covid19:RKI_Dataset_GER .
 covid19:1417967999349078 covid19:country world:Germany .
 covid19:1417967999349078 covid19:date '2020-02-10T00:00:00.000Z'.
 covid19:1417967999349078 covid19:confirmed '5'.
 covid19:1417967999349078 covid19:deaths '0'.
 covid19:1417967999349078 covid19:recovered '5'.
 
-covid19:3236694246201912 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3236694246201912 rdf:type covid19:RKI_Dataset_GER .
 covid19:3236694246201912 covid19:country world:Germany .
 covid19:3236694246201912 covid19:date '2020-04-20T00:00:00.000Z'.
 covid19:3236694246201912 covid19:confirmed '1207'.
 covid19:3236694246201912 covid19:deaths '19'.
 covid19:3236694246201912 covid19:recovered '-1'.
 
-covid19:1926966225866688 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1926966225866688 rdf:type covid19:RKI_Dataset_GER .
 covid19:1926966225866688 covid19:country world:Germany .
 covid19:1926966225866688 covid19:date '2020-01-17T00:00:00.000Z'.
 covid19:1926966225866688 covid19:confirmed '2'.
 covid19:1926966225866688 covid19:deaths '1'.
 covid19:1926966225866688 covid19:recovered '1'.
 
-covid19:3377664798858468 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3377664798858468 rdf:type covid19:RKI_Dataset_GER .
 covid19:3377664798858468 covid19:country world:Germany .
 covid19:3377664798858468 covid19:date '2020-03-31T00:00:00.000Z'.
 covid19:3377664798858468 covid19:confirmed '4062'.
 covid19:3377664798858468 covid19:deaths '206'.
 covid19:3377664798858468 covid19:recovered '2392'.
 
-covid19:1746142735589777 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1746142735589777 rdf:type covid19:RKI_Dataset_GER .
 covid19:1746142735589777 covid19:country world:Germany .
 covid19:1746142735589777 covid19:date '2020-04-15T00:00:00.000Z'.
 covid19:1746142735589777 covid19:confirmed '2161'.
 covid19:1746142735589777 covid19:deaths '63'.
 covid19:1746142735589777 covid19:recovered '21'.
 
-covid19:1844861111064865 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1844861111064865 rdf:type covid19:RKI_Dataset_GER .
 covid19:1844861111064865 covid19:country world:Germany .
 covid19:1844861111064865 covid19:date '2020-03-21T00:00:00.000Z'.
 covid19:1844861111064865 covid19:confirmed '4115'.
 covid19:1844861111064865 covid19:deaths '125'.
 covid19:1844861111064865 covid19:recovered '3980'.
 
-covid19:3214301619876500 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3214301619876500 rdf:type covid19:RKI_Dataset_GER .
 covid19:3214301619876500 covid19:country world:Germany .
 covid19:3214301619876500 covid19:date '2020-01-23T00:00:00.000Z'.
 covid19:3214301619876500 covid19:confirmed '4'.
 covid19:3214301619876500 covid19:deaths '0'.
 covid19:3214301619876500 covid19:recovered '4'.
 
-covid19:2536059188517323 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2536059188517323 rdf:type covid19:RKI_Dataset_GER .
 covid19:2536059188517323 covid19:country world:Germany .
 covid19:2536059188517323 covid19:date '2020-03-28T00:00:00.000Z'.
 covid19:2536059188517323 covid19:confirmed '3979'.
 covid19:2536059188517323 covid19:deaths '217'.
 covid19:2536059188517323 covid19:recovered '2479'.
 
-covid19:2856080721094645 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2856080721094645 rdf:type covid19:RKI_Dataset_GER .
 covid19:2856080721094645 covid19:country world:Germany .
 covid19:2856080721094645 covid19:date '2020-03-05T00:00:00.000Z'.
 covid19:2856080721094645 covid19:confirmed '402'.
 covid19:2856080721094645 covid19:deaths '7'.
 covid19:2856080721094645 covid19:recovered '395'.
 
-covid19:2386800227472509 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2386800227472509 rdf:type covid19:RKI_Dataset_GER .
 covid19:2386800227472509 covid19:country world:Germany .
 covid19:2386800227472509 covid19:date '2020-03-22T00:00:00.000Z'.
 covid19:2386800227472509 covid19:confirmed '3186'.
 covid19:2386800227472509 covid19:deaths '93'.
 covid19:2386800227472509 covid19:recovered '3089'.
 
-covid19:1038490000697546 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1038490000697546 rdf:type covid19:RKI_Dataset_GER .
 covid19:1038490000697546 covid19:country world:Germany .
 covid19:1038490000697546 covid19:date '2020-02-18T00:00:00.000Z'.
 covid19:1038490000697546 covid19:confirmed '7'.
 covid19:1038490000697546 covid19:deaths '0'.
 covid19:1038490000697546 covid19:recovered '7'.
 
-covid19:5234125925619668 rdf:type covid19:RKI_Dataset_CUM .
+covid19:5234125925619668 rdf:type covid19:RKI_Dataset_GER .
 covid19:5234125925619668 covid19:country world:Germany .
 covid19:5234125925619668 covid19:date '2020-03-24T00:00:00.000Z'.
 covid19:5234125925619668 covid19:confirmed '4056'.
 covid19:5234125925619668 covid19:deaths '180'.
 covid19:5234125925619668 covid19:recovered '3865'.
 
-covid19:3127487608601846 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3127487608601846 rdf:type covid19:RKI_Dataset_GER .
 covid19:3127487608601846 covid19:country world:Germany .
 covid19:3127487608601846 covid19:date '2020-02-22T00:00:00.000Z'.
 covid19:3127487608601846 covid19:confirmed '27'.
 covid19:3127487608601846 covid19:deaths '0'.
 covid19:3127487608601846 covid19:recovered '27'.
 
-covid19:5145881227105685 rdf:type covid19:RKI_Dataset_CUM .
+covid19:5145881227105685 rdf:type covid19:RKI_Dataset_GER .
 covid19:5145881227105685 covid19:country world:Germany .
 covid19:5145881227105685 covid19:date '2020-02-09T00:00:00.000Z'.
 covid19:5145881227105685 covid19:confirmed '2'.
 covid19:5145881227105685 covid19:deaths '0'.
 covid19:5145881227105685 covid19:recovered '2'.
 
-covid19:3186365130771744 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3186365130771744 rdf:type covid19:RKI_Dataset_GER .
 covid19:3186365130771744 covid19:country world:Germany .
 covid19:3186365130771744 covid19:date '2020-01-24T00:00:00.000Z'.
 covid19:3186365130771744 covid19:confirmed '1'.
 covid19:3186365130771744 covid19:deaths '0'.
 covid19:3186365130771744 covid19:recovered '1'.
 
-covid19:2268902550800691 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2268902550800691 rdf:type covid19:RKI_Dataset_GER .
 covid19:2268902550800691 covid19:country world:Germany .
 covid19:2268902550800691 covid19:date '2020-03-09T00:00:00.000Z'.
 covid19:2268902550800691 covid19:confirmed '1551'.
 covid19:2268902550800691 covid19:deaths '18'.
 covid19:2268902550800691 covid19:recovered '1533'.
 
-covid19:1817477884830341 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1817477884830341 rdf:type covid19:RKI_Dataset_GER .
 covid19:1817477884830341 covid19:country world:Germany .
 covid19:1817477884830341 covid19:date '2020-04-09T00:00:00.000Z'.
 covid19:1817477884830341 covid19:confirmed '3430'.
 covid19:1817477884830341 covid19:deaths '144'.
 covid19:1817477884830341 covid19:recovered '2053'.
 
-covid19:3240238777896077 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3240238777896077 rdf:type covid19:RKI_Dataset_GER .
 covid19:3240238777896077 covid19:country world:Germany .
 covid19:3240238777896077 covid19:date '2020-02-27T00:00:00.000Z'.
 covid19:3240238777896077 covid19:confirmed '156'.
 covid19:3240238777896077 covid19:deaths '2'.
 covid19:3240238777896077 covid19:recovered '154'.
 
-covid19:2531802431038138 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2531802431038138 rdf:type covid19:RKI_Dataset_GER .
 covid19:2531802431038138 covid19:country world:Germany .
 covid19:2531802431038138 covid19:date '2020-02-11T00:00:00.000Z'.
 covid19:2531802431038138 covid19:confirmed '3'.
 covid19:2531802431038138 covid19:deaths '0'.
 covid19:2531802431038138 covid19:recovered '3'.
 
-covid19:1070158120905243 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1070158120905243 rdf:type covid19:RKI_Dataset_GER .
 covid19:1070158120905243 covid19:country world:Germany .
 covid19:1070158120905243 covid19:date '2020-03-18T00:00:00.000Z'.
 covid19:1070158120905243 covid19:confirmed '4929'.
 covid19:1070158120905243 covid19:deaths '118'.
 covid19:1070158120905243 covid19:recovered '4805'.
 
-covid19:1870969937630721 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1870969937630721 rdf:type covid19:RKI_Dataset_GER .
 covid19:1870969937630721 covid19:country world:Germany .
 covid19:1870969937630721 covid19:date '2020-04-11T00:00:00.000Z'.
 covid19:1870969937630721 covid19:confirmed '2371'.
 covid19:1870969937630721 covid19:deaths '81'.
 covid19:1870969937630721 covid19:recovered '18'.
 
-covid19:6914395840490874 rdf:type covid19:RKI_Dataset_CUM .
+covid19:6914395840490874 rdf:type covid19:RKI_Dataset_GER .
 covid19:6914395840490874 covid19:country world:Germany .
 covid19:6914395840490874 covid19:date '2020-03-29T00:00:00.000Z'.
 covid19:6914395840490874 covid19:confirmed '3002'.
 covid19:6914395840490874 covid19:deaths '134'.
 covid19:6914395840490874 covid19:recovered '1857'.
 
-covid19:3135683464751186 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3135683464751186 rdf:type covid19:RKI_Dataset_GER .
 covid19:3135683464751186 covid19:country world:Germany .
 covid19:3135683464751186 covid19:date '2020-04-05T00:00:00.000Z'.
 covid19:3135683464751186 covid19:confirmed '2545'.
 covid19:3135683464751186 covid19:deaths '128'.
 covid19:3135683464751186 covid19:recovered '1585'.
 
-covid19:7719482144704614 rdf:type covid19:RKI_Dataset_CUM .
+covid19:7719482144704614 rdf:type covid19:RKI_Dataset_GER .
 covid19:7719482144704614 covid19:country world:Germany .
 covid19:7719482144704614 covid19:date '2020-04-21T00:00:00.000Z'.
 covid19:7719482144704614 covid19:confirmed '1173'.
 covid19:7719482144704614 covid19:deaths '15'.
 covid19:7719482144704614 covid19:recovered '0'.
 
-covid19:2880812471784364 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2880812471784364 rdf:type covid19:RKI_Dataset_GER .
 covid19:2880812471784364 covid19:country world:Germany .
 covid19:2880812471784364 covid19:date '2020-03-27T00:00:00.000Z'.
 covid19:2880812471784364 covid19:confirmed '4580'.
 covid19:2880812471784364 covid19:deaths '194'.
 covid19:2880812471784364 covid19:recovered '4371'.
 
-covid19:1328243594917723 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1328243594917723 rdf:type covid19:RKI_Dataset_GER .
 covid19:1328243594917723 covid19:country world:Germany .
 covid19:1328243594917723 covid19:date '2020-04-16T00:00:00.000Z'.
 covid19:1328243594917723 covid19:confirmed '2083'.
 covid19:1328243594917723 covid19:deaths '47'.
 covid19:1328243594917723 covid19:recovered '7'.
 
-covid19:8869151155271782 rdf:type covid19:RKI_Dataset_CUM .
+covid19:8869151155271782 rdf:type covid19:RKI_Dataset_GER .
 covid19:8869151155271782 covid19:country world:Germany .
 covid19:8869151155271782 covid19:date '2020-01-25T00:00:00.000Z'.
 covid19:8869151155271782 covid19:confirmed '1'.
 covid19:8869151155271782 covid19:deaths '0'.
 covid19:8869151155271782 covid19:recovered '1'.
 
-covid19:2425010062732928 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2425010062732928 rdf:type covid19:RKI_Dataset_GER .
 covid19:2425010062732928 covid19:country world:Germany .
 covid19:2425010062732928 covid19:date '2020-04-06T00:00:00.000Z'.
 covid19:2425010062732928 covid19:confirmed '3471'.
 covid19:2425010062732928 covid19:deaths '186'.
 covid19:2425010062732928 covid19:recovered '2046'.
 
-covid19:1510221110635835 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1510221110635835 rdf:type covid19:RKI_Dataset_GER .
 covid19:1510221110635835 covid19:country world:Germany .
 covid19:1510221110635835 covid19:date '2020-02-14T00:00:00.000Z'.
 covid19:1510221110635835 covid19:confirmed '7'.
 covid19:1510221110635835 covid19:deaths '1'.
 covid19:1510221110635835 covid19:recovered '6'.
 
-covid19:1878005284114512 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1878005284114512 rdf:type covid19:RKI_Dataset_GER .
 covid19:1878005284114512 covid19:country world:Germany .
 covid19:1878005284114512 covid19:date '2020-03-01T00:00:00.000Z'.
 covid19:1878005284114512 covid19:confirmed '200'.
 covid19:1878005284114512 covid19:deaths '4'.
 covid19:1878005284114512 covid19:recovered '196'.
 
-covid19:1032109967340747 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1032109967340747 rdf:type covid19:RKI_Dataset_GER .
 covid19:1032109967340747 covid19:country world:Germany .
 covid19:1032109967340747 covid19:date '2020-02-16T00:00:00.000Z'.
 covid19:1032109967340747 covid19:confirmed '8'.
 covid19:1032109967340747 covid19:deaths '0'.
 covid19:1032109967340747 covid19:recovered '8'.
 
-covid19:1653920864034551 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1653920864034551 rdf:type covid19:RKI_Dataset_GER .
 covid19:1653920864034551 covid19:country world:Germany .
 covid19:1653920864034551 covid19:date '2020-03-26T00:00:00.000Z'.
 covid19:1653920864034551 covid19:confirmed '4240'.
 covid19:1653920864034551 covid19:deaths '186'.
 covid19:1653920864034551 covid19:recovered '4044'.
 
-covid19:3000692606189425 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3000692606189425 rdf:type covid19:RKI_Dataset_GER .
 covid19:3000692606189425 covid19:country world:Germany .
 covid19:3000692606189425 covid19:date '2020-02-13T00:00:00.000Z'.
 covid19:3000692606189425 covid19:confirmed '5'.
 covid19:3000692606189425 covid19:deaths '0'.
 covid19:3000692606189425 covid19:recovered '5'.
 
-covid19:3106058028438444 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3106058028438444 rdf:type covid19:RKI_Dataset_GER .
 covid19:3106058028438444 covid19:country world:Germany .
 covid19:3106058028438444 covid19:date '2020-02-15T00:00:00.000Z'.
 covid19:3106058028438444 covid19:confirmed '10'.
 covid19:3106058028438444 covid19:deaths '0'.
 covid19:3106058028438444 covid19:recovered '10'.
 
-covid19:1163502417132190 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1163502417132190 rdf:type covid19:RKI_Dataset_GER .
 covid19:1163502417132190 covid19:country world:Germany .
 covid19:1163502417132190 covid19:date '2020-03-14T00:00:00.000Z'.
 covid19:1163502417132190 covid19:confirmed '3622'.
 covid19:1163502417132190 covid19:deaths '51'.
 covid19:1163502417132190 covid19:recovered '3568'.
 
-covid19:1872758857810810 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1872758857810810 rdf:type covid19:RKI_Dataset_GER .
 covid19:1872758857810810 covid19:country world:Germany .
 covid19:1872758857810810 covid19:date '2020-02-28T00:00:00.000Z'.
 covid19:1872758857810810 covid19:confirmed '207'.
 covid19:1872758857810810 covid19:deaths '3'.
 covid19:1872758857810810 covid19:recovered '204'.
 
-covid19:2497751493112034 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2497751493112034 rdf:type covid19:RKI_Dataset_GER .
 covid19:2497751493112034 covid19:country world:Germany .
 covid19:2497751493112034 covid19:date '2020-04-22T00:00:00.000Z'.
 covid19:2497751493112034 covid19:confirmed '1321'.
 covid19:2497751493112034 covid19:deaths '13'.
 covid19:2497751493112034 covid19:recovered '-3'.
 
-covid19:4919733010560870 rdf:type covid19:RKI_Dataset_CUM .
+covid19:4919733010560870 rdf:type covid19:RKI_Dataset_GER .
 covid19:4919733010560870 covid19:country world:Germany .
 covid19:4919733010560870 covid19:date '2020-01-20T00:00:00.000Z'.
 covid19:4919733010560870 covid19:confirmed '1'.
 covid19:4919733010560870 covid19:deaths '0'.
 covid19:4919733010560870 covid19:recovered '1'.
 
-covid19:1543718759102661 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1543718759102661 rdf:type covid19:RKI_Dataset_GER .
 covid19:1543718759102661 covid19:country world:Germany .
 covid19:1543718759102661 covid19:date '2020-04-17T00:00:00.000Z'.
 covid19:1543718759102661 covid19:confirmed '2033'.
 covid19:1543718759102661 covid19:deaths '46'.
 covid19:1543718759102661 covid19:recovered '6'.
 
-covid19:3674795278409408 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3674795278409408 rdf:type covid19:RKI_Dataset_GER .
 covid19:3674795278409408 covid19:country world:Germany .
 covid19:3674795278409408 covid19:date '2020-02-03T00:00:00.000Z'.
 covid19:3674795278409408 covid19:confirmed '4'.
 covid19:3674795278409408 covid19:deaths '1'.
 covid19:3674795278409408 covid19:recovered '3'.
 
-covid19:1857003582027239 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1857003582027239 rdf:type covid19:RKI_Dataset_GER .
 covid19:1857003582027239 covid19:country world:Germany .
 covid19:1857003582027239 covid19:date '2020-03-25T00:00:00.000Z'.
 covid19:1857003582027239 covid19:confirmed '4521'.
 covid19:1857003582027239 covid19:deaths '208'.
 covid19:1857003582027239 covid19:recovered '4301'.
 
-covid19:1429345013468936 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1429345013468936 rdf:type covid19:RKI_Dataset_GER .
 covid19:1429345013468936 covid19:country world:Germany .
 covid19:1429345013468936 covid19:date '2020-03-23T00:00:00.000Z'.
 covid19:1429345013468936 covid19:confirmed '4685'.
 covid19:1429345013468936 covid19:deaths '207'.
 covid19:1429345013468936 covid19:recovered '4465'.
 
-covid19:1745564081498293 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1745564081498293 rdf:type covid19:RKI_Dataset_GER .
 covid19:1745564081498293 covid19:country world:Germany .
 covid19:1745564081498293 covid19:date '2020-03-04T00:00:00.000Z'.
 covid19:1745564081498293 covid19:confirmed '386'.
 covid19:1745564081498293 covid19:deaths '10'.
 covid19:1745564081498293 covid19:recovered '376'.
 
-covid19:1411153685579319 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1411153685579319 rdf:type covid19:RKI_Dataset_GER .
 covid19:1411153685579319 covid19:country world:Germany .
 covid19:1411153685579319 covid19:date '2020-04-13T00:00:00.000Z'.
 covid19:1411153685579319 covid19:confirmed '1646'.
 covid19:1411153685579319 covid19:deaths '73'.
 covid19:1411153685579319 covid19:recovered '14'.
 
-covid19:1667991148205166 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1667991148205166 rdf:type covid19:RKI_Dataset_GER .
 covid19:1667991148205166 covid19:country world:Germany .
 covid19:1667991148205166 covid19:date '2020-01-27T00:00:00.000Z'.
 covid19:1667991148205166 covid19:confirmed '2'.
 covid19:1667991148205166 covid19:deaths '0'.
 covid19:1667991148205166 covid19:recovered '2'.
 
-covid19:5095563515021225 rdf:type covid19:RKI_Dataset_CUM .
+covid19:5095563515021225 rdf:type covid19:RKI_Dataset_GER .
 covid19:5095563515021225 covid19:country world:Germany .
 covid19:5095563515021225 covid19:date '2020-01-28T00:00:00.000Z'.
 covid19:5095563515021225 covid19:confirmed '1'.
 covid19:5095563515021225 covid19:deaths '0'.
 covid19:5095563515021225 covid19:recovered '1'.
 
-covid19:6182043252600363 rdf:type covid19:RKI_Dataset_CUM .
+covid19:6182043252600363 rdf:type covid19:RKI_Dataset_GER .
 covid19:6182043252600363 covid19:country world:Germany .
 covid19:6182043252600363 covid19:date '2020-04-02T00:00:00.000Z'.
 covid19:6182043252600363 covid19:confirmed '4572'.
 covid19:6182043252600363 covid19:deaths '248'.
 covid19:6182043252600363 covid19:recovered '2650'.
 
-covid19:3091801057807549 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3091801057807549 rdf:type covid19:RKI_Dataset_GER .
 covid19:3091801057807549 covid19:country world:Germany .
 covid19:3091801057807549 covid19:date '2020-01-30T00:00:00.000Z'.
 covid19:3091801057807549 covid19:confirmed '8'.
 covid19:3091801057807549 covid19:deaths '0'.
 covid19:3091801057807549 covid19:recovered '8'.
 
-covid19:1414208412541682 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1414208412541682 rdf:type covid19:RKI_Dataset_GER .
 covid19:1414208412541682 covid19:country world:Germany .
 covid19:1414208412541682 covid19:date '2020-03-16T00:00:00.000Z'.
 covid19:1414208412541682 covid19:confirmed '5011'.
 covid19:1414208412541682 covid19:deaths '101'.
 covid19:1414208412541682 covid19:recovered '4901'.
 
-covid19:7975476942275472 rdf:type covid19:RKI_Dataset_CUM .
+covid19:7975476942275472 rdf:type covid19:RKI_Dataset_GER .
 covid19:7975476942275472 covid19:country world:Germany .
 covid19:7975476942275472 covid19:date '2020-02-26T00:00:00.000Z'.
 covid19:7975476942275472 covid19:confirmed '142'.
 covid19:7975476942275472 covid19:deaths '3'.
 covid19:7975476942275472 covid19:recovered '139'.
 
-covid19:1768572756020115 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1768572756020115 rdf:type covid19:RKI_Dataset_GER .
 covid19:1768572756020115 covid19:country world:Germany .
 covid19:1768572756020115 covid19:date '2020-04-07T00:00:00.000Z'.
 covid19:1768572756020115 covid19:confirmed '3557'.
 covid19:1768572756020115 covid19:deaths '156'.
 covid19:1768572756020115 covid19:recovered '2104'.
 
-covid19:2677470205405326 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2677470205405326 rdf:type covid19:RKI_Dataset_GER .
 covid19:2677470205405326 covid19:country world:Germany .
 covid19:2677470205405326 covid19:date '2020-04-12T00:00:00.000Z'.
 covid19:2677470205405326 covid19:confirmed '1780'.
 covid19:2677470205405326 covid19:deaths '66'.
 covid19:2677470205405326 covid19:recovered '12'.
 
-covid19:5048424383859656 rdf:type covid19:RKI_Dataset_CUM .
+covid19:5048424383859656 rdf:type covid19:RKI_Dataset_GER .
 covid19:5048424383859656 covid19:country world:Germany .
 covid19:5048424383859656 covid19:date '2020-04-04T00:00:00.000Z'.
 covid19:5048424383859656 covid19:confirmed '3266'.
 covid19:5048424383859656 covid19:deaths '152'.
 covid19:5048424383859656 covid19:recovered '1957'.
 
-covid19:3763480357577096 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3763480357577096 rdf:type covid19:RKI_Dataset_GER .
 covid19:3763480357577096 covid19:country world:Germany .
 covid19:3763480357577096 covid19:date '2020-02-19T00:00:00.000Z'.
 covid19:3763480357577096 covid19:confirmed '10'.
 covid19:3763480357577096 covid19:deaths '1'.
 covid19:3763480357577096 covid19:recovered '9'.
 
-covid19:1660352245138463 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1660352245138463 rdf:type covid19:RKI_Dataset_GER .
 covid19:1660352245138463 covid19:country world:Germany .
 covid19:1660352245138463 covid19:date '2020-04-10T00:00:00.000Z'.
 covid19:1660352245138463 covid19:confirmed '2489'.
 covid19:1660352245138463 covid19:deaths '109'.
 covid19:1660352245138463 covid19:recovered '1501'.
 
-covid19:2533465995270589 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2533465995270589 rdf:type covid19:RKI_Dataset_GER .
 covid19:2533465995270589 covid19:country world:Germany .
 covid19:2533465995270589 covid19:date '2020-02-12T00:00:00.000Z'.
 covid19:2533465995270589 covid19:confirmed '9'.
 covid19:2533465995270589 covid19:deaths '0'.
 covid19:2533465995270589 covid19:recovered '9'.
 
-covid19:1629802772950729 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1629802772950729 rdf:type covid19:RKI_Dataset_GER .
 covid19:1629802772950729 covid19:country world:Germany .
 covid19:1629802772950729 covid19:date '2020-02-02T00:00:00.000Z'.
 covid19:1629802772950729 covid19:confirmed '5'.
 covid19:1629802772950729 covid19:deaths '0'.
 covid19:1629802772950729 covid19:recovered '5'.
 
-covid19:2980793760944616 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2980793760944616 rdf:type covid19:RKI_Dataset_GER .
 covid19:2980793760944616 covid19:country world:Germany .
 covid19:2980793760944616 covid19:date '2020-04-18T00:00:00.000Z'.
 covid19:2980793760944616 covid19:confirmed '1352'.
 covid19:2980793760944616 covid19:deaths '17'.
 covid19:2980793760944616 covid19:recovered '0'.
 
-covid19:3167595310616933 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3167595310616933 rdf:type covid19:RKI_Dataset_GER .
 covid19:3167595310616933 covid19:country world:Germany .
 covid19:3167595310616933 covid19:date '2020-04-19T00:00:00.000Z'.
 covid19:3167595310616933 covid19:confirmed '972'.
 covid19:3167595310616933 covid19:deaths '16'.
 covid19:3167595310616933 covid19:recovered '0'.
 
-covid19:1276594986271259 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1276594986271259 rdf:type covid19:RKI_Dataset_GER .
 covid19:1276594986271259 covid19:country world:Germany .
 covid19:1276594986271259 covid19:date '2020-03-20T00:00:00.000Z'.
 covid19:1276594986271259 covid19:confirmed '5049'.
 covid19:1276594986271259 covid19:deaths '153'.
 covid19:1276594986271259 covid19:recovered '4889'.
 
-covid19:9421762932610607 rdf:type covid19:RKI_Dataset_CUM .
+covid19:9421762932610607 rdf:type covid19:RKI_Dataset_GER .
 covid19:9421762932610607 covid19:country world:Germany .
 covid19:9421762932610607 covid19:date '2020-03-30T00:00:00.000Z'.
 covid19:9421762932610607 covid19:confirmed '4162'.
 covid19:9421762932610607 covid19:deaths '237'.
 covid19:9421762932610607 covid19:recovered '2577'.
 
-covid19:8676151855987077 rdf:type covid19:RKI_Dataset_CUM .
+covid19:8676151855987077 rdf:type covid19:RKI_Dataset_GER .
 covid19:8676151855987077 covid19:country world:Germany .
 covid19:8676151855987077 covid19:date '2020-02-25T00:00:00.000Z'.
 covid19:8676151855987077 covid19:confirmed '102'.
 covid19:8676151855987077 covid19:deaths '1'.
 covid19:8676151855987077 covid19:recovered '101'.
 
-covid19:1825222036021412 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1825222036021412 rdf:type covid19:RKI_Dataset_GER .
 covid19:1825222036021412 covid19:country world:Germany .
 covid19:1825222036021412 covid19:date '2020-02-07T00:00:00.000Z'.
 covid19:1825222036021412 covid19:confirmed '2'.
 covid19:1825222036021412 covid19:deaths '0'.
 covid19:1825222036021412 covid19:recovered '2'.
 
-covid19:3804276915775518 rdf:type covid19:RKI_Dataset_CUM .
+covid19:3804276915775518 rdf:type covid19:RKI_Dataset_GER .
 covid19:3804276915775518 covid19:country world:Germany .
 covid19:3804276915775518 covid19:date '2020-03-12T00:00:00.000Z'.
 covid19:3804276915775518 covid19:confirmed '2818'.
 covid19:3804276915775518 covid19:deaths '51'.
 covid19:3804276915775518 covid19:recovered '2767'.
 
-covid19:2684698154448759 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2684698154448759 rdf:type covid19:RKI_Dataset_GER .
 covid19:2684698154448759 covid19:country world:Germany .
 covid19:2684698154448759 covid19:date '2020-02-05T00:00:00.000Z'.
 covid19:2684698154448759 covid19:confirmed '1'.
 covid19:2684698154448759 covid19:deaths '0'.
 covid19:2684698154448759 covid19:recovered '1'.
 
-covid19:2599866220431186 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2599866220431186 rdf:type covid19:RKI_Dataset_GER .
 covid19:2599866220431186 covid19:country world:Germany .
 covid19:2599866220431186 covid19:date '2020-01-06T00:00:00.000Z'.
 covid19:2599866220431186 covid19:confirmed '1'.
 covid19:2599866220431186 covid19:deaths '0'.
 covid19:2599866220431186 covid19:recovered '1'.
 
-covid19:1294851251440807 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1294851251440807 rdf:type covid19:RKI_Dataset_GER .
 covid19:1294851251440807 covid19:country world:Germany .
 covid19:1294851251440807 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:1294851251440807 covid19:confirmed '3613'.
 covid19:1294851251440807 covid19:deaths '78'.
 covid19:1294851251440807 covid19:recovered '3532'.
 
-covid19:8076870998639962 rdf:type covid19:RKI_Dataset_CUM .
+covid19:8076870998639962 rdf:type covid19:RKI_Dataset_GER .
 covid19:8076870998639962 covid19:country world:Germany .
 covid19:8076870998639962 covid19:date '2020-03-11T00:00:00.000Z'.
 covid19:8076870998639962 covid19:confirmed '2524'.
 covid19:8076870998639962 covid19:deaths '38'.
 covid19:8076870998639962 covid19:recovered '2486'.
 
-covid19:1590622549428416 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1590622549428416 rdf:type covid19:RKI_Dataset_GER .
 covid19:1590622549428416 covid19:country world:Germany .
 covid19:1590622549428416 covid19:date '2020-01-29T00:00:00.000Z'.
 covid19:1590622549428416 covid19:confirmed '1'.
 covid19:1590622549428416 covid19:deaths '0'.
 covid19:1590622549428416 covid19:recovered '1'.
 
-covid19:2610896843521071 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2610896843521071 rdf:type covid19:RKI_Dataset_GER .
 covid19:2610896843521071 covid19:country world:Germany .
 covid19:2610896843521071 covid19:date '2020-02-06T00:00:00.000Z'.
 covid19:2610896843521071 covid19:confirmed '2'.
 covid19:2610896843521071 covid19:deaths '0'.
 covid19:2610896843521071 covid19:recovered '2'.
 
-covid19:1032800976462202 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1032800976462202 rdf:type covid19:RKI_Dataset_GER .
 covid19:1032800976462202 covid19:country world:Germany .
 covid19:1032800976462202 covid19:date '2020-01-01T00:00:00.000Z'.
 covid19:1032800976462202 covid19:confirmed '2'.
 covid19:1032800976462202 covid19:deaths '0'.
 covid19:1032800976462202 covid19:recovered '2'.
 
-covid19:2489685124186838 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2489685124186838 rdf:type covid19:RKI_Dataset_GER .
 covid19:2489685124186838 covid19:country world:Germany .
 covid19:2489685124186838 covid19:date '2020-03-19T00:00:00.000Z'.
 covid19:2489685124186838 covid19:confirmed '4472'.
 covid19:2489685124186838 covid19:deaths '97'.
 covid19:2489685124186838 covid19:recovered '4370'.
 
-covid19:1463530510104380 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1463530510104380 rdf:type covid19:RKI_Dataset_GER .
 covid19:1463530510104380 covid19:country world:Germany .
 covid19:1463530510104380 covid19:date '2020-01-31T00:00:00.000Z'.
 covid19:1463530510104380 covid19:confirmed '15'.
 covid19:1463530510104380 covid19:deaths '0'.
 covid19:1463530510104380 covid19:recovered '15'.
 
-covid19:1039051491749887 rdf:type covid19:RKI_Dataset_CUM .
+covid19:1039051491749887 rdf:type covid19:RKI_Dataset_GER .
 covid19:1039051491749887 covid19:country world:Germany .
 covid19:1039051491749887 covid19:date '2020-03-17T00:00:00.000Z'.
 covid19:1039051491749887 covid19:confirmed '4706'.
 covid19:1039051491749887 covid19:deaths '110'.
 covid19:1039051491749887 covid19:recovered '4591'.
 
-covid19:2767307808580100 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2767307808580100 rdf:type covid19:RKI_Dataset_GER .
 covid19:2767307808580100 covid19:country world:Germany .
 covid19:2767307808580100 covid19:date '2020-04-14T00:00:00.000Z'.
 covid19:2767307808580100 covid19:confirmed '1947'.
 covid19:2767307808580100 covid19:deaths '74'.
 covid19:2767307808580100 covid19:recovered '9'.
 
-covid19:7251516134982940 rdf:type covid19:RKI_Dataset_CUM .
+covid19:7251516134982940 rdf:type covid19:RKI_Dataset_GER .
 covid19:7251516134982940 covid19:country world:Germany .
 covid19:7251516134982940 covid19:date '2020-02-24T00:00:00.000Z'.
 covid19:7251516134982940 covid19:confirmed '65'.
 covid19:7251516134982940 covid19:deaths '1'.
 covid19:7251516134982940 covid19:recovered '64'.
 
-covid19:2209555655567891 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2209555655567891 rdf:type covid19:RKI_Dataset_GER .
 covid19:2209555655567891 covid19:country world:Germany .
 covid19:2209555655567891 covid19:date '2020-03-06T00:00:00.000Z'.
 covid19:2209555655567891 covid19:confirmed '619'.
 covid19:2209555655567891 covid19:deaths '12'.
 covid19:2209555655567891 covid19:recovered '607'.
 
-covid19:5816986032787387 rdf:type covid19:RKI_Dataset_CUM .
+covid19:5816986032787387 rdf:type covid19:RKI_Dataset_GER .
 covid19:5816986032787387 covid19:country world:Germany .
 covid19:5816986032787387 covid19:date '2020-03-02T00:00:00.000Z'.
 covid19:5816986032787387 covid19:confirmed '274'.
 covid19:5816986032787387 covid19:deaths '7'.
 covid19:5816986032787387 covid19:recovered '267'.
 
-covid19:2564634736220971 rdf:type covid19:RKI_Dataset_CUM .
+covid19:2564634736220971 rdf:type covid19:RKI_Dataset_GER .
 covid19:2564634736220971 covid19:country world:Germany .
 covid19:2564634736220971 covid19:date '2020-03-10T00:00:00.000Z'.
 covid19:2564634736220971 covid19:confirmed '2006'.
 covid19:2564634736220971 covid19:deaths '28'.
 covid19:2564634736220971 covid19:recovered '1976'.
 
-covid19:9209327183807445 rdf:type covid19:RKI_Dataset_CUM .
+covid19:9209327183807445 rdf:type covid19:RKI_Dataset_GER .
 covid19:9209327183807445 covid19:country world:Germany .
 covid19:9209327183807445 covid19:date '2020-03-08T00:00:00.000Z'.
 covid19:9209327183807445 covid19:confirmed '985'.
