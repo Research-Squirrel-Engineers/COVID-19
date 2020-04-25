@@ -426,9 +426,9 @@ file.write("covid19:COVID19_DataRKI3 dc:type 'ontology' .\r\n")
 file.write("covid19:COVID19_DataRKI3 dc:title 'COVID-19 data by RKI' .\r\n")
 file.write("covid19:COVID19_DataRKI3 dc:subject 'COVID-19' .\r\n")
 file.write("covid19:COVID19_DataRKI3 dc:rights 'CC BY 4.0' .\r\n\r\n")
-i = 1500000
+i = 1000000
 for i, line in enumerate (lines2):
-    if (i>1500000 and i<2000000):
+    if (i>1000000 and i<1500000):
         file.write(line)
         file.write("\r\n")
 file.close()
@@ -450,9 +450,9 @@ file.write("covid19:COVID19_DataRKI4 dc:type 'ontology' .\r\n")
 file.write("covid19:COVID19_DataRKI4 dc:title 'COVID-19 data by RKI' .\r\n")
 file.write("covid19:COVID19_DataRKI4 dc:subject 'COVID-19' .\r\n")
 file.write("covid19:COVID19_DataRKI4 dc:rights 'CC BY 4.0' .\r\n\r\n")
-i = 2000000
+i = 1500000
 for i, line in enumerate (lines2):
-    if (i>2000000 and i<2500000):
+    if (i>1500000 and i<2000000):
         file.write(line)
         file.write("\r\n")
 file.close()
@@ -474,9 +474,9 @@ file.write("covid19:COVID19_DataRKI5 dc:type 'ontology' .\r\n")
 file.write("covid19:COVID19_DataRKI5 dc:title 'COVID-19 data by RKI' .\r\n")
 file.write("covid19:COVID19_DataRKI5 dc:subject 'COVID-19' .\r\n")
 file.write("covid19:COVID19_DataRKI5 dc:rights 'CC BY 4.0' .\r\n\r\n")
-i = 2500000
+i = 2000000
 for i, line in enumerate (lines2):
-    if (i>2500000 and i<3000000):
+    if (i>2000000 and i<2500000):
         file.write(line)
         file.write("\r\n")
 file.close()
