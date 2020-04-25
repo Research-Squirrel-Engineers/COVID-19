@@ -155,7 +155,7 @@
         let GEOMQUERY2 =
             "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT DISTINCT ?wd WHERE { ?item a covid19:RKI_Dataset. ?item covid19:bundesland ?bl. ?bl owl:sameAs ?wd. }";
         let RKIALL =
-            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:RKI_Dataset_CUM. ?item covid19:date ?date. OPTIONAL {?item covid19:confirmed ?c.} OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} } ORDER BY ASC(?date)";
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?d ?r WHERE { ?item a covid19:RKI_Dataset_GER. ?item covid19:date ?date. OPTIONAL {?item covid19:confirmed ?c.} OPTIONAL {?item covid19:deaths ?d.} OPTIONAL {?item covid19:recovered ?r.} } ORDER BY ASC(?date)";
 
         function onlyUnique(value, index, self) {
             return self.indexOf(value) === index;
