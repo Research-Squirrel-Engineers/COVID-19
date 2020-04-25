@@ -1,5 +1,5 @@
 # create triples from RKI
-# on 2020-04-24 19:56
+# on 2020-04-25 14:09
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX owl: <http://www.w3.org/2002/07/owl#> 
@@ -12,7 +12,7 @@ PREFIX world: <http://world.squirrel.link/ontology#>
 covid19:COVID19_DataRKIFSCUM rdf:type rdfs:Resource .
 covid19:COVID19_DataRKIFSCUM rdf:type covid19:Dataset .
 covid19:COVID19_DataRKIFSCUM dc:created '2020-04-24T17:17:21.386+0100' .
-covid19:COVID19_DataRKIFSCUM dc:modified '2020-04-24T19:56:43.000+0100' .
+covid19:COVID19_DataRKIFSCUM dc:modified '2020-04-25T14:09:25.000+0100' .
 covid19:COVID19_DataRKIFSCUM dc:creator 'Florian Thiery' .
 covid19:COVID19_DataRKIFSCUM dc:contributor 'Timo Homburg' .
 covid19:COVID19_DataRKIFSCUM dc:language 'en' .
