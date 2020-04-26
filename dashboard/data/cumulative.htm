@@ -170,11 +170,13 @@
         let confirmed = [];
         let recovered = [];
         let deaths = [];
+        let active = [];
         let transformDataJHU = (bindings) => {
             console.log(bindings);
             confirmed = [];
             recovered = [];
             deaths = [];
+            active = [];
             geom = "";
             for (var i in bindings) {
                 //console.log(bindings[i]['date'], bindings[i]['c']);
@@ -190,9 +192,14 @@
                 tmpArrR.push(new Date(bindings[i]['date']).getTime());
                 tmpArrR.push(parseInt(bindings[i]['r']));
                 recovered.push(tmpArrR);
+                let tmpArrA = [];
+                tmpArrA.push(new Date(bindings[i]['date']).getTime());
+                a = parseInt(bindings[i]['c']) - parseInt(bindings[i]['r']) - parseInt(bindings[i]['d']);
+                tmpArrA.push(parseInt(a));
+                active.push(tmpArrA);
                 geom = bindings[i]['wkt_geom'].replace("<http://www.opengis.net/def/crs/EPSG/0/4326> ", "").replace("^^<http://www.opengis.net/ont/geosparql#wktLiteral>", "");
             }
-            createChart1(confirmed, deaths, recovered, "containerJHU", 'JHU Data');
+            createChart1(confirmed, deaths, recovered, active, "containerJHU", 'JHU Data');
             createMap1(geom);
         };
         let transformDataECDC = (bindings) => {
@@ -218,7 +225,7 @@
                 recovered = [];
                 //geom = bindings[i]['wkt_geom'].replace("<http://www.opengis.net/def/crs/EPSG/0/4326> ", "").replace("^^<http://www.opengis.net/ont/geosparql#wktLiteral>", "");
             }
-            createChart1(confirmed, deaths, recovered, "containerECDC", 'ECDC Data');
+            createChart1(confirmed, deaths, recovered, [], "containerECDC", 'ECDC Data');
         };
         $("#inp-country").change(function() {
             JHU = JHU.replace("#COUNTRY#", $("#inp-country").val());
@@ -238,7 +245,7 @@
             ECDC = ECDC_INIT;
         }).trigger("change");
         // highcharts
-        let createChart1 = (confirmed, deaths, recovered, container, title) => {
+        let createChart1 = (confirmed, deaths, recovered, active, container, title) => {
             let subtitletext = $("#inp-country option:selected").text();
             Highcharts.chart(container, {
                 chart: {
@@ -278,7 +285,7 @@
                         }
                     }
                 },
-                colors: ['#6495ed', '#abf737', '#d80000'],
+                colors: ['#6495ed', '#abf737', '#d80000', '#eeeeee'],
                 series: [{
                     name: "confirmed",
                     data: confirmed
@@ -288,6 +295,9 @@
                 }, {
                     name: "deaths",
                     data: deaths
+                }, {
+                    name: "active",
+                    data: active
                 }],
                 responsive: {
                     rules: [{
