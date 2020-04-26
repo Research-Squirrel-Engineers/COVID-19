@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<data>
+<file class="https://www.wikidata.org/wiki/Q3624078" 
+indid="name" namespace="http://world.squirrel.link/ontology#" attnamespace="http://world.squirrel.link/ontology#" epsg="4326" interlinkItem="true" nometadata="true" attachepsg="true">
+    
+    <classmapping class="http://world.squirrel.link/ontology#Country"/>
+
+	<column name="name_long" prop="annotation" propiri="http://www.w3.org/2000/01/rdf-schema#label" range="http://www.w3.org/2001/XMLSchema#string"/> 
+    
+    <column name="name" prop="obj" propiri="http://www.w3.org/2002/07/owl#sameAs" concept="https://www.wikidata.org/wiki/Q3624078"
+	query="SELECT ?item WHERE { ?item wdt:P31 wd:Q3624078 . ?item ?label '%%name%%'@en. SERVICE wikibase:label { bd:serviceParam wikibase:language 'en'. }}" endpoint="http://query.wikidata.org/sparql"/> 
+	
+	<column name="adm0_a3" prop="data" range="http://www.w3.org/2001/XMLSchema#string"/> 
+
+	
+</file>
+</data>
