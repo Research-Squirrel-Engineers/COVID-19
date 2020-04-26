@@ -18,7 +18,8 @@ import hashlib
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 # py script into a "py" folder -> ttl into a "ttl" folder
-file_out = dir_path.replace("\\py","\\ttl") + "\\" + "covid19.ttl"
+file_out_jhu = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_jhu.ttl"
+file_out_ecdc = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_ecdc.ttl"
 file_out_rki1 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki1.ttl"
 file_out_rki2 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki2.ttl"
 file_out_rki3 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki3.ttl"
@@ -26,7 +27,8 @@ file_out_rki4 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki4.ttl"
 file_out_rki5 = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki5.ttl"
 file_out_rki_cum = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki_ger.ttl"
 file_out_rki_fs = dir_path.replace("\\py","\\ttl") + "\\" + "covid19_rki_fs.ttl"
-os.remove(file_out)
+os.remove(file_out_jhu)
+os.remove(file_out_ecdc)
 os.remove(file_out_rki1)
 os.remove(file_out_rki2)
 os.remove(file_out_rki3)
@@ -53,7 +55,8 @@ countriesJHU = []
 for item in dataJHU:
     countriesJHU.append(str(item))
 
-lines = []
+lines0 = []
+lines1 = []
 lines2 = []
 lines3 = []
 lines4 = []
@@ -70,15 +73,15 @@ for c in countriesJHU:
         UUID = str(int(m.hexdigest(), 16))[0:16]
         dstrArr = str(item['date']).split("-")
         dstr = str(dstrArr[0]).zfill(2) + "-" + str(dstrArr[1]).zfill(2) + "-" + str(dstrArr[2]).zfill(2) + "T00:00:00.000Z"
-        lines.append("covid19:" + UUID + " " + "rdf:type" + " covid19:JHU_Dataset .")
+        lines0.append("covid19:" + UUID + " " + "rdf:type" + " covid19:JHU_Dataset .")
         if cstring == "US":
             cstring = "United_States"
-        lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + cstring + " .")
-        lines.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + dstr + "'" + ".")
-        lines.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + str(item['confirmed']) + "'" + ".")
-        lines.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + str(item['deaths']) + "'" + ".")
-        lines.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'" + str(item['recovered']) + "'" + ".")
-        lines.append("")
+        lines0.append("covid19:" + UUID + " " + "covid19:country" + " world:" + cstring + " .")
+        lines0.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + dstr + "'" + ".")
+        lines0.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + str(item['confirmed']) + "'" + ".")
+        lines0.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + str(item['deaths']) + "'" + ".")
+        lines0.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'" + str(item['recovered']) + "'" + ".")
+        lines0.append("")
 print("datasetsJHU", int(i))
 
 for item in dataECDC:
@@ -92,14 +95,14 @@ for item in dataECDC:
     m = hashlib.md5()
     m.update(ccode + dstr + "ECDC")
     UUID = str(int(m.hexdigest(), 16))[0:16]
-    lines.append("covid19:" + UUID + " " + "rdf:type" + " covid19:ECDC_Dataset .")
+    lines1.append("covid19:" + UUID + " " + "rdf:type" + " covid19:ECDC_Dataset .")
     if cstr == "United_States_of_America":
         cstr = "United_States"
-    lines.append("covid19:" + UUID + " " + "covid19:country" + " world:" + cstr + " .")
-    lines.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + dstr + "'" + ".")
-    lines.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + castr + "'" + ".")
-    lines.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + destr + "'" + ".")
-    lines.append("")
+    lines1.append("covid19:" + UUID + " " + "covid19:country" + " world:" + cstr + " .")
+    lines1.append("covid19:" + UUID + " " + "covid19:date" + " " + "'" + dstr + "'" + ".")
+    lines1.append("covid19:" + UUID + " " + "covid19:confirmed" + " " + "'" + castr + "'" + ".")
+    lines1.append("covid19:" + UUID + " " + "covid19:deaths" + " " + "'" + destr + "'" + ".")
+    lines1.append("")
 
 for item in dataRKI:
     bundesland = str(item["properties"]["IdBundesland"])
@@ -340,8 +343,8 @@ for item in carr3:
         lines4.append("covid19:" + UUID + " " + "covid19:recovered" + " " + "'0'" + ".")
     lines4.append("")
 
-file = codecs.open(file_out, "w", "utf-8")
-file.write("# create triples from JHU and ECDC" + "\r\n")
+file = codecs.open(file_out_jhu, "w", "utf-8")
+file.write("# create triples from JHU" + "\r\n")
 file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
 prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dc: <http://purl.org/dc/elements/1.1/> \r\nPREFIX covid19: <http://covid19.squirrel.link/ontology#> \r\nPREFIX world: <http://world.squirrel.link/ontology#> \r\n\r\n";
 file.write(prefixes)
@@ -353,10 +356,32 @@ file.write("covid19:COVID19_Data dc:creator 'Florian Thiery' .\r\n")
 file.write("covid19:COVID19_Data dc:contributor 'Timo Homburg' .\r\n")
 file.write("covid19:COVID19_Data dc:language 'en' .\r\n")
 file.write("covid19:COVID19_Data dc:type 'ontology' .\r\n")
-file.write("covid19:COVID19_Data dc:title 'COVID-19 data by JHU and ECDC' .\r\n")
+file.write("covid19:COVID19_Data dc:title 'COVID-19 data by JHU' .\r\n")
 file.write("covid19:COVID19_Data dc:subject 'COVID-19' .\r\n")
 file.write("covid19:COVID19_Data dc:rights 'CC BY 4.0' .\r\n\r\n")
-for line in lines:
+for line in lines0:
+    file.write(line)
+    file.write("\r\n")
+file.close()
+print("success write covid19.ttl")
+
+file = codecs.open(file_out_ecdc, "w", "utf-8")
+file.write("# create triples from ECDC" + "\r\n")
+file.write("# on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\r\n\r\n")
+prefixes = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dc: <http://purl.org/dc/elements/1.1/> \r\nPREFIX covid19: <http://covid19.squirrel.link/ontology#> \r\nPREFIX world: <http://world.squirrel.link/ontology#> \r\n\r\n";
+file.write(prefixes)
+file.write("covid19:COVID19_Data rdf:type rdfs:Resource .\r\n")
+file.write("covid19:COVID19_Data rdf:type covid19:Dataset .\r\n")
+file.write("covid19:COVID19_Data dc:created '2020-04-05T10:53:21.259+0100' .\r\n")
+file.write("covid19:COVID19_Data dc:modified '" + datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000+0100") + "' .\r\n")
+file.write("covid19:COVID19_Data dc:creator 'Florian Thiery' .\r\n")
+file.write("covid19:COVID19_Data dc:contributor 'Timo Homburg' .\r\n")
+file.write("covid19:COVID19_Data dc:language 'en' .\r\n")
+file.write("covid19:COVID19_Data dc:type 'ontology' .\r\n")
+file.write("covid19:COVID19_Data dc:title 'COVID-19 data by ECDC' .\r\n")
+file.write("covid19:COVID19_Data dc:subject 'COVID-19' .\r\n")
+file.write("covid19:COVID19_Data dc:rights 'CC BY 4.0' .\r\n\r\n")
+for line in lines1:
     file.write(line)
     file.write("\r\n")
 file.close()
