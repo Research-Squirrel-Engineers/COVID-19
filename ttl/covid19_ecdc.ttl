@@ -1,5 +1,5 @@
 # create triples from ECDC
-# on 2020-04-26 11:20
+# on 2020-04-27 13:35
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX owl: <http://www.w3.org/2002/07/owl#> 
@@ -12,7 +12,7 @@ PREFIX world: <http://world.squirrel.link/ontology#>
 covid19:COVID19_DataECDC rdf:type rdfs:Resource .
 covid19:COVID19_DataECDC rdf:type covid19:Dataset .
 covid19:COVID19_DataECDC dc:created '2020-04-05T10:53:21.259+0100' .
-covid19:COVID19_DataECDC dc:modified '2020-04-26T11:20:04.000+0100' .
+covid19:COVID19_DataECDC dc:modified '2020-04-27T13:35:17.000+0100' .
 covid19:COVID19_DataECDC dc:creator 'Florian Thiery' .
 covid19:COVID19_DataECDC dc:contributor 'Timo Homburg' .
 covid19:COVID19_DataECDC dc:language 'en' .
@@ -20,6 +20,18 @@ covid19:COVID19_DataECDC dc:type 'ontology' .
 covid19:COVID19_DataECDC dc:title 'COVID-19 data by ECDC' .
 covid19:COVID19_DataECDC dc:subject 'COVID-19' .
 covid19:COVID19_DataECDC dc:rights 'CC BY 4.0' .
+
+covid19:3347670548827194 rdf:type covid19:ECDC_Dataset .
+covid19:3347670548827194 covid19:country world:Afghanistan .
+covid19:3347670548827194 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3347670548827194 covid19:confirmed '68'.
+covid19:3347670548827194 covid19:deaths '21'.
+
+covid19:1823051417590431 rdf:type covid19:ECDC_Dataset .
+covid19:1823051417590431 covid19:country world:Afghanistan .
+covid19:1823051417590431 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1823051417590431 covid19:confirmed '112'.
+covid19:1823051417590431 covid19:deaths '4'.
 
 covid19:1440926425634746 rdf:type covid19:ECDC_Dataset .
 covid19:1440926425634746 covid19:country world:Afghanistan .
@@ -663,11 +675,23 @@ covid19:1941115977523181 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1941115977523181 covid19:confirmed '0'.
 covid19:1941115977523181 covid19:deaths '0'.
 
+covid19:1991830306223881 rdf:type covid19:ECDC_Dataset .
+covid19:1991830306223881 covid19:country world:Albania .
+covid19:1991830306223881 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1991830306223881 covid19:confirmed '14'.
+covid19:1991830306223881 covid19:deaths '1'.
+
+covid19:1864316578082428 rdf:type covid19:ECDC_Dataset .
+covid19:1864316578082428 covid19:country world:Albania .
+covid19:1864316578082428 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1864316578082428 covid19:confirmed '34'.
+covid19:1864316578082428 covid19:deaths '0'.
+
 covid19:1757898473236996 rdf:type covid19:ECDC_Dataset .
 covid19:1757898473236996 covid19:country world:Albania .
 covid19:1757898473236996 covid19:date '2020-04-25T00:00:00.000Z'.
 covid19:1757898473236996 covid19:confirmed '15'.
-covid19:1757898473236996 covid19:deaths '1'.
+covid19:1757898473236996 covid19:deaths '0'.
 
 covid19:3220897917995415 rdf:type covid19:ECDC_Dataset .
 covid19:3220897917995415 covid19:country world:Albania .
@@ -950,6 +974,18 @@ covid19:5140346964850052 covid19:country world:Albania .
 covid19:5140346964850052 covid19:date '2020-03-09T00:00:00.000Z'.
 covid19:5140346964850052 covid19:confirmed '2'.
 covid19:5140346964850052 covid19:deaths '0'.
+
+covid19:1726232487854627 rdf:type covid19:ECDC_Dataset .
+covid19:1726232487854627 covid19:country world:Algeria .
+covid19:1726232487854627 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1726232487854627 covid19:confirmed '126'.
+covid19:1726232487854627 covid19:deaths '6'.
+
+covid19:1375483666926476 rdf:type covid19:ECDC_Dataset .
+covid19:1375483666926476 covid19:country world:Algeria .
+covid19:1375483666926476 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1375483666926476 covid19:confirmed '129'.
+covid19:1375483666926476 covid19:deaths '4'.
 
 covid19:1595781308962486 rdf:type covid19:ECDC_Dataset .
 covid19:1595781308962486 covid19:country world:Algeria .
@@ -1623,6 +1659,18 @@ covid19:8238887728924503 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:8238887728924503 covid19:confirmed '0'.
 covid19:8238887728924503 covid19:deaths '0'.
 
+covid19:2092428767018985 rdf:type covid19:ECDC_Dataset .
+covid19:2092428767018985 covid19:country world:Andorra .
+covid19:2092428767018985 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2092428767018985 covid19:confirmed '7'.
+covid19:2092428767018985 covid19:deaths '0'.
+
+covid19:3139481640674021 rdf:type covid19:ECDC_Dataset .
+covid19:3139481640674021 covid19:country world:Andorra .
+covid19:3139481640674021 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3139481640674021 covid19:confirmed '2'.
+covid19:3139481640674021 covid19:deaths '0'.
+
 covid19:2825108748690198 rdf:type covid19:ECDC_Dataset .
 covid19:2825108748690198 covid19:country world:Andorra .
 covid19:2825108748690198 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -1881,6 +1929,18 @@ covid19:3295155691264338 covid19:date '2020-03-03T00:00:00.000Z'.
 covid19:3295155691264338 covid19:confirmed '1'.
 covid19:3295155691264338 covid19:deaths '0'.
 
+covid19:2771622844772759 rdf:type covid19:ECDC_Dataset .
+covid19:2771622844772759 covid19:country world:Angola .
+covid19:2771622844772759 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2771622844772759 covid19:confirmed '1'.
+covid19:2771622844772759 covid19:deaths '0'.
+
+covid19:2073481878791851 rdf:type covid19:ECDC_Dataset .
+covid19:2073481878791851 covid19:country world:Angola .
+covid19:2073481878791851 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2073481878791851 covid19:confirmed '0'.
+covid19:2073481878791851 covid19:deaths '0'.
+
 covid19:1471767247081919 rdf:type covid19:ECDC_Dataset .
 covid19:1471767247081919 covid19:country world:Angola .
 covid19:1471767247081919 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -2091,6 +2151,18 @@ covid19:2327278463061145 covid19:date '2020-03-22T00:00:00.000Z'.
 covid19:2327278463061145 covid19:confirmed '2'.
 covid19:2327278463061145 covid19:deaths '0'.
 
+covid19:1840589923669837 rdf:type covid19:ECDC_Dataset .
+covid19:1840589923669837 covid19:country world:Anguilla .
+covid19:1840589923669837 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1840589923669837 covid19:confirmed '0'.
+covid19:1840589923669837 covid19:deaths '0'.
+
+covid19:1671054105028516 rdf:type covid19:ECDC_Dataset .
+covid19:1671054105028516 covid19:country world:Anguilla .
+covid19:1671054105028516 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1671054105028516 covid19:confirmed '0'.
+covid19:1671054105028516 covid19:deaths '0'.
+
 covid19:8927612097030954 rdf:type covid19:ECDC_Dataset .
 covid19:8927612097030954 covid19:country world:Anguilla .
 covid19:8927612097030954 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -2270,6 +2342,18 @@ covid19:2474747430879342 covid19:country world:Anguilla .
 covid19:2474747430879342 covid19:date '2020-03-27T00:00:00.000Z'.
 covid19:2474747430879342 covid19:confirmed '2'.
 covid19:2474747430879342 covid19:deaths '0'.
+
+covid19:3392707244808313 rdf:type covid19:ECDC_Dataset .
+covid19:3392707244808313 covid19:country world:Antigua_and_Barbuda .
+covid19:3392707244808313 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3392707244808313 covid19:confirmed '0'.
+covid19:3392707244808313 covid19:deaths '0'.
+
+covid19:3181634561579956 rdf:type covid19:ECDC_Dataset .
+covid19:3181634561579956 covid19:country world:Antigua_and_Barbuda .
+covid19:3181634561579956 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3181634561579956 covid19:confirmed '0'.
+covid19:3181634561579956 covid19:deaths '0'.
 
 covid19:1507465673140993 rdf:type covid19:ECDC_Dataset .
 covid19:1507465673140993 covid19:country world:Antigua_and_Barbuda .
@@ -2492,6 +2576,18 @@ covid19:1871813610407504 covid19:country world:Antigua_and_Barbuda .
 covid19:1871813610407504 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:1871813610407504 covid19:confirmed '1'.
 covid19:1871813610407504 covid19:deaths '0'.
+
+covid19:2391270111012266 rdf:type covid19:ECDC_Dataset .
+covid19:2391270111012266 covid19:country world:Argentina .
+covid19:2391270111012266 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2391270111012266 covid19:confirmed '0'.
+covid19:2391270111012266 covid19:deaths '1'.
+
+covid19:1689319903592621 rdf:type covid19:ECDC_Dataset .
+covid19:1689319903592621 covid19:country world:Argentina .
+covid19:1689319903592621 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1689319903592621 covid19:confirmed '344'.
+covid19:1689319903592621 covid19:deaths '18'.
 
 covid19:2562655190347730 rdf:type covid19:ECDC_Dataset .
 covid19:2562655190347730 covid19:country world:Argentina .
@@ -2792,6 +2888,18 @@ covid19:2630590969361543 covid19:country world:Argentina .
 covid19:2630590969361543 covid19:date '2020-03-04T00:00:00.000Z'.
 covid19:2630590969361543 covid19:confirmed '1'.
 covid19:2630590969361543 covid19:deaths '0'.
+
+covid19:2233564549710501 rdf:type covid19:ECDC_Dataset .
+covid19:2233564549710501 covid19:country world:Armenia .
+covid19:2233564549710501 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2233564549710501 covid19:confirmed '62'.
+covid19:2233564549710501 covid19:deaths '1'.
+
+covid19:1381918956527398 rdf:type covid19:ECDC_Dataset .
+covid19:1381918956527398 covid19:country world:Armenia .
+covid19:1381918956527398 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1381918956527398 covid19:confirmed '69'.
+covid19:1381918956527398 covid19:deaths '0'.
 
 covid19:2251609446645641 rdf:type covid19:ECDC_Dataset .
 covid19:2251609446645641 covid19:country world:Armenia .
@@ -3441,6 +3549,18 @@ covid19:2623240690996341 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2623240690996341 covid19:confirmed '0'.
 covid19:2623240690996341 covid19:deaths '0'.
 
+covid19:3891990179730613 rdf:type covid19:ECDC_Dataset .
+covid19:3891990179730613 covid19:country world:Aruba .
+covid19:3891990179730613 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3891990179730613 covid19:confirmed '0'.
+covid19:3891990179730613 covid19:deaths '0'.
+
+covid19:1736381085468743 rdf:type covid19:ECDC_Dataset .
+covid19:1736381085468743 covid19:country world:Aruba .
+covid19:1736381085468743 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1736381085468743 covid19:confirmed '0'.
+covid19:1736381085468743 covid19:deaths '0'.
+
 covid19:2206469563175720 rdf:type covid19:ECDC_Dataset .
 covid19:2206469563175720 covid19:country world:Aruba .
 covid19:2206469563175720 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -3644,6 +3764,18 @@ covid19:3208792180286087 covid19:country world:Aruba .
 covid19:3208792180286087 covid19:date '2020-03-13T00:00:00.000Z'.
 covid19:3208792180286087 covid19:confirmed '2'.
 covid19:3208792180286087 covid19:deaths '0'.
+
+covid19:2647306649078027 rdf:type covid19:ECDC_Dataset .
+covid19:2647306649078027 covid19:country world:Australia .
+covid19:2647306649078027 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2647306649078027 covid19:confirmed '10'.
+covid19:2647306649078027 covid19:deaths '2'.
+
+covid19:8762681730338644 rdf:type covid19:ECDC_Dataset .
+covid19:8762681730338644 covid19:country world:Australia .
+covid19:8762681730338644 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:8762681730338644 covid19:confirmed '16'.
+covid19:8762681730338644 covid19:deaths '2'.
 
 covid19:3116022111432026 rdf:type covid19:ECDC_Dataset .
 covid19:3116022111432026 covid19:country world:Australia .
@@ -4347,6 +4479,18 @@ covid19:1380662637453559 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1380662637453559 covid19:confirmed '0'.
 covid19:1380662637453559 covid19:deaths '0'.
 
+covid19:3238109372355406 rdf:type covid19:ECDC_Dataset .
+covid19:3238109372355406 covid19:country world:Austria .
+covid19:3238109372355406 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3238109372355406 covid19:confirmed '55'.
+covid19:3238109372355406 covid19:deaths '6'.
+
+covid19:1792313831793654 rdf:type covid19:ECDC_Dataset .
+covid19:1792313831793654 covid19:country world:Austria .
+covid19:1792313831793654 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1792313831793654 covid19:confirmed '66'.
+covid19:1792313831793654 covid19:deaths '23'.
+
 covid19:1627209192616653 rdf:type covid19:ECDC_Dataset .
 covid19:1627209192616653 covid19:country world:Austria .
 covid19:1627209192616653 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -5049,6 +5193,18 @@ covid19:2147277540650852 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2147277540650852 covid19:confirmed '0'.
 covid19:2147277540650852 covid19:deaths '0'.
 
+covid19:5115843328006232 rdf:type covid19:ECDC_Dataset .
+covid19:5115843328006232 covid19:country world:Azerbaijan .
+covid19:5115843328006232 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:5115843328006232 covid19:confirmed '28'.
+covid19:5115843328006232 covid19:deaths '0'.
+
+covid19:1455024212297319 rdf:type covid19:ECDC_Dataset .
+covid19:1455024212297319 covid19:country world:Azerbaijan .
+covid19:1455024212297319 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1455024212297319 covid19:confirmed '25'.
+covid19:1455024212297319 covid19:deaths '0'.
+
 covid19:2504186938013575 rdf:type covid19:ECDC_Dataset .
 covid19:2504186938013575 covid19:country world:Azerbaijan .
 covid19:2504186938013575 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -5709,6 +5865,18 @@ covid19:2599162255047033 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2599162255047033 covid19:confirmed '0'.
 covid19:2599162255047033 covid19:deaths '0'.
 
+covid19:2039360546817885 rdf:type covid19:ECDC_Dataset .
+covid19:2039360546817885 covid19:country world:Bahamas .
+covid19:2039360546817885 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2039360546817885 covid19:confirmed '2'.
+covid19:2039360546817885 covid19:deaths '0'.
+
+covid19:2555612395019987 rdf:type covid19:ECDC_Dataset .
+covid19:2555612395019987 covid19:country world:Bahamas .
+covid19:2555612395019987 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2555612395019987 covid19:confirmed '5'.
+covid19:2555612395019987 covid19:deaths '0'.
+
 covid19:4863709973954907 rdf:type covid19:ECDC_Dataset .
 covid19:4863709973954907 covid19:country world:Bahamas .
 covid19:4863709973954907 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -5942,6 +6110,18 @@ covid19:1749733750330496 covid19:country world:Bahamas .
 covid19:1749733750330496 covid19:date '2020-03-16T00:00:00.000Z'.
 covid19:1749733750330496 covid19:confirmed '1'.
 covid19:1749733750330496 covid19:deaths '0'.
+
+covid19:5563952371768328 rdf:type covid19:ECDC_Dataset .
+covid19:5563952371768328 covid19:country world:Bahrain .
+covid19:5563952371768328 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:5563952371768328 covid19:confirmed '58'.
+covid19:5563952371768328 covid19:deaths '0'.
+
+covid19:2755015928736673 rdf:type covid19:ECDC_Dataset .
+covid19:2755015928736673 covid19:country world:Bahrain .
+covid19:2755015928736673 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2755015928736673 covid19:confirmed '71'.
+covid19:2755015928736673 covid19:deaths '0'.
 
 covid19:1754443031645334 rdf:type covid19:ECDC_Dataset .
 covid19:1754443031645334 covid19:country world:Bahrain .
@@ -6639,6 +6819,18 @@ covid19:1832560314500021 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1832560314500021 covid19:confirmed '0'.
 covid19:1832560314500021 covid19:deaths '0'.
 
+covid19:1340212507646478 rdf:type covid19:ECDC_Dataset .
+covid19:1340212507646478 covid19:country world:Bangladesh .
+covid19:1340212507646478 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1340212507646478 covid19:confirmed '418'.
+covid19:1340212507646478 covid19:deaths '5'.
+
+covid19:1681239991536399 rdf:type covid19:ECDC_Dataset .
+covid19:1681239991536399 covid19:country world:Bangladesh .
+covid19:1681239991536399 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1681239991536399 covid19:confirmed '309'.
+covid19:1681239991536399 covid19:deaths '9'.
+
 covid19:2100212399198596 rdf:type covid19:ECDC_Dataset .
 covid19:2100212399198596 covid19:country world:Bangladesh .
 covid19:2100212399198596 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -6891,6 +7083,18 @@ covid19:7246348659386620 covid19:date '2020-03-09T00:00:00.000Z'.
 covid19:7246348659386620 covid19:confirmed '3'.
 covid19:7246348659386620 covid19:deaths '0'.
 
+covid19:2337615577651574 rdf:type covid19:ECDC_Dataset .
+covid19:2337615577651574 covid19:country world:Barbados .
+covid19:2337615577651574 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2337615577651574 covid19:confirmed '0'.
+covid19:2337615577651574 covid19:deaths '0'.
+
+covid19:3398837908294328 rdf:type covid19:ECDC_Dataset .
+covid19:3398837908294328 covid19:country world:Barbados .
+covid19:3398837908294328 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3398837908294328 covid19:confirmed '3'.
+covid19:3398837908294328 covid19:deaths '0'.
+
 covid19:9836109747337913 rdf:type covid19:ECDC_Dataset .
 covid19:9836109747337913 covid19:country world:Barbados .
 covid19:9836109747337913 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -7124,6 +7328,18 @@ covid19:1249699370839146 covid19:country world:Barbados .
 covid19:1249699370839146 covid19:date '2020-03-18T00:00:00.000Z'.
 covid19:1249699370839146 covid19:confirmed '1'.
 covid19:1249699370839146 covid19:deaths '0'.
+
+covid19:2264963017885597 rdf:type covid19:ECDC_Dataset .
+covid19:2264963017885597 covid19:country world:Belarus .
+covid19:2264963017885597 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2264963017885597 covid19:confirmed '873'.
+covid19:2264963017885597 covid19:deaths '5'.
+
+covid19:1852384594076104 rdf:type covid19:ECDC_Dataset .
+covid19:1852384594076104 covid19:country world:Belarus .
+covid19:1852384594076104 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1852384594076104 covid19:confirmed '817'.
+covid19:1852384594076104 covid19:deaths '4'.
 
 covid19:8053435783932477 rdf:type covid19:ECDC_Dataset .
 covid19:8053435783932477 covid19:country world:Belarus .
@@ -7778,6 +7994,18 @@ covid19:2067671567570344 covid19:country world:Belarus .
 covid19:2067671567570344 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2067671567570344 covid19:confirmed '0'.
 covid19:2067671567570344 covid19:deaths '0'.
+
+covid19:2142584921388018 rdf:type covid19:ECDC_Dataset .
+covid19:2142584921388018 covid19:country world:Belgium .
+covid19:2142584921388018 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2142584921388018 covid19:confirmed '809'.
+covid19:2142584921388018 covid19:deaths '177'.
+
+covid19:2637941074648400 rdf:type covid19:ECDC_Dataset .
+covid19:2637941074648400 covid19:country world:Belgium .
+covid19:2637941074648400 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2637941074648400 covid19:confirmed '1032'.
+covid19:2637941074648400 covid19:deaths '238'.
 
 covid19:3067160687494730 rdf:type covid19:ECDC_Dataset .
 covid19:3067160687494730 covid19:country world:Belgium .
@@ -8481,6 +8709,18 @@ covid19:8109671860542217 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:8109671860542217 covid19:confirmed '0'.
 covid19:8109671860542217 covid19:deaths '0'.
 
+covid19:2194016222657976 rdf:type covid19:ECDC_Dataset .
+covid19:2194016222657976 covid19:country world:Belize .
+covid19:2194016222657976 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2194016222657976 covid19:confirmed '0'.
+covid19:2194016222657976 covid19:deaths '0'.
+
+covid19:2520253837295238 rdf:type covid19:ECDC_Dataset .
+covid19:2520253837295238 covid19:country world:Belize .
+covid19:2520253837295238 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2520253837295238 covid19:confirmed '0'.
+covid19:2520253837295238 covid19:deaths '0'.
+
 covid19:9284793023794479 rdf:type covid19:ECDC_Dataset .
 covid19:9284793023794479 covid19:country world:Belize .
 covid19:9284793023794479 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -8678,6 +8918,18 @@ covid19:2983224679409795 covid19:country world:Belize .
 covid19:2983224679409795 covid19:date '2020-03-24T00:00:00.000Z'.
 covid19:2983224679409795 covid19:confirmed '1'.
 covid19:2983224679409795 covid19:deaths '0'.
+
+covid19:3023078148103693 rdf:type covid19:ECDC_Dataset .
+covid19:3023078148103693 covid19:country world:Benin .
+covid19:3023078148103693 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3023078148103693 covid19:confirmed '6'.
+covid19:3023078148103693 covid19:deaths '0'.
+
+covid19:3369740897073429 rdf:type covid19:ECDC_Dataset .
+covid19:3369740897073429 covid19:country world:Benin .
+covid19:3369740897073429 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3369740897073429 covid19:confirmed '0'.
+covid19:3369740897073429 covid19:deaths '0'.
 
 covid19:2579556347108827 rdf:type covid19:ECDC_Dataset .
 covid19:2579556347108827 covid19:country world:Benin .
@@ -8919,6 +9171,18 @@ covid19:2713029602661739 covid19:date '2020-03-17T00:00:00.000Z'.
 covid19:2713029602661739 covid19:confirmed '1'.
 covid19:2713029602661739 covid19:deaths '0'.
 
+covid19:3118713956050059 rdf:type covid19:ECDC_Dataset .
+covid19:3118713956050059 covid19:country world:Bermuda .
+covid19:3118713956050059 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3118713956050059 covid19:confirmed '10'.
+covid19:3118713956050059 covid19:deaths '0'.
+
+covid19:2416799816077442 rdf:type covid19:ECDC_Dataset .
+covid19:2416799816077442 covid19:country world:Bermuda .
+covid19:2416799816077442 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2416799816077442 covid19:confirmed '0'.
+covid19:2416799816077442 covid19:deaths '0'.
+
 covid19:5992178512771362 rdf:type covid19:ECDC_Dataset .
 covid19:5992178512771362 covid19:country world:Bermuda .
 covid19:5992178512771362 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -9140,6 +9404,18 @@ covid19:1540972663459728 covid19:country world:Bermuda .
 covid19:1540972663459728 covid19:date '2020-03-20T00:00:00.000Z'.
 covid19:1540972663459728 covid19:confirmed '2'.
 covid19:1540972663459728 covid19:deaths '0'.
+
+covid19:1764669023113399 rdf:type covid19:ECDC_Dataset .
+covid19:1764669023113399 covid19:country world:Bhutan .
+covid19:1764669023113399 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1764669023113399 covid19:confirmed '0'.
+covid19:1764669023113399 covid19:deaths '0'.
+
+covid19:2748600551994328 rdf:type covid19:ECDC_Dataset .
+covid19:2748600551994328 covid19:country world:Bhutan .
+covid19:2748600551994328 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2748600551994328 covid19:confirmed '0'.
+covid19:2748600551994328 covid19:deaths '0'.
 
 covid19:1734397114913728 rdf:type covid19:ECDC_Dataset .
 covid19:1734397114913728 covid19:country world:Bhutan .
@@ -9398,6 +9674,18 @@ covid19:3264912461747655 covid19:country world:Bhutan .
 covid19:3264912461747655 covid19:date '2020-03-06T00:00:00.000Z'.
 covid19:3264912461747655 covid19:confirmed '1'.
 covid19:3264912461747655 covid19:deaths '0'.
+
+covid19:1490979400088639 rdf:type covid19:ECDC_Dataset .
+covid19:1490979400088639 covid19:country world:Bolivia .
+covid19:1490979400088639 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1490979400088639 covid19:confirmed '84'.
+covid19:1490979400088639 covid19:deaths '4'.
+
+covid19:2918650550063110 rdf:type covid19:ECDC_Dataset .
+covid19:2918650550063110 covid19:country world:Bolivia .
+covid19:2918650550063110 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2918650550063110 covid19:confirmed '59'.
+covid19:2918650550063110 covid19:deaths '2'.
 
 covid19:3181518672558481 rdf:type covid19:ECDC_Dataset .
 covid19:3181518672558481 covid19:country world:Bolivia .
@@ -9663,6 +9951,18 @@ covid19:2460979461909094 covid19:date '2020-03-12T00:00:00.000Z'.
 covid19:2460979461909094 covid19:confirmed '2'.
 covid19:2460979461909094 covid19:deaths '0'.
 
+covid19:1840589923669837 rdf:type covid19:ECDC_Dataset .
+covid19:1840589923669837 covid19:country world:Bonaire_Saint_Eustatius_and_Saba .
+covid19:1840589923669837 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1840589923669837 covid19:confirmed '0'.
+covid19:1840589923669837 covid19:deaths '0'.
+
+covid19:1671054105028516 rdf:type covid19:ECDC_Dataset .
+covid19:1671054105028516 covid19:country world:Bonaire_Saint_Eustatius_and_Saba .
+covid19:1671054105028516 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1671054105028516 covid19:confirmed '0'.
+covid19:1671054105028516 covid19:deaths '0'.
+
 covid19:8927612097030954 rdf:type covid19:ECDC_Dataset .
 covid19:8927612097030954 covid19:country world:Bonaire_Saint_Eustatius_and_Saba .
 covid19:8927612097030954 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -9806,6 +10106,18 @@ covid19:3384142880379364 covid19:country world:Bonaire_Saint_Eustatius_and_Saba 
 covid19:3384142880379364 covid19:date '2020-04-02T00:00:00.000Z'.
 covid19:3384142880379364 covid19:confirmed '2'.
 covid19:3384142880379364 covid19:deaths '0'.
+
+covid19:1405593836273638 rdf:type covid19:ECDC_Dataset .
+covid19:1405593836273638 covid19:country world:Bosnia_and_Herzegovina .
+covid19:1405593836273638 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1405593836273638 covid19:confirmed '31'.
+covid19:1405593836273638 covid19:deaths '2'.
+
+covid19:7099288534356179 rdf:type covid19:ECDC_Dataset .
+covid19:7099288534356179 covid19:country world:Bosnia_and_Herzegovina .
+covid19:7099288534356179 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:7099288534356179 covid19:confirmed '65'.
+covid19:7099288534356179 covid19:deaths '2'.
 
 covid19:2400370488326293 rdf:type covid19:ECDC_Dataset .
 covid19:2400370488326293 covid19:country world:Bosnia_and_Herzegovina .
@@ -10071,6 +10383,18 @@ covid19:1363263544147796 covid19:date '2020-03-06T00:00:00.000Z'.
 covid19:1363263544147796 covid19:confirmed '2'.
 covid19:1363263544147796 covid19:deaths '0'.
 
+covid19:2066564569239431 rdf:type covid19:ECDC_Dataset .
+covid19:2066564569239431 covid19:country world:Botswana .
+covid19:2066564569239431 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2066564569239431 covid19:confirmed '0'.
+covid19:2066564569239431 covid19:deaths '0'.
+
+covid19:1461530471145411 rdf:type covid19:ECDC_Dataset .
+covid19:1461530471145411 covid19:country world:Botswana .
+covid19:1461530471145411 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1461530471145411 covid19:confirmed '0'.
+covid19:1461530471145411 covid19:deaths '0'.
+
 covid19:2705240316584022 rdf:type covid19:ECDC_Dataset .
 covid19:2705240316584022 covid19:country world:Botswana .
 covid19:2705240316584022 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -10220,6 +10544,18 @@ covid19:1338661197411543 covid19:country world:Botswana .
 covid19:1338661197411543 covid19:date '2020-04-01T00:00:00.000Z'.
 covid19:1338661197411543 covid19:confirmed '3'.
 covid19:1338661197411543 covid19:deaths '0'.
+
+covid19:1850151183075914 rdf:type covid19:ECDC_Dataset .
+covid19:1850151183075914 covid19:country world:Brazil .
+covid19:1850151183075914 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1850151183075914 covid19:confirmed '3379'.
+covid19:1850151183075914 covid19:deaths '189'.
+
+covid19:2372429667525466 rdf:type covid19:ECDC_Dataset .
+covid19:2372429667525466 covid19:country world:Brazil .
+covid19:2372429667525466 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2372429667525466 covid19:confirmed '5514'.
+covid19:2372429667525466 covid19:deaths '346'.
 
 covid19:1497155080644477 rdf:type covid19:ECDC_Dataset .
 covid19:1497155080644477 covid19:country world:Brazil .
@@ -10923,6 +11259,18 @@ covid19:1817544484669687 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1817544484669687 covid19:confirmed '0'.
 covid19:1817544484669687 covid19:deaths '0'.
 
+covid19:1324446431664645 rdf:type covid19:ECDC_Dataset .
+covid19:1324446431664645 covid19:country world:British_Virgin_Islands .
+covid19:1324446431664645 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1324446431664645 covid19:confirmed '0'.
+covid19:1324446431664645 covid19:deaths '0'.
+
+covid19:7496557908117754 rdf:type covid19:ECDC_Dataset .
+covid19:7496557908117754 covid19:country world:British_Virgin_Islands .
+covid19:7496557908117754 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:7496557908117754 covid19:confirmed '0'.
+covid19:7496557908117754 covid19:deaths '0'.
+
 covid19:1950600591624012 rdf:type covid19:ECDC_Dataset .
 covid19:1950600591624012 covid19:country world:British_Virgin_Islands .
 covid19:1950600591624012 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -11102,6 +11450,18 @@ covid19:2492397510487757 covid19:country world:British_Virgin_Islands .
 covid19:2492397510487757 covid19:date '2020-03-27T00:00:00.000Z'.
 covid19:2492397510487757 covid19:confirmed '2'.
 covid19:2492397510487757 covid19:deaths '0'.
+
+covid19:2964703319687931 rdf:type covid19:ECDC_Dataset .
+covid19:2964703319687931 covid19:country world:Brunei_Darussalam .
+covid19:2964703319687931 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2964703319687931 covid19:confirmed '0'.
+covid19:2964703319687931 covid19:deaths '0'.
+
+covid19:2032150987756399 rdf:type covid19:ECDC_Dataset .
+covid19:2032150987756399 covid19:country world:Brunei_Darussalam .
+covid19:2032150987756399 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2032150987756399 covid19:confirmed '0'.
+covid19:2032150987756399 covid19:deaths '0'.
 
 covid19:9578281745138280 rdf:type covid19:ECDC_Dataset .
 covid19:9578281745138280 covid19:country world:Brunei_Darussalam .
@@ -11378,6 +11738,18 @@ covid19:2893492579647495 covid19:country world:Brunei_Darussalam .
 covid19:2893492579647495 covid19:date '2020-03-10T00:00:00.000Z'.
 covid19:2893492579647495 covid19:confirmed '1'.
 covid19:2893492579647495 covid19:deaths '0'.
+
+covid19:1282815193474444 rdf:type covid19:ECDC_Dataset .
+covid19:1282815193474444 covid19:country world:Bulgaria .
+covid19:1282815193474444 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1282815193474444 covid19:confirmed '53'.
+covid19:1282815193474444 covid19:deaths '1'.
+
+covid19:2900117920178929 rdf:type covid19:ECDC_Dataset .
+covid19:2900117920178929 covid19:country world:Bulgaria .
+covid19:2900117920178929 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2900117920178929 covid19:confirmed '59'.
+covid19:2900117920178929 covid19:deaths '1'.
 
 covid19:1069121628464054 rdf:type covid19:ECDC_Dataset .
 covid19:1069121628464054 covid19:country world:Bulgaria .
@@ -11661,6 +12033,18 @@ covid19:3249058720339319 covid19:date '2020-03-08T00:00:00.000Z'.
 covid19:3249058720339319 covid19:confirmed '2'.
 covid19:3249058720339319 covid19:deaths '0'.
 
+covid19:3393486544969282 rdf:type covid19:ECDC_Dataset .
+covid19:3393486544969282 covid19:country world:Burkina_Faso .
+covid19:3393486544969282 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3393486544969282 covid19:confirmed '3'.
+covid19:3393486544969282 covid19:deaths '1'.
+
+covid19:2512662788057729 rdf:type covid19:ECDC_Dataset .
+covid19:2512662788057729 covid19:country world:Burkina_Faso .
+covid19:2512662788057729 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2512662788057729 covid19:confirmed '3'.
+covid19:2512662788057729 covid19:deaths '0'.
+
 covid19:1682099062257373 rdf:type covid19:ECDC_Dataset .
 covid19:1682099062257373 covid19:country world:Burkina_Faso .
 covid19:1682099062257373 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -11925,6 +12309,18 @@ covid19:9767883080888664 covid19:date '2020-03-11T00:00:00.000Z'.
 covid19:9767883080888664 covid19:confirmed '2'.
 covid19:9767883080888664 covid19:deaths '0'.
 
+covid19:2832406006999942 rdf:type covid19:ECDC_Dataset .
+covid19:2832406006999942 covid19:country world:Burundi .
+covid19:2832406006999942 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2832406006999942 covid19:confirmed '0'.
+covid19:2832406006999942 covid19:deaths '0'.
+
+covid19:1740127429060563 rdf:type covid19:ECDC_Dataset .
+covid19:1740127429060563 covid19:country world:Burundi .
+covid19:1740127429060563 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1740127429060563 covid19:confirmed '3'.
+covid19:1740127429060563 covid19:deaths '0'.
+
 covid19:8046128720725291 rdf:type covid19:ECDC_Dataset .
 covid19:8046128720725291 covid19:country world:Burundi .
 covid19:8046128720725291 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -12074,6 +12470,18 @@ covid19:4118957593603022 covid19:country world:Burundi .
 covid19:4118957593603022 covid19:date '2020-04-01T00:00:00.000Z'.
 covid19:4118957593603022 covid19:confirmed '2'.
 covid19:4118957593603022 covid19:deaths '0'.
+
+covid19:2553804768103483 rdf:type covid19:ECDC_Dataset .
+covid19:2553804768103483 covid19:country world:Cambodia .
+covid19:2553804768103483 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2553804768103483 covid19:confirmed '0'.
+covid19:2553804768103483 covid19:deaths '0'.
+
+covid19:4628499093988816 rdf:type covid19:ECDC_Dataset .
+covid19:4628499093988816 covid19:country world:Cambodia .
+covid19:4628499093988816 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:4628499093988816 covid19:confirmed '0'.
+covid19:4628499093988816 covid19:deaths '0'.
 
 covid19:5665181977841897 rdf:type covid19:ECDC_Dataset .
 covid19:5665181977841897 covid19:country world:Cambodia .
@@ -12723,6 +13131,18 @@ covid19:2134118091625712 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2134118091625712 covid19:confirmed '0'.
 covid19:2134118091625712 covid19:deaths '0'.
 
+covid19:2116473855745925 rdf:type covid19:ECDC_Dataset .
+covid19:2116473855745925 covid19:country world:Cameroon .
+covid19:2116473855745925 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2116473855745925 covid19:confirmed '103'.
+covid19:2116473855745925 covid19:deaths '3'.
+
+covid19:2062051274249614 rdf:type covid19:ECDC_Dataset .
+covid19:2062051274249614 covid19:country world:Cameroon .
+covid19:2062051274249614 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2062051274249614 covid19:confirmed '115'.
+covid19:2062051274249614 covid19:deaths '4'.
+
 covid19:3559548412840266 rdf:type covid19:ECDC_Dataset .
 covid19:3559548412840266 covid19:country world:Cameroon .
 covid19:3559548412840266 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -12986,6 +13406,18 @@ covid19:5287986102936692 covid19:country world:Cameroon .
 covid19:5287986102936692 covid19:date '2020-03-07T00:00:00.000Z'.
 covid19:5287986102936692 covid19:confirmed '1'.
 covid19:5287986102936692 covid19:deaths '0'.
+
+covid19:3227582440085308 rdf:type covid19:ECDC_Dataset .
+covid19:3227582440085308 covid19:country world:Canada .
+covid19:3227582440085308 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3227582440085308 covid19:confirmed '1543'.
+covid19:3227582440085308 covid19:deaths '95'.
+
+covid19:1937246413334498 rdf:type covid19:ECDC_Dataset .
+covid19:1937246413334498 covid19:country world:Canada .
+covid19:1937246413334498 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1937246413334498 covid19:confirmed '1464'.
+covid19:1937246413334498 covid19:deaths '163'.
 
 covid19:2855075389335620 rdf:type covid19:ECDC_Dataset .
 covid19:2855075389335620 covid19:country world:Canada .
@@ -13689,6 +14121,18 @@ covid19:5880645769168378 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:5880645769168378 covid19:confirmed '0'.
 covid19:5880645769168378 covid19:deaths '0'.
 
+covid19:4618255416250464 rdf:type covid19:ECDC_Dataset .
+covid19:4618255416250464 covid19:country world:Cape_Verde .
+covid19:4618255416250464 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:4618255416250464 covid19:confirmed '16'.
+covid19:4618255416250464 covid19:deaths '0'.
+
+covid19:1146469436749194 rdf:type covid19:ECDC_Dataset .
+covid19:1146469436749194 covid19:country world:Cape_Verde .
+covid19:1146469436749194 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1146469436749194 covid19:confirmed '2'.
+covid19:1146469436749194 covid19:deaths '0'.
+
 covid19:6509194818813988 rdf:type covid19:ECDC_Dataset .
 covid19:6509194818813988 covid19:country world:Cape_Verde .
 covid19:6509194818813988 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -14289,6 +14733,18 @@ covid19:3270260412203260 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:3270260412203260 covid19:confirmed '0'.
 covid19:3270260412203260 covid19:deaths '0'.
 
+covid19:7048903680195434 rdf:type covid19:ECDC_Dataset .
+covid19:7048903680195434 covid19:country world:Cayman_Islands .
+covid19:7048903680195434 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:7048903680195434 covid19:confirmed '0'.
+covid19:7048903680195434 covid19:deaths '0'.
+
+covid19:2907668068680149 rdf:type covid19:ECDC_Dataset .
+covid19:2907668068680149 covid19:country world:Cayman_Islands .
+covid19:2907668068680149 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2907668068680149 covid19:confirmed '4'.
+covid19:2907668068680149 covid19:deaths '0'.
+
 covid19:2270741465319246 rdf:type covid19:ECDC_Dataset .
 covid19:2270741465319246 covid19:country world:Cayman_Islands .
 covid19:2270741465319246 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -14510,6 +14966,18 @@ covid19:5579592056668167 covid19:country world:Cayman_Islands .
 covid19:5579592056668167 covid19:date '2020-03-20T00:00:00.000Z'.
 covid19:5579592056668167 covid19:confirmed '1'.
 covid19:5579592056668167 covid19:deaths '0'.
+
+covid19:1075909004114402 rdf:type covid19:ECDC_Dataset .
+covid19:1075909004114402 covid19:country world:Central_African_Republic .
+covid19:1075909004114402 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1075909004114402 covid19:confirmed '0'.
+covid19:1075909004114402 covid19:deaths '0'.
+
+covid19:2713290818484309 rdf:type covid19:ECDC_Dataset .
+covid19:2713290818484309 covid19:country world:Central_African_Republic .
+covid19:2713290818484309 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2713290818484309 covid19:confirmed '0'.
+covid19:2713290818484309 covid19:deaths '0'.
 
 covid19:1441320138226938 rdf:type covid19:ECDC_Dataset .
 covid19:1441320138226938 covid19:country world:Central_African_Republic .
@@ -14757,6 +15225,18 @@ covid19:3934197609305501 covid19:date '2020-03-16T00:00:00.000Z'.
 covid19:3934197609305501 covid19:confirmed '1'.
 covid19:3934197609305501 covid19:deaths '0'.
 
+covid19:2293384125082554 rdf:type covid19:ECDC_Dataset .
+covid19:2293384125082554 covid19:country world:Chad .
+covid19:2293384125082554 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2293384125082554 covid19:confirmed '6'.
+covid19:2293384125082554 covid19:deaths '0'.
+
+covid19:1223496105861407 rdf:type covid19:ECDC_Dataset .
+covid19:1223496105861407 covid19:country world:Chad .
+covid19:1223496105861407 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1223496105861407 covid19:confirmed '0'.
+covid19:1223496105861407 covid19:deaths '0'.
+
 covid19:3262628349814190 rdf:type covid19:ECDC_Dataset .
 covid19:3262628349814190 covid19:country world:Chad .
 covid19:3262628349814190 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -14978,6 +15458,18 @@ covid19:2292758716704457 covid19:country world:Chad .
 covid19:2292758716704457 covid19:date '2020-03-20T00:00:00.000Z'.
 covid19:2292758716704457 covid19:confirmed '1'.
 covid19:2292758716704457 covid19:deaths '0'.
+
+covid19:1911469857638263 rdf:type covid19:ECDC_Dataset .
+covid19:1911469857638263 covid19:country world:Chile .
+covid19:1911469857638263 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1911469857638263 covid19:confirmed '473'.
+covid19:1911469857638263 covid19:deaths '8'.
+
+covid19:3294158059193067 rdf:type covid19:ECDC_Dataset .
+covid19:3294158059193067 covid19:country world:Chile .
+covid19:3294158059193067 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3294158059193067 covid19:confirmed '552'.
+covid19:3294158059193067 covid19:deaths '7'.
 
 covid19:1824385813886301 rdf:type covid19:ECDC_Dataset .
 covid19:1824385813886301 covid19:country world:Chile .
@@ -15290,6 +15782,18 @@ covid19:1843837654796174 covid19:country world:Chile .
 covid19:1843837654796174 covid19:date '2020-03-04T00:00:00.000Z'.
 covid19:1843837654796174 covid19:confirmed '1'.
 covid19:1843837654796174 covid19:deaths '0'.
+
+covid19:2815484487204265 rdf:type covid19:ECDC_Dataset .
+covid19:2815484487204265 covid19:country world:China .
+covid19:2815484487204265 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2815484487204265 covid19:confirmed '290'.
+covid19:2815484487204265 covid19:deaths '3'.
+
+covid19:2916738838944089 rdf:type covid19:ECDC_Dataset .
+covid19:2916738838944089 covid19:country world:China .
+covid19:2916738838944089 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2916738838944089 covid19:confirmed '10'.
+covid19:2916738838944089 covid19:deaths '0'.
 
 covid19:1882534613330881 rdf:type covid19:ECDC_Dataset .
 covid19:1882534613330881 covid19:country world:China .
@@ -15993,6 +16497,18 @@ covid19:7659900774196787 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:7659900774196787 covid19:confirmed '27'.
 covid19:7659900774196787 covid19:deaths '0'.
 
+covid19:6395370803615783 rdf:type covid19:ECDC_Dataset .
+covid19:6395370803615783 covid19:country world:Colombia .
+covid19:6395370803615783 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:6395370803615783 covid19:confirmed '237'.
+covid19:6395370803615783 covid19:deaths '10'.
+
+covid19:3135331896464785 rdf:type covid19:ECDC_Dataset .
+covid19:3135331896464785 covid19:country world:Colombia .
+covid19:3135331896464785 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3135331896464785 covid19:confirmed '261'.
+covid19:3135331896464785 covid19:deaths '8'.
+
 covid19:1566364506833331 rdf:type covid19:ECDC_Dataset .
 covid19:1566364506833331 covid19:country world:Colombia .
 covid19:1566364506833331 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -16269,6 +16785,18 @@ covid19:3068630261308598 covid19:date '2020-03-07T00:00:00.000Z'.
 covid19:3068630261308598 covid19:confirmed '1'.
 covid19:3068630261308598 covid19:deaths '0'.
 
+covid19:2491418030175939 rdf:type covid19:ECDC_Dataset .
+covid19:2491418030175939 covid19:country world:Congo .
+covid19:2491418030175939 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2491418030175939 covid19:confirmed '0'.
+covid19:2491418030175939 covid19:deaths '0'.
+
+covid19:2044160669129257 rdf:type covid19:ECDC_Dataset .
+covid19:2044160669129257 covid19:country world:Congo .
+covid19:2044160669129257 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2044160669129257 covid19:confirmed '0'.
+covid19:2044160669129257 covid19:deaths '2'.
+
 covid19:3705055318915818 rdf:type covid19:ECDC_Dataset .
 covid19:3705055318915818 covid19:country world:Congo .
 covid19:3705055318915818 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -16514,6 +17042,18 @@ covid19:1561143020249631 covid19:country world:Congo .
 covid19:1561143020249631 covid19:date '2020-03-16T00:00:00.000Z'.
 covid19:1561143020249631 covid19:confirmed '1'.
 covid19:1561143020249631 covid19:deaths '0'.
+
+covid19:2632246120099502 rdf:type covid19:ECDC_Dataset .
+covid19:2632246120099502 covid19:country world:Costa_Rica .
+covid19:2632246120099502 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2632246120099502 covid19:confirmed '2'.
+covid19:2632246120099502 covid19:deaths '0'.
+
+covid19:3123165676838949 rdf:type covid19:ECDC_Dataset .
+covid19:3123165676838949 covid19:country world:Costa_Rica .
+covid19:3123165676838949 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3123165676838949 covid19:confirmed '6'.
+covid19:3123165676838949 covid19:deaths '0'.
 
 covid19:1312175879624067 rdf:type covid19:ECDC_Dataset .
 covid19:1312175879624067 covid19:country world:Costa_Rica .
@@ -16809,6 +17349,18 @@ covid19:3778337837579387 covid19:date '2020-03-07T00:00:00.000Z'.
 covid19:3778337837579387 covid19:confirmed '1'.
 covid19:3778337837579387 covid19:deaths '0'.
 
+covid19:2654599811452120 rdf:type covid19:ECDC_Dataset .
+covid19:2654599811452120 covid19:country world:Cote_dIvoire .
+covid19:2654599811452120 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2654599811452120 covid19:confirmed '39'.
+covid19:2654599811452120 covid19:deaths '0'.
+
+covid19:1231430261088733 rdf:type covid19:ECDC_Dataset .
+covid19:1231430261088733 covid19:country world:Cote_dIvoire .
+covid19:1231430261088733 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1231430261088733 covid19:confirmed '34'.
+covid19:1231430261088733 covid19:deaths '0'.
+
 covid19:1660066211533157 rdf:type covid19:ECDC_Dataset .
 covid19:1660066211533157 covid19:country world:Cote_dIvoire .
 covid19:1660066211533157 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -17066,6 +17618,18 @@ covid19:1951329113729468 covid19:country world:Cote_dIvoire .
 covid19:1951329113729468 covid19:date '2020-03-12T00:00:00.000Z'.
 covid19:1951329113729468 covid19:confirmed '1'.
 covid19:1951329113729468 covid19:deaths '0'.
+
+covid19:3358425904601490 rdf:type covid19:ECDC_Dataset .
+covid19:3358425904601490 covid19:country world:Croatia .
+covid19:3358425904601490 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3358425904601490 covid19:confirmed '14'.
+covid19:3358425904601490 covid19:deaths '1'.
+
+covid19:8701332890072633 rdf:type covid19:ECDC_Dataset .
+covid19:8701332890072633 covid19:country world:Croatia .
+covid19:8701332890072633 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:8701332890072633 covid19:confirmed '7'.
+covid19:8701332890072633 covid19:deaths '3'.
 
 covid19:6765538112899503 rdf:type covid19:ECDC_Dataset .
 covid19:6765538112899503 covid19:country world:Croatia .
@@ -17751,6 +18315,18 @@ covid19:7164311461924836 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:7164311461924836 covid19:confirmed '0'.
 covid19:7164311461924836 covid19:deaths '0'.
 
+covid19:2372160674136124 rdf:type covid19:ECDC_Dataset .
+covid19:2372160674136124 covid19:country world:Cuba .
+covid19:2372160674136124 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2372160674136124 covid19:confirmed '32'.
+covid19:2372160674136124 covid19:deaths '3'.
+
+covid19:2144060607287811 rdf:type covid19:ECDC_Dataset .
+covid19:2144060607287811 covid19:country world:Cuba .
+covid19:2144060607287811 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2144060607287811 covid19:confirmed '52'.
+covid19:2144060607287811 covid19:deaths '2'.
+
 covid19:2485112770723649 rdf:type covid19:ECDC_Dataset .
 covid19:2485112770723649 covid19:country world:Cuba .
 covid19:2485112770723649 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -18003,6 +18579,18 @@ covid19:5801693943035506 covid19:date '2020-03-12T00:00:00.000Z'.
 covid19:5801693943035506 covid19:confirmed '3'.
 covid19:5801693943035506 covid19:deaths '0'.
 
+covid19:8700210789470894 rdf:type covid19:ECDC_Dataset .
+covid19:8700210789470894 covid19:country world:Curaçao .
+covid19:8700210789470894 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:8700210789470894 covid19:confirmed '0'.
+covid19:8700210789470894 covid19:deaths '0'.
+
+covid19:2394575213732748 rdf:type covid19:ECDC_Dataset .
+covid19:2394575213732748 covid19:country world:Curaçao .
+covid19:2394575213732748 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2394575213732748 covid19:confirmed '0'.
+covid19:2394575213732748 covid19:deaths '0'.
+
 covid19:1674746701821587 rdf:type covid19:ECDC_Dataset .
 covid19:1674746701821587 covid19:country world:Curaçao .
 covid19:1674746701821587 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -18200,6 +18788,18 @@ covid19:9381987406426120 covid19:country world:Curaçao .
 covid19:9381987406426120 covid19:date '2020-03-13T00:00:00.000Z'.
 covid19:9381987406426120 covid19:confirmed '1'.
 covid19:9381987406426120 covid19:deaths '0'.
+
+covid19:9526816809354300 rdf:type covid19:ECDC_Dataset .
+covid19:9526816809354300 covid19:country world:Cyprus .
+covid19:9526816809354300 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9526816809354300 covid19:confirmed '7'.
+covid19:9526816809354300 covid19:deaths '0'.
+
+covid19:6925856666615171 rdf:type covid19:ECDC_Dataset .
+covid19:6925856666615171 covid19:country world:Cyprus .
+covid19:6925856666615171 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:6925856666615171 covid19:confirmed '6'.
+covid19:6925856666615171 covid19:deaths '0'.
 
 covid19:3179862913537228 rdf:type covid19:ECDC_Dataset .
 covid19:3179862913537228 covid19:country world:Cyprus .
@@ -18470,6 +19070,18 @@ covid19:1224553924173646 covid19:country world:Cyprus .
 covid19:1224553924173646 covid19:date '2020-03-10T00:00:00.000Z'.
 covid19:1224553924173646 covid19:confirmed '2'.
 covid19:1224553924173646 covid19:deaths '0'.
+
+covid19:9433900582603431 rdf:type covid19:ECDC_Dataset .
+covid19:9433900582603431 covid19:country world:Czechia .
+covid19:9433900582603431 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9433900582603431 covid19:confirmed '52'.
+covid19:9433900582603431 covid19:deaths '3'.
+
+covid19:8802767309190448 rdf:type covid19:ECDC_Dataset .
+covid19:8802767309190448 covid19:country world:Czechia .
+covid19:8802767309190448 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:8802767309190448 covid19:confirmed '79'.
+covid19:8802767309190448 covid19:deaths '3'.
 
 covid19:2291620948193463 rdf:type covid19:ECDC_Dataset .
 covid19:2291620948193463 covid19:country world:Czechia .
@@ -19173,6 +19785,18 @@ covid19:1073575847908032 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1073575847908032 covid19:confirmed '0'.
 covid19:1073575847908032 covid19:deaths '0'.
 
+covid19:1242174486690568 rdf:type covid19:ECDC_Dataset .
+covid19:1242174486690568 covid19:country world:Democratic_Republic_of_the_Congo .
+covid19:1242174486690568 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1242174486690568 covid19:confirmed '17'.
+covid19:1242174486690568 covid19:deaths '0'.
+
+covid19:1721495076727501 rdf:type covid19:ECDC_Dataset .
+covid19:1721495076727501 covid19:country world:Democratic_Republic_of_the_Congo .
+covid19:1721495076727501 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1721495076727501 covid19:confirmed '26'.
+covid19:1721495076727501 covid19:deaths '0'.
+
 covid19:6973334947545045 rdf:type covid19:ECDC_Dataset .
 covid19:6973334947545045 covid19:country world:Democratic_Republic_of_the_Congo .
 covid19:6973334947545045 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -19436,6 +20060,18 @@ covid19:1692327650854123 covid19:country world:Democratic_Republic_of_the_Congo 
 covid19:1692327650854123 covid19:date '2020-03-11T00:00:00.000Z'.
 covid19:1692327650854123 covid19:confirmed '1'.
 covid19:1692327650854123 covid19:deaths '0'.
+
+covid19:3339269991006836 rdf:type covid19:ECDC_Dataset .
+covid19:3339269991006836 covid19:country world:Denmark .
+covid19:3339269991006836 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3339269991006836 covid19:confirmed '130'.
+covid19:3339269991006836 covid19:deaths '4'.
+
+covid19:3224722767084037 rdf:type covid19:ECDC_Dataset .
+covid19:3224722767084037 covid19:country world:Denmark .
+covid19:3224722767084037 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3224722767084037 covid19:confirmed '235'.
+covid19:3224722767084037 covid19:deaths '15'.
 
 covid19:2602939693968502 rdf:type covid19:ECDC_Dataset .
 covid19:2602939693968502 covid19:country world:Denmark .
@@ -20139,6 +20775,18 @@ covid19:1548643977206992 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1548643977206992 covid19:confirmed '0'.
 covid19:1548643977206992 covid19:deaths '0'.
 
+covid19:1676576531019423 rdf:type covid19:ECDC_Dataset .
+covid19:1676576531019423 covid19:country world:Djibouti .
+covid19:1676576531019423 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1676576531019423 covid19:confirmed '15'.
+covid19:1676576531019423 covid19:deaths '0'.
+
+covid19:5084202488407601 rdf:type covid19:ECDC_Dataset .
+covid19:5084202488407601 covid19:country world:Djibouti .
+covid19:5084202488407601 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:5084202488407601 covid19:confirmed '9'.
+covid19:5084202488407601 covid19:deaths '0'.
+
 covid19:1401054528560469 rdf:type covid19:ECDC_Dataset .
 covid19:1401054528560469 covid19:country world:Djibouti .
 covid19:1401054528560469 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -20367,6 +21015,18 @@ covid19:3080184205614173 covid19:date '2020-03-19T00:00:00.000Z'.
 covid19:3080184205614173 covid19:confirmed '1'.
 covid19:3080184205614173 covid19:deaths '0'.
 
+covid19:9047174048963299 rdf:type covid19:ECDC_Dataset .
+covid19:9047174048963299 covid19:country world:Dominica .
+covid19:9047174048963299 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9047174048963299 covid19:confirmed '0'.
+covid19:9047174048963299 covid19:deaths '0'.
+
+covid19:7855625979357289 rdf:type covid19:ECDC_Dataset .
+covid19:7855625979357289 covid19:country world:Dominica .
+covid19:7855625979357289 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:7855625979357289 covid19:confirmed '0'.
+covid19:7855625979357289 covid19:deaths '0'.
+
 covid19:2000811966382204 rdf:type covid19:ECDC_Dataset .
 covid19:2000811966382204 covid19:country world:Dominica .
 covid19:2000811966382204 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -20570,6 +21230,18 @@ covid19:3343494602209792 covid19:country world:Dominica .
 covid19:3343494602209792 covid19:date '2020-03-23T00:00:00.000Z'.
 covid19:3343494602209792 covid19:confirmed '1'.
 covid19:3343494602209792 covid19:deaths '0'.
+
+covid19:2646826106079085 rdf:type covid19:ECDC_Dataset .
+covid19:2646826106079085 covid19:country world:Dominican_Republic .
+covid19:2646826106079085 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2646826106079085 covid19:confirmed '209'.
+covid19:2646826106079085 covid19:deaths '5'.
+
+covid19:2978871838123691 rdf:type covid19:ECDC_Dataset .
+covid19:2978871838123691 covid19:country world:Dominican_Republic .
+covid19:2978871838123691 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2978871838123691 covid19:confirmed '177'.
+covid19:2978871838123691 covid19:deaths '6'.
 
 covid19:2888127266020411 rdf:type covid19:ECDC_Dataset .
 covid19:2888127266020411 covid19:country world:Dominican_Republic .
@@ -21218,6 +21890,18 @@ covid19:1682667047646632 covid19:country world:Dominican_Republic .
 covid19:1682667047646632 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1682667047646632 covid19:confirmed '0'.
 covid19:1682667047646632 covid19:deaths '0'.
+
+covid19:1689003847830955 rdf:type covid19:ECDC_Dataset .
+covid19:1689003847830955 covid19:country world:Ecuador .
+covid19:1689003847830955 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1689003847830955 covid19:confirmed '11536'.
+covid19:1689003847830955 covid19:deaths '0'.
+
+covid19:6344420222869156 rdf:type covid19:ECDC_Dataset .
+covid19:6344420222869156 covid19:country world:Ecuador .
+covid19:6344420222869156 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:6344420222869156 covid19:confirmed '0'.
+covid19:6344420222869156 covid19:deaths '0'.
 
 covid19:4891103493359857 rdf:type covid19:ECDC_Dataset .
 covid19:4891103493359857 covid19:country world:Ecuador .
@@ -21890,6 +22574,18 @@ covid19:1188484329323886 covid19:country world:Ecuador .
 covid19:1188484329323886 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1188484329323886 covid19:confirmed '0'.
 covid19:1188484329323886 covid19:deaths '0'.
+
+covid19:9340654877584865 rdf:type covid19:ECDC_Dataset .
+covid19:9340654877584865 covid19:country world:Egypt .
+covid19:9340654877584865 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9340654877584865 covid19:confirmed '0'.
+covid19:9340654877584865 covid19:deaths '0'.
+
+covid19:9447802181912296 rdf:type covid19:ECDC_Dataset .
+covid19:9447802181912296 covid19:country world:Egypt .
+covid19:9447802181912296 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:9447802181912296 covid19:confirmed '227'.
+covid19:9447802181912296 covid19:deaths '13'.
 
 covid19:1725656379631684 rdf:type covid19:ECDC_Dataset .
 covid19:1725656379631684 covid19:country world:Egypt .
@@ -22569,6 +23265,18 @@ covid19:2928714301434553 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2928714301434553 covid19:confirmed '0'.
 covid19:2928714301434553 covid19:deaths '0'.
 
+covid19:2530615729380680 rdf:type covid19:ECDC_Dataset .
+covid19:2530615729380680 covid19:country world:El_Salvador .
+covid19:2530615729380680 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2530615729380680 covid19:confirmed '0'.
+covid19:2530615729380680 covid19:deaths '0'.
+
+covid19:1495504350257004 rdf:type covid19:ECDC_Dataset .
+covid19:1495504350257004 covid19:country world:El_Salvador .
+covid19:1495504350257004 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1495504350257004 covid19:confirmed '37'.
+covid19:1495504350257004 covid19:deaths '0'.
+
 covid19:2929828713465548 rdf:type covid19:ECDC_Dataset .
 covid19:2929828713465548 covid19:country world:El_Salvador .
 covid19:2929828713465548 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -22796,6 +23504,18 @@ covid19:2192159314880954 covid19:country world:El_Salvador .
 covid19:2192159314880954 covid19:date '2020-03-19T00:00:00.000Z'.
 covid19:2192159314880954 covid19:confirmed '1'.
 covid19:2192159314880954 covid19:deaths '0'.
+
+covid19:9255848130205129 rdf:type covid19:ECDC_Dataset .
+covid19:9255848130205129 covid19:country world:Equatorial_Guinea .
+covid19:9255848130205129 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9255848130205129 covid19:confirmed '44'.
+covid19:9255848130205129 covid19:deaths '0'.
+
+covid19:1648315583410669 rdf:type covid19:ECDC_Dataset .
+covid19:1648315583410669 covid19:country world:Equatorial_Guinea .
+covid19:1648315583410669 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1648315583410669 covid19:confirmed '2'.
+covid19:1648315583410669 covid19:deaths '0'.
 
 covid19:5322382007195906 rdf:type covid19:ECDC_Dataset .
 covid19:5322382007195906 covid19:country world:Equatorial_Guinea .
@@ -23049,6 +23769,18 @@ covid19:9580988098586160 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:9580988098586160 covid19:confirmed '1'.
 covid19:9580988098586160 covid19:deaths '0'.
 
+covid19:1983064549221682 rdf:type covid19:ECDC_Dataset .
+covid19:1983064549221682 covid19:country world:Eritrea .
+covid19:1983064549221682 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1983064549221682 covid19:confirmed '0'.
+covid19:1983064549221682 covid19:deaths '0'.
+
+covid19:1187659600559093 rdf:type covid19:ECDC_Dataset .
+covid19:1187659600559093 covid19:country world:Eritrea .
+covid19:1187659600559093 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1187659600559093 covid19:confirmed '0'.
+covid19:1187659600559093 covid19:deaths '0'.
+
 covid19:2425824803058368 rdf:type covid19:ECDC_Dataset .
 covid19:2425824803058368 covid19:country world:Eritrea .
 covid19:2425824803058368 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -23258,6 +23990,18 @@ covid19:9472404980310102 covid19:country world:Eritrea .
 covid19:9472404980310102 covid19:date '2020-03-22T00:00:00.000Z'.
 covid19:9472404980310102 covid19:confirmed '1'.
 covid19:9472404980310102 covid19:deaths '0'.
+
+covid19:2333388955276903 rdf:type covid19:ECDC_Dataset .
+covid19:2333388955276903 covid19:country world:Estonia .
+covid19:2333388955276903 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2333388955276903 covid19:confirmed '8'.
+covid19:2333388955276903 covid19:deaths '3'.
+
+covid19:2872013217843216 rdf:type covid19:ECDC_Dataset .
+covid19:2872013217843216 covid19:country world:Estonia .
+covid19:2872013217843216 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2872013217843216 covid19:confirmed '30'.
+covid19:2872013217843216 covid19:deaths '0'.
 
 covid19:1567334397333648 rdf:type covid19:ECDC_Dataset .
 covid19:1567334397333648 covid19:country world:Estonia .
@@ -23931,6 +24675,18 @@ covid19:2416468076565482 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2416468076565482 covid19:confirmed '0'.
 covid19:2416468076565482 covid19:deaths '0'.
 
+covid19:1759416133341713 rdf:type covid19:ECDC_Dataset .
+covid19:1759416133341713 covid19:country world:Eswatini .
+covid19:1759416133341713 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1759416133341713 covid19:confirmed '19'.
+covid19:1759416133341713 covid19:deaths '0'.
+
+covid19:1835922113092049 rdf:type covid19:ECDC_Dataset .
+covid19:1835922113092049 covid19:country world:Eswatini .
+covid19:1835922113092049 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1835922113092049 covid19:confirmed '0'.
+covid19:1835922113092049 covid19:deaths '0'.
+
 covid19:2029706619414574 rdf:type covid19:ECDC_Dataset .
 covid19:2029706619414574 covid19:country world:Eswatini .
 covid19:2029706619414574 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -24182,6 +24938,18 @@ covid19:1389854396132152 covid19:country world:Eswatini .
 covid19:1389854396132152 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:1389854396132152 covid19:confirmed '1'.
 covid19:1389854396132152 covid19:deaths '0'.
+
+covid19:3960685412723206 rdf:type covid19:ECDC_Dataset .
+covid19:3960685412723206 covid19:country world:Ethiopia .
+covid19:3960685412723206 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3960685412723206 covid19:confirmed '1'.
+covid19:3960685412723206 covid19:deaths '0'.
+
+covid19:2432481942356266 rdf:type covid19:ECDC_Dataset .
+covid19:2432481942356266 covid19:country world:Ethiopia .
+covid19:2432481942356266 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2432481942356266 covid19:confirmed '5'.
+covid19:2432481942356266 covid19:deaths '0'.
 
 covid19:2528653803018759 rdf:type covid19:ECDC_Dataset .
 covid19:2528653803018759 covid19:country world:Ethiopia .
@@ -24441,6 +25209,18 @@ covid19:5228344052927797 covid19:date '2020-03-14T00:00:00.000Z'.
 covid19:5228344052927797 covid19:confirmed '1'.
 covid19:5228344052927797 covid19:deaths '0'.
 
+covid19:1840589923669837 rdf:type covid19:ECDC_Dataset .
+covid19:1840589923669837 covid19:country world:Falkland_Islands_Malvinas .
+covid19:1840589923669837 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1840589923669837 covid19:confirmed '0'.
+covid19:1840589923669837 covid19:deaths '0'.
+
+covid19:1671054105028516 rdf:type covid19:ECDC_Dataset .
+covid19:1671054105028516 covid19:country world:Falkland_Islands_Malvinas .
+covid19:1671054105028516 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1671054105028516 covid19:confirmed '1'.
+covid19:1671054105028516 covid19:deaths '0'.
+
 covid19:8927612097030954 rdf:type covid19:ECDC_Dataset .
 covid19:8927612097030954 covid19:country world:Falkland_Islands_Malvinas .
 covid19:8927612097030954 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -24572,6 +25352,18 @@ covid19:5457648762675233 covid19:country world:Falkland_Islands_Malvinas .
 covid19:5457648762675233 covid19:date '2020-04-04T00:00:00.000Z'.
 covid19:5457648762675233 covid19:confirmed '1'.
 covid19:5457648762675233 covid19:deaths '0'.
+
+covid19:2114221640527011 rdf:type covid19:ECDC_Dataset .
+covid19:2114221640527011 covid19:country world:Faroe_Islands .
+covid19:2114221640527011 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2114221640527011 covid19:confirmed '0'.
+covid19:2114221640527011 covid19:deaths '0'.
+
+covid19:2851902645881343 rdf:type covid19:ECDC_Dataset .
+covid19:2851902645881343 covid19:country world:Faroe_Islands .
+covid19:2851902645881343 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2851902645881343 covid19:confirmed '0'.
+covid19:2851902645881343 covid19:deaths '0'.
 
 covid19:1897660354480773 rdf:type covid19:ECDC_Dataset .
 covid19:1897660354480773 covid19:country world:Faroe_Islands .
@@ -24795,6 +25587,18 @@ covid19:1016930183253451 covid19:date '2020-03-20T00:00:00.000Z'.
 covid19:1016930183253451 covid19:confirmed '72'.
 covid19:1016930183253451 covid19:deaths '0'.
 
+covid19:2642262473126701 rdf:type covid19:ECDC_Dataset .
+covid19:2642262473126701 covid19:country world:Fiji .
+covid19:2642262473126701 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2642262473126701 covid19:confirmed '0'.
+covid19:2642262473126701 covid19:deaths '0'.
+
+covid19:6587715552435249 rdf:type covid19:ECDC_Dataset .
+covid19:6587715552435249 covid19:country world:Fiji .
+covid19:6587715552435249 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:6587715552435249 covid19:confirmed '0'.
+covid19:6587715552435249 covid19:deaths '0'.
+
 covid19:2626269782556291 rdf:type covid19:ECDC_Dataset .
 covid19:2626269782556291 covid19:country world:Fiji .
 covid19:2626269782556291 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -25016,6 +25820,18 @@ covid19:1285224523952394 covid19:country world:Fiji .
 covid19:1285224523952394 covid19:date '2020-03-20T00:00:00.000Z'.
 covid19:1285224523952394 covid19:confirmed '1'.
 covid19:1285224523952394 covid19:deaths '0'.
+
+covid19:2461897450949432 rdf:type covid19:ECDC_Dataset .
+covid19:2461897450949432 covid19:country world:Finland .
+covid19:2461897450949432 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2461897450949432 covid19:confirmed '101'.
+covid19:2461897450949432 covid19:deaths '4'.
+
+covid19:1220185438250186 rdf:type covid19:ECDC_Dataset .
+covid19:1220185438250186 covid19:country world:Finland .
+covid19:1220185438250186 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1220185438250186 covid19:confirmed '80'.
+covid19:1220185438250186 covid19:deaths '9'.
 
 covid19:1689797230416043 rdf:type covid19:ECDC_Dataset .
 covid19:1689797230416043 covid19:country world:Finland .
@@ -25694,6 +26510,18 @@ covid19:3076021829694402 covid19:country world:Finland .
 covid19:3076021829694402 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:3076021829694402 covid19:confirmed '0'.
 covid19:3076021829694402 covid19:deaths '0'.
+
+covid19:3538889828446603 rdf:type covid19:ECDC_Dataset .
+covid19:3538889828446603 covid19:country world:France .
+covid19:3538889828446603 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3538889828446603 covid19:confirmed '461'.
+covid19:3538889828446603 covid19:deaths '242'.
+
+covid19:1755610030378241 rdf:type covid19:ECDC_Dataset .
+covid19:1755610030378241 covid19:country world:France .
+covid19:1755610030378241 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1755610030378241 covid19:confirmed '1537'.
+covid19:1755610030378241 covid19:deaths '369'.
 
 covid19:2645593006780863 rdf:type covid19:ECDC_Dataset .
 covid19:2645593006780863 covid19:country world:France .
@@ -26397,6 +27225,18 @@ covid19:3179206057253034 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:3179206057253034 covid19:confirmed '0'.
 covid19:3179206057253034 covid19:deaths '0'.
 
+covid19:2315113542769534 rdf:type covid19:ECDC_Dataset .
+covid19:2315113542769534 covid19:country world:French_Polynesia .
+covid19:2315113542769534 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2315113542769534 covid19:confirmed '0'.
+covid19:2315113542769534 covid19:deaths '0'.
+
+covid19:1305706862792114 rdf:type covid19:ECDC_Dataset .
+covid19:1305706862792114 covid19:country world:French_Polynesia .
+covid19:1305706862792114 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1305706862792114 covid19:confirmed '0'.
+covid19:1305706862792114 covid19:deaths '0'.
+
 covid19:2801419857087412 rdf:type covid19:ECDC_Dataset .
 covid19:2801419857087412 covid19:country world:French_Polynesia .
 covid19:2801419857087412 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -26624,6 +27464,18 @@ covid19:6008412283662032 covid19:country world:French_Polynesia .
 covid19:6008412283662032 covid19:date '2020-03-19T00:00:00.000Z'.
 covid19:6008412283662032 covid19:confirmed '3'.
 covid19:6008412283662032 covid19:deaths '0'.
+
+covid19:2941812848838452 rdf:type covid19:ECDC_Dataset .
+covid19:2941812848838452 covid19:country world:Gabon .
+covid19:2941812848838452 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2941812848838452 covid19:confirmed '0'.
+covid19:2941812848838452 covid19:deaths '0'.
+
+covid19:3170438022761987 rdf:type covid19:ECDC_Dataset .
+covid19:3170438022761987 covid19:country world:Gabon .
+covid19:3170438022761987 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3170438022761987 covid19:confirmed '4'.
+covid19:3170438022761987 covid19:deaths '0'.
 
 covid19:3391996826632687 rdf:type covid19:ECDC_Dataset .
 covid19:3391996826632687 covid19:country world:Gabon .
@@ -26883,6 +27735,18 @@ covid19:2782435004058780 covid19:date '2020-03-13T00:00:00.000Z'.
 covid19:2782435004058780 covid19:confirmed '1'.
 covid19:2782435004058780 covid19:deaths '0'.
 
+covid19:1108014329996431 rdf:type covid19:ECDC_Dataset .
+covid19:1108014329996431 covid19:country world:Gambia .
+covid19:1108014329996431 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1108014329996431 covid19:confirmed '0'.
+covid19:1108014329996431 covid19:deaths '0'.
+
+covid19:5558883443359319 rdf:type covid19:ECDC_Dataset .
+covid19:5558883443359319 covid19:country world:Gambia .
+covid19:5558883443359319 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:5558883443359319 covid19:confirmed '0'.
+covid19:5558883443359319 covid19:deaths '0'.
+
 covid19:5829311064806114 rdf:type covid19:ECDC_Dataset .
 covid19:5829311064806114 covid19:country world:Gambia .
 covid19:5829311064806114 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -27116,6 +27980,18 @@ covid19:1960531999862822 covid19:country world:Gambia .
 covid19:1960531999862822 covid19:date '2020-03-18T00:00:00.000Z'.
 covid19:1960531999862822 covid19:confirmed '1'.
 covid19:1960531999862822 covid19:deaths '0'.
+
+covid19:1357524314473191 rdf:type covid19:ECDC_Dataset .
+covid19:1357524314473191 covid19:country world:Georgia .
+covid19:1357524314473191 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1357524314473191 covid19:confirmed '30'.
+covid19:1357524314473191 covid19:deaths '1'.
+
+covid19:1599930861254271 rdf:type covid19:ECDC_Dataset .
+covid19:1599930861254271 covid19:country world:Georgia .
+covid19:1599930861254271 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1599930861254271 covid19:confirmed '12'.
+covid19:1599930861254271 covid19:deaths '0'.
 
 covid19:1623672532974878 rdf:type covid19:ECDC_Dataset .
 covid19:1623672532974878 covid19:country world:Georgia .
@@ -27800,6 +28676,18 @@ covid19:1174026199728213 covid19:country world:Georgia .
 covid19:1174026199728213 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1174026199728213 covid19:confirmed '0'.
 covid19:1174026199728213 covid19:deaths '0'.
+
+covid19:2389575668819575 rdf:type covid19:ECDC_Dataset .
+covid19:2389575668819575 covid19:country world:Germany .
+covid19:2389575668819575 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2389575668819575 covid19:confirmed '1018'.
+covid19:2389575668819575 covid19:deaths '110'.
+
+covid19:1416585039800060 rdf:type covid19:ECDC_Dataset .
+covid19:1416585039800060 covid19:country world:Germany .
+covid19:1416585039800060 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1416585039800060 covid19:confirmed '1737'.
+covid19:1416585039800060 covid19:deaths '140'.
 
 covid19:2479831276341610 rdf:type covid19:ECDC_Dataset .
 covid19:2479831276341610 covid19:country world:Germany .
@@ -28503,6 +29391,18 @@ covid19:2771103991552136 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2771103991552136 covid19:confirmed '0'.
 covid19:2771103991552136 covid19:deaths '0'.
 
+covid19:1345901412650800 rdf:type covid19:ECDC_Dataset .
+covid19:1345901412650800 covid19:country world:Ghana .
+covid19:1345901412650800 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1345901412650800 covid19:confirmed '271'.
+covid19:1345901412650800 covid19:deaths '1'.
+
+covid19:1371840836293094 rdf:type covid19:ECDC_Dataset .
+covid19:1371840836293094 covid19:country world:Ghana .
+covid19:1371840836293094 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1371840836293094 covid19:confirmed '0'.
+covid19:1371840836293094 covid19:deaths '0'.
+
 covid19:2195063516922334 rdf:type covid19:ECDC_Dataset .
 covid19:2195063516922334 covid19:country world:Ghana .
 covid19:2195063516922334 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -28761,6 +29661,18 @@ covid19:2433401289404738 covid19:date '2020-03-13T00:00:00.000Z'.
 covid19:2433401289404738 covid19:confirmed '2'.
 covid19:2433401289404738 covid19:deaths '0'.
 
+covid19:1469226039503543 rdf:type covid19:ECDC_Dataset .
+covid19:1469226039503543 covid19:country world:Gibraltar .
+covid19:1469226039503543 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1469226039503543 covid19:confirmed '5'.
+covid19:1469226039503543 covid19:deaths '0'.
+
+covid19:8634182945584954 rdf:type covid19:ECDC_Dataset .
+covid19:8634182945584954 covid19:country world:Gibraltar .
+covid19:8634182945584954 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:8634182945584954 covid19:confirmed '3'.
+covid19:8634182945584954 covid19:deaths '0'.
+
 covid19:3346508809819391 rdf:type covid19:ECDC_Dataset .
 covid19:3346508809819391 covid19:country world:Gibraltar .
 covid19:3346508809819391 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -28982,6 +29894,18 @@ covid19:2512109320769224 covid19:country world:Gibraltar .
 covid19:2512109320769224 covid19:date '2020-03-20T00:00:00.000Z'.
 covid19:2512109320769224 covid19:confirmed '10'.
 covid19:2512109320769224 covid19:deaths '0'.
+
+covid19:3116870403690993 rdf:type covid19:ECDC_Dataset .
+covid19:3116870403690993 covid19:country world:Greece .
+covid19:3116870403690993 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3116870403690993 covid19:confirmed '0'.
+covid19:3116870403690993 covid19:deaths '0'.
+
+covid19:1158431195214574 rdf:type covid19:ECDC_Dataset .
+covid19:1158431195214574 covid19:country world:Greece .
+covid19:1158431195214574 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1158431195214574 covid19:confirmed '16'.
+covid19:1158431195214574 covid19:deaths '0'.
 
 covid19:2167609653660220 rdf:type covid19:ECDC_Dataset .
 covid19:2167609653660220 covid19:country world:Greece .
@@ -29673,6 +30597,18 @@ covid19:2162884978904036 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2162884978904036 covid19:confirmed '0'.
 covid19:2162884978904036 covid19:deaths '0'.
 
+covid19:7467788012728868 rdf:type covid19:ECDC_Dataset .
+covid19:7467788012728868 covid19:country world:Greenland .
+covid19:7467788012728868 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:7467788012728868 covid19:confirmed '0'.
+covid19:7467788012728868 covid19:deaths '0'.
+
+covid19:4371807333215285 rdf:type covid19:ECDC_Dataset .
+covid19:4371807333215285 covid19:country world:Greenland .
+covid19:4371807333215285 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:4371807333215285 covid19:confirmed '0'.
+covid19:4371807333215285 covid19:deaths '0'.
+
 covid19:1694583916799984 rdf:type covid19:ECDC_Dataset .
 covid19:1694583916799984 covid19:country world:Greenland .
 covid19:1694583916799984 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -29895,6 +30831,18 @@ covid19:1865170457420110 covid19:date '2020-03-20T00:00:00.000Z'.
 covid19:1865170457420110 covid19:confirmed '2'.
 covid19:1865170457420110 covid19:deaths '0'.
 
+covid19:1398227883720390 rdf:type covid19:ECDC_Dataset .
+covid19:1398227883720390 covid19:country world:Grenada .
+covid19:1398227883720390 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1398227883720390 covid19:confirmed '0'.
+covid19:1398227883720390 covid19:deaths '0'.
+
+covid19:2563126192808822 rdf:type covid19:ECDC_Dataset .
+covid19:2563126192808822 covid19:country world:Grenada .
+covid19:2563126192808822 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2563126192808822 covid19:confirmed '3'.
+covid19:2563126192808822 covid19:deaths '0'.
+
 covid19:8697507077773488 rdf:type covid19:ECDC_Dataset .
 covid19:8697507077773488 covid19:country world:Grenada .
 covid19:8697507077773488 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -30098,6 +31046,18 @@ covid19:1540109855095201 covid19:country world:Grenada .
 covid19:1540109855095201 covid19:date '2020-03-23T00:00:00.000Z'.
 covid19:1540109855095201 covid19:confirmed '1'.
 covid19:1540109855095201 covid19:deaths '0'.
+
+covid19:7717219284246589 rdf:type covid19:ECDC_Dataset .
+covid19:7717219284246589 covid19:country world:Guam .
+covid19:7717219284246589 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:7717219284246589 covid19:confirmed '1'.
+covid19:7717219284246589 covid19:deaths '0'.
+
+covid19:2030772469185437 rdf:type covid19:ECDC_Dataset .
+covid19:2030772469185437 covid19:country world:Guam .
+covid19:2030772469185437 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2030772469185437 covid19:confirmed '0'.
+covid19:2030772469185437 covid19:deaths '0'.
 
 covid19:9322157670410304 rdf:type covid19:ECDC_Dataset .
 covid19:9322157670410304 covid19:country world:Guam .
@@ -30326,6 +31286,18 @@ covid19:1632437807602469 covid19:country world:Guam .
 covid19:1632437807602469 covid19:date '2020-03-19T00:00:00.000Z'.
 covid19:1632437807602469 covid19:confirmed '3'.
 covid19:1632437807602469 covid19:deaths '0'.
+
+covid19:1417211043870549 rdf:type covid19:ECDC_Dataset .
+covid19:1417211043870549 covid19:country world:Guatemala .
+covid19:1417211043870549 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1417211043870549 covid19:confirmed '27'.
+covid19:1417211043870549 covid19:deaths '2'.
+
+covid19:3110210741078905 rdf:type covid19:ECDC_Dataset .
+covid19:3110210741078905 covid19:country world:Guatemala .
+covid19:3110210741078905 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3110210741078905 covid19:confirmed '43'.
+covid19:3110210741078905 covid19:deaths '2'.
 
 covid19:3004822676721075 rdf:type covid19:ECDC_Dataset .
 covid19:3004822676721075 covid19:country world:Guatemala .
@@ -30579,6 +31551,18 @@ covid19:1214021223861087 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:1214021223861087 covid19:confirmed '1'.
 covid19:1214021223861087 covid19:deaths '0'.
 
+covid19:2778668402849226 rdf:type covid19:ECDC_Dataset .
+covid19:2778668402849226 covid19:country world:Guernsey .
+covid19:2778668402849226 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2778668402849226 covid19:confirmed '2'.
+covid19:2778668402849226 covid19:deaths '1'.
+
+covid19:6573731627231485 rdf:type covid19:ECDC_Dataset .
+covid19:6573731627231485 covid19:country world:Guernsey .
+covid19:6573731627231485 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:6573731627231485 covid19:confirmed '0'.
+covid19:6573731627231485 covid19:deaths '1'.
+
 covid19:2619130818046062 rdf:type covid19:ECDC_Dataset .
 covid19:2619130818046062 covid19:country world:Guernsey .
 covid19:2619130818046062 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -30800,6 +31784,18 @@ covid19:3129752676793781 covid19:country world:Guernsey .
 covid19:3129752676793781 covid19:date '2020-03-20T00:00:00.000Z'.
 covid19:3129752676793781 covid19:confirmed '1'.
 covid19:3129752676793781 covid19:deaths '0'.
+
+covid19:1953253818459967 rdf:type covid19:ECDC_Dataset .
+covid19:1953253818459967 covid19:country world:Guinea .
+covid19:1953253818459967 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1953253818459967 covid19:confirmed '98'.
+covid19:1953253818459967 covid19:deaths '0'.
+
+covid19:3482738374776372 rdf:type covid19:ECDC_Dataset .
+covid19:3482738374776372 covid19:country world:Guinea .
+covid19:3482738374776372 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3482738374776372 covid19:confirmed '42'.
+covid19:3482738374776372 covid19:deaths '1'.
 
 covid19:3244277963920837 rdf:type covid19:ECDC_Dataset .
 covid19:3244277963920837 covid19:country world:Guinea .
@@ -31053,6 +32049,18 @@ covid19:8585631623990062 covid19:date '2020-03-14T00:00:00.000Z'.
 covid19:8585631623990062 covid19:confirmed '1'.
 covid19:8585631623990062 covid19:deaths '0'.
 
+covid19:1708664735622330 rdf:type covid19:ECDC_Dataset .
+covid19:1708664735622330 covid19:country world:Guinea_Bissau .
+covid19:1708664735622330 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1708664735622330 covid19:confirmed '1'.
+covid19:1708664735622330 covid19:deaths '1'.
+
+covid19:1645874336198319 rdf:type covid19:ECDC_Dataset .
+covid19:1645874336198319 covid19:country world:Guinea_Bissau .
+covid19:1645874336198319 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1645874336198319 covid19:confirmed '0'.
+covid19:1645874336198319 covid19:deaths '0'.
+
 covid19:1239001094374396 rdf:type covid19:ECDC_Dataset .
 covid19:1239001094374396 covid19:country world:Guinea_Bissau .
 covid19:1239001094374396 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -31232,6 +32240,18 @@ covid19:9456393574928565 covid19:country world:Guinea_Bissau .
 covid19:9456393574928565 covid19:date '2020-03-27T00:00:00.000Z'.
 covid19:9456393574928565 covid19:confirmed '2'.
 covid19:9456393574928565 covid19:deaths '0'.
+
+covid19:2927944316275623 rdf:type covid19:ECDC_Dataset .
+covid19:2927944316275623 covid19:country world:Guyana .
+covid19:2927944316275623 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2927944316275623 covid19:confirmed '0'.
+covid19:2927944316275623 covid19:deaths '0'.
+
+covid19:6560845609963276 rdf:type covid19:ECDC_Dataset .
+covid19:6560845609963276 covid19:country world:Guyana .
+covid19:6560845609963276 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:6560845609963276 covid19:confirmed '1'.
+covid19:6560845609963276 covid19:deaths '0'.
 
 covid19:1819278716245783 rdf:type covid19:ECDC_Dataset .
 covid19:1819278716245783 covid19:country world:Guyana .
@@ -31485,6 +32505,18 @@ covid19:7429353173490887 covid19:date '2020-03-13T00:00:00.000Z'.
 covid19:7429353173490887 covid19:confirmed '1'.
 covid19:7429353173490887 covid19:deaths '1'.
 
+covid19:1224905643799135 rdf:type covid19:ECDC_Dataset .
+covid19:1224905643799135 covid19:country world:Haiti .
+covid19:1224905643799135 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1224905643799135 covid19:confirmed '0'.
+covid19:1224905643799135 covid19:deaths '0'.
+
+covid19:3354358694933613 rdf:type covid19:ECDC_Dataset .
+covid19:3354358694933613 covid19:country world:Haiti .
+covid19:3354358694933613 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3354358694933613 covid19:confirmed '0'.
+covid19:3354358694933613 covid19:deaths '1'.
+
 covid19:2864477758337661 rdf:type covid19:ECDC_Dataset .
 covid19:2864477758337661 covid19:country world:Haiti .
 covid19:2864477758337661 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -31706,6 +32738,18 @@ covid19:3022518531489044 covid19:country world:Haiti .
 covid19:3022518531489044 covid19:date '2020-03-20T00:00:00.000Z'.
 covid19:3022518531489044 covid19:confirmed '2'.
 covid19:3022518531489044 covid19:deaths '0'.
+
+covid19:1098240422341793 rdf:type covid19:ECDC_Dataset .
+covid19:1098240422341793 covid19:country world:Holy_See .
+covid19:1098240422341793 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1098240422341793 covid19:confirmed '0'.
+covid19:1098240422341793 covid19:deaths '0'.
+
+covid19:1159325473514597 rdf:type covid19:ECDC_Dataset .
+covid19:1159325473514597 covid19:country world:Holy_See .
+covid19:1159325473514597 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1159325473514597 covid19:confirmed '0'.
+covid19:1159325473514597 covid19:deaths '0'.
 
 covid19:3184272523847165 rdf:type covid19:ECDC_Dataset .
 covid19:3184272523847165 covid19:country world:Holy_See .
@@ -31958,6 +33002,18 @@ covid19:1292833958039466 covid19:country world:Holy_See .
 covid19:1292833958039466 covid19:date '2020-03-07T00:00:00.000Z'.
 covid19:1292833958039466 covid19:confirmed '1'.
 covid19:1292833958039466 covid19:deaths '0'.
+
+covid19:1102423334555451 rdf:type covid19:ECDC_Dataset .
+covid19:1102423334555451 covid19:country world:Honduras .
+covid19:1102423334555451 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1102423334555451 covid19:confirmed '34'.
+covid19:1102423334555451 covid19:deaths '2'.
+
+covid19:2671975985272819 rdf:type covid19:ECDC_Dataset .
+covid19:2671975985272819 covid19:country world:Honduras .
+covid19:2671975985272819 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2671975985272819 covid19:confirmed '36'.
+covid19:2671975985272819 covid19:deaths '12'.
 
 covid19:3285844892148290 rdf:type covid19:ECDC_Dataset .
 covid19:3285844892148290 covid19:country world:Honduras .
@@ -32216,6 +33272,18 @@ covid19:2501209428495841 covid19:country world:Honduras .
 covid19:2501209428495841 covid19:date '2020-03-12T00:00:00.000Z'.
 covid19:2501209428495841 covid19:confirmed '2'.
 covid19:2501209428495841 covid19:deaths '0'.
+
+covid19:3182431616280797 rdf:type covid19:ECDC_Dataset .
+covid19:3182431616280797 covid19:country world:Hungary .
+covid19:3182431616280797 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3182431616280797 covid19:confirmed '83'.
+covid19:3182431616280797 covid19:deaths '8'.
+
+covid19:2005864227493563 rdf:type covid19:ECDC_Dataset .
+covid19:2005864227493563 covid19:country world:Hungary .
+covid19:2005864227493563 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2005864227493563 covid19:confirmed '57'.
+covid19:2005864227493563 covid19:deaths '10'.
 
 covid19:2566738538382895 rdf:type covid19:ECDC_Dataset .
 covid19:2566738538382895 covid19:country world:Hungary .
@@ -32522,6 +33590,18 @@ covid19:1510025987493472 covid19:country world:Hungary .
 covid19:1510025987493472 covid19:date '2020-03-05T00:00:00.000Z'.
 covid19:1510025987493472 covid19:confirmed '2'.
 covid19:1510025987493472 covid19:deaths '0'.
+
+covid19:2793241484218891 rdf:type covid19:ECDC_Dataset .
+covid19:2793241484218891 covid19:country world:Iceland .
+covid19:2793241484218891 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2793241484218891 covid19:confirmed '2'.
+covid19:2793241484218891 covid19:deaths '0'.
+
+covid19:6331408710353883 rdf:type covid19:ECDC_Dataset .
+covid19:6331408710353883 covid19:country world:Iceland .
+covid19:6331408710353883 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:6331408710353883 covid19:confirmed '1'.
+covid19:6331408710353883 covid19:deaths '0'.
 
 covid19:2149353335401799 rdf:type covid19:ECDC_Dataset .
 covid19:2149353335401799 covid19:country world:Iceland .
@@ -33225,6 +34305,18 @@ covid19:3036538259262980 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:3036538259262980 covid19:confirmed '0'.
 covid19:3036538259262980 covid19:deaths '0'.
 
+covid19:7828062122497508 rdf:type covid19:ECDC_Dataset .
+covid19:7828062122497508 covid19:country world:India .
+covid19:7828062122497508 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:7828062122497508 covid19:confirmed '1396'.
+covid19:7828062122497508 covid19:deaths '48'.
+
+covid19:2568806819178585 rdf:type covid19:ECDC_Dataset .
+covid19:2568806819178585 covid19:country world:India .
+covid19:2568806819178585 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2568806819178585 covid19:confirmed '1990'.
+covid19:2568806819178585 covid19:deaths '49'.
+
 covid19:1348184852588625 rdf:type covid19:ECDC_Dataset .
 covid19:1348184852588625 covid19:country world:India .
 covid19:1348184852588625 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -33921,6 +35013,18 @@ covid19:2480751400772275 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2480751400772275 covid19:confirmed '0'.
 covid19:2480751400772275 covid19:deaths '0'.
 
+covid19:8735090513004232 rdf:type covid19:ECDC_Dataset .
+covid19:8735090513004232 covid19:country world:Indonesia .
+covid19:8735090513004232 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:8735090513004232 covid19:confirmed '275'.
+covid19:8735090513004232 covid19:deaths '23'.
+
+covid19:3753374172405481 rdf:type covid19:ECDC_Dataset .
+covid19:3753374172405481 covid19:country world:Indonesia .
+covid19:3753374172405481 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3753374172405481 covid19:confirmed '396'.
+covid19:3753374172405481 covid19:deaths '31'.
+
 covid19:2745419986732187 rdf:type covid19:ECDC_Dataset .
 covid19:2745419986732187 covid19:country world:Indonesia .
 covid19:2745419986732187 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -34580,6 +35684,18 @@ covid19:2417454921472887 covid19:country world:Indonesia .
 covid19:2417454921472887 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2417454921472887 covid19:confirmed '0'.
 covid19:2417454921472887 covid19:deaths '0'.
+
+covid19:1139937280218526 rdf:type covid19:ECDC_Dataset .
+covid19:1139937280218526 covid19:country world:Iran .
+covid19:1139937280218526 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1139937280218526 covid19:confirmed '1153'.
+covid19:1139937280218526 covid19:deaths '60'.
+
+covid19:1972464736364460 rdf:type covid19:ECDC_Dataset .
+covid19:1972464736364460 covid19:country world:Iran .
+covid19:1972464736364460 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1972464736364460 covid19:confirmed '1134'.
+covid19:1972464736364460 covid19:deaths '76'.
 
 covid19:2998508764294485 rdf:type covid19:ECDC_Dataset .
 covid19:2998508764294485 covid19:country world:Iran .
@@ -35283,6 +36399,18 @@ covid19:3128981481138069 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:3128981481138069 covid19:confirmed '0'.
 covid19:3128981481138069 covid19:deaths '0'.
 
+covid19:3182382871971492 rdf:type covid19:ECDC_Dataset .
+covid19:3182382871971492 covid19:country world:Iraq .
+covid19:3182382871971492 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3182382871971492 covid19:confirmed '57'.
+covid19:3182382871971492 covid19:deaths '1'.
+
+covid19:2505747325505450 rdf:type covid19:ECDC_Dataset .
+covid19:2505747325505450 covid19:country world:Iraq .
+covid19:2505747325505450 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2505747325505450 covid19:confirmed '55'.
+covid19:2505747325505450 covid19:deaths '0'.
+
 covid19:3093079095578837 rdf:type covid19:ECDC_Dataset .
 covid19:3093079095578837 covid19:country world:Iraq .
 covid19:3093079095578837 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -35972,6 +37100,18 @@ covid19:2836889097283739 covid19:country world:Iraq .
 covid19:2836889097283739 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2836889097283739 covid19:confirmed '0'.
 covid19:2836889097283739 covid19:deaths '0'.
+
+covid19:4926277235165158 rdf:type covid19:ECDC_Dataset .
+covid19:4926277235165158 covid19:country world:Ireland .
+covid19:4926277235165158 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:4926277235165158 covid19:confirmed '701'.
+covid19:4926277235165158 covid19:deaths '24'.
+
+covid19:2829692261167158 rdf:type covid19:ECDC_Dataset .
+covid19:2829692261167158 covid19:country world:Ireland .
+covid19:2829692261167158 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2829692261167158 covid19:confirmed '377'.
+covid19:2829692261167158 covid19:deaths '234'.
 
 covid19:1005244291584025 rdf:type covid19:ECDC_Dataset .
 covid19:1005244291584025 covid19:country world:Ireland .
@@ -36663,6 +37803,18 @@ covid19:2562956508878096 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2562956508878096 covid19:confirmed '0'.
 covid19:2562956508878096 covid19:deaths '0'.
 
+covid19:2053352696949548 rdf:type covid19:ECDC_Dataset .
+covid19:2053352696949548 covid19:country world:Isle_of_Man .
+covid19:2053352696949548 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2053352696949548 covid19:confirmed '0'.
+covid19:2053352696949548 covid19:deaths '0'.
+
+covid19:1425544808253785 rdf:type covid19:ECDC_Dataset .
+covid19:1425544808253785 covid19:country world:Isle_of_Man .
+covid19:1425544808253785 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1425544808253785 covid19:confirmed '0'.
+covid19:1425544808253785 covid19:deaths '0'.
+
 covid19:7783593433768597 rdf:type covid19:ECDC_Dataset .
 covid19:7783593433768597 covid19:country world:Isle_of_Man .
 covid19:7783593433768597 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -36878,6 +38030,18 @@ covid19:1050232342102584 covid19:country world:Isle_of_Man .
 covid19:1050232342102584 covid19:date '2020-03-21T00:00:00.000Z'.
 covid19:1050232342102584 covid19:confirmed '1'.
 covid19:1050232342102584 covid19:deaths '0'.
+
+covid19:2894742977454718 rdf:type covid19:ECDC_Dataset .
+covid19:2894742977454718 covid19:country world:Israel .
+covid19:2894742977454718 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2894742977454718 covid19:confirmed '100'.
+covid19:2894742977454718 covid19:deaths '0'.
+
+covid19:3631765330375048 rdf:type covid19:ECDC_Dataset .
+covid19:3631765330375048 covid19:country world:Israel .
+covid19:3631765330375048 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3631765330375048 covid19:confirmed '240'.
+covid19:3631765330375048 covid19:deaths '5'.
 
 covid19:1717951343641561 rdf:type covid19:ECDC_Dataset .
 covid19:1717951343641561 covid19:country world:Israel .
@@ -37562,6 +38726,18 @@ covid19:2365669136063689 covid19:country world:Israel .
 covid19:2365669136063689 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2365669136063689 covid19:confirmed '0'.
 covid19:2365669136063689 covid19:deaths '0'.
+
+covid19:1195815046941312 rdf:type covid19:ECDC_Dataset .
+covid19:1195815046941312 covid19:country world:Italy .
+covid19:1195815046941312 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1195815046941312 covid19:confirmed '2324'.
+covid19:1195815046941312 covid19:deaths '260'.
+
+covid19:1612305117358539 rdf:type covid19:ECDC_Dataset .
+covid19:1612305117358539 covid19:country world:Italy .
+covid19:1612305117358539 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1612305117358539 covid19:confirmed '2357'.
+covid19:1612305117358539 covid19:deaths '415'.
 
 covid19:8920871919127723 rdf:type covid19:ECDC_Dataset .
 covid19:8920871919127723 covid19:country world:Italy .
@@ -38265,6 +39441,18 @@ covid19:1804774853299439 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1804774853299439 covid19:confirmed '0'.
 covid19:1804774853299439 covid19:deaths '0'.
 
+covid19:1653045064131718 rdf:type covid19:ECDC_Dataset .
+covid19:1653045064131718 covid19:country world:Jamaica .
+covid19:1653045064131718 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1653045064131718 covid19:confirmed '45'.
+covid19:1653045064131718 covid19:deaths '0'.
+
+covid19:1310783675503767 rdf:type covid19:ECDC_Dataset .
+covid19:1310783675503767 covid19:country world:Jamaica .
+covid19:1310783675503767 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1310783675503767 covid19:confirmed '17'.
+covid19:1310783675503767 covid19:deaths '0'.
+
 covid19:2856301668168988 rdf:type covid19:ECDC_Dataset .
 covid19:2856301668168988 covid19:country world:Jamaica .
 covid19:2856301668168988 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -38528,6 +39716,18 @@ covid19:2201246484445510 covid19:country world:Jamaica .
 covid19:2201246484445510 covid19:date '2020-03-12T00:00:00.000Z'.
 covid19:2201246484445510 covid19:confirmed '2'.
 covid19:2201246484445510 covid19:deaths '0'.
+
+covid19:1950090503495988 rdf:type covid19:ECDC_Dataset .
+covid19:1950090503495988 covid19:country world:Japan .
+covid19:1950090503495988 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1950090503495988 covid19:confirmed '203'.
+covid19:1950090503495988 covid19:deaths '3'.
+
+covid19:1702947917909414 rdf:type covid19:ECDC_Dataset .
+covid19:1702947917909414 covid19:country world:Japan .
+covid19:1702947917909414 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1702947917909414 covid19:confirmed '290'.
+covid19:1702947917909414 covid19:deaths '14'.
 
 covid19:2620240510785344 rdf:type covid19:ECDC_Dataset .
 covid19:2620240510785344 covid19:country world:Japan .
@@ -39231,6 +40431,18 @@ covid19:6952530903753013 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:6952530903753013 covid19:confirmed '0'.
 covid19:6952530903753013 covid19:deaths '0'.
 
+covid19:3264976199790342 rdf:type covid19:ECDC_Dataset .
+covid19:3264976199790342 covid19:country world:Jersey .
+covid19:3264976199790342 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3264976199790342 covid19:confirmed '1'.
+covid19:3264976199790342 covid19:deaths '0'.
+
+covid19:9372934701241449 rdf:type covid19:ECDC_Dataset .
+covid19:9372934701241449 covid19:country world:Jersey .
+covid19:9372934701241449 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:9372934701241449 covid19:confirmed '2'.
+covid19:9372934701241449 covid19:deaths '0'.
+
 covid19:2709828813937726 rdf:type covid19:ECDC_Dataset .
 covid19:2709828813937726 covid19:country world:Jersey .
 covid19:2709828813937726 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -39452,6 +40664,18 @@ covid19:1737435684677270 covid19:country world:Jersey .
 covid19:1737435684677270 covid19:date '2020-03-20T00:00:00.000Z'.
 covid19:1737435684677270 covid19:confirmed '5'.
 covid19:1737435684677270 covid19:deaths '0'.
+
+covid19:1170750384594305 rdf:type covid19:ECDC_Dataset .
+covid19:1170750384594305 covid19:country world:Jordan .
+covid19:1170750384594305 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1170750384594305 covid19:confirmed '3'.
+covid19:1170750384594305 covid19:deaths '0'.
+
+covid19:8733675848325244 rdf:type covid19:ECDC_Dataset .
+covid19:8733675848325244 covid19:country world:Jordan .
+covid19:8733675848325244 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:8733675848325244 covid19:confirmed '3'.
+covid19:8733675848325244 covid19:deaths '0'.
 
 covid19:3077760140673039 rdf:type covid19:ECDC_Dataset .
 covid19:3077760140673039 covid19:country world:Jordan .
@@ -39717,6 +40941,18 @@ covid19:1585524891718703 covid19:date '2020-03-03T00:00:00.000Z'.
 covid19:1585524891718703 covid19:confirmed '1'.
 covid19:1585524891718703 covid19:deaths '0'.
 
+covid19:2445447996580016 rdf:type covid19:ECDC_Dataset .
+covid19:2445447996580016 covid19:country world:Kazakhstan .
+covid19:2445447996580016 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2445447996580016 covid19:confirmed '65'.
+covid19:2445447996580016 covid19:deaths '0'.
+
+covid19:1881748874515387 rdf:type covid19:ECDC_Dataset .
+covid19:1881748874515387 covid19:country world:Kazakhstan .
+covid19:1881748874515387 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1881748874515387 covid19:confirmed '170'.
+covid19:1881748874515387 covid19:deaths '0'.
+
 covid19:2031802315751786 rdf:type covid19:ECDC_Dataset .
 covid19:2031802315751786 covid19:country world:Kazakhstan .
 covid19:2031802315751786 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -39968,6 +41204,18 @@ covid19:1385306723209116 covid19:country world:Kazakhstan .
 covid19:1385306723209116 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:1385306723209116 covid19:confirmed '6'.
 covid19:1385306723209116 covid19:deaths '0'.
+
+covid19:1101673086638667 rdf:type covid19:ECDC_Dataset .
+covid19:1101673086638667 covid19:country world:Kenya .
+covid19:1101673086638667 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1101673086638667 covid19:confirmed '12'.
+covid19:1101673086638667 covid19:deaths '0'.
+
+covid19:3034814936469503 rdf:type covid19:ECDC_Dataset .
+covid19:3034814936469503 covid19:country world:Kenya .
+covid19:3034814936469503 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3034814936469503 covid19:confirmed '7'.
+covid19:3034814936469503 covid19:deaths '0'.
 
 covid19:2634971078824081 rdf:type covid19:ECDC_Dataset .
 covid19:2634971078824081 covid19:country world:Kenya .
@@ -40227,6 +41475,18 @@ covid19:7929762732754813 covid19:date '2020-03-14T00:00:00.000Z'.
 covid19:7929762732754813 covid19:confirmed '1'.
 covid19:7929762732754813 covid19:deaths '0'.
 
+covid19:1192222513792466 rdf:type covid19:ECDC_Dataset .
+covid19:1192222513792466 covid19:country world:Kosovo .
+covid19:1192222513792466 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1192222513792466 covid19:confirmed '32'.
+covid19:1192222513792466 covid19:deaths '1'.
+
+covid19:2337862772533291 rdf:type covid19:ECDC_Dataset .
+covid19:2337862772533291 covid19:country world:Kosovo .
+covid19:2337862772533291 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2337862772533291 covid19:confirmed '28'.
+covid19:2337862772533291 covid19:deaths '1'.
+
 covid19:2783000255925818 rdf:type covid19:ECDC_Dataset .
 covid19:2783000255925818 covid19:country world:Kosovo .
 covid19:2783000255925818 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -40472,6 +41732,18 @@ covid19:1314802885185806 covid19:country world:Kosovo .
 covid19:1314802885185806 covid19:date '2020-03-16T00:00:00.000Z'.
 covid19:1314802885185806 covid19:confirmed '2'.
 covid19:1314802885185806 covid19:deaths '0'.
+
+covid19:2883574894097979 rdf:type covid19:ECDC_Dataset .
+covid19:2883574894097979 covid19:country world:Kuwait .
+covid19:2883574894097979 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2883574894097979 covid19:confirmed '183'.
+covid19:2883574894097979 covid19:deaths '1'.
+
+covid19:4435014582377037 rdf:type covid19:ECDC_Dataset .
+covid19:4435014582377037 covid19:country world:Kuwait .
+covid19:4435014582377037 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:4435014582377037 covid19:confirmed '278'.
+covid19:4435014582377037 covid19:deaths '4'.
 
 covid19:2127050853526908 rdf:type covid19:ECDC_Dataset .
 covid19:2127050853526908 covid19:country world:Kuwait .
@@ -41157,6 +42429,18 @@ covid19:2394138408580427 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2394138408580427 covid19:confirmed '0'.
 covid19:2394138408580427 covid19:deaths '0'.
 
+covid19:2709508092882935 rdf:type covid19:ECDC_Dataset .
+covid19:2709508092882935 covid19:country world:Kyrgyzstan .
+covid19:2709508092882935 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2709508092882935 covid19:confirmed '13'.
+covid19:2709508092882935 covid19:deaths '0'.
+
+covid19:4384769613624250 rdf:type covid19:ECDC_Dataset .
+covid19:4384769613624250 covid19:country world:Kyrgyzstan .
+covid19:4384769613624250 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:4384769613624250 covid19:confirmed '17'.
+covid19:4384769613624250 covid19:deaths '0'.
+
 covid19:2661737357726735 rdf:type covid19:ECDC_Dataset .
 covid19:2661737357726735 covid19:country world:Kyrgyzstan .
 covid19:2661737357726735 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -41385,6 +42669,18 @@ covid19:3183571330923490 covid19:date '2020-03-19T00:00:00.000Z'.
 covid19:3183571330923490 covid19:confirmed '3'.
 covid19:3183571330923490 covid19:deaths '0'.
 
+covid19:3394814856804694 rdf:type covid19:ECDC_Dataset .
+covid19:3394814856804694 covid19:country world:Laos .
+covid19:3394814856804694 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3394814856804694 covid19:confirmed '0'.
+covid19:3394814856804694 covid19:deaths '0'.
+
+covid19:1200575309869537 rdf:type covid19:ECDC_Dataset .
+covid19:1200575309869537 covid19:country world:Laos .
+covid19:1200575309869537 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1200575309869537 covid19:confirmed '0'.
+covid19:1200575309869537 covid19:deaths '0'.
+
 covid19:2470252664878436 rdf:type covid19:ECDC_Dataset .
 covid19:2470252664878436 covid19:country world:Laos .
 covid19:2470252664878436 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -41576,6 +42872,18 @@ covid19:2813822747947396 covid19:country world:Laos .
 covid19:2813822747947396 covid19:date '2020-03-25T00:00:00.000Z'.
 covid19:2813822747947396 covid19:confirmed '2'.
 covid19:2813822747947396 covid19:deaths '0'.
+
+covid19:2410334075534375 rdf:type covid19:ECDC_Dataset .
+covid19:2410334075534375 covid19:country world:Latvia .
+covid19:2410334075534375 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2410334075534375 covid19:confirmed '8'.
+covid19:2410334075534375 covid19:deaths '0'.
+
+covid19:2908707584222840 rdf:type covid19:ECDC_Dataset .
+covid19:2908707584222840 covid19:country world:Latvia .
+covid19:2908707584222840 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2908707584222840 covid19:confirmed '20'.
+covid19:2908707584222840 covid19:deaths '0'.
 
 covid19:1746210755950171 rdf:type covid19:ECDC_Dataset .
 covid19:1746210755950171 covid19:country world:Latvia .
@@ -41876,6 +43184,18 @@ covid19:2329678754502848 covid19:country world:Latvia .
 covid19:2329678754502848 covid19:date '2020-03-03T00:00:00.000Z'.
 covid19:2329678754502848 covid19:confirmed '1'.
 covid19:2329678754502848 covid19:deaths '0'.
+
+covid19:1267279846887504 rdf:type covid19:ECDC_Dataset .
+covid19:1267279846887504 covid19:country world:Lebanon .
+covid19:1267279846887504 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1267279846887504 covid19:confirmed '3'.
+covid19:1267279846887504 covid19:deaths '0'.
+
+covid19:2498060659788412 rdf:type covid19:ECDC_Dataset .
+covid19:2498060659788412 covid19:country world:Lebanon .
+covid19:2498060659788412 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2498060659788412 covid19:confirmed '8'.
+covid19:2498060659788412 covid19:deaths '2'.
 
 covid19:2070629916831471 rdf:type covid19:ECDC_Dataset .
 covid19:2070629916831471 covid19:country world:Lebanon .
@@ -42555,6 +43875,18 @@ covid19:2124324995846301 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2124324995846301 covid19:confirmed '0'.
 covid19:2124324995846301 covid19:deaths '0'.
 
+covid19:9008048850908848 rdf:type covid19:ECDC_Dataset .
+covid19:9008048850908848 covid19:country world:Liberia .
+covid19:9008048850908848 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9008048850908848 covid19:confirmed '4'.
+covid19:9008048850908848 covid19:deaths '1'.
+
+covid19:3241050995955450 rdf:type covid19:ECDC_Dataset .
+covid19:3241050995955450 covid19:country world:Liberia .
+covid19:3241050995955450 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3241050995955450 covid19:confirmed '3'.
+covid19:3241050995955450 covid19:deaths '3'.
+
 covid19:1159258280989503 rdf:type covid19:ECDC_Dataset .
 covid19:1159258280989503 covid19:country world:Liberia .
 covid19:1159258280989503 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -42795,6 +44127,18 @@ covid19:3350158059930507 covid19:date '2020-03-17T00:00:00.000Z'.
 covid19:3350158059930507 covid19:confirmed '1'.
 covid19:3350158059930507 covid19:deaths '0'.
 
+covid19:1249668281025559 rdf:type covid19:ECDC_Dataset .
+covid19:1249668281025559 covid19:country world:Libya .
+covid19:1249668281025559 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1249668281025559 covid19:confirmed '0'.
+covid19:1249668281025559 covid19:deaths '0'.
+
+covid19:9352528227838642 rdf:type covid19:ECDC_Dataset .
+covid19:9352528227838642 covid19:country world:Libya .
+covid19:9352528227838642 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:9352528227838642 covid19:confirmed '0'.
+covid19:9352528227838642 covid19:deaths '0'.
+
 covid19:9324502251701401 rdf:type covid19:ECDC_Dataset .
 covid19:9324502251701401 covid19:country world:Libya .
 covid19:9324502251701401 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -42986,6 +44330,18 @@ covid19:3316018444492774 covid19:country world:Libya .
 covid19:3316018444492774 covid19:date '2020-03-25T00:00:00.000Z'.
 covid19:3316018444492774 covid19:confirmed '1'.
 covid19:3316018444492774 covid19:deaths '0'.
+
+covid19:2397220736830499 rdf:type covid19:ECDC_Dataset .
+covid19:2397220736830499 covid19:country world:Liechtenstein .
+covid19:2397220736830499 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2397220736830499 covid19:confirmed '0'.
+covid19:2397220736830499 covid19:deaths '0'.
+
+covid19:2959882020149872 rdf:type covid19:ECDC_Dataset .
+covid19:2959882020149872 covid19:country world:Liechtenstein .
+covid19:2959882020149872 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2959882020149872 covid19:confirmed '1'.
+covid19:2959882020149872 covid19:deaths '0'.
 
 covid19:8562363957755308 rdf:type covid19:ECDC_Dataset .
 covid19:8562363957755308 covid19:country world:Liechtenstein .
@@ -43262,6 +44618,18 @@ covid19:2699737959540808 covid19:country world:Liechtenstein .
 covid19:2699737959540808 covid19:date '2020-03-05T00:00:00.000Z'.
 covid19:2699737959540808 covid19:confirmed '1'.
 covid19:2699737959540808 covid19:deaths '0'.
+
+covid19:3186919158983388 rdf:type covid19:ECDC_Dataset .
+covid19:3186919158983388 covid19:country world:Lithuania .
+covid19:3186919158983388 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3186919158983388 covid19:confirmed '11'.
+covid19:3186919158983388 covid19:deaths '0'.
+
+covid19:1325476623025281 rdf:type covid19:ECDC_Dataset .
+covid19:1325476623025281 covid19:country world:Lithuania .
+covid19:1325476623025281 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1325476623025281 covid19:confirmed '28'.
+covid19:1325476623025281 covid19:deaths '1'.
 
 covid19:1441970336184509 rdf:type covid19:ECDC_Dataset .
 covid19:1441970336184509 covid19:country world:Lithuania .
@@ -43910,6 +45278,18 @@ covid19:4593392143736464 covid19:country world:Lithuania .
 covid19:4593392143736464 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:4593392143736464 covid19:confirmed '0'.
 covid19:4593392143736464 covid19:deaths '0'.
+
+covid19:1509575813859752 rdf:type covid19:ECDC_Dataset .
+covid19:1509575813859752 covid19:country world:Luxembourg .
+covid19:1509575813859752 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1509575813859752 covid19:confirmed '12'.
+covid19:1509575813859752 covid19:deaths '3'.
+
+covid19:6387007370064358 rdf:type covid19:ECDC_Dataset .
+covid19:6387007370064358 covid19:country world:Luxembourg .
+covid19:6387007370064358 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:6387007370064358 covid19:confirmed '16'.
+covid19:6387007370064358 covid19:deaths '0'.
 
 covid19:2702883005060835 rdf:type covid19:ECDC_Dataset .
 covid19:2702883005060835 covid19:country world:Luxembourg .
@@ -44571,6 +45951,18 @@ covid19:9966612856261208 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:9966612856261208 covid19:confirmed '0'.
 covid19:9966612856261208 covid19:deaths '0'.
 
+covid19:2259946515286232 rdf:type covid19:ECDC_Dataset .
+covid19:2259946515286232 covid19:country world:Madagascar .
+covid19:2259946515286232 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2259946515286232 covid19:confirmed '0'.
+covid19:2259946515286232 covid19:deaths '0'.
+
+covid19:4749465614073218 rdf:type covid19:ECDC_Dataset .
+covid19:4749465614073218 covid19:country world:Madagascar .
+covid19:4749465614073218 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:4749465614073218 covid19:confirmed '2'.
+covid19:4749465614073218 covid19:deaths '0'.
+
 covid19:3292272841413485 rdf:type covid19:ECDC_Dataset .
 covid19:3292272841413485 covid19:country world:Madagascar .
 covid19:3292272841413485 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -44787,6 +46179,18 @@ covid19:2663000825789304 covid19:date '2020-03-21T00:00:00.000Z'.
 covid19:2663000825789304 covid19:confirmed '3'.
 covid19:2663000825789304 covid19:deaths '0'.
 
+covid19:2424282692488251 rdf:type covid19:ECDC_Dataset .
+covid19:2424282692488251 covid19:country world:Malawi .
+covid19:2424282692488251 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2424282692488251 covid19:confirmed '1'.
+covid19:2424282692488251 covid19:deaths '0'.
+
+covid19:8772911767052954 rdf:type covid19:ECDC_Dataset .
+covid19:8772911767052954 covid19:country world:Malawi .
+covid19:8772911767052954 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:8772911767052954 covid19:confirmed '0'.
+covid19:8772911767052954 covid19:deaths '0'.
+
 covid19:1155123668373587 rdf:type covid19:ECDC_Dataset .
 covid19:1155123668373587 covid19:country world:Malawi .
 covid19:1155123668373587 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -44924,6 +46328,18 @@ covid19:1186043485352121 covid19:country world:Malawi .
 covid19:1186043485352121 covid19:date '2020-04-03T00:00:00.000Z'.
 covid19:1186043485352121 covid19:confirmed '3'.
 covid19:1186043485352121 covid19:deaths '0'.
+
+covid19:3012467750889380 rdf:type covid19:ECDC_Dataset .
+covid19:3012467750889380 covid19:country world:Malaysia .
+covid19:3012467750889380 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3012467750889380 covid19:confirmed '38'.
+covid19:3012467750889380 covid19:deaths '0'.
+
+covid19:1134848064144860 rdf:type covid19:ECDC_Dataset .
+covid19:1134848064144860 covid19:country world:Malaysia .
+covid19:1134848064144860 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1134848064144860 covid19:confirmed '51'.
+covid19:1134848064144860 covid19:deaths '2'.
 
 covid19:1064921259736480 rdf:type covid19:ECDC_Dataset .
 covid19:1064921259736480 covid19:country world:Malaysia .
@@ -45621,6 +47037,18 @@ covid19:1924330851043718 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1924330851043718 covid19:confirmed '0'.
 covid19:1924330851043718 covid19:deaths '0'.
 
+covid19:3076713383494200 rdf:type covid19:ECDC_Dataset .
+covid19:3076713383494200 covid19:country world:Maldives .
+covid19:3076713383494200 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3076713383494200 covid19:confirmed '77'.
+covid19:3076713383494200 covid19:deaths '0'.
+
+covid19:8233595379449719 rdf:type covid19:ECDC_Dataset .
+covid19:8233595379449719 covid19:country world:Maldives .
+covid19:8233595379449719 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:8233595379449719 covid19:confirmed '9'.
+covid19:8233595379449719 covid19:deaths '0'.
+
 covid19:3214915457718824 rdf:type covid19:ECDC_Dataset .
 covid19:3214915457718824 covid19:country world:Maldives .
 covid19:3214915457718824 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -45903,6 +47331,18 @@ covid19:3345219908911707 covid19:date '2020-03-08T00:00:00.000Z'.
 covid19:3345219908911707 covid19:confirmed '2'.
 covid19:3345219908911707 covid19:deaths '0'.
 
+covid19:5190154272306419 rdf:type covid19:ECDC_Dataset .
+covid19:5190154272306419 covid19:country world:Mali .
+covid19:5190154272306419 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:5190154272306419 covid19:confirmed '19'.
+covid19:5190154272306419 covid19:deaths '2'.
+
+covid19:8156101506697533 rdf:type covid19:ECDC_Dataset .
+covid19:8156101506697533 covid19:country world:Mali .
+covid19:8156101506697533 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:8156101506697533 covid19:confirmed '45'.
+covid19:8156101506697533 covid19:deaths '0'.
+
 covid19:2810087285100322 rdf:type covid19:ECDC_Dataset .
 covid19:2810087285100322 covid19:country world:Mali .
 covid19:2810087285100322 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -46088,6 +47528,18 @@ covid19:7737358990657321 covid19:country world:Mali .
 covid19:7737358990657321 covid19:date '2020-03-26T00:00:00.000Z'.
 covid19:7737358990657321 covid19:confirmed '2'.
 covid19:7737358990657321 covid19:deaths '0'.
+
+covid19:3066492693650269 rdf:type covid19:ECDC_Dataset .
+covid19:3066492693650269 covid19:country world:Malta .
+covid19:3066492693650269 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3066492693650269 covid19:confirmed '0'.
+covid19:3066492693650269 covid19:deaths '0'.
+
+covid19:2423778522912957 rdf:type covid19:ECDC_Dataset .
+covid19:2423778522912957 covid19:country world:Malta .
+covid19:2423778522912957 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2423778522912957 covid19:confirmed '1'.
+covid19:2423778522912957 covid19:deaths '1'.
 
 covid19:4307920428150595 rdf:type covid19:ECDC_Dataset .
 covid19:4307920428150595 covid19:country world:Malta .
@@ -46371,6 +47823,18 @@ covid19:1691596811177159 covid19:date '2020-03-08T00:00:00.000Z'.
 covid19:1691596811177159 covid19:confirmed '3'.
 covid19:1691596811177159 covid19:deaths '0'.
 
+covid19:2152834904889098 rdf:type covid19:ECDC_Dataset .
+covid19:2152834904889098 covid19:country world:Mauritania .
+covid19:2152834904889098 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2152834904889098 covid19:confirmed '0'.
+covid19:2152834904889098 covid19:deaths '0'.
+
+covid19:9367703447687591 rdf:type covid19:ECDC_Dataset .
+covid19:9367703447687591 covid19:country world:Mauritania .
+covid19:9367703447687591 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:9367703447687591 covid19:confirmed '0'.
+covid19:9367703447687591 covid19:deaths '0'.
+
 covid19:3250543845911833 rdf:type covid19:ECDC_Dataset .
 covid19:3250543845911833 covid19:country world:Mauritania .
 covid19:3250543845911833 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -46623,6 +48087,18 @@ covid19:4177779659244119 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:4177779659244119 covid19:confirmed '1'.
 covid19:4177779659244119 covid19:deaths '0'.
 
+covid19:1307368487336377 rdf:type covid19:ECDC_Dataset .
+covid19:1307368487336377 covid19:country world:Mauritius .
+covid19:1307368487336377 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1307368487336377 covid19:confirmed '1'.
+covid19:1307368487336377 covid19:deaths '0'.
+
+covid19:3126970812791554 rdf:type covid19:ECDC_Dataset .
+covid19:3126970812791554 covid19:country world:Mauritius .
+covid19:3126970812791554 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3126970812791554 covid19:confirmed '0'.
+covid19:3126970812791554 covid19:deaths '0'.
+
 covid19:2180745608399402 rdf:type covid19:ECDC_Dataset .
 covid19:2180745608399402 covid19:country world:Mauritius .
 covid19:2180745608399402 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -46844,6 +48320,18 @@ covid19:1931473729497372 covid19:country world:Mauritius .
 covid19:1931473729497372 covid19:date '2020-03-20T00:00:00.000Z'.
 covid19:1931473729497372 covid19:confirmed '3'.
 covid19:1931473729497372 covid19:deaths '0'.
+
+covid19:8571606336708237 rdf:type covid19:ECDC_Dataset .
+covid19:8571606336708237 covid19:country world:Mexico .
+covid19:8571606336708237 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:8571606336708237 covid19:confirmed '835'.
+covid19:8571606336708237 covid19:deaths '46'.
+
+covid19:2202642305444177 rdf:type covid19:ECDC_Dataset .
+covid19:2202642305444177 covid19:country world:Mexico .
+covid19:2202642305444177 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2202642305444177 covid19:confirmed '970'.
+covid19:2202642305444177 covid19:deaths '84'.
 
 covid19:9008337609453624 rdf:type covid19:ECDC_Dataset .
 covid19:9008337609453624 covid19:country world:Mexico .
@@ -47499,6 +48987,18 @@ covid19:2197779482264951 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2197779482264951 covid19:confirmed '0'.
 covid19:2197779482264951 covid19:deaths '0'.
 
+covid19:2038354647307240 rdf:type covid19:ECDC_Dataset .
+covid19:2038354647307240 covid19:country world:Moldova .
+covid19:2038354647307240 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2038354647307240 covid19:confirmed '104'.
+covid19:2038354647307240 covid19:deaths '2'.
+
+covid19:2132848776273682 rdf:type covid19:ECDC_Dataset .
+covid19:2132848776273682 covid19:country world:Moldova .
+covid19:2132848776273682 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2132848776273682 covid19:confirmed '194'.
+covid19:2132848776273682 covid19:deaths '7'.
+
 covid19:3044111476495946 rdf:type covid19:ECDC_Dataset .
 covid19:3044111476495946 covid19:country world:Moldova .
 covid19:3044111476495946 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -47780,6 +49280,18 @@ covid19:2028014950094402 covid19:country world:Moldova .
 covid19:2028014950094402 covid19:date '2020-03-08T00:00:00.000Z'.
 covid19:2028014950094402 covid19:confirmed '1'.
 covid19:2028014950094402 covid19:deaths '0'.
+
+covid19:2044519481777607 rdf:type covid19:ECDC_Dataset .
+covid19:2044519481777607 covid19:country world:Monaco .
+covid19:2044519481777607 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2044519481777607 covid19:confirmed '0'.
+covid19:2044519481777607 covid19:deaths '0'.
+
+covid19:3356245772125674 rdf:type covid19:ECDC_Dataset .
+covid19:3356245772125674 covid19:country world:Monaco .
+covid19:3356245772125674 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3356245772125674 covid19:confirmed '0'.
+covid19:3356245772125674 covid19:deaths '0'.
 
 covid19:2281566890718155 rdf:type covid19:ECDC_Dataset .
 covid19:2281566890718155 covid19:country world:Monaco .
@@ -48411,6 +49923,18 @@ covid19:2926875765953557 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2926875765953557 covid19:confirmed '0'.
 covid19:2926875765953557 covid19:deaths '0'.
 
+covid19:2846004850903962 rdf:type covid19:ECDC_Dataset .
+covid19:2846004850903962 covid19:country world:Mongolia .
+covid19:2846004850903962 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2846004850903962 covid19:confirmed '0'.
+covid19:2846004850903962 covid19:deaths '0'.
+
+covid19:3694142404064758 rdf:type covid19:ECDC_Dataset .
+covid19:3694142404064758 covid19:country world:Mongolia .
+covid19:3694142404064758 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3694142404064758 covid19:confirmed '2'.
+covid19:3694142404064758 covid19:deaths '0'.
+
 covid19:2478761004050758 rdf:type covid19:ECDC_Dataset .
 covid19:2478761004050758 covid19:country world:Mongolia .
 covid19:2478761004050758 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -48657,6 +50181,18 @@ covid19:1182439240373192 covid19:date '2020-03-10T00:00:00.000Z'.
 covid19:1182439240373192 covid19:confirmed '1'.
 covid19:1182439240373192 covid19:deaths '0'.
 
+covid19:2869953969107954 rdf:type covid19:ECDC_Dataset .
+covid19:2869953969107954 covid19:country world:Montenegro .
+covid19:2869953969107954 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2869953969107954 covid19:confirmed '1'.
+covid19:2869953969107954 covid19:deaths '1'.
+
+covid19:2619970445907081 rdf:type covid19:ECDC_Dataset .
+covid19:2619970445907081 covid19:country world:Montenegro .
+covid19:2619970445907081 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2619970445907081 covid19:confirmed '1'.
+covid19:2619970445907081 covid19:deaths '0'.
+
 covid19:1774082081587700 rdf:type covid19:ECDC_Dataset .
 covid19:1774082081587700 covid19:country world:Montenegro .
 covid19:1774082081587700 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -48891,6 +50427,18 @@ covid19:2227515742526241 covid19:date '2020-03-18T00:00:00.000Z'.
 covid19:2227515742526241 covid19:confirmed '2'.
 covid19:2227515742526241 covid19:deaths '0'.
 
+covid19:1413960868464222 rdf:type covid19:ECDC_Dataset .
+covid19:1413960868464222 covid19:country world:Montserrat .
+covid19:1413960868464222 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1413960868464222 covid19:confirmed '0'.
+covid19:1413960868464222 covid19:deaths '0'.
+
+covid19:3222276576929214 rdf:type covid19:ECDC_Dataset .
+covid19:3222276576929214 covid19:country world:Montserrat .
+covid19:3222276576929214 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3222276576929214 covid19:confirmed '0'.
+covid19:3222276576929214 covid19:deaths '1'.
+
 covid19:3146353211744596 rdf:type covid19:ECDC_Dataset .
 covid19:3146353211744596 covid19:country world:Montserrat .
 covid19:3146353211744596 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -49100,6 +50648,18 @@ covid19:2730064172269447 covid19:country world:Montserrat .
 covid19:2730064172269447 covid19:date '2020-03-21T00:00:00.000Z'.
 covid19:2730064172269447 covid19:confirmed '1'.
 covid19:2730064172269447 covid19:deaths '0'.
+
+covid19:2700533481775545 rdf:type covid19:ECDC_Dataset .
+covid19:2700533481775545 covid19:country world:Morocco .
+covid19:2700533481775545 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2700533481775545 covid19:confirmed '168'.
+covid19:2700533481775545 covid19:deaths '2'.
+
+covid19:2490230026375488 rdf:type covid19:ECDC_Dataset .
+covid19:2490230026375488 covid19:country world:Morocco .
+covid19:2490230026375488 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2490230026375488 covid19:confirmed '139'.
+covid19:2490230026375488 covid19:deaths '1'.
 
 covid19:1500621444569968 rdf:type covid19:ECDC_Dataset .
 covid19:1500621444569968 covid19:country world:Morocco .
@@ -49383,6 +50943,18 @@ covid19:6601450268391286 covid19:date '2020-03-03T00:00:00.000Z'.
 covid19:6601450268391286 covid19:confirmed '1'.
 covid19:6601450268391286 covid19:deaths '0'.
 
+covid19:9220985486694673 rdf:type covid19:ECDC_Dataset .
+covid19:9220985486694673 covid19:country world:Mozambique .
+covid19:9220985486694673 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9220985486694673 covid19:confirmed '6'.
+covid19:9220985486694673 covid19:deaths '0'.
+
+covid19:9588325173330777 rdf:type covid19:ECDC_Dataset .
+covid19:9588325173330777 covid19:country world:Mozambique .
+covid19:9588325173330777 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:9588325173330777 covid19:confirmed '5'.
+covid19:9588325173330777 covid19:deaths '0'.
+
 covid19:2920205474787153 rdf:type covid19:ECDC_Dataset .
 covid19:2920205474787153 covid19:country world:Mozambique .
 covid19:2920205474787153 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -49587,6 +51159,18 @@ covid19:1528133053868392 covid19:date '2020-03-23T00:00:00.000Z'.
 covid19:1528133053868392 covid19:confirmed '1'.
 covid19:1528133053868392 covid19:deaths '0'.
 
+covid19:2910469683272733 rdf:type covid19:ECDC_Dataset .
+covid19:2910469683272733 covid19:country world:Myanmar .
+covid19:2910469683272733 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2910469683272733 covid19:confirmed '0'.
+covid19:2910469683272733 covid19:deaths '0'.
+
+covid19:2002807396865248 rdf:type covid19:ECDC_Dataset .
+covid19:2002807396865248 covid19:country world:Myanmar .
+covid19:2002807396865248 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2002807396865248 covid19:confirmed '2'.
+covid19:2002807396865248 covid19:deaths '0'.
+
 covid19:5182017935349690 rdf:type covid19:ECDC_Dataset .
 covid19:5182017935349690 covid19:country world:Myanmar .
 covid19:5182017935349690 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -49790,6 +51374,18 @@ covid19:3311091603687462 covid19:country world:Myanmar .
 covid19:3311091603687462 covid19:date '2020-03-17T00:00:00.000Z'.
 covid19:3311091603687462 covid19:confirmed '0'.
 covid19:3311091603687462 covid19:deaths '0'.
+
+covid19:2660636713344945 rdf:type covid19:ECDC_Dataset .
+covid19:2660636713344945 covid19:country world:Namibia .
+covid19:2660636713344945 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2660636713344945 covid19:confirmed '0'.
+covid19:2660636713344945 covid19:deaths '0'.
+
+covid19:3394988361775451 rdf:type covid19:ECDC_Dataset .
+covid19:3394988361775451 covid19:country world:Namibia .
+covid19:3394988361775451 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3394988361775451 covid19:confirmed '0'.
+covid19:3394988361775451 covid19:deaths '0'.
 
 covid19:1294810806421157 rdf:type covid19:ECDC_Dataset .
 covid19:1294810806421157 covid19:country world:Namibia .
@@ -50042,6 +51638,18 @@ covid19:2854152199301359 covid19:country world:Namibia .
 covid19:2854152199301359 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:2854152199301359 covid19:confirmed '2'.
 covid19:2854152199301359 covid19:deaths '0'.
+
+covid19:2523790267575705 rdf:type covid19:ECDC_Dataset .
+covid19:2523790267575705 covid19:country world:Nepal .
+covid19:2523790267575705 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2523790267575705 covid19:confirmed '3'.
+covid19:2523790267575705 covid19:deaths '0'.
+
+covid19:5033497953238766 rdf:type covid19:ECDC_Dataset .
+covid19:5033497953238766 covid19:country world:Nepal .
+covid19:5033497953238766 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:5033497953238766 covid19:confirmed '0'.
+covid19:5033497953238766 covid19:deaths '0'.
 
 covid19:8635617637939106 rdf:type covid19:ECDC_Dataset .
 covid19:8635617637939106 covid19:country world:Nepal .
@@ -50666,6 +52274,18 @@ covid19:2872515778253140 covid19:country world:Nepal .
 covid19:2872515778253140 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2872515778253140 covid19:confirmed '0'.
 covid19:2872515778253140 covid19:deaths '0'.
+
+covid19:6231507206287641 rdf:type covid19:ECDC_Dataset .
+covid19:6231507206287641 covid19:country world:Netherlands .
+covid19:6231507206287641 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:6231507206287641 covid19:confirmed '655'.
+covid19:6231507206287641 covid19:deaths '66'.
+
+covid19:2161844357294597 rdf:type covid19:ECDC_Dataset .
+covid19:2161844357294597 covid19:country world:Netherlands .
+covid19:2161844357294597 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2161844357294597 covid19:confirmed '655'.
+covid19:2161844357294597 covid19:deaths '120'.
 
 covid19:1425674953029670 rdf:type covid19:ECDC_Dataset .
 covid19:1425674953029670 covid19:country world:Netherlands .
@@ -51369,6 +52989,18 @@ covid19:9963090789222479 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:9963090789222479 covid19:confirmed '0'.
 covid19:9963090789222479 covid19:deaths '0'.
 
+covid19:1312443176980634 rdf:type covid19:ECDC_Dataset .
+covid19:1312443176980634 covid19:country world:New_Caledonia .
+covid19:1312443176980634 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1312443176980634 covid19:confirmed '0'.
+covid19:1312443176980634 covid19:deaths '0'.
+
+covid19:3094749201928407 rdf:type covid19:ECDC_Dataset .
+covid19:3094749201928407 covid19:country world:New_Caledonia .
+covid19:3094749201928407 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3094749201928407 covid19:confirmed '0'.
+covid19:3094749201928407 covid19:deaths '0'.
+
 covid19:2586122608850575 rdf:type covid19:ECDC_Dataset .
 covid19:2586122608850575 covid19:country world:New_Caledonia .
 covid19:2586122608850575 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -51584,6 +53216,18 @@ covid19:1725104934020247 covid19:country world:New_Caledonia .
 covid19:1725104934020247 covid19:date '2020-03-21T00:00:00.000Z'.
 covid19:1725104934020247 covid19:confirmed '2'.
 covid19:1725104934020247 covid19:deaths '0'.
+
+covid19:1590170604270380 rdf:type covid19:ECDC_Dataset .
+covid19:1590170604270380 covid19:country world:New_Zealand .
+covid19:1590170604270380 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1590170604270380 covid19:confirmed '1'.
+covid19:1590170604270380 covid19:deaths '1'.
+
+covid19:1192024557522752 rdf:type covid19:ECDC_Dataset .
+covid19:1192024557522752 covid19:country world:New_Zealand .
+covid19:1192024557522752 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1192024557522752 covid19:confirmed '4'.
+covid19:1192024557522752 covid19:deaths '0'.
 
 covid19:1838939025618994 rdf:type covid19:ECDC_Dataset .
 covid19:1838939025618994 covid19:country world:New_Zealand .
@@ -52233,6 +53877,18 @@ covid19:2699888871773637 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2699888871773637 covid19:confirmed '0'.
 covid19:2699888871773637 covid19:deaths '0'.
 
+covid19:1058918980370513 rdf:type covid19:ECDC_Dataset .
+covid19:1058918980370513 covid19:country world:Nicaragua .
+covid19:1058918980370513 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1058918980370513 covid19:confirmed '1'.
+covid19:1058918980370513 covid19:deaths '0'.
+
+covid19:1759950605746263 rdf:type covid19:ECDC_Dataset .
+covid19:1759950605746263 covid19:country world:Nicaragua .
+covid19:1759950605746263 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1759950605746263 covid19:confirmed '1'.
+covid19:1759950605746263 covid19:deaths '0'.
+
 covid19:5743205803544449 rdf:type covid19:ECDC_Dataset .
 covid19:5743205803544449 covid19:country world:Nicaragua .
 covid19:5743205803544449 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -52461,6 +54117,18 @@ covid19:3042747646063813 covid19:date '2020-03-19T00:00:00.000Z'.
 covid19:3042747646063813 covid19:confirmed '1'.
 covid19:3042747646063813 covid19:deaths '0'.
 
+covid19:2299929797233785 rdf:type covid19:ECDC_Dataset .
+covid19:2299929797233785 covid19:country world:Niger .
+covid19:2299929797233785 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2299929797233785 covid19:confirmed '12'.
+covid19:2299929797233785 covid19:deaths '2'.
+
+covid19:1563010394840425 rdf:type covid19:ECDC_Dataset .
+covid19:1563010394840425 covid19:country world:Niger .
+covid19:1563010394840425 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1563010394840425 covid19:confirmed '3'.
+covid19:1563010394840425 covid19:deaths '3'.
+
 covid19:3143427149530260 rdf:type covid19:ECDC_Dataset .
 covid19:3143427149530260 covid19:country world:Niger .
 covid19:3143427149530260 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -52676,6 +54344,18 @@ covid19:3603271299201079 covid19:country world:Niger .
 covid19:3603271299201079 covid19:date '2020-03-21T00:00:00.000Z'.
 covid19:3603271299201079 covid19:confirmed '1'.
 covid19:3603271299201079 covid19:deaths '0'.
+
+covid19:1154068852256605 rdf:type covid19:ECDC_Dataset .
+covid19:1154068852256605 covid19:country world:Nigeria .
+covid19:1154068852256605 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1154068852256605 covid19:confirmed '91'.
+covid19:1154068852256605 covid19:deaths '5'.
+
+covid19:2354965100465514 rdf:type covid19:ECDC_Dataset .
+covid19:2354965100465514 covid19:country world:Nigeria .
+covid19:2354965100465514 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2354965100465514 covid19:confirmed '87'.
+covid19:2354965100465514 covid19:deaths '3'.
 
 covid19:3277391146290101 rdf:type covid19:ECDC_Dataset .
 covid19:3277391146290101 covid19:country world:Nigeria .
@@ -53312,6 +54992,18 @@ covid19:1882145037570839 covid19:country world:Nigeria .
 covid19:1882145037570839 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1882145037570839 covid19:confirmed '0'.
 covid19:1882145037570839 covid19:deaths '0'.
+
+covid19:1130046283004609 rdf:type covid19:ECDC_Dataset .
+covid19:1130046283004609 covid19:country world:North_Macedonia .
+covid19:1130046283004609 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1130046283004609 covid19:confirmed '19'.
+covid19:1130046283004609 covid19:deaths '2'.
+
+covid19:3090935818886981 rdf:type covid19:ECDC_Dataset .
+covid19:3090935818886981 covid19:country world:North_Macedonia .
+covid19:3090935818886981 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3090935818886981 covid19:confirmed '41'.
+covid19:3090935818886981 covid19:deaths '2'.
 
 covid19:7973054966434228 rdf:type covid19:ECDC_Dataset .
 covid19:7973054966434228 covid19:country world:North_Macedonia .
@@ -53961,6 +55653,18 @@ covid19:1979851391137956 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1979851391137956 covid19:confirmed '0'.
 covid19:1979851391137956 covid19:deaths '0'.
 
+covid19:2912750424135324 rdf:type covid19:ECDC_Dataset .
+covid19:2912750424135324 covid19:country world:Northern_Mariana_Islands .
+covid19:2912750424135324 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2912750424135324 covid19:confirmed '0'.
+covid19:2912750424135324 covid19:deaths '0'.
+
+covid19:2657710192325451 rdf:type covid19:ECDC_Dataset .
+covid19:2657710192325451 covid19:country world:Northern_Mariana_Islands .
+covid19:2657710192325451 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2657710192325451 covid19:confirmed '0'.
+covid19:2657710192325451 covid19:deaths '0'.
+
 covid19:6378964536542050 rdf:type covid19:ECDC_Dataset .
 covid19:6378964536542050 covid19:country world:Northern_Mariana_Islands .
 covid19:6378964536542050 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -54116,6 +55820,18 @@ covid19:2872631957715372 covid19:country world:Northern_Mariana_Islands .
 covid19:2872631957715372 covid19:date '2020-03-31T00:00:00.000Z'.
 covid19:2872631957715372 covid19:confirmed '2'.
 covid19:2872631957715372 covid19:deaths '0'.
+
+covid19:2718916432949842 rdf:type covid19:ECDC_Dataset .
+covid19:2718916432949842 covid19:country world:Norway .
+covid19:2718916432949842 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2718916432949842 covid19:confirmed '38'.
+covid19:2718916432949842 covid19:deaths '0'.
+
+covid19:2549853093583936 rdf:type covid19:ECDC_Dataset .
+covid19:2549853093583936 covid19:country world:Norway .
+covid19:2549853093583936 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2549853093583936 covid19:confirmed '59'.
+covid19:2549853093583936 covid19:deaths '2'.
 
 covid19:2011011254785670 rdf:type covid19:ECDC_Dataset .
 covid19:2011011254785670 covid19:country world:Norway .
@@ -54819,6 +56535,18 @@ covid19:8224923601723167 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:8224923601723167 covid19:confirmed '0'.
 covid19:8224923601723167 covid19:deaths '0'.
 
+covid19:2032272387770289 rdf:type covid19:ECDC_Dataset .
+covid19:2032272387770289 covid19:country world:Oman .
+covid19:2032272387770289 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2032272387770289 covid19:confirmed '93'.
+covid19:2032272387770289 covid19:deaths '0'.
+
+covid19:1957389581852215 rdf:type covid19:ECDC_Dataset .
+covid19:1957389581852215 covid19:country world:Oman .
+covid19:1957389581852215 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1957389581852215 covid19:confirmed '115'.
+covid19:1957389581852215 covid19:deaths '0'.
+
 covid19:1630121815343397 rdf:type covid19:ECDC_Dataset .
 covid19:1630121815343397 covid19:country world:Oman .
 covid19:1630121815343397 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -55484,6 +57212,18 @@ covid19:3097639783773411 covid19:country world:Oman .
 covid19:3097639783773411 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:3097639783773411 covid19:confirmed '0'.
 covid19:3097639783773411 covid19:deaths '0'.
+
+covid19:2118469860774837 rdf:type covid19:ECDC_Dataset .
+covid19:2118469860774837 covid19:country world:Pakistan .
+covid19:2118469860774837 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2118469860774837 covid19:confirmed '605'.
+covid19:2118469860774837 covid19:deaths '12'.
+
+covid19:2534104069487668 rdf:type covid19:ECDC_Dataset .
+covid19:2534104069487668 covid19:country world:Pakistan .
+covid19:2534104069487668 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2534104069487668 covid19:confirmed '783'.
+covid19:2534104069487668 covid19:deaths '16'.
 
 covid19:2694908484870478 rdf:type covid19:ECDC_Dataset .
 covid19:2694908484870478 covid19:country world:Pakistan .
@@ -56157,6 +57897,18 @@ covid19:9162514918694160 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:9162514918694160 covid19:confirmed '0'.
 covid19:9162514918694160 covid19:deaths '0'.
 
+covid19:2808077768908775 rdf:type covid19:ECDC_Dataset .
+covid19:2808077768908775 covid19:country world:Palestine .
+covid19:2808077768908775 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2808077768908775 covid19:confirmed '153'.
+covid19:2808077768908775 covid19:deaths '0'.
+
+covid19:6193375975150320 rdf:type covid19:ECDC_Dataset .
+covid19:6193375975150320 covid19:country world:Palestine .
+covid19:6193375975150320 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:6193375975150320 covid19:confirmed '2'.
+covid19:6193375975150320 covid19:deaths '0'.
+
 covid19:1170010127682555 rdf:type covid19:ECDC_Dataset .
 covid19:1170010127682555 covid19:country world:Palestine .
 covid19:1170010127682555 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -56445,6 +58197,18 @@ covid19:1450170646780517 covid19:date '2020-03-06T00:00:00.000Z'.
 covid19:1450170646780517 covid19:confirmed '7'.
 covid19:1450170646780517 covid19:deaths '0'.
 
+covid19:1495285943310566 rdf:type covid19:ECDC_Dataset .
+covid19:1495285943310566 covid19:country world:Panama .
+covid19:1495285943310566 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1495285943310566 covid19:confirmed '241'.
+covid19:1495285943310566 covid19:deaths '6'.
+
+covid19:9557217863005527 rdf:type covid19:ECDC_Dataset .
+covid19:9557217863005527 covid19:country world:Panama .
+covid19:9557217863005527 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:9557217863005527 covid19:confirmed '200'.
+covid19:9557217863005527 covid19:deaths '5'.
+
 covid19:2048707260532451 rdf:type covid19:ECDC_Dataset .
 covid19:2048707260532451 covid19:country world:Panama .
 covid19:2048707260532451 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -56727,6 +58491,18 @@ covid19:2680684695330469 covid19:date '2020-03-10T00:00:00.000Z'.
 covid19:2680684695330469 covid19:confirmed '1'.
 covid19:2680684695330469 covid19:deaths '0'.
 
+covid19:3199553755947646 rdf:type covid19:ECDC_Dataset .
+covid19:3199553755947646 covid19:country world:Papua_New_Guinea .
+covid19:3199553755947646 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3199553755947646 covid19:confirmed '0'.
+covid19:3199553755947646 covid19:deaths '0'.
+
+covid19:2103065175420336 rdf:type covid19:ECDC_Dataset .
+covid19:2103065175420336 covid19:country world:Papua_New_Guinea .
+covid19:2103065175420336 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2103065175420336 covid19:confirmed '0'.
+covid19:2103065175420336 covid19:deaths '0'.
+
 covid19:1271045626399398 rdf:type covid19:ECDC_Dataset .
 covid19:1271045626399398 covid19:country world:Papua_New_Guinea .
 covid19:1271045626399398 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -56942,6 +58718,18 @@ covid19:2976425387919984 covid19:country world:Papua_New_Guinea .
 covid19:2976425387919984 covid19:date '2020-03-21T00:00:00.000Z'.
 covid19:2976425387919984 covid19:confirmed '1'.
 covid19:2976425387919984 covid19:deaths '0'.
+
+covid19:1351736708726549 rdf:type covid19:ECDC_Dataset .
+covid19:1351736708726549 covid19:country world:Paraguay .
+covid19:1351736708726549 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1351736708726549 covid19:confirmed '0'.
+covid19:1351736708726549 covid19:deaths '0'.
+
+covid19:1440838455434698 rdf:type covid19:ECDC_Dataset .
+covid19:1440838455434698 covid19:country world:Paraguay .
+covid19:1440838455434698 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1440838455434698 covid19:confirmed '5'.
+covid19:1440838455434698 covid19:deaths '0'.
 
 covid19:2697717863244019 rdf:type covid19:ECDC_Dataset .
 covid19:2697717863244019 covid19:country world:Paraguay .
@@ -57212,6 +59000,18 @@ covid19:1229197808417873 covid19:country world:Paraguay .
 covid19:1229197808417873 covid19:date '2020-03-08T00:00:00.000Z'.
 covid19:1229197808417873 covid19:confirmed '1'.
 covid19:1229197808417873 covid19:deaths '0'.
+
+covid19:3386401972787005 rdf:type covid19:ECDC_Dataset .
+covid19:3386401972787005 covid19:country world:Peru .
+covid19:3386401972787005 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3386401972787005 covid19:confirmed '2186'.
+covid19:3386401972787005 covid19:deaths '28'.
+
+covid19:1076197042533428 rdf:type covid19:ECDC_Dataset .
+covid19:1076197042533428 covid19:country world:Peru .
+covid19:1076197042533428 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1076197042533428 covid19:confirmed '3683'.
+covid19:1076197042533428 covid19:deaths '66'.
 
 covid19:2289032838837431 rdf:type covid19:ECDC_Dataset .
 covid19:2289032838837431 covid19:country world:Peru .
@@ -57506,6 +59306,18 @@ covid19:2470350690609371 covid19:country world:Peru .
 covid19:2470350690609371 covid19:date '2020-03-07T00:00:00.000Z'.
 covid19:2470350690609371 covid19:confirmed '1'.
 covid19:2470350690609371 covid19:deaths '0'.
+
+covid19:3217894520221801 rdf:type covid19:ECDC_Dataset .
+covid19:3217894520221801 covid19:country world:Philippines .
+covid19:3217894520221801 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3217894520221801 covid19:confirmed '285'.
+covid19:3217894520221801 covid19:deaths '7'.
+
+covid19:6505222266768422 rdf:type covid19:ECDC_Dataset .
+covid19:6505222266768422 covid19:country world:Philippines .
+covid19:6505222266768422 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:6505222266768422 covid19:confirmed '102'.
+covid19:6505222266768422 covid19:deaths '17'.
 
 covid19:2715892087417496 rdf:type covid19:ECDC_Dataset .
 covid19:2715892087417496 covid19:country world:Philippines .
@@ -58185,6 +59997,18 @@ covid19:2838672206441274 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2838672206441274 covid19:confirmed '0'.
 covid19:2838672206441274 covid19:deaths '0'.
 
+covid19:2200294584130000 rdf:type covid19:ECDC_Dataset .
+covid19:2200294584130000 covid19:country world:Poland .
+covid19:2200294584130000 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2200294584130000 covid19:confirmed '344'.
+covid19:2200294584130000 covid19:deaths '11'.
+
+covid19:1808270454559084 rdf:type covid19:ECDC_Dataset .
+covid19:1808270454559084 covid19:country world:Poland .
+covid19:1808270454559084 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1808270454559084 covid19:confirmed '381'.
+covid19:1808270454559084 covid19:deaths '30'.
+
 covid19:2022376511717561 rdf:type covid19:ECDC_Dataset .
 covid19:2022376511717561 covid19:country world:Poland .
 covid19:2022376511717561 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -58490,6 +60314,18 @@ covid19:2800139572574242 covid19:country world:Poland .
 covid19:2800139572574242 covid19:date '2020-03-04T00:00:00.000Z'.
 covid19:2800139572574242 covid19:confirmed '1'.
 covid19:2800139572574242 covid19:deaths '0'.
+
+covid19:2855628421530990 rdf:type covid19:ECDC_Dataset .
+covid19:2855628421530990 covid19:country world:Portugal .
+covid19:2855628421530990 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2855628421530990 covid19:confirmed '472'.
+covid19:2855628421530990 covid19:deaths '23'.
+
+covid19:3297871025228322 rdf:type covid19:ECDC_Dataset .
+covid19:3297871025228322 covid19:country world:Portugal .
+covid19:3297871025228322 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3297871025228322 covid19:confirmed '595'.
+covid19:3297871025228322 covid19:deaths '26'.
 
 covid19:1082285799293339 rdf:type covid19:ECDC_Dataset .
 covid19:1082285799293339 covid19:country world:Portugal .
@@ -58815,6 +60651,18 @@ covid19:2932781470575713 covid19:date '2020-03-03T00:00:00.000Z'.
 covid19:2932781470575713 covid19:confirmed '2'.
 covid19:2932781470575713 covid19:deaths '0'.
 
+covid19:7214729745355851 rdf:type covid19:ECDC_Dataset .
+covid19:7214729745355851 covid19:country world:Puerto_Rico .
+covid19:7214729745355851 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:7214729745355851 covid19:confirmed '0'.
+covid19:7214729745355851 covid19:deaths '15'.
+
+covid19:2596333733630211 rdf:type covid19:ECDC_Dataset .
+covid19:2596333733630211 covid19:country world:Puerto_Rico .
+covid19:2596333733630211 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2596333733630211 covid19:confirmed '0'.
+covid19:2596333733630211 covid19:deaths '0'.
+
 covid19:3531176274384239 rdf:type covid19:ECDC_Dataset .
 covid19:3531176274384239 covid19:country world:Puerto_Rico .
 covid19:3531176274384239 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -58988,6 +60836,18 @@ covid19:2322374722841738 covid19:country world:Puerto_Rico .
 covid19:2322374722841738 covid19:date '2020-03-28T00:00:00.000Z'.
 covid19:2322374722841738 covid19:confirmed '64'.
 covid19:2322374722841738 covid19:deaths '2'.
+
+covid19:2154199355579632 rdf:type covid19:ECDC_Dataset .
+covid19:2154199355579632 covid19:country world:Qatar .
+covid19:2154199355579632 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2154199355579632 covid19:confirmed '929'.
+covid19:2154199355579632 covid19:deaths '0'.
+
+covid19:2816303311697825 rdf:type covid19:ECDC_Dataset .
+covid19:2816303311697825 covid19:country world:Qatar .
+covid19:2816303311697825 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2816303311697825 covid19:confirmed '833'.
+covid19:2816303311697825 covid19:deaths '0'.
 
 covid19:1926001759234475 rdf:type covid19:ECDC_Dataset .
 covid19:1926001759234475 covid19:country world:Qatar .
@@ -59666,6 +61526,18 @@ covid19:4122569664918046 covid19:country world:Qatar .
 covid19:4122569664918046 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:4122569664918046 covid19:confirmed '0'.
 covid19:4122569664918046 covid19:deaths '0'.
+
+covid19:1767527511731998 rdf:type covid19:ECDC_Dataset .
+covid19:1767527511731998 covid19:country world:Romania .
+covid19:1767527511731998 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1767527511731998 covid19:confirmed '401'.
+covid19:1767527511731998 covid19:deaths '33'.
+
+covid19:3353617747849438 rdf:type covid19:ECDC_Dataset .
+covid19:3353617747849438 covid19:country world:Romania .
+covid19:3353617747849438 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3353617747849438 covid19:confirmed '218'.
+covid19:3353617747849438 covid19:deaths '23'.
 
 covid19:1086785335989917 rdf:type covid19:ECDC_Dataset .
 covid19:1086785335989917 covid19:country world:Romania .
@@ -60356,6 +62228,18 @@ covid19:1259205070747105 covid19:country world:Romania .
 covid19:1259205070747105 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1259205070747105 covid19:confirmed '0'.
 covid19:1259205070747105 covid19:deaths '0'.
+
+covid19:2367662132376867 rdf:type covid19:ECDC_Dataset .
+covid19:2367662132376867 covid19:country world:Russia .
+covid19:2367662132376867 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2367662132376867 covid19:confirmed '6361'.
+covid19:2367662132376867 covid19:deaths '66'.
+
+covid19:2994921641212715 rdf:type covid19:ECDC_Dataset .
+covid19:2994921641212715 covid19:country world:Russia .
+covid19:2994921641212715 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2994921641212715 covid19:confirmed '5966'.
+covid19:2994921641212715 covid19:deaths '66'.
 
 covid19:9538028053773079 rdf:type covid19:ECDC_Dataset .
 covid19:9538028053773079 covid19:country world:Russia .
@@ -61059,6 +62943,18 @@ covid19:1820749280488564 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1820749280488564 covid19:confirmed '0'.
 covid19:1820749280488564 covid19:deaths '0'.
 
+covid19:5473459277932809 rdf:type covid19:ECDC_Dataset .
+covid19:5473459277932809 covid19:country world:Rwanda .
+covid19:5473459277932809 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:5473459277932809 covid19:confirmed '8'.
+covid19:5473459277932809 covid19:deaths '0'.
+
+covid19:1487901486797502 rdf:type covid19:ECDC_Dataset .
+covid19:1487901486797502 covid19:country world:Rwanda .
+covid19:1487901486797502 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1487901486797502 covid19:confirmed '7'.
+covid19:1487901486797502 covid19:deaths '0'.
+
 covid19:3277336788653346 rdf:type covid19:ECDC_Dataset .
 covid19:3277336788653346 covid19:country world:Rwanda .
 covid19:3277336788653346 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -61311,6 +63207,18 @@ covid19:2278241268709013 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:2278241268709013 covid19:confirmed '1'.
 covid19:2278241268709013 covid19:deaths '0'.
 
+covid19:2309953243228685 rdf:type covid19:ECDC_Dataset .
+covid19:2309953243228685 covid19:country world:Saint_Kitts_and_Nevis .
+covid19:2309953243228685 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2309953243228685 covid19:confirmed '0'.
+covid19:2309953243228685 covid19:deaths '0'.
+
+covid19:2334425363695835 rdf:type covid19:ECDC_Dataset .
+covid19:2334425363695835 covid19:country world:Saint_Kitts_and_Nevis .
+covid19:2334425363695835 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2334425363695835 covid19:confirmed '0'.
+covid19:2334425363695835 covid19:deaths '0'.
+
 covid19:3348250869535300 rdf:type covid19:ECDC_Dataset .
 covid19:3348250869535300 covid19:country world:Saint_Kitts_and_Nevis .
 covid19:3348250869535300 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -61496,6 +63404,18 @@ covid19:1035794751127932 covid19:country world:Saint_Kitts_and_Nevis .
 covid19:1035794751127932 covid19:date '2020-03-26T00:00:00.000Z'.
 covid19:1035794751127932 covid19:confirmed '2'.
 covid19:1035794751127932 covid19:deaths '0'.
+
+covid19:9799214139877686 rdf:type covid19:ECDC_Dataset .
+covid19:9799214139877686 covid19:country world:Saint_Lucia .
+covid19:9799214139877686 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9799214139877686 covid19:confirmed '0'.
+covid19:9799214139877686 covid19:deaths '0'.
+
+covid19:3397076820776471 rdf:type covid19:ECDC_Dataset .
+covid19:3397076820776471 covid19:country world:Saint_Lucia .
+covid19:3397076820776471 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3397076820776471 covid19:confirmed '0'.
+covid19:3397076820776471 covid19:deaths '0'.
 
 covid19:1792695123126393 rdf:type covid19:ECDC_Dataset .
 covid19:1792695123126393 covid19:country world:Saint_Lucia .
@@ -61749,6 +63669,18 @@ covid19:1735975718608868 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:1735975718608868 covid19:confirmed '2'.
 covid19:1735975718608868 covid19:deaths '0'.
 
+covid19:2373446228311808 rdf:type covid19:ECDC_Dataset .
+covid19:2373446228311808 covid19:country world:Saint_Vincent_and_the_Grenadines .
+covid19:2373446228311808 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2373446228311808 covid19:confirmed '0'.
+covid19:2373446228311808 covid19:deaths '0'.
+
+covid19:2124753108533264 rdf:type covid19:ECDC_Dataset .
+covid19:2124753108533264 covid19:country world:Saint_Vincent_and_the_Grenadines .
+covid19:2124753108533264 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2124753108533264 covid19:confirmed '0'.
+covid19:2124753108533264 covid19:deaths '0'.
+
 covid19:8546290472602239 rdf:type covid19:ECDC_Dataset .
 covid19:8546290472602239 covid19:country world:Saint_Vincent_and_the_Grenadines .
 covid19:8546290472602239 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -61946,6 +63878,18 @@ covid19:1335109566516515 covid19:country world:Saint_Vincent_and_the_Grenadines 
 covid19:1335109566516515 covid19:date '2020-03-13T00:00:00.000Z'.
 covid19:1335109566516515 covid19:confirmed '1'.
 covid19:1335109566516515 covid19:deaths '0'.
+
+covid19:2720727617825952 rdf:type covid19:ECDC_Dataset .
+covid19:2720727617825952 covid19:country world:San_Marino .
+covid19:2720727617825952 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2720727617825952 covid19:confirmed '25'.
+covid19:2720727617825952 covid19:deaths '1'.
+
+covid19:1191290047139506 rdf:type covid19:ECDC_Dataset .
+covid19:1191290047139506 covid19:country world:San_Marino .
+covid19:1191290047139506 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1191290047139506 covid19:confirmed '0'.
+covid19:1191290047139506 covid19:deaths '0'.
 
 covid19:2961643412840157 rdf:type covid19:ECDC_Dataset .
 covid19:2961643412840157 covid19:country world:San_Marino .
@@ -62643,6 +64587,18 @@ covid19:8323296786893612 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:8323296786893612 covid19:confirmed '0'.
 covid19:8323296786893612 covid19:deaths '0'.
 
+covid19:5180371410087577 rdf:type covid19:ECDC_Dataset .
+covid19:5180371410087577 covid19:country world:Sao_Tome_and_Principe .
+covid19:5180371410087577 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:5180371410087577 covid19:confirmed '0'.
+covid19:5180371410087577 covid19:deaths '0'.
+
+covid19:3319260336362829 rdf:type covid19:ECDC_Dataset .
+covid19:3319260336362829 covid19:country world:Sao_Tome_and_Principe .
+covid19:3319260336362829 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3319260336362829 covid19:confirmed '0'.
+covid19:3319260336362829 covid19:deaths '0'.
+
 covid19:2370259669436383 rdf:type covid19:ECDC_Dataset .
 covid19:2370259669436383 covid19:country world:Sao_Tome_and_Principe .
 covid19:2370259669436383 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -62744,6 +64700,18 @@ covid19:2804023391975677 covid19:country world:Sao_Tome_and_Principe .
 covid19:2804023391975677 covid19:date '2020-04-09T00:00:00.000Z'.
 covid19:2804023391975677 covid19:confirmed '4'.
 covid19:2804023391975677 covid19:deaths '0'.
+
+covid19:9631724526165038 rdf:type covid19:ECDC_Dataset .
+covid19:9631724526165038 covid19:country world:Saudi_Arabia .
+covid19:9631724526165038 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9631724526165038 covid19:confirmed '1223'.
+covid19:9631724526165038 covid19:deaths '3'.
+
+covid19:1257306121038595 rdf:type covid19:ECDC_Dataset .
+covid19:1257306121038595 covid19:country world:Saudi_Arabia .
+covid19:1257306121038595 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1257306121038595 covid19:confirmed '1197'.
+covid19:1257306121038595 covid19:deaths '9'.
 
 covid19:3128586336453336 rdf:type covid19:ECDC_Dataset .
 covid19:3128586336453336 covid19:country world:Saudi_Arabia .
@@ -63051,6 +65019,18 @@ covid19:3201109779580935 covid19:date '2020-03-03T00:00:00.000Z'.
 covid19:3201109779580935 covid19:confirmed '1'.
 covid19:3201109779580935 covid19:deaths '0'.
 
+covid19:2492518102039261 rdf:type covid19:ECDC_Dataset .
+covid19:2492518102039261 covid19:country world:Senegal .
+covid19:2492518102039261 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2492518102039261 covid19:confirmed '57'.
+covid19:2492518102039261 covid19:deaths '2'.
+
+covid19:2145007939487621 rdf:type covid19:ECDC_Dataset .
+covid19:2145007939487621 covid19:country world:Senegal .
+covid19:2145007939487621 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2145007939487621 covid19:confirmed '69'.
+covid19:2145007939487621 covid19:deaths '0'.
+
 covid19:4038101103489905 rdf:type covid19:ECDC_Dataset .
 covid19:4038101103489905 covid19:country world:Senegal .
 covid19:4038101103489905 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -63332,6 +65312,18 @@ covid19:3032948955577956 covid19:country world:Senegal .
 covid19:3032948955577956 covid19:date '2020-03-03T00:00:00.000Z'.
 covid19:3032948955577956 covid19:confirmed '1'.
 covid19:3032948955577956 covid19:deaths '0'.
+
+covid19:2687467634907531 rdf:type covid19:ECDC_Dataset .
+covid19:2687467634907531 covid19:country world:Serbia .
+covid19:2687467634907531 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2687467634907531 covid19:confirmed '263'.
+covid19:2687467634907531 covid19:deaths '5'.
+
+covid19:3369235991096020 rdf:type covid19:ECDC_Dataset .
+covid19:3369235991096020 covid19:country world:Serbia .
+covid19:3369235991096020 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3369235991096020 covid19:confirmed '296'.
+covid19:3369235991096020 covid19:deaths '7'.
 
 covid19:2096979447784517 rdf:type covid19:ECDC_Dataset .
 covid19:2096979447784517 covid19:country world:Serbia .
@@ -63615,6 +65607,18 @@ covid19:1947149180143885 covid19:date '2020-03-07T00:00:00.000Z'.
 covid19:1947149180143885 covid19:confirmed '1'.
 covid19:1947149180143885 covid19:deaths '0'.
 
+covid19:1631746873912922 rdf:type covid19:ECDC_Dataset .
+covid19:1631746873912922 covid19:country world:Seychelles .
+covid19:1631746873912922 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1631746873912922 covid19:confirmed '0'.
+covid19:1631746873912922 covid19:deaths '0'.
+
+covid19:2347691341168372 rdf:type covid19:ECDC_Dataset .
+covid19:2347691341168372 covid19:country world:Seychelles .
+covid19:2347691341168372 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2347691341168372 covid19:confirmed '0'.
+covid19:2347691341168372 covid19:deaths '0'.
+
 covid19:2951755648178574 rdf:type covid19:ECDC_Dataset .
 covid19:2951755648178574 covid19:country world:Seychelles .
 covid19:2951755648178574 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -63867,6 +65871,18 @@ covid19:4853045196059737 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:4853045196059737 covid19:confirmed '2'.
 covid19:4853045196059737 covid19:deaths '0'.
 
+covid19:9224902705834611 rdf:type covid19:ECDC_Dataset .
+covid19:9224902705834611 covid19:country world:Sierra_Leone .
+covid19:9224902705834611 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9224902705834611 covid19:confirmed '11'.
+covid19:9224902705834611 covid19:deaths '1'.
+
+covid19:2913196492759721 rdf:type covid19:ECDC_Dataset .
+covid19:2913196492759721 covid19:country world:Sierra_Leone .
+covid19:2913196492759721 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2913196492759721 covid19:confirmed '0'.
+covid19:2913196492759721 covid19:deaths '0'.
+
 covid19:2276405721744166 rdf:type covid19:ECDC_Dataset .
 covid19:2276405721744166 covid19:country world:Sierra_Leone .
 covid19:2276405721744166 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -64016,6 +66032,18 @@ covid19:3849041154096572 covid19:country world:Sierra_Leone .
 covid19:3849041154096572 covid19:date '2020-04-01T00:00:00.000Z'.
 covid19:3849041154096572 covid19:confirmed '1'.
 covid19:3849041154096572 covid19:deaths '0'.
+
+covid19:1543996767329324 rdf:type covid19:ECDC_Dataset .
+covid19:1543996767329324 covid19:country world:Singapore .
+covid19:1543996767329324 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1543996767329324 covid19:confirmed '931'.
+covid19:1543996767329324 covid19:deaths '0'.
+
+covid19:1494859359686361 rdf:type covid19:ECDC_Dataset .
+covid19:1494859359686361 covid19:country world:Singapore .
+covid19:1494859359686361 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1494859359686361 covid19:confirmed '1515'.
+covid19:1494859359686361 covid19:deaths '0'.
 
 covid19:2674912935220938 rdf:type covid19:ECDC_Dataset .
 covid19:2674912935220938 covid19:country world:Singapore .
@@ -64719,6 +66747,18 @@ covid19:5831184964465790 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:5831184964465790 covid19:confirmed '0'.
 covid19:5831184964465790 covid19:deaths '0'.
 
+covid19:2817526726573817 rdf:type covid19:ECDC_Dataset .
+covid19:2817526726573817 covid19:country world:Sint_Maarten .
+covid19:2817526726573817 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2817526726573817 covid19:confirmed '1'.
+covid19:2817526726573817 covid19:deaths '1'.
+
+covid19:9165523531813948 rdf:type covid19:ECDC_Dataset .
+covid19:9165523531813948 covid19:country world:Sint_Maarten .
+covid19:9165523531813948 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:9165523531813948 covid19:confirmed '0'.
+covid19:9165523531813948 covid19:deaths '0'.
+
 covid19:4618832722160337 rdf:type covid19:ECDC_Dataset .
 covid19:4618832722160337 covid19:country world:Sint_Maarten .
 covid19:4618832722160337 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -64904,6 +66944,18 @@ covid19:2139097632521785 covid19:country world:Sint_Maarten .
 covid19:2139097632521785 covid19:date '2020-03-03T00:00:00.000Z'.
 covid19:2139097632521785 covid19:confirmed '1'.
 covid19:2139097632521785 covid19:deaths '0'.
+
+covid19:1687925021243569 rdf:type covid19:ECDC_Dataset .
+covid19:1687925021243569 covid19:country world:Slovakia .
+covid19:1687925021243569 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1687925021243569 covid19:confirmed '6'.
+covid19:1687925021243569 covid19:deaths '1'.
+
+covid19:2768043540832444 rdf:type covid19:ECDC_Dataset .
+covid19:2768043540832444 covid19:country world:Slovakia .
+covid19:2768043540832444 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2768043540832444 covid19:confirmed '13'.
+covid19:2768043540832444 covid19:deaths '0'.
 
 covid19:8687195238604161 rdf:type covid19:ECDC_Dataset .
 covid19:8687195238604161 covid19:country world:Slovakia .
@@ -65198,6 +67250,18 @@ covid19:3230067625303276 covid19:country world:Slovakia .
 covid19:3230067625303276 covid19:date '2020-03-07T00:00:00.000Z'.
 covid19:3230067625303276 covid19:confirmed '1'.
 covid19:3230067625303276 covid19:deaths '0'.
+
+covid19:9387870871547057 rdf:type covid19:ECDC_Dataset .
+covid19:9387870871547057 covid19:country world:Slovenia .
+covid19:9387870871547057 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9387870871547057 covid19:confirmed '19'.
+covid19:9387870871547057 covid19:deaths '1'.
+
+covid19:2195371506780656 rdf:type covid19:ECDC_Dataset .
+covid19:2195371506780656 covid19:country world:Slovenia .
+covid19:2195371506780656 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2195371506780656 covid19:confirmed '15'.
+covid19:2195371506780656 covid19:deaths '1'.
 
 covid19:1831352319530693 rdf:type covid19:ECDC_Dataset .
 covid19:1831352319530693 covid19:country world:Slovenia .
@@ -65505,6 +67569,18 @@ covid19:2382356918377569 covid19:date '2020-03-05T00:00:00.000Z'.
 covid19:2382356918377569 covid19:confirmed '1'.
 covid19:2382356918377569 covid19:deaths '0'.
 
+covid19:3311634071307268 rdf:type covid19:ECDC_Dataset .
+covid19:3311634071307268 covid19:country world:Somalia .
+covid19:3311634071307268 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3311634071307268 covid19:confirmed '46'.
+covid19:3311634071307268 covid19:deaths '5'.
+
+covid19:3379571054447387 rdf:type covid19:ECDC_Dataset .
+covid19:3379571054447387 covid19:country world:Somalia .
+covid19:3379571054447387 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3379571054447387 covid19:confirmed '62'.
+covid19:3379571054447387 covid19:deaths '2'.
+
 covid19:6272396271390170 rdf:type covid19:ECDC_Dataset .
 covid19:6272396271390170 covid19:country world:Somalia .
 covid19:6272396271390170 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -65744,6 +67820,18 @@ covid19:3053819744335425 covid19:country world:Somalia .
 covid19:3053819744335425 covid19:date '2020-03-17T00:00:00.000Z'.
 covid19:3053819744335425 covid19:confirmed '1'.
 covid19:3053819744335425 covid19:deaths '0'.
+
+covid19:9781586959881936 rdf:type covid19:ECDC_Dataset .
+covid19:9781586959881936 covid19:country world:South_Africa .
+covid19:9781586959881936 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9781586959881936 covid19:confirmed '185'.
+covid19:9781586959881936 covid19:deaths '1'.
+
+covid19:5626567264984555 rdf:type covid19:ECDC_Dataset .
+covid19:5626567264984555 covid19:country world:South_Africa .
+covid19:5626567264984555 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:5626567264984555 covid19:confirmed '141'.
+covid19:5626567264984555 covid19:deaths '7'.
 
 covid19:3199177394404361 rdf:type covid19:ECDC_Dataset .
 covid19:3199177394404361 covid19:country world:South_Africa .
@@ -66038,6 +68126,18 @@ covid19:7410348679987274 covid19:country world:South_Africa .
 covid19:7410348679987274 covid19:date '2020-03-06T00:00:00.000Z'.
 covid19:7410348679987274 covid19:confirmed '1'.
 covid19:7410348679987274 covid19:deaths '0'.
+
+covid19:2420525229584840 rdf:type covid19:ECDC_Dataset .
+covid19:2420525229584840 covid19:country world:South_Korea .
+covid19:2420525229584840 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2420525229584840 covid19:confirmed '10'.
+covid19:2420525229584840 covid19:deaths '1'.
+
+covid19:2248421219688296 rdf:type covid19:ECDC_Dataset .
+covid19:2248421219688296 covid19:country world:South_Korea .
+covid19:2248421219688296 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2248421219688296 covid19:confirmed '10'.
+covid19:2248421219688296 covid19:deaths '2'.
 
 covid19:5725260272367792 rdf:type covid19:ECDC_Dataset .
 covid19:5725260272367792 covid19:country world:South_Korea .
@@ -66741,6 +68841,18 @@ covid19:1556690241860109 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1556690241860109 covid19:confirmed '0'.
 covid19:1556690241860109 covid19:deaths '0'.
 
+covid19:1837984456940983 rdf:type covid19:ECDC_Dataset .
+covid19:1837984456940983 covid19:country world:South_Sudan .
+covid19:1837984456940983 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1837984456940983 covid19:confirmed '1'.
+covid19:1837984456940983 covid19:deaths '0'.
+
+covid19:3331413845559801 rdf:type covid19:ECDC_Dataset .
+covid19:3331413845559801 covid19:country world:South_Sudan .
+covid19:3331413845559801 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3331413845559801 covid19:confirmed '0'.
+covid19:3331413845559801 covid19:deaths '0'.
+
 covid19:1449496568948746 rdf:type covid19:ECDC_Dataset .
 covid19:1449496568948746 covid19:country world:South_Sudan .
 covid19:1449496568948746 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -66861,71 +68973,83 @@ covid19:4973992250633004 covid19:date '2020-04-06T00:00:00.000Z'.
 covid19:4973992250633004 covid19:confirmed '1'.
 covid19:4973992250633004 covid19:deaths '0'.
 
+covid19:3649618482604144 rdf:type covid19:ECDC_Dataset .
+covid19:3649618482604144 covid19:country world:Spain .
+covid19:3649618482604144 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3649618482604144 covid19:confirmed '0'.
+covid19:3649618482604144 covid19:deaths '0'.
+
+covid19:3377331990623582 rdf:type covid19:ECDC_Dataset .
+covid19:3377331990623582 covid19:country world:Spain .
+covid19:3377331990623582 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3377331990623582 covid19:confirmed '1729'.
+covid19:3377331990623582 covid19:deaths '288'.
+
 covid19:3136713357972377 rdf:type covid19:ECDC_Dataset .
 covid19:3136713357972377 covid19:country world:Spain .
 covid19:3136713357972377 covid19:date '2020-04-25T00:00:00.000Z'.
-covid19:3136713357972377 covid19:confirmed '6740'.
-covid19:3136713357972377 covid19:deaths '367'.
+covid19:3136713357972377 covid19:confirmed '2944'.
+covid19:3136713357972377 covid19:deaths '378'.
 
 covid19:3070870597446320 rdf:type covid19:ECDC_Dataset .
 covid19:3070870597446320 covid19:country world:Spain .
 covid19:3070870597446320 covid19:date '2020-04-24T00:00:00.000Z'.
-covid19:3070870597446320 covid19:confirmed '4635'.
-covid19:3070870597446320 covid19:deaths '440'.
+covid19:3070870597446320 covid19:confirmed '2767'.
+covid19:3070870597446320 covid19:deaths '367'.
 
 covid19:8358833334169537 rdf:type covid19:ECDC_Dataset .
 covid19:8358833334169537 covid19:country world:Spain .
 covid19:8358833334169537 covid19:date '2020-04-23T00:00:00.000Z'.
-covid19:8358833334169537 covid19:confirmed '4211'.
-covid19:8358833334169537 covid19:deaths '435'.
+covid19:8358833334169537 covid19:confirmed '3052'.
+covid19:8358833334169537 covid19:deaths '440'.
 
 covid19:2477262463619505 rdf:type covid19:ECDC_Dataset .
 covid19:2477262463619505 covid19:country world:Spain .
 covid19:2477262463619505 covid19:date '2020-04-22T00:00:00.000Z'.
-covid19:2477262463619505 covid19:confirmed '3968'.
-covid19:2477262463619505 covid19:deaths '430'.
+covid19:2477262463619505 covid19:confirmed '2627'.
+covid19:2477262463619505 covid19:deaths '435'.
 
 covid19:3339167509121421 rdf:type covid19:ECDC_Dataset .
 covid19:3339167509121421 covid19:country world:Spain .
 covid19:3339167509121421 covid19:date '2020-04-21T00:00:00.000Z'.
-covid19:3339167509121421 covid19:confirmed '4266'.
-covid19:3339167509121421 covid19:deaths '399'.
+covid19:3339167509121421 covid19:confirmed '3352'.
+covid19:3339167509121421 covid19:deaths '430'.
 
 covid19:1299552964789586 rdf:type covid19:ECDC_Dataset .
 covid19:1299552964789586 covid19:country world:Spain .
 covid19:1299552964789586 covid19:date '2020-04-20T00:00:00.000Z'.
-covid19:1299552964789586 covid19:confirmed '4218'.
-covid19:1299552964789586 covid19:deaths '410'.
+covid19:1299552964789586 covid19:confirmed '2585'.
+covid19:1299552964789586 covid19:deaths '399'.
 
 covid19:2060118363221840 rdf:type covid19:ECDC_Dataset .
 covid19:2060118363221840 covid19:country world:Spain .
 covid19:2060118363221840 covid19:date '2020-04-19T00:00:00.000Z'.
-covid19:2060118363221840 covid19:confirmed '3658'.
-covid19:2060118363221840 covid19:deaths '565'.
+covid19:2060118363221840 covid19:confirmed '-1430'.
+covid19:2060118363221840 covid19:deaths '410'.
 
 covid19:2063376366843286 rdf:type covid19:ECDC_Dataset .
 covid19:2063376366843286 covid19:country world:Spain .
 covid19:2063376366843286 covid19:date '2020-04-18T00:00:00.000Z'.
-covid19:2063376366843286 covid19:confirmed '5252'.
-covid19:2063376366843286 covid19:deaths '348'.
+covid19:2063376366843286 covid19:confirmed '4104'.
+covid19:2063376366843286 covid19:deaths '565'.
 
 covid19:2913316497991972 rdf:type covid19:ECDC_Dataset .
 covid19:2913316497991972 covid19:country world:Spain .
 covid19:2913316497991972 covid19:date '2020-04-17T00:00:00.000Z'.
-covid19:2913316497991972 covid19:confirmed '5183'.
-covid19:2913316497991972 covid19:deaths '551'.
+covid19:2913316497991972 covid19:confirmed '4400'.
+covid19:2913316497991972 covid19:deaths '585'.
 
 covid19:2738152981358276 rdf:type covid19:ECDC_Dataset .
 covid19:2738152981358276 covid19:country world:Spain .
 covid19:2738152981358276 covid19:date '2020-04-16T00:00:00.000Z'.
-covid19:2738152981358276 covid19:confirmed '5092'.
-covid19:2738152981358276 covid19:deaths '523'.
+covid19:2738152981358276 covid19:confirmed '4040'.
+covid19:2738152981358276 covid19:deaths '617'.
 
 covid19:1174232742784543 rdf:type covid19:ECDC_Dataset .
 covid19:1174232742784543 covid19:country world:Spain .
 covid19:1174232742784543 covid19:date '2020-04-15T00:00:00.000Z'.
-covid19:1174232742784543 covid19:confirmed '3045'.
-covid19:1174232742784543 covid19:deaths '567'.
+covid19:1174232742784543 covid19:confirmed '7968'.
+covid19:1174232742784543 covid19:deaths '787'.
 
 covid19:9414877608173446 rdf:type covid19:ECDC_Dataset .
 covid19:9414877608173446 covid19:country world:Spain .
@@ -67562,6 +69686,18 @@ covid19:5914903165790451 covid19:country world:Spain .
 covid19:5914903165790451 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:5914903165790451 covid19:confirmed '0'.
 covid19:5914903165790451 covid19:deaths '0'.
+
+covid19:1858804163672100 rdf:type covid19:ECDC_Dataset .
+covid19:1858804163672100 covid19:country world:Sri_Lanka .
+covid19:1858804163672100 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1858804163672100 covid19:confirmed '61'.
+covid19:1858804163672100 covid19:deaths '0'.
+
+covid19:1748150335255307 rdf:type covid19:ECDC_Dataset .
+covid19:1748150335255307 covid19:country world:Sri_Lanka .
+covid19:1748150335255307 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1748150335255307 covid19:confirmed '42'.
+covid19:1748150335255307 covid19:deaths '0'.
 
 covid19:3061167988361146 rdf:type covid19:ECDC_Dataset .
 covid19:3061167988361146 covid19:country world:Sri_Lanka .
@@ -68211,6 +70347,18 @@ covid19:1352986051078975 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1352986051078975 covid19:confirmed '0'.
 covid19:1352986051078975 covid19:deaths '0'.
 
+covid19:1893233639539972 rdf:type covid19:ECDC_Dataset .
+covid19:1893233639539972 covid19:country world:Sudan .
+covid19:1893233639539972 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1893233639539972 covid19:confirmed '24'.
+covid19:1893233639539972 covid19:deaths '4'.
+
+covid19:1636005170294435 rdf:type covid19:ECDC_Dataset .
+covid19:1636005170294435 covid19:country world:Sudan .
+covid19:1636005170294435 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1636005170294435 covid19:confirmed '39'.
+covid19:1636005170294435 covid19:deaths '1'.
+
 covid19:2124563679220211 rdf:type covid19:ECDC_Dataset .
 covid19:2124563679220211 covid19:country world:Sudan .
 covid19:2124563679220211 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -68469,6 +70617,18 @@ covid19:3258358873367240 covid19:date '2020-03-14T00:00:00.000Z'.
 covid19:3258358873367240 covid19:confirmed '1'.
 covid19:3258358873367240 covid19:deaths '0'.
 
+covid19:8788850320866099 rdf:type covid19:ECDC_Dataset .
+covid19:8788850320866099 covid19:country world:Suriname .
+covid19:8788850320866099 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:8788850320866099 covid19:confirmed '0'.
+covid19:8788850320866099 covid19:deaths '0'.
+
+covid19:6561812259700063 rdf:type covid19:ECDC_Dataset .
+covid19:6561812259700063 covid19:country world:Suriname .
+covid19:6561812259700063 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:6561812259700063 covid19:confirmed '0'.
+covid19:6561812259700063 covid19:deaths '0'.
+
 covid19:1508292763711289 rdf:type covid19:ECDC_Dataset .
 covid19:1508292763711289 covid19:country world:Suriname .
 covid19:1508292763711289 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -68690,6 +70850,18 @@ covid19:3332255023397539 covid19:country world:Suriname .
 covid19:3332255023397539 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:3332255023397539 covid19:confirmed '1'.
 covid19:3332255023397539 covid19:deaths '0'.
+
+covid19:3319157233114017 rdf:type covid19:ECDC_Dataset .
+covid19:3319157233114017 covid19:country world:Sweden .
+covid19:3319157233114017 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3319157233114017 covid19:confirmed '463'.
+covid19:3319157233114017 covid19:deaths '2'.
+
+covid19:8113536870315815 rdf:type covid19:ECDC_Dataset .
+covid19:8113536870315815 covid19:country world:Sweden .
+covid19:8113536870315815 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:8113536870315815 covid19:confirmed '610'.
+covid19:8113536870315815 covid19:deaths '40'.
 
 covid19:7161779381128476 rdf:type covid19:ECDC_Dataset .
 covid19:7161779381128476 covid19:country world:Sweden .
@@ -69393,6 +71565,18 @@ covid19:2532983031992171 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2532983031992171 covid19:confirmed '0'.
 covid19:2532983031992171 covid19:deaths '0'.
 
+covid19:3501848343582928 rdf:type covid19:ECDC_Dataset .
+covid19:3501848343582928 covid19:country world:Switzerland .
+covid19:3501848343582928 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3501848343582928 covid19:confirmed '167'.
+covid19:3501848343582928 covid19:deaths '8'.
+
+covid19:1121457769715576 rdf:type covid19:ECDC_Dataset .
+covid19:1121457769715576 covid19:country world:Switzerland .
+covid19:1121457769715576 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1121457769715576 covid19:confirmed '216'.
+covid19:1121457769715576 covid19:deaths '20'.
+
 covid19:5906897005041288 rdf:type covid19:ECDC_Dataset .
 covid19:5906897005041288 covid19:country world:Switzerland .
 covid19:5906897005041288 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -70095,6 +72279,18 @@ covid19:1545446649626177 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1545446649626177 covid19:confirmed '0'.
 covid19:1545446649626177 covid19:deaths '0'.
 
+covid19:8268949178759905 rdf:type covid19:ECDC_Dataset .
+covid19:8268949178759905 covid19:country world:Syria .
+covid19:8268949178759905 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:8268949178759905 covid19:confirmed '1'.
+covid19:8268949178759905 covid19:deaths '0'.
+
+covid19:1657025973874472 rdf:type covid19:ECDC_Dataset .
+covid19:1657025973874472 covid19:country world:Syria .
+covid19:1657025973874472 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1657025973874472 covid19:confirmed '0'.
+covid19:1657025973874472 covid19:deaths '0'.
+
 covid19:2348254178808932 rdf:type covid19:ECDC_Dataset .
 covid19:2348254178808932 covid19:country world:Syria .
 covid19:2348254178808932 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -70298,6 +72494,18 @@ covid19:2390190985862566 covid19:country world:Syria .
 covid19:2390190985862566 covid19:date '2020-03-23T00:00:00.000Z'.
 covid19:2390190985862566 covid19:confirmed '1'.
 covid19:2390190985862566 covid19:deaths '0'.
+
+covid19:3368899540109780 rdf:type covid19:ECDC_Dataset .
+covid19:3368899540109780 covid19:country world:Taiwan .
+covid19:3368899540109780 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3368899540109780 covid19:confirmed '0'.
+covid19:3368899540109780 covid19:deaths '0'.
+
+covid19:2299155516668505 rdf:type covid19:ECDC_Dataset .
+covid19:2299155516668505 covid19:country world:Taiwan .
+covid19:2299155516668505 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2299155516668505 covid19:confirmed '1'.
+covid19:2299155516668505 covid19:deaths '0'.
 
 covid19:1073233076510155 rdf:type covid19:ECDC_Dataset .
 covid19:1073233076510155 covid19:country world:Taiwan .
@@ -70989,6 +73197,18 @@ covid19:2595905073147102 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:2595905073147102 covid19:confirmed '0'.
 covid19:2595905073147102 covid19:deaths '0'.
 
+covid19:1026112230355637 rdf:type covid19:ECDC_Dataset .
+covid19:1026112230355637 covid19:country world:Thailand .
+covid19:1026112230355637 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1026112230355637 covid19:confirmed '0'.
+covid19:1026112230355637 covid19:deaths '0'.
+
+covid19:4573723630595271 rdf:type covid19:ECDC_Dataset .
+covid19:4573723630595271 covid19:country world:Thailand .
+covid19:4573723630595271 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:4573723630595271 covid19:confirmed '68'.
+covid19:4573723630595271 covid19:deaths '1'.
+
 covid19:7315913480661074 rdf:type covid19:ECDC_Dataset .
 covid19:7315913480661074 covid19:country world:Thailand .
 covid19:7315913480661074 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -71649,6 +73869,18 @@ covid19:3381587934539643 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:3381587934539643 covid19:confirmed '0'.
 covid19:3381587934539643 covid19:deaths '0'.
 
+covid19:2652412658419010 rdf:type covid19:ECDC_Dataset .
+covid19:2652412658419010 covid19:country world:Timor_Leste .
+covid19:2652412658419010 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2652412658419010 covid19:confirmed '0'.
+covid19:2652412658419010 covid19:deaths '0'.
+
+covid19:1936329263711350 rdf:type covid19:ECDC_Dataset .
+covid19:1936329263711350 covid19:country world:Timor_Leste .
+covid19:1936329263711350 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1936329263711350 covid19:confirmed '0'.
+covid19:1936329263711350 covid19:deaths '0'.
+
 covid19:2385627614352410 rdf:type covid19:ECDC_Dataset .
 covid19:2385627614352410 covid19:country world:Timor_Leste .
 covid19:2385627614352410 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -71858,6 +74090,18 @@ covid19:2384083058264155 covid19:country world:Timor_Leste .
 covid19:2384083058264155 covid19:date '2020-03-22T00:00:00.000Z'.
 covid19:2384083058264155 covid19:confirmed '1'.
 covid19:2384083058264155 covid19:deaths '0'.
+
+covid19:2123553325803031 rdf:type covid19:ECDC_Dataset .
+covid19:2123553325803031 covid19:country world:Togo .
+covid19:2123553325803031 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2123553325803031 covid19:confirmed '2'.
+covid19:2123553325803031 covid19:deaths '0'.
+
+covid19:9734325288537679 rdf:type covid19:ECDC_Dataset .
+covid19:9734325288537679 covid19:country world:Togo .
+covid19:9734325288537679 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:9734325288537679 covid19:confirmed '6'.
+covid19:9734325288537679 covid19:deaths '0'.
 
 covid19:2855781175097859 rdf:type covid19:ECDC_Dataset .
 covid19:2855781175097859 covid19:country world:Togo .
@@ -72116,6 +74360,18 @@ covid19:1914125525214899 covid19:country world:Togo .
 covid19:1914125525214899 covid19:date '2020-03-07T00:00:00.000Z'.
 covid19:1914125525214899 covid19:confirmed '1'.
 covid19:1914125525214899 covid19:deaths '0'.
+
+covid19:1279955022465761 rdf:type covid19:ECDC_Dataset .
+covid19:1279955022465761 covid19:country world:Trinidad_and_Tobago .
+covid19:1279955022465761 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1279955022465761 covid19:confirmed '1'.
+covid19:1279955022465761 covid19:deaths '0'.
+
+covid19:1481717991576183 rdf:type covid19:ECDC_Dataset .
+covid19:1481717991576183 covid19:country world:Trinidad_and_Tobago .
+covid19:1481717991576183 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1481717991576183 covid19:confirmed '0'.
+covid19:1481717991576183 covid19:deaths '0'.
 
 covid19:2262234608962208 rdf:type covid19:ECDC_Dataset .
 covid19:2262234608962208 covid19:country world:Trinidad_and_Tobago .
@@ -72380,6 +74636,18 @@ covid19:1492384498755058 covid19:country world:Trinidad_and_Tobago .
 covid19:1492384498755058 covid19:date '2020-03-13T00:00:00.000Z'.
 covid19:1492384498755058 covid19:confirmed '1'.
 covid19:1492384498755058 covid19:deaths '0'.
+
+covid19:3382077613528306 rdf:type covid19:ECDC_Dataset .
+covid19:3382077613528306 covid19:country world:Tunisia .
+covid19:3382077613528306 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3382077613528306 covid19:confirmed '10'.
+covid19:3382077613528306 covid19:deaths '0'.
+
+covid19:3252376879657998 rdf:type covid19:ECDC_Dataset .
+covid19:3252376879657998 covid19:country world:Tunisia .
+covid19:3252376879657998 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3252376879657998 covid19:confirmed '17'.
+covid19:3252376879657998 covid19:deaths '0'.
 
 covid19:2733358841276128 rdf:type covid19:ECDC_Dataset .
 covid19:2733358841276128 covid19:country world:Tunisia .
@@ -72669,6 +74937,18 @@ covid19:3266661377776744 covid19:date '2020-03-03T00:00:00.000Z'.
 covid19:3266661377776744 covid19:confirmed '1'.
 covid19:3266661377776744 covid19:deaths '0'.
 
+covid19:6883506473690399 rdf:type covid19:ECDC_Dataset .
+covid19:6883506473690399 covid19:country world:Turkey .
+covid19:6883506473690399 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:6883506473690399 covid19:confirmed '2357'.
+covid19:6883506473690399 covid19:deaths '99'.
+
+covid19:2776858281037799 rdf:type covid19:ECDC_Dataset .
+covid19:2776858281037799 covid19:country world:Turkey .
+covid19:2776858281037799 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2776858281037799 covid19:confirmed '2861'.
+covid19:2776858281037799 covid19:deaths '106'.
+
 covid19:2490868696736230 rdf:type covid19:ECDC_Dataset .
 covid19:2490868696736230 covid19:country world:Turkey .
 covid19:2490868696736230 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -72927,6 +75207,18 @@ covid19:1330690811659811 covid19:date '2020-03-12T00:00:00.000Z'.
 covid19:1330690811659811 covid19:confirmed '1'.
 covid19:1330690811659811 covid19:deaths '0'.
 
+covid19:2809348147941123 rdf:type covid19:ECDC_Dataset .
+covid19:2809348147941123 covid19:country world:Turks_and_Caicos_islands .
+covid19:2809348147941123 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2809348147941123 covid19:confirmed '0'.
+covid19:2809348147941123 covid19:deaths '0'.
+
+covid19:1001123114524013 rdf:type covid19:ECDC_Dataset .
+covid19:1001123114524013 covid19:country world:Turks_and_Caicos_islands .
+covid19:1001123114524013 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1001123114524013 covid19:confirmed '0'.
+covid19:1001123114524013 covid19:deaths '0'.
+
 covid19:2563745630812802 rdf:type covid19:ECDC_Dataset .
 covid19:2563745630812802 covid19:country world:Turks_and_Caicos_islands .
 covid19:2563745630812802 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -73118,6 +75410,18 @@ covid19:2443681455207356 covid19:country world:Turks_and_Caicos_islands .
 covid19:2443681455207356 covid19:date '2020-03-25T00:00:00.000Z'.
 covid19:2443681455207356 covid19:confirmed '1'.
 covid19:2443681455207356 covid19:deaths '0'.
+
+covid19:1193522406807563 rdf:type covid19:ECDC_Dataset .
+covid19:1193522406807563 covid19:country world:Uganda .
+covid19:1193522406807563 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1193522406807563 covid19:confirmed '4'.
+covid19:1193522406807563 covid19:deaths '0'.
+
+covid19:3135865101234480 rdf:type covid19:ECDC_Dataset .
+covid19:3135865101234480 covid19:country world:Uganda .
+covid19:3135865101234480 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:3135865101234480 covid19:confirmed '0'.
+covid19:3135865101234480 covid19:deaths '0'.
 
 covid19:1440207138118065 rdf:type covid19:ECDC_Dataset .
 covid19:1440207138118065 covid19:country world:Uganda .
@@ -73328,6 +75632,18 @@ covid19:7139052128483117 covid19:country world:Uganda .
 covid19:7139052128483117 covid19:date '2020-03-22T00:00:00.000Z'.
 covid19:7139052128483117 covid19:confirmed '1'.
 covid19:7139052128483117 covid19:deaths '0'.
+
+covid19:5492625640505950 rdf:type covid19:ECDC_Dataset .
+covid19:5492625640505950 covid19:country world:Ukraine .
+covid19:5492625640505950 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:5492625640505950 covid19:confirmed '392'.
+covid19:5492625640505950 covid19:deaths '11'.
+
+covid19:2445659852312800 rdf:type covid19:ECDC_Dataset .
+covid19:2445659852312800 covid19:country world:Ukraine .
+covid19:2445659852312800 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2445659852312800 covid19:confirmed '492'.
+covid19:2445659852312800 covid19:deaths '8'.
 
 covid19:2393993311801980 rdf:type covid19:ECDC_Dataset .
 covid19:2393993311801980 covid19:country world:Ukraine .
@@ -73586,6 +75902,18 @@ covid19:7776352258674277 covid19:country world:Ukraine .
 covid19:7776352258674277 covid19:date '2020-03-04T00:00:00.000Z'.
 covid19:7776352258674277 covid19:confirmed '1'.
 covid19:7776352258674277 covid19:deaths '0'.
+
+covid19:2487972817948429 rdf:type covid19:ECDC_Dataset .
+covid19:2487972817948429 covid19:country world:United_Arab_Emirates .
+covid19:2487972817948429 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2487972817948429 covid19:confirmed '536'.
+covid19:2487972817948429 covid19:deaths '12'.
+
+covid19:4413220410626000 rdf:type covid19:ECDC_Dataset .
+covid19:4413220410626000 covid19:country world:United_Arab_Emirates .
+covid19:4413220410626000 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:4413220410626000 covid19:confirmed '532'.
+covid19:4413220410626000 covid19:deaths '0'.
 
 covid19:2830314889262084 rdf:type covid19:ECDC_Dataset .
 covid19:2830314889262084 covid19:country world:United_Arab_Emirates .
@@ -74252,6 +76580,18 @@ covid19:3292868564805768 covid19:country world:United_Arab_Emirates .
 covid19:3292868564805768 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:3292868564805768 covid19:confirmed '0'.
 covid19:3292868564805768 covid19:deaths '0'.
+
+covid19:1279411372534729 rdf:type covid19:ECDC_Dataset .
+covid19:1279411372534729 covid19:country world:United_Kingdom .
+covid19:1279411372534729 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1279411372534729 covid19:confirmed '4463'.
+covid19:1279411372534729 covid19:deaths '413'.
+
+covid19:6608293166902348 rdf:type covid19:ECDC_Dataset .
+covid19:6608293166902348 covid19:country world:United_Kingdom .
+covid19:6608293166902348 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:6608293166902348 covid19:confirmed '4913'.
+covid19:6608293166902348 covid19:deaths '813'.
 
 covid19:1524563384537754 rdf:type covid19:ECDC_Dataset .
 covid19:1524563384537754 covid19:country world:United_Kingdom .
@@ -74955,6 +77295,18 @@ covid19:3160000870134334 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:3160000870134334 covid19:confirmed '0'.
 covid19:3160000870134334 covid19:deaths '0'.
 
+covid19:2711915328741835 rdf:type covid19:ECDC_Dataset .
+covid19:2711915328741835 covid19:country world:United_Republic_of_Tanzania .
+covid19:2711915328741835 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2711915328741835 covid19:confirmed '0'.
+covid19:2711915328741835 covid19:deaths '0'.
+
+covid19:2919748636867971 rdf:type covid19:ECDC_Dataset .
+covid19:2919748636867971 covid19:country world:United_Republic_of_Tanzania .
+covid19:2919748636867971 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2919748636867971 covid19:confirmed '0'.
+covid19:2919748636867971 covid19:deaths '0'.
+
 covid19:1351038469905837 rdf:type covid19:ECDC_Dataset .
 covid19:1351038469905837 covid19:country world:United_Republic_of_Tanzania .
 covid19:1351038469905837 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -75194,6 +77546,18 @@ covid19:2195898381228497 covid19:country world:United_Republic_of_Tanzania .
 covid19:2195898381228497 covid19:date '2020-03-17T00:00:00.000Z'.
 covid19:2195898381228497 covid19:confirmed '1'.
 covid19:2195898381228497 covid19:deaths '0'.
+
+covid19:3031688215939720 rdf:type covid19:ECDC_Dataset .
+covid19:3031688215939720 covid19:country world:United_States .
+covid19:3031688215939720 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:3031688215939720 covid19:confirmed '26857'.
+covid19:3031688215939720 covid19:deaths '1687'.
+
+covid19:1078222941951483 rdf:type covid19:ECDC_Dataset .
+covid19:1078222941951483 covid19:country world:United_States .
+covid19:1078222941951483 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1078222941951483 covid19:confirmed '48529'.
+covid19:1078222941951483 covid19:deaths '2172'.
 
 covid19:6466809399356856 rdf:type covid19:ECDC_Dataset .
 covid19:6466809399356856 covid19:country world:United_States .
@@ -75897,6 +78261,18 @@ covid19:1623986299036444 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1623986299036444 covid19:confirmed '0'.
 covid19:1623986299036444 covid19:deaths '0'.
 
+covid19:7211616753998609 rdf:type covid19:ECDC_Dataset .
+covid19:7211616753998609 covid19:country world:United_States_Virgin_Islands .
+covid19:7211616753998609 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:7211616753998609 covid19:confirmed '0'.
+covid19:7211616753998609 covid19:deaths '0'.
+
+covid19:1549286057841548 rdf:type covid19:ECDC_Dataset .
+covid19:1549286057841548 covid19:country world:United_States_Virgin_Islands .
+covid19:1549286057841548 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1549286057841548 covid19:confirmed '1'.
+covid19:1549286057841548 covid19:deaths '0'.
+
 covid19:2974578383166124 rdf:type covid19:ECDC_Dataset .
 covid19:2974578383166124 covid19:country world:United_States_Virgin_Islands .
 covid19:2974578383166124 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -76088,6 +78464,18 @@ covid19:2870287598551012 covid19:country world:United_States_Virgin_Islands .
 covid19:2870287598551012 covid19:date '2020-03-24T00:00:00.000Z'.
 covid19:2870287598551012 covid19:confirmed '17'.
 covid19:2870287598551012 covid19:deaths '0'.
+
+covid19:2205192802752631 rdf:type covid19:ECDC_Dataset .
+covid19:2205192802752631 covid19:country world:Uruguay .
+covid19:2205192802752631 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2205192802752631 covid19:confirmed '10'.
+covid19:2205192802752631 covid19:deaths '1'.
+
+covid19:1282949756032649 rdf:type covid19:ECDC_Dataset .
+covid19:1282949756032649 covid19:country world:Uruguay .
+covid19:1282949756032649 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1282949756032649 covid19:confirmed '33'.
+covid19:1282949756032649 covid19:deaths '2'.
 
 covid19:1228195541195993 rdf:type covid19:ECDC_Dataset .
 covid19:1228195541195993 covid19:country world:Uruguay .
@@ -76341,6 +78729,18 @@ covid19:2887676183243312 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:2887676183243312 covid19:confirmed '6'.
 covid19:2887676183243312 covid19:deaths '0'.
 
+covid19:7820787411045639 rdf:type covid19:ECDC_Dataset .
+covid19:7820787411045639 covid19:country world:Uzbekistan .
+covid19:7820787411045639 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:7820787411045639 covid19:confirmed '22'.
+covid19:7820787411045639 covid19:deaths '0'.
+
+covid19:1465202200593090 rdf:type covid19:ECDC_Dataset .
+covid19:1465202200593090 covid19:country world:Uzbekistan .
+covid19:1465202200593090 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1465202200593090 covid19:confirmed '29'.
+covid19:1465202200593090 covid19:deaths '0'.
+
 covid19:1514831286217104 rdf:type covid19:ECDC_Dataset .
 covid19:1514831286217104 covid19:country world:Uzbekistan .
 covid19:1514831286217104 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -76586,6 +78986,18 @@ covid19:1709490662993139 covid19:country world:Uzbekistan .
 covid19:1709490662993139 covid19:date '2020-03-16T00:00:00.000Z'.
 covid19:1709490662993139 covid19:confirmed '6'.
 covid19:1709490662993139 covid19:deaths '0'.
+
+covid19:9178416397412231 rdf:type covid19:ECDC_Dataset .
+covid19:9178416397412231 covid19:country world:Venezuela .
+covid19:9178416397412231 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:9178416397412231 covid19:confirmed '2'.
+covid19:9178416397412231 covid19:deaths '0'.
+
+covid19:1788911073340465 rdf:type covid19:ECDC_Dataset .
+covid19:1788911073340465 covid19:country world:Venezuela .
+covid19:1788911073340465 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1788911073340465 covid19:confirmed '5'.
+covid19:1788911073340465 covid19:deaths '0'.
 
 covid19:6548167498482010 rdf:type covid19:ECDC_Dataset .
 covid19:6548167498482010 covid19:country world:Venezuela .
@@ -76839,10 +79251,22 @@ covid19:3687007610478301 covid19:date '2020-03-15T00:00:00.000Z'.
 covid19:3687007610478301 covid19:confirmed '10'.
 covid19:3687007610478301 covid19:deaths '0'.
 
+covid19:1595766859345530 rdf:type covid19:ECDC_Dataset .
+covid19:1595766859345530 covid19:country world:Vietnam .
+covid19:1595766859345530 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1595766859345530 covid19:confirmed '0'.
+covid19:1595766859345530 covid19:deaths '0'.
+
+covid19:1763500445941923 rdf:type covid19:ECDC_Dataset .
+covid19:1763500445941923 covid19:country world:Vietnam .
+covid19:1763500445941923 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1763500445941923 covid19:confirmed '0'.
+covid19:1763500445941923 covid19:deaths '0'.
+
 covid19:2939184637534142 rdf:type covid19:ECDC_Dataset .
 covid19:2939184637534142 covid19:country world:Vietnam .
 covid19:2939184637534142 covid19:date '2020-04-25T00:00:00.000Z'.
-covid19:2939184637534142 covid19:confirmed '2'.
+covid19:2939184637534142 covid19:confirmed '0'.
 covid19:2939184637534142 covid19:deaths '0'.
 
 covid19:2975653830935067 rdf:type covid19:ECDC_Dataset .
@@ -77517,6 +79941,30 @@ covid19:1413151421922402 covid19:date '2019-12-31T00:00:00.000Z'.
 covid19:1413151421922402 covid19:confirmed '0'.
 covid19:1413151421922402 covid19:deaths '0'.
 
+covid19:1840589923669837 rdf:type covid19:ECDC_Dataset .
+covid19:1840589923669837 covid19:country world:Western_Sahara .
+covid19:1840589923669837 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1840589923669837 covid19:confirmed '0'.
+covid19:1840589923669837 covid19:deaths '0'.
+
+covid19:1671054105028516 rdf:type covid19:ECDC_Dataset .
+covid19:1671054105028516 covid19:country world:Western_Sahara .
+covid19:1671054105028516 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:1671054105028516 covid19:confirmed '6'.
+covid19:1671054105028516 covid19:deaths '0'.
+
+covid19:2894127188834590 rdf:type covid19:ECDC_Dataset .
+covid19:2894127188834590 covid19:country world:Yemen .
+covid19:2894127188834590 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2894127188834590 covid19:confirmed '0'.
+covid19:2894127188834590 covid19:deaths '0'.
+
+covid19:2632167920596179 rdf:type covid19:ECDC_Dataset .
+covid19:2632167920596179 covid19:country world:Yemen .
+covid19:2632167920596179 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2632167920596179 covid19:confirmed '0'.
+covid19:2632167920596179 covid19:deaths '0'.
+
 covid19:2736156997361946 rdf:type covid19:ECDC_Dataset .
 covid19:2736156997361946 covid19:country world:Yemen .
 covid19:2736156997361946 covid19:date '2020-04-25T00:00:00.000Z'.
@@ -77612,6 +80060,18 @@ covid19:2299745083974385 covid19:country world:Yemen .
 covid19:2299745083974385 covid19:date '2020-04-10T00:00:00.000Z'.
 covid19:2299745083974385 covid19:confirmed '1'.
 covid19:2299745083974385 covid19:deaths '0'.
+
+covid19:2517543228437798 rdf:type covid19:ECDC_Dataset .
+covid19:2517543228437798 covid19:country world:Zambia .
+covid19:2517543228437798 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:2517543228437798 covid19:confirmed '4'.
+covid19:2517543228437798 covid19:deaths '0'.
+
+covid19:4912253889529324 rdf:type covid19:ECDC_Dataset .
+covid19:4912253889529324 covid19:country world:Zambia .
+covid19:4912253889529324 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:4912253889529324 covid19:confirmed '0'.
+covid19:4912253889529324 covid19:deaths '0'.
 
 covid19:1942446157082554 rdf:type covid19:ECDC_Dataset .
 covid19:1942446157082554 covid19:country world:Zambia .
@@ -77840,6 +80300,18 @@ covid19:6786420226983264 covid19:country world:Zambia .
 covid19:6786420226983264 covid19:date '2020-03-19T00:00:00.000Z'.
 covid19:6786420226983264 covid19:confirmed '2'.
 covid19:6786420226983264 covid19:deaths '0'.
+
+covid19:1804396460911850 rdf:type covid19:ECDC_Dataset .
+covid19:1804396460911850 covid19:country world:Zimbabwe .
+covid19:1804396460911850 covid19:date '2020-04-27T00:00:00.000Z'.
+covid19:1804396460911850 covid19:confirmed '0'.
+covid19:1804396460911850 covid19:deaths '0'.
+
+covid19:2051084038417427 rdf:type covid19:ECDC_Dataset .
+covid19:2051084038417427 covid19:country world:Zimbabwe .
+covid19:2051084038417427 covid19:date '2020-04-26T00:00:00.000Z'.
+covid19:2051084038417427 covid19:confirmed '2'.
+covid19:2051084038417427 covid19:deaths '0'.
 
 covid19:1272001738781430 rdf:type covid19:ECDC_Dataset .
 covid19:1272001738781430 covid19:country world:Zimbabwe .
