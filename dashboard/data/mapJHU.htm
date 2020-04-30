@@ -128,11 +128,20 @@
             });
         };
         let wikidataGeoms = (bindings) => {
+            let cList = [];
+            let cStr = "";
             for (var i in bindings) {
-                //console.log(bindings[i]['wikidataQ']);
-                let WDQ = "SELECT * WHERE { ?state wdt:P625 ?point; wdt:P1082 ?population. ?state rdfs:label ?statelabel filter (lang(?statelabel) = 'en'). FILTER(?state = <" + bindings[i]['wikidataQ'] + ">) }";
-                queryWikidata(WDQ, createMap2, bindings);
+                cList.push(bindings[i]['wikidataQ']);
             }
+            console.log(cList);
+            for (var i in cList) {
+                cStr += cList[i].replace("http://www.wikidata.org/entity/", "wd:") + ",";
+            }
+            cStr = cStr.substring(0, cStr.length - 1);
+            console.log(cStr);
+            let WDQ = "SELECT * WHERE { ?state wdt:P625 ?point; wdt:P1082 ?population. ?state rdfs:label ?statelabel filter (lang(?statelabel) = 'en'). FILTER(?state IN (" + cStr + ")) }";
+            console.log(WDQ);
+            queryWikidata(WDQ, createMap2, bindings);
         };
         // map
         var mymap;
@@ -152,7 +161,8 @@
         createMap0();
         let createMap2 = (bindings, bindings2) => {
             for (var i in bindings) {
-                let c = parseInt(bindings2[i]['confirmed']);
+                //let c = parseInt(bindings2[i]['confirmed']);
+                let c = 100;
                 let geojsonMarkerOptions = {
                     radius: c * 100,
                     fillColor: "#ff7800",
@@ -168,7 +178,8 @@
                         return L.circle(latlng, geojsonMarkerOptions);
                     }
                 }).addTo(mymap);
-                l.bindPopup("<b>" + bindings[i]['statelabel'] + "</b><br>" + bindings[i]['population'] + "<br><a href='" + bindings[i]['state'] + "' target='_blank'>" + bindings[i]['state'].replace("http://www.wikidata.org/entity/", "wd:") +
+                l.bindPopup("<b>" + bindings[i]['statelabel'] + "</b><br>" + bindings2[i]['confirmed'] + "<br>" + bindings[i]['population'] + "<br><a href='" + bindings[i]['state'] + "' target='_blank'>" + bindings[i]['state'].replace(
+                        "http://www.wikidata.org/entity/", "wd:") +
                     "</a>");
             }
         };
