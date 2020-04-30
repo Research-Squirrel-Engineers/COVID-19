@@ -101,7 +101,7 @@
                 }
             });
         };
-        var queryWikidata = function(query, callback) {
+        var queryWikidata = function(query, callback, bindings2) {
             $.ajax({
                 url: "https://query.wikidata.org/sparql",
                 dataType: 'json',
@@ -120,7 +120,7 @@
                                 bindings[i][j] = bindings[i][j].value;
                         }
                     }
-                    callback(bindings);
+                    callback(bindings, bindings2);
                 },
                 error: function(data) {
                     console.log("Es ist ein Fehler aufgetreten: " + data);
@@ -131,7 +131,7 @@
             for (var i in bindings) {
                 //console.log(bindings[i]['wikidataQ']);
                 let WDQ = "SELECT * WHERE { ?state wdt:P625 ?point; wdt:P1082 ?population. ?state rdfs:label ?statelabel filter (lang(?statelabel) = 'en'). FILTER(?state = <" + bindings[i]['wikidataQ'] + ">) }";
-                queryWikidata(WDQ, createMap2);
+                queryWikidata(WDQ, createMap2, bindings);
             }
         };
         // map
@@ -150,16 +150,17 @@
             }).addTo(mymap);
         };
         createMap0();
-        let createMap2 = (bindings) => {
-            let geojsonMarkerOptions = {
-                radius: 100000,
-                fillColor: "#ff7800",
-                color: "#000",
-                weight: 1,
-                opacity: 1,
-                fillOpacity: 0.8
-            };
+        let createMap2 = (bindings, bindings2) => {
             for (var i in bindings) {
+                let c = parseInt(bindings2[i]['confirmed']);
+                let geojsonMarkerOptions = {
+                    radius: c * 100,
+                    fillColor: "#ff7800",
+                    color: "#000",
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                };
                 wkt = bindings[i]['point'].replace("Point", "POINT");
                 geojson = Terraformer.WKT.parse(wkt);
                 let l = L.geoJSON(geojson, {
