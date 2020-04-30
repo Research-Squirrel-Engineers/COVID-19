@@ -161,26 +161,29 @@
         createMap0();
         let createMap2 = (bindings, bindings2) => {
             for (var i in bindings) {
-                //let c = parseInt(bindings2[i]['confirmed']);
-                let c = 100;
-                let geojsonMarkerOptions = {
-                    radius: c * 100,
-                    fillColor: "#ff7800",
-                    color: "#000",
-                    weight: 1,
-                    opacity: 1,
-                    fillOpacity: 0.8
-                };
-                wkt = bindings[i]['point'].replace("Point", "POINT");
-                geojson = Terraformer.WKT.parse(wkt);
-                let l = L.geoJSON(geojson, {
-                    pointToLayer: function(feature, latlng) {
-                        return L.circle(latlng, geojsonMarkerOptions);
+                for (var ii in bindings2) {
+                    if (bindings2[ii].wikidataQ === bindings[i].state) {
+                        let c = parseInt(bindings2[ii]['confirmed']);
+                        let geojsonMarkerOptions = {
+                            radius: c,
+                            fillColor: "#ff7800",
+                            color: "#000",
+                            weight: 1,
+                            opacity: 1,
+                            fillOpacity: 0.8
+                        };
+                        wkt = bindings[i]['point'].replace("Point", "POINT");
+                        geojson = Terraformer.WKT.parse(wkt);
+                        let l = L.geoJSON(geojson, {
+                            pointToLayer: function(feature, latlng) {
+                                return L.circle(latlng, geojsonMarkerOptions);
+                            }
+                        }).addTo(mymap);
+                        l.bindPopup("<b>" + bindings[i]['statelabel'] + "</b><br>" + bindings2[ii]['confirmed'] + "<br>" + bindings[i]['population'] + "<br><a href='" + bindings[i]['state'] + "' target='_blank'>" + bindings[i]['state'].replace(
+                                "http://www.wikidata.org/entity/", "wd:") +
+                            "</a>");
                     }
-                }).addTo(mymap);
-                l.bindPopup("<b>" + bindings[i]['statelabel'] + "</b><br>" + bindings2[i]['confirmed'] + "<br>" + bindings[i]['population'] + "<br><a href='" + bindings[i]['state'] + "' target='_blank'>" + bindings[i]['state'].replace(
-                        "http://www.wikidata.org/entity/", "wd:") +
-                    "</a>");
+                }
             }
         };
         queryStore(JHU, wikidataGeoms);
