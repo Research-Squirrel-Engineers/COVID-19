@@ -140,7 +140,7 @@ for item in dataRKI:
     elif bundesland == "16":
         blcode = "Thueringen"
     geschlecht = str(item["properties"]["Geschlecht"])
-    altersgruppe = str(item["properties"]["Altersgruppe2"])
+    altersgruppe = item["properties"]["Altersgruppe"]
     faelle = str(item["properties"]["AnzahlFall"])
     todesfall = str(item["properties"]["AnzahlTodesfall"])
     meldedatum = str(item["properties"]["Refdatum"])
