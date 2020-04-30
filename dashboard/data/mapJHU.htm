@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="http://143.93.113.149/css/vendor/bootstrap.min.css" />
+    <script src="http://143.93.113.149/js/vendor/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <script src="https://unpkg.com/terraformer@1.0.7"></script>
+    <script src="https://unpkg.com/terraformer-wkt-parser@1.1.2"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" href="dark-unica.css">
+    <title>Linked COVID-19 Data</title>
+    <style>
+        body {
+            background-color: #1d1d1d;
+            color: white;
+            font-family: 'Unica One', sans-serif !important;
+        }
+
+        h1 {
+            font-weight: 700;
+        }
+
+        label {
+            font-weight: normal !important;
+        }
+
+        #mapid {
+            height: 500px;
+            min-width: 310px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>
+        <center>Linked COVID-19 Data</center>
+    </h1>
+    <h2>
+        <center>
+            <label for="inp-date">choose a date:</label>
+            <select id="inp-date">
+                <option value="2020-04-29T00:00:00.000Z" selected>2020-04-28T00:00:00.000Z</option>
+                <option value="2020-04-29T00:00:00.000Z">2020-04-28T00:00:00.000Z</option>
+            </select>
+        </center>
+    </h2>
+    <figure class="highcharts-figure">
+        <div id="containerJHU"></div>
+        <p class="highcharts-description"></p>
+    </figure>
+    <div id="mapid"></div>
+    <figure class="highcharts-figure">
+        <div id="containerECDC"></div>
+        <p class="highcharts-description"></p>
+    </figure>
+    <hr width="80%">
+    <h4>
+        <center>Credits: Research Squirrel Engineers, Florian Thiery M.Sc.</center>
+    </h4>
+    <h5>
+        <center>Data: Johns Hopkins University and European Centre for Disease Prevention and Control</center>
+        <center>via <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/tree/master/ttl" target="_blank">github.com/Research-Squirrel-Engineers/COVID-19</a></center>
+    </h5>
+    <script>
+        let JHU =
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ WHERE { ?dataset a covid19:JHU_Dataset. ?dataset covid19:country ?item. ?dataset covid19:date '2020-04-29T00:00:00.000Z'. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?label)";
+        //let WDQ = "SELECT * WHERE { ?state wdt:P625 ?point; wdt:P1082 ?population. ?state rdfs:label ?statelabel filter (lang(?statelabel) = 'en'). FILTER(?state = <" + bindings[i]['wd'] + ">) }";
+        var queryStore = function(query, callback) {
+            $.ajax({
+                url: "https://sandbox.mainzed.org/covid19/sparql",
+                dataType: 'jsonp',
+                type: 'GET',
+                data: {
+                    queryLn: 'SPARQL',
+                    query: query,
+                    Accept: 'application/json'
+                },
+                success: function(data) {
+                    var bindings = data.results.bindings;
+                    for (var i in bindings) {
+                        for (var j in bindings[i]) {
+                            if (bindings[i][j].value)
+                                bindings[i][j] = bindings[i][j].value;
+                        }
+                    }
+                    callback(bindings);
+                },
+                error: function(data) {
+                    console.log("Es ist ein Fehler aufgetreten: " + data);
+                    callback([]);
+                }
+            });
+        };
+        var queryWikidata = function(query, callback) {
+            $.ajax({
+                url: "https://query.wikidata.org/sparql",
+                dataType: 'json',
+                ascnc: false,
+                type: 'GET',
+                data: {
+                    queryLn: 'SPARQL',
+                    query: query,
+                    Accept: 'application/json'
+                },
+                success: function(data) {
+                    var bindings = data.results.bindings;
+                    for (var i in bindings) {
+                        for (var j in bindings[i]) {
+                            if (bindings[i][j].value)
+                                bindings[i][j] = bindings[i][j].value;
+                        }
+                    }
+                    callback(bindings);
+                },
+                error: function(data) {
+                    console.log("Es ist ein Fehler aufgetreten: " + data);
+                }
+            });
+        };
+        let wikidataGeoms = (bindings) => {
+            for (var i in bindings) {
+                //console.log(bindings[i]['wikidataQ']);
+                let WDQ = "SELECT * WHERE { ?state wdt:P625 ?point; wdt:P1082 ?population. ?state rdfs:label ?statelabel filter (lang(?statelabel) = 'en'). FILTER(?state = <" + bindings[i]['wikidataQ'] + ">) }";
+                queryWikidata(WDQ, createMap2);
+            }
+        };
+        // map
+        var mymap;
+        let createMap0 = () => {
+            mymap = L.map('mapid').setView([51.505, -0.09], 2);
+            mymap.eachLayer(function(layer) {
+                mymap.removeLayer(layer);
+            });
+            L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
+                attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                subdomains: 'abcd',
+                minZoom: 0,
+                maxZoom: 20,
+                ext: 'png'
+            }).addTo(mymap);
+        };
+        createMap0();
+        let createMap2 = (bindings) => {
+            let geojsonMarkerOptions = {
+                radius: 100000,
+                fillColor: "#ff7800",
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8
+            };
+            for (var i in bindings) {
+                wkt = bindings[i]['point'].replace("Point", "POINT");
+                geojson = Terraformer.WKT.parse(wkt);
+                let l = L.geoJSON(geojson, {
+                    pointToLayer: function(feature, latlng) {
+                        return L.circle(latlng, geojsonMarkerOptions);
+                    }
+                }).addTo(mymap);
+                l.bindPopup("<b>" + bindings[i]['statelabel'] + "</b><br>" + bindings[i]['population'] + "<br><a href='" + bindings[i]['state'] + "' target='_blank'>" + bindings[i]['state'].replace("http://www.wikidata.org/entity/", "wd:") +
+                    "</a>");
+            }
+        };
+        queryStore(JHU, wikidataGeoms);
+    </script>
+</body>
+
+</html>
