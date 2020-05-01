@@ -3,18 +3,15 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="http://143.93.113.149/css/vendor/bootstrap.min.css" />
     <script src="http://143.93.113.149/js/vendor/jquery-3.1.1.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
     <script src="https://unpkg.com/terraformer@1.0.7"></script>
     <script src="https://unpkg.com/terraformer-wkt-parser@1.1.2"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <link rel="stylesheet" href="dark-unica.css">
+    <link rel="stylesheet" type="text/css" href="http://143.93.113.149/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
     <title>Linked COVID-19 Data</title>
     <style>
         body {
@@ -46,6 +43,14 @@
         textarea {
             color: black !important;
         }
+
+        #ui-datepicker-div {
+            z-index: 1000000 !important;
+        }
+        #datepicker {
+            width: 344px !important;
+            cursor: context-menu;
+        }
     </style>
 
 </head>
@@ -56,101 +61,11 @@
     </h1>
     <h2>
         <center>
-            <label for="inp-date">choose a date:</label>
-            <select id="inp-date">
-                <option value="2020-04-29T00:00:00.000Z" selected>2020-04-28T00:00:00.000Z</option>
-                <option value="2020-04-27T00:00:00.000Z">2020-04-27T00:00:00.000Z</option>
-                <option value="2020-04-26T00:00:00.000Z">2020-04-26T00:00:00.000Z</option>
-                <option value="2020-04-25T00:00:00.000Z">2020-04-25T00:00:00.000Z</option>
-                <option value="2020-04-24T00:00:00.000Z">2020-04-24T00:00:00.000Z</option>
-                <option value="2020-04-23T00:00:00.000Z">2020-04-23T00:00:00.000Z</option>
-                <option value="2020-04-22T00:00:00.000Z">2020-04-22T00:00:00.000Z</option>
-                <option value="2020-04-21T00:00:00.000Z">2020-04-21T00:00:00.000Z</option>
-                <option value="2020-04-20T00:00:00.000Z">2020-04-20T00:00:00.000Z</option>
-                <option value="2020-04-19T00:00:00.000Z">2020-04-19T00:00:00.000Z</option>
-                <option value="2020-04-18T00:00:00.000Z">2020-04-18T00:00:00.000Z</option>
-                <option value="2020-04-17T00:00:00.000Z">2020-04-17T00:00:00.000Z</option>
-                <option value="2020-04-16T00:00:00.000Z">2020-04-16T00:00:00.000Z</option>
-                <option value="2020-04-15T00:00:00.000Z">2020-04-15T00:00:00.000Z</option>
-                <option value="2020-04-14T00:00:00.000Z">2020-04-14T00:00:00.000Z</option>
-                <option value="2020-04-13T00:00:00.000Z">2020-04-13T00:00:00.000Z</option>
-                <option value="2020-04-12T00:00:00.000Z">2020-04-12T00:00:00.000Z</option>
-                <option value="2020-04-11T00:00:00.000Z">2020-04-11T00:00:00.000Z</option>
-                <option value="2020-04-10T00:00:00.000Z">2020-04-10T00:00:00.000Z</option>
-                <option value="2020-04-09T00:00:00.000Z">2020-04-09T00:00:00.000Z</option>
-                <option value="2020-04-08T00:00:00.000Z">2020-04-08T00:00:00.000Z</option>
-                <option value="2020-04-07T00:00:00.000Z">2020-04-07T00:00:00.000Z</option>
-                <option value="2020-04-06T00:00:00.000Z">2020-04-06T00:00:00.000Z</option>
-                <option value="2020-04-05T00:00:00.000Z">2020-04-05T00:00:00.000Z</option>
-                <option value="2020-04-04T00:00:00.000Z">2020-04-04T00:00:00.000Z</option>
-                <option value="2020-04-03T00:00:00.000Z">2020-04-03T00:00:00.000Z</option>
-                <option value="2020-04-02T00:00:00.000Z">2020-04-02T00:00:00.000Z</option>
-                <option value="2020-04-01T00:00:00.000Z">2020-04-01T00:00:00.000Z</option>
-                <option value="2020-03-31T00:00:00.000Z">2020-03-31T00:00:00.000Z</option>
-                <option value="2020-03-30T00:00:00.000Z">2020-03-30T00:00:00.000Z</option>
-                <option value="2020-03-29T00:00:00.000Z">2020-03-29T00:00:00.000Z</option>
-                <option value="2020-03-28T00:00:00.000Z">2020-03-28T00:00:00.000Z</option>
-                <option value="2020-03-27T00:00:00.000Z">2020-03-27T00:00:00.000Z</option>
-                <option value="2020-03-26T00:00:00.000Z">2020-03-26T00:00:00.000Z</option>
-                <option value="2020-03-25T00:00:00.000Z">2020-03-25T00:00:00.000Z</option>
-                <option value="2020-03-24T00:00:00.000Z">2020-03-24T00:00:00.000Z</option>
-                <option value="2020-03-23T00:00:00.000Z">2020-03-23T00:00:00.000Z</option>
-                <option value="2020-03-22T00:00:00.000Z">2020-03-22T00:00:00.000Z</option>
-                <option value="2020-03-21T00:00:00.000Z">2020-03-21T00:00:00.000Z</option>
-                <option value="2020-03-20T00:00:00.000Z">2020-03-20T00:00:00.000Z</option>
-                <option value="2020-03-19T00:00:00.000Z">2020-03-19T00:00:00.000Z</option>
-                <option value="2020-03-18T00:00:00.000Z">2020-03-18T00:00:00.000Z</option>
-                <option value="2020-03-17T00:00:00.000Z">2020-03-17T00:00:00.000Z</option>
-                <option value="2020-03-16T00:00:00.000Z">2020-03-16T00:00:00.000Z</option>
-                <option value="2020-03-15T00:00:00.000Z">2020-03-15T00:00:00.000Z</option>
-                <option value="2020-03-14T00:00:00.000Z">2020-03-14T00:00:00.000Z</option>
-                <option value="2020-03-13T00:00:00.000Z">2020-03-13T00:00:00.000Z</option>
-                <option value="2020-03-12T00:00:00.000Z">2020-03-12T00:00:00.000Z</option>
-                <option value="2020-03-11T00:00:00.000Z">2020-03-11T00:00:00.000Z</option>
-                <option value="2020-03-10T00:00:00.000Z">2020-03-10T00:00:00.000Z</option>
-                <option value="2020-03-09T00:00:00.000Z">2020-03-09T00:00:00.000Z</option>
-                <option value="2020-03-08T00:00:00.000Z">2020-03-08T00:00:00.000Z</option>
-                <option value="2020-03-07T00:00:00.000Z">2020-03-07T00:00:00.000Z</option>
-                <option value="2020-03-06T00:00:00.000Z">2020-03-06T00:00:00.000Z</option>
-                <option value="2020-03-05T00:00:00.000Z">2020-03-05T00:00:00.000Z</option>
-                <option value="2020-03-04T00:00:00.000Z">2020-03-04T00:00:00.000Z</option>
-                <option value="2020-03-03T00:00:00.000Z">2020-03-03T00:00:00.000Z</option>
-                <option value="2020-03-02T00:00:00.000Z">2020-03-02T00:00:00.000Z</option>
-                <option value="2020-03-01T00:00:00.000Z">2020-03-01T00:00:00.000Z</option>
-                <option value="2020-02-29T00:00:00.000Z">2020-02-29T00:00:00.000Z</option>
-                <option value="2020-02-28T00:00:00.000Z">2020-02-28T00:00:00.000Z</option>
-                <option value="2020-02-27T00:00:00.000Z">2020-02-27T00:00:00.000Z</option>
-                <option value="2020-02-26T00:00:00.000Z">2020-02-26T00:00:00.000Z</option>
-                <option value="2020-02-25T00:00:00.000Z">2020-02-25T00:00:00.000Z</option>
-                <option value="2020-02-24T00:00:00.000Z">2020-02-24T00:00:00.000Z</option>
-                <option value="2020-02-23T00:00:00.000Z">2020-02-23T00:00:00.000Z</option>
-                <option value="2020-02-22T00:00:00.000Z">2020-02-22T00:00:00.000Z</option>
-                <option value="2020-02-21T00:00:00.000Z">2020-02-21T00:00:00.000Z</option>
-                <option value="2020-02-20T00:00:00.000Z">2020-02-20T00:00:00.000Z</option>
-                <option value="2020-02-19T00:00:00.000Z">2020-02-19T00:00:00.000Z</option>
-                <option value="2020-02-18T00:00:00.000Z">2020-02-18T00:00:00.000Z</option>
-                <option value="2020-02-17T00:00:00.000Z">2020-02-17T00:00:00.000Z</option>
-                <option value="2020-02-16T00:00:00.000Z">2020-02-16T00:00:00.000Z</option>
-                <option value="2020-02-15T00:00:00.000Z">2020-02-15T00:00:00.000Z</option>
-                <option value="2020-02-14T00:00:00.000Z">2020-02-14T00:00:00.000Z</option>
-                <option value="2020-02-13T00:00:00.000Z">2020-02-13T00:00:00.000Z</option>
-                <option value="2020-02-12T00:00:00.000Z">2020-02-12T00:00:00.000Z</option>
-                <option value="2020-02-11T00:00:00.000Z">2020-02-11T00:00:00.000Z</option>
-                <option value="2020-02-10T00:00:00.000Z">2020-02-10T00:00:00.000Z</option>
-                <option value="2020-02-09T00:00:00.000Z">2020-02-09T00:00:00.000Z</option>
-                <option value="2020-02-08T00:00:00.000Z">2020-02-08T00:00:00.000Z</option>
-                <option value="2020-02-07T00:00:00.000Z">2020-02-07T00:00:00.000Z</option>
-                <option value="2020-02-06T00:00:00.000Z">2020-02-06T00:00:00.000Z</option>
-                <option value="2020-02-05T00:00:00.000Z">2020-02-05T00:00:00.000Z</option>
-                <option value="2020-02-04T00:00:00.000Z">2020-02-04T00:00:00.000Z</option>
-                <option value="2020-02-03T00:00:00.000Z">2020-02-03T00:00:00.000Z</option>
-                <option value="2020-02-02T00:00:00.000Z">2020-02-02T00:00:00.000Z</option>
-                <option value="2020-02-01T00:00:00.000Z">2020-02-01T00:00:00.000Z</option>
-            </select>
-            <br>
+            <p>choose a date: <input type="text" id="datepicker"></p>
             <label for="inp-date">choose a style:</label>
             <select id="inp-style">
                 <option value="total" selected>total cases</option>
+                <option value="active">active cases</option>
                 <option value="pperc">cases per inhabitants</option>
                 <option value="pperd">deaths per inhabitants</option>
             </select>
@@ -178,6 +93,10 @@
             "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ WHERE { ?dataset a covid19:JHU_Dataset. ?dataset covid19:country ?item. ?dataset covid19:date '##DATE##'. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?label)";
         let JHU0 =
             "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ WHERE { ?dataset a covid19:JHU_Dataset. ?dataset covid19:country ?item. ?dataset covid19:date '##DATE##'. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?label)";
+        $("#datepicker").datepicker({
+            dateFormat: "yy-mm-ddT00:00:00.000Z"
+        });
+        $("#datepicker").datepicker("setDate", new Date(2020, 03, 28))
         var queryStore = function(query, callback) {
             //console.log(query);
             $.ajax({
@@ -248,6 +167,15 @@
             //console.log(WDQ);
             queryWikidata(WDQ, createMap2, bindings);
         };
+
+        function round(wert, dez) {
+            wert = parseFloat(wert);
+            if (!wert) return 0;
+            dez = parseInt(dez);
+            if (!dez) dez = 0;
+            var umrechnungsfaktor = Math.pow(10, dez);
+            return Math.round(wert * umrechnungsfaktor) / umrechnungsfaktor;
+        }
         // map
         var mymap;
         let createMap0 = () => {
@@ -270,11 +198,22 @@
                         let c = parseInt(bindings2[ii]['confirmed']);
                         let d = parseInt(bindings2[ii]['deaths']);
                         let p = parseInt(bindings[i]['population']);
+                        let a = parseInt(bindings2[ii]['confirmed']) - parseInt(bindings2[ii]['recovered']) - parseInt(bindings2[ii]['deaths']);
                         let cpi = (100 / p * c);
                         let dpi = (100 / p * d);
+                        cpi = round(cpi, 2);
+                        dpi = round(dpi, 4);
                         let total = {
                             radius: c * 1.2,
                             fillColor: "#ff7800",
+                            color: "#000",
+                            weight: 1,
+                            opacity: 1,
+                            fillOpacity: 0.8
+                        };
+                        let active = {
+                            radius: a * 2.0,
+                            fillColor: "#bbbbbb",
                             color: "#000",
                             weight: 1,
                             opacity: 1,
@@ -307,15 +246,14 @@
                                     style = pperc;
                                 } else if ($("#inp-style option:selected").val() === "pperd") {
                                     style = pperd;
+                                } else if ($("#inp-style option:selected").val() === "active") {
+                                    style = active;
                                 }
                                 return L.circle(latlng, style);
                             }
                         }).addTo(mymap);
-                        l.bindPopup("<b>" + bindings[i]['statelabel'] + "</b><br>cases: " + bindings2[ii]['confirmed'] + "<br>population: " + bindings[i]['population'] + "<br>cpi: " + cpi + "<br>dpi: " + dpi + "<br><a href='" + bindings[i][
-                                'state'
-                            ] + "' target='_blank'>" + bindings[i]['state'].replace(
-                                "http://www.wikidata.org/entity/", "wd:") +
-                            "</a>");
+                        l.bindPopup("<b>" + bindings[i]['statelabel'] + "</b><br>cases: " + c + "</b><br>active: " + a + "<br>population: " + p + "<br>cases[%]: " + cpi + "<br>deaths[%]: " + dpi + "<br><a href='" + bindings[i]['state'] +
+                            "' target='_blank'>" + bindings[i]['state'].replace("http://www.wikidata.org/entity/", "wd:") + "</a>");
                     }
                 }
             }
@@ -323,12 +261,12 @@
         createMap0();
         $("#inp-style").change(function() {
             JHU = JHU0;
-            JHU = JHU.replace("##DATE##", $("#inp-date option:selected").val());
+            JHU = JHU.replace("##DATE##", $("#datepicker").val());
             queryStore(JHU, wikidataGeoms);
         }).trigger("change");
-        $("#inp-date").change(function() {
+        $("#datepicker").change(function() {
             JHU = JHU0;
-            JHU = JHU.replace("##DATE##", $("#inp-date option:selected").val());
+            JHU = JHU.replace("##DATE##", $("#datepicker").val());
             queryStore(JHU, wikidataGeoms);
         }).trigger("change");
     </script>
