@@ -28,14 +28,6 @@
             font-weight: normal !important;
         }
 
-        #mapid {
-            height: 600px;
-            width: 80%;
-            min-width: 310px;
-            min-height: 500px;
-            margin: 1em auto;
-        }
-
         button,
         input,
         optgroup,
@@ -48,46 +40,68 @@
             z-index: 1000000 !important;
         }
         #datepicker {
-            width: 344px !important;
+            width: 162px !important;
             cursor: context-menu;
+        }
+
+        .wrapper {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #header {
+            height: 100px;
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+            width: 100%;
+        }
+
+        #mapid {
+            height: calc(100% - 230px);
+            width: 100%;
+            flex: 1;
+        }
+
+        #footer {
+            height: 80px;
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+            width: 100%;
         }
     </style>
 
 </head>
 
 <body>
-    <h1>
-        <center>Linked COVID-19 Data</center>
-    </h1>
-    <h2>
-        <center>
-            <p>choose a date: <input type="text" id="datepicker"></p>
-            <label for="inp-date">choose a style:</label>
-            <select id="inp-style">
-                <option value="total" selected>total cases</option>
-                <option value="active">active cases</option>
-                <option value="pperc">cases per inhabitants</option>
-                <option value="pperd">deaths per inhabitants</option>
-            </select>
-        </center>
-    </h2>
-    <figure class="highcharts-figure">
-        <div id="containerJHU"></div>
-        <p class="highcharts-description"></p>
-    </figure>
-    <div id="mapid"></div>
-    <figure class="highcharts-figure">
-        <div id="containerECDC"></div>
-        <p class="highcharts-description"></p>
-    </figure>
-    <hr width="80%">
-    <h4>
-        <center>Credits: Research Squirrel Engineers, Florian Thiery M.Sc.</center>
-    </h4>
-    <h5>
-        <center>Data: Johns Hopkins University and European Centre for Disease Prevention and Control</center>
-        <center>via <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/tree/master/ttl" target="_blank">github.com/Research-Squirrel-Engineers/COVID-19</a></center>
-    </h5>
+    <div class="wrapper">
+        <div id="header">
+            <center style="font-size:36px; font-weight:700;">Linked COVID-19 Data</center>
+            <p>
+                <center>
+                    choose a date: <input type="text" id="datepicker">
+                    &nbsp;&nbsp;
+                    <label for="inp-date">choose a visualisation:</label>
+                    <select id="inp-style">
+                        <option value="total" selected>total cases</option>
+                        <option value="active">active cases</option>
+                        <option value="pperc">cases per inhabitants</option>
+                        <option value="pperd">deaths per inhabitants</option>
+                    </select>
+                </center>
+            </p>
+        </div>
+        <div id="mapid"></div>
+        <div id="footer">
+            <h4>
+                <center>Credits: Research Squirrel Engineers, Florian Thiery M.Sc.</center>
+            </h4>
+            <h5>
+                <center>Data: Johns Hopkins University and European Centre for Disease Prevention and Control</center>
+                <center>via <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/tree/master/ttl" target="_blank">github.com/Research-Squirrel-Engineers/COVID-19</a></center>
+            </h5>
+        </div>
+    </div>
     <script>
         let JHU =
             "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ WHERE { ?dataset a covid19:JHU_Dataset. ?dataset covid19:country ?item. ?dataset covid19:date '##DATE##'. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?label)";
@@ -179,7 +193,7 @@
         // map
         var mymap;
         let createMap0 = () => {
-            mymap = L.map('mapid').setView([51.505, -0.09], 2);
+            mymap = L.map('mapid').setView([42, 0], 2);
         };
         let createMap2 = (bindings, bindings2) => {
             mymap.eachLayer(function(layer) {
