@@ -97,18 +97,18 @@
                 <center>Credits: Research Squirrel Engineers, Florian Thiery M.Sc.</center>
             </h4>
             <h5>
-                <center>Data: Johns Hopkins University</center>
+                <center>Data: Robert Koch Institute</center>
                 <center>via <a href="https://github.com/Research-Squirrel-Engineers/COVID-19/tree/master/ttl" target="_blank">github.com/Research-Squirrel-Engineers/COVID-19</a></center>
             </h5>
         </div>
     </div>
     <script>
         let JHU =
-            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ WHERE { ?dataset a covid19:JHU_Dataset. ?dataset covid19:country ?item. ?dataset covid19:date '##DATE##'. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?label)";
+            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ WHERE { ?dataset a covid19:RKI_Dataset_FS_CUM. ?dataset covid19:bundesland ?item. ?dataset covid19:date '##DATE##'. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?label)";
         let JHU0 =
-            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ WHERE { ?dataset a covid19:JHU_Dataset. ?dataset covid19:country ?item. ?dataset covid19:date '##DATE##'. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?label)";
+            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ WHERE { ?dataset a covid19:RKI_Dataset_FS_CUM. ?dataset covid19:bundesland ?item. ?dataset covid19:date '##DATE##'. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?label)";
         $("#datepicker").datepicker({
-            dateFormat: "yy-mm-ddT00:00:00.000Z"
+            dateFormat: "yy/mm/dd 00:00:00"
         });
         $("#datepicker").datepicker("setDate", new Date(2020, 03, 28))
         var queryStore = function(query, callback) {
@@ -193,7 +193,7 @@
         // map
         var mymap;
         let createMap0 = () => {
-            mymap = L.map('mapid').setView([42, 0], 2);
+            mymap = L.map('mapid').setView([51.163361, 10.447683], 5);
         };
         let createMap2 = (bindings, bindings2) => {
             mymap.eachLayer(function(layer) {
@@ -219,7 +219,7 @@
                         cpi = round(cpi, 2);
                         dpi = round(dpi, 4);
                         let total = {
-                            radius: c * 1.2,
+                            radius: c * 1.5,
                             fillColor: "#ff7800",
                             color: "#000",
                             weight: 1,
@@ -227,7 +227,7 @@
                             fillOpacity: 0.8
                         };
                         let active = {
-                            radius: a * 2.0,
+                            radius: a * 3.0,
                             fillColor: "#bbbbbb",
                             color: "#000",
                             weight: 1,
@@ -235,7 +235,7 @@
                             fillOpacity: 0.8
                         };
                         let pperc = {
-                            radius: cpi * 200000,
+                            radius: cpi * 100000,
                             fillColor: "#00FF7F",
                             color: "#000",
                             weight: 1,
