@@ -1,5 +1,5 @@
 # create triples from ECDC
-# on 2020-05-03 18:30
+# on 2020-05-04 12:33
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX owl: <http://www.w3.org/2002/07/owl#> 
@@ -12,7 +12,7 @@ PREFIX world: <http://world.squirrel.link/ontology#>
 covid19:COVID19_DataECDC rdf:type rdfs:Resource .
 covid19:COVID19_DataECDC rdf:type covid19:Dataset .
 covid19:COVID19_DataECDC dc:created '2020-04-05T10:53:21.259+0100' .
-covid19:COVID19_DataECDC dc:modified '2020-05-03T18:30:06.000+0100' .
+covid19:COVID19_DataECDC dc:modified '2020-05-04T12:33:19.000+0100' .
 covid19:COVID19_DataECDC dc:creator 'Florian Thiery' .
 covid19:COVID19_DataECDC dc:contributor 'Timo Homburg' .
 covid19:COVID19_DataECDC dc:language 'en' .
