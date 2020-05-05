@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="http://143.93.113.149/css/vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
     <title>Linked COVID-19 Data</title>
     <style>
         body {
@@ -87,6 +89,7 @@
                         <option value="active">active cases</option>
                         <option value="pperc">cases per inhabitants</option>
                         <option value="pperd">deaths per inhabitants</option>
+                        <option value="sevendays">7 days development</option>
                     </select>
                 </center>
             </p>
@@ -109,10 +112,25 @@
             "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ WHERE { ?dataset a covid19:JHU_Dataset. ?dataset covid19:country ?item. ?dataset covid19:date '##DATE##'. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?label)";
         let JHUALL =
             "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ ?date WHERE { ?dataset a covid19:JHU_Dataset. ?dataset covid19:country ?item. ?dataset covid19:date ?date. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?date)";
+
+        function onlyUnique(value, index, self) {
+            return self.indexOf(value) === index;
+        };
+
+        function round(wert, dez) {
+            wert = parseFloat(wert);
+            if (!wert) return 0;
+            dez = parseInt(dez);
+            if (!dez) dez = 0;
+            var umrechnungsfaktor = Math.pow(10, dez);
+            return Math.round(wert * umrechnungsfaktor) / umrechnungsfaktor;
+        }
         $("#datepicker").datepicker({
             dateFormat: "yy-mm-ddT00:00:00.000Z"
         });
-        $("#datepicker").datepicker("setDate", new Date(2020, 03, 28))
+        var date = new Date();
+        date.setDate(date.getDate() - 2);
+        $("#datepicker").datepicker("setDate", date);
         var queryStore = function(query, callback) {
             //console.log(query);
             $.ajax({
@@ -183,11 +201,7 @@
             //console.log(WDQ);
             queryWikidata(WDQ, createMap2, bindings);
         };
-
-        function onlyUnique(value, index, self) {
-            return self.indexOf(value) === index;
-        };
-        let transformDataJHU = (bindings) => {
+        let wikidataGeoms2 = (bindings) => {
             console.log(bindings);
             let confirmed = [];
             let confirmedAdd = [];
@@ -228,20 +242,28 @@
             }
             console.log(a);
             console.log(b);
+            // countries
+            let cList = [];
+            let cStr = "";
+            for (var i in bindings) {
+                cList.push(bindings[i]['wikidataQ']);
+            }
+            //console.log(cList);
+            cList = cList.filter(onlyUnique);
+            for (var i in cList) {
+                cStr += cList[i].replace("http://www.wikidata.org/entity/", "wd:") + ",";
+            }
+            cStr = cStr.substring(0, cStr.length - 1);
+            //console.log(cStr);
+            let WDQ = "SELECT * WHERE { ?state wdt:P625 ?point; wdt:P1082 ?population. ?state rdfs:label ?statelabel filter (lang(?statelabel) = 'en'). FILTER(?state IN (" + cStr + ")) }";
+            //console.log(WDQ);
+            queryWikidata(WDQ, createMap3, b);
         };
-
-        function round(wert, dez) {
-            wert = parseFloat(wert);
-            if (!wert) return 0;
-            dez = parseInt(dez);
-            if (!dez) dez = 0;
-            var umrechnungsfaktor = Math.pow(10, dez);
-            return Math.round(wert * umrechnungsfaktor) / umrechnungsfaktor;
-        }
         // map
         var mymap;
         let createMap0 = () => {
             mymap = L.map('mapid').setView([42, 0], 2);
+            mymap.addControl(new L.Control.Fullscreen());
         };
         let createMap2 = (bindings, bindings2) => {
             mymap.eachLayer(function(layer) {
@@ -324,17 +346,82 @@
             var group = new L.featureGroup(points);
             mymap.fitBounds(group.getBounds());
         };
+        let createMap3 = (bindings, b) => {
+            mymap.eachLayer(function(layer) {
+                mymap.removeLayer(layer);
+            });
+            L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
+                attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                subdomains: 'abcd',
+                minZoom: 0,
+                maxZoom: 20,
+                ext: 'png'
+            }).addTo(mymap);
+            let points = [];
+            console.log($("#datepicker").val(), new Date($("#datepicker").val()).getTime());
+            for (var i in bindings) {
+                for (var ii in b) {
+                    if (ii === bindings[i].state) {
+                        let thisB = b[ii];
+                        for (var iii in thisB) {
+                            if (thisB[iii][0] === new Date($("#datepicker").val()).getTime()) {
+                                let plus = {
+                                    radius: parseInt(thisB[iii][1]) * 8,
+                                    fillColor: "#DC143C",
+                                    color: "#000",
+                                    weight: 1,
+                                    opacity: 1,
+                                    fillOpacity: 0.8
+                                };
+                                let minus = {
+                                    radius: parseInt(thisB[iii][1]) * 8,
+                                    fillColor: "#00FF7F",
+                                    color: "#000",
+                                    weight: 1,
+                                    opacity: 1,
+                                    fillOpacity: 0.8
+                                };
+                                wkt = bindings[i]['point'].replace("Point", "POINT");
+                                geojson = Terraformer.WKT.parse(wkt);
+                                let l = L.geoJSON(geojson, {
+                                    pointToLayer: function(feature, latlng) {
+                                        let style = null;
+                                        if (thisB[iii][3] > 0) {
+                                            style = plus;
+                                        } else {
+                                            style = minus;
+                                        }
+                                        return L.circle(latlng, style);
+                                    }
+                                }).addTo(mymap);
+                                points.push(l);
+                                l.bindPopup("<b>" + bindings[i]['statelabel'] + "</b><br>increase: " + thisB[iii][3] + "%<br>average cases (7d): " + thisB[iii][1] + "<br>average cases (14d): " + thisB[iii][2]);
+                            }
+                        }
+                    }
+                }
+            }
+            var group = new L.featureGroup(points);
+            mymap.fitBounds(group.getBounds());
+        };
         createMap0();
         $("#inp-style").change(function() {
             JHU = JHU0;
             JHU = JHU.replace("##DATE##", $("#datepicker").val());
-            queryStore(JHU, wikidataGeoms);
-            queryStore(JHUALL, transformDataJHU);
+            if ($("#inp-style option:selected").val() === "sevendays") {
+                queryStore(JHUALL, wikidataGeoms2);
+            } else {
+                queryStore(JHU, wikidataGeoms);
+            }
         }).trigger("change");
         $("#datepicker").change(function() {
             JHU = JHU0;
             JHU = JHU.replace("##DATE##", $("#datepicker").val());
-            queryStore(JHU, wikidataGeoms);
+            if ($("#inp-style option:selected").val() === "sevendays") {
+                queryStore(JHUALL, wikidataGeoms2);
+            } else {
+                queryStore(JHU, wikidataGeoms);
+            }
         }).trigger("change");
     </script>
 </body>
