@@ -202,7 +202,7 @@
             queryWikidata(WDQ, createMap2, bindings);
         };
         let wikidataGeoms2 = (bindings) => {
-            console.log(bindings);
+            //console.log(bindings);
             let confirmed = [];
             let confirmedAdd = [];
             let dates = [];
@@ -240,8 +240,8 @@
                     }
                 }
             }
-            console.log(a);
-            console.log(b);
+            //console.log(a);
+            //console.log(b);
             // countries
             let cList = [];
             let cStr = "";
@@ -358,7 +358,7 @@
                 ext: 'png'
             }).addTo(mymap);
             let points = [];
-            console.log($("#datepicker").val(), new Date($("#datepicker").val()).getTime());
+            //console.log($("#datepicker").val(), new Date($("#datepicker").val()).getTime());
             for (var i in bindings) {
                 for (var ii in b) {
                     if (ii === bindings[i].state) {
