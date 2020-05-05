@@ -107,6 +107,8 @@
             "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ WHERE { ?dataset a covid19:JHU_Dataset. ?dataset covid19:country ?item. ?dataset covid19:date '##DATE##'. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?label)";
         let JHU0 =
             "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ WHERE { ?dataset a covid19:JHU_Dataset. ?dataset covid19:country ?item. ?dataset covid19:date '##DATE##'. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?label)";
+        let JHUALL =
+            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?label ?confirmed ?recovered ?deaths ?wikidataQ ?date WHERE { ?dataset a covid19:JHU_Dataset. ?dataset covid19:country ?item. ?dataset covid19:date ?date. ?dataset covid19:confirmed ?confirmed. ?dataset covid19:recovered ?recovered. ?dataset covid19:deaths ?deaths. ?item geosparql:hasGeometry ?item_geom . ?item rdfs:label ?label. ?item owl:sameAs ?wikidataQ. } ORDER BY ASC(?date)";
         $("#datepicker").datepicker({
             dateFormat: "yy-mm-ddT00:00:00.000Z"
         });
@@ -180,6 +182,52 @@
             let WDQ = "SELECT * WHERE { ?state wdt:P625 ?point; wdt:P1082 ?population. ?state rdfs:label ?statelabel filter (lang(?statelabel) = 'en'). FILTER(?state IN (" + cStr + ")) }";
             //console.log(WDQ);
             queryWikidata(WDQ, createMap2, bindings);
+        };
+
+        function onlyUnique(value, index, self) {
+            return self.indexOf(value) === index;
+        };
+        let transformDataJHU = (bindings) => {
+            console.log(bindings);
+            let confirmed = [];
+            let confirmedAdd = [];
+            let dates = [];
+            let a = [];
+            let b = [];
+            for (var i in bindings) {
+                a[bindings[i]['wikidataQ']] = [];
+                b[bindings[i]['wikidataQ']] = [];
+            }
+            for (var i in bindings) {
+                let tmpObjC2 = [];
+                tmpObjC2.push(new Date(bindings[i]['date']).getTime());
+                tmpObjC2.push(parseInt(bindings[i]['confirmed']));
+                a[bindings[i]['wikidataQ']].push(tmpObjC2);
+            }
+            for (var i in a) {
+                let thisObj = a[i];
+                for (ii = 0; ii < thisObj.length; ii++) {
+                    if (ii >= 6) {
+                        let oldC = 0;
+                        if (ii >= 7) {
+                            oldC = thisObj[ii - 1][1] - thisObj[ii - 7][1];
+                        }
+                        let newC = thisObj[ii][1] - thisObj[ii - 6][1];
+                        let tmpObjC2 = [];
+                        tmpObjC2.push(thisObj[ii][0]);
+                        tmpObjC2.push(newC);
+                        tmpObjC2.push(oldC);
+                        if (oldC == 0 || newC == 0) {
+                            tmpObjC2.push(0);
+                        } else {
+                            tmpObjC2.push(round(100 - (oldC / newC * 100), 2));
+                        }
+                        b[i].push(tmpObjC2);
+                    }
+                }
+            }
+            console.log(a);
+            console.log(b);
         };
 
         function round(wert, dez) {
@@ -281,6 +329,7 @@
             JHU = JHU0;
             JHU = JHU.replace("##DATE##", $("#datepicker").val());
             queryStore(JHU, wikidataGeoms);
+            queryStore(JHUALL, transformDataJHU);
         }).trigger("change");
         $("#datepicker").change(function() {
             JHU = JHU0;
