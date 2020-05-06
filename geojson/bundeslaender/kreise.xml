@@ -3,7 +3,7 @@
 <file class="https://www.wikidata.org/wiki/Q106658" 
 indid="RS" namespace="http://world.squirrel.link/ontology#" attnamespace="http://world.squirrel.link/ontology#" epsg="4326" interlinkItem="true" nometadata="true" attachepsg="true">
     
-   <classmapping class="http://world.squirrel.link/ontology#Distict"/>
+   <classmapping class="http://world.squirrel.link/ontology#District"/>
 
 	<column name="GEN" prop="annotation" propiri="http://www.w3.org/2000/01/rdf-schema#label" range="http://www.w3.org/2001/XMLSchema#string"/> 
     
