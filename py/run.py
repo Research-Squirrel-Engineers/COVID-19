@@ -106,6 +106,7 @@ for item in dataECDC:
 
 for item in dataRKI:
     bundesland = str(item["properties"]["IdBundesland"])
+    landkreis = str(item["properties"]["IdLandkreis"])
     blcode = "0"
     if bundesland == "1":
         blcode = "SchleswigHolstein"
@@ -148,6 +149,7 @@ for item in dataRKI:
     lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "rdf:type" + " covid19:RKI_Dataset .")
     lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:bundeslandcode" + " " + "'" + bundesland + "'" + ".")
     lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:bundesland" + " world:" + blcode + " .")
+    lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:landkreis" + " world:" + landkreis + " .")
     lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:date" + " " + "'" + meldedatum + "'" + ".")
     lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:geschlecht" + " " + "'" + geschlecht + "'" + ".")
     lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:altersgruppe" + " " + "'" + altersgruppe + "'" + ".")
