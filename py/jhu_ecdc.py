@@ -101,7 +101,7 @@ for line in lines0:
     file.write(line)
     file.write("\r\n")
 file.close()
-print("success write covid19.ttl")
+print("success write covid19_jhu.ttl")
 
 file = codecs.open(file_out_ecdc, "w", "utf-8")
 file.write("# create triples from ECDC" + "\r\n")
@@ -123,4 +123,4 @@ for line in lines1:
     file.write(line)
     file.write("\r\n")
 file.close()
-print("success write covid19.ttl")
+print("success write covid19_ecdc.ttl")
