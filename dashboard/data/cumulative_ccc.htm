@@ -114,11 +114,11 @@
     </h5>
     <script>
         let JHU =
-            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?country WHERE { ?item a covid19:JHU_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. ?item covid19:country ?country. FILTER(?country IN (world:Germany,world:Italy,world:France,world:United_States,world:United_Kingdom,world:Spain,world:Austria,world:Sweden,world:China)) } ORDER BY ASC(?date)";
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?country WHERE { ?item a covid19:JHU_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. ?item covid19:country ?country. FILTER(?country IN (world:Germany,world:Italy,world:France,world:United_States,world:United_Kingdom,world:Spain,world:Austria,world:Sweden,world:China,world:Russia,world:Brazil)) } ORDER BY ASC(?date)";
         let GEOMQUERY =
-            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT DISTINCT ?wkt_geom ?country WHERE { ?item a covid19:JHU_Dataset. ?item covid19:country ?country. ?country geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . FILTER(?country IN (world:Germany,world:Italy,world:France,world:United_States,world:United_Kingdom,world:Spain,world:Austria,world:Sweden,world:China)) }";
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT DISTINCT ?wkt_geom ?country WHERE { ?item a covid19:JHU_Dataset. ?item covid19:country ?country. ?country geosparql:hasGeometry ?item_geom . ?item_geom geosparql:asWKT ?wkt_geom . FILTER(?country IN (world:Germany,world:Italy,world:France,world:United_States,world:United_Kingdom,world:Spain,world:Austria,world:Sweden,world:China,world:Russia,world:Brazil)) }";
         let ECDC =
-            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?country WHERE { ?item a covid19:ECDC_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. ?item covid19:country ?country. FILTER(?country IN (world:Germany,world:Italy,world:France,world:United_States,world:United_Kingdom,world:Spain,world:Austria,world:Sweden,world:China)) } ORDER BY ASC(?date)";
+            "PREFIX covid19: <http://covid19.squirrel.link/ontology#> PREFIX world: <http://world.squirrel.link/ontology#> PREFIX geosparql: <http://www.opengis.net/ont/geosparql#> SELECT ?item ?date ?c ?country WHERE { ?item a covid19:ECDC_Dataset. ?item covid19:date ?date. ?item covid19:confirmed ?c. ?item covid19:country ?country. FILTER(?country IN (world:Germany,world:Italy,world:France,world:United_States,world:United_Kingdom,world:Spain,world:Austria,world:Sweden,world:China,world:Russia,world:Brazil)) } ORDER BY ASC(?date)";
         var queryStore = function(query, callback) {
             $.ajax({
                 url: "https://sandbox.mainzed.org/covid19/sparql",
@@ -162,6 +162,8 @@
             confirmed_Austria = [];
             confirmed_Sweden = [];
             confirmed_China = [];
+            confirmed_Russia = [];
+            confirmed_Brazil = [];
             for (var i in bindings) {
                 if (bindings[i]['country'] == "http://world.squirrel.link/ontology#Germany") {
                     let tmpArrC = [];
@@ -208,6 +210,16 @@
                     tmpArrC.push(new Date(bindings[i]['date']).getTime());
                     tmpArrC.push(parseInt(bindings[i]['c']));
                     confirmed_China.push(tmpArrC);
+                } else if (bindings[i]['country'] == "http://world.squirrel.link/ontology#Russia") {
+                    let tmpArrC = [];
+                    tmpArrC.push(new Date(bindings[i]['date']).getTime());
+                    tmpArrC.push(parseInt(bindings[i]['c']));
+                    confirmed_Russia.push(tmpArrC);
+                } else if (bindings[i]['country'] == "http://world.squirrel.link/ontology#Brazil") {
+                    let tmpArrC = [];
+                    tmpArrC.push(new Date(bindings[i]['date']).getTime());
+                    tmpArrC.push(parseInt(bindings[i]['c']));
+                    confirmed_Brazil.push(tmpArrC);
                 }
             }
             let series = [];
@@ -247,6 +259,14 @@
             s9.name = "China";
             s9.data = confirmed_China;
             series.push(s9);
+            let s10 = {};
+            s10.name = "Russia";
+            s10.data = confirmed_Russia;
+            series.push(s10);
+            let s11 = {};
+            s11.name = "Brazil";
+            s11.data = confirmed_Brazil;
+            series.push(s11);
             createChart1(series, "containerJHU", 'JHU Data');
         };
         let transformGeoms = (bindings) => {
@@ -275,6 +295,8 @@
             confirmed_Austria = [];
             confirmed_Sweden = [];
             confirmed_China = [];
+            confirmed_Russia = [];
+            confirmed_Brazil = [];
             let sumC_Germany = 0;
             let sumC_Italy = 0;
             let sumC_France = 0;
@@ -284,6 +306,8 @@
             let sumC_Austria = 0;
             let sumC_Sweden = 0;
             let sumC_China = 0;
+            let sumC_Russia = 0;
+            let sumC_Brazil = 0;
             for (var i in bindings) {
                 if (bindings[i]['country'] == "http://world.squirrel.link/ontology#Germany") {
                     let tmpArrC = [];
@@ -339,6 +363,18 @@
                     sumC_China = sumC_China + parseInt(bindings[i]['c']);
                     tmpArrC.push(sumC_China);
                     confirmed_China.push(tmpArrC);
+                } else if (bindings[i]['country'] == "http://world.squirrel.link/ontology#Russia") {
+                    let tmpArrC = [];
+                    tmpArrC.push(new Date(bindings[i]['date']).getTime());
+                    sumC_Russia = sumC_Russia + parseInt(bindings[i]['c']);
+                    tmpArrC.push(sumC_Russia);
+                    confirmed_Russia.push(tmpArrC);
+                } else if (bindings[i]['country'] == "http://world.squirrel.link/ontology#Brazil") {
+                    let tmpArrC = [];
+                    tmpArrC.push(new Date(bindings[i]['date']).getTime());
+                    sumC_Brazil = sumC_Brazil + parseInt(bindings[i]['c']);
+                    tmpArrC.push(sumC_Brazil);
+                    confirmed_Brazil.push(tmpArrC);
                 }
             }
             let series = [];
@@ -378,6 +414,14 @@
             s9.name = "China";
             s9.data = confirmed_China;
             series.push(s9);
+            let s10 = {};
+            s10.name = "Russia";
+            s10.data = confirmed_Russia;
+            series.push(s10);
+            let s11 = {};
+            s11.name = "Brazil";
+            s11.data = confirmed_Brazil;
+            series.push(s11);
             createChart1(series, "containerECDC", 'ECDC Data');
         };
         $("#inp-scale").change(function() {
