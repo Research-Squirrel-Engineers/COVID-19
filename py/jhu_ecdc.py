@@ -66,11 +66,11 @@ for item in dataECDC:
     cstr = cstr.replace(" ","_").replace("(","").replace(")","").replace("'","").replace("*","").replace(",","")
     dstrArr = str(item['dateRep']).split("/")
     dstr = str(dstrArr[2]).zfill(2) + "-" + str(dstrArr[1]).zfill(2) + "-" + str(dstrArr[0]).zfill(2) + "T00:00:00.000Z"
-    castr = item['cases']
-    destr = item['deaths']
+    castr = str(item['cases'])
+    destr = str(item['deaths'])
     ccode = item['countryterritoryCode']
     m = hashlib.md5()
-    m.update(ccode + dstr + "ECDC")
+    m.update(str(ccode) + str(item['dateRep']) + "ECDC")
     UUID = str(int(m.hexdigest(), 16))[0:16]
     lines1.append("covid19:" + UUID + " " + "rdf:type" + " covid19:ECDC_Dataset .")
     if cstr == "United_States_of_America":
