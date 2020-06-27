@@ -85,25 +85,25 @@ for item in dataRKI:
     todesfall = str(item["properties"]["AnzahlTodesfall"])
     meldedatum = str(item["properties"]["Refdatum"])
     genesen = str(item["properties"]["AnzahlGenesen"])
-    lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "rdf:type" + " covid19:RKI_Dataset .")
-    lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:bundeslandcode" + " " + "'" + bundesland + "'" + ".")
-    lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:bundesland" + " world:" + blcode + " .")
-    lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:landkreis" + " world:district_" + landkreis + " .")
-    lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:date" + " " + "'" + meldedatum + "'" + ".")
-    lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:geschlecht" + " " + "'" + geschlecht + "'" + ".")
-    lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:altersgruppe" + " " + "'" + altersgruppe + "'" + ".")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "rdf:type" + " covid19:RKI_Dataset .")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:bundeslandcode" + " " + "'" + bundesland + "'" + ".")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:bundesland" + " world:" + blcode + " .")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:landkreis" + " world:district_" + landkreis + " .")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:date" + " " + "'" + meldedatum + "'" + ".")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:geschlecht" + " " + "'" + geschlecht + "'" + ".")
+    lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:altersgruppe" + " " + "'" + altersgruppe + "'" + ".")
     if int(faelle) > -1:
-        lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:confirmed" + " " + "'" + faelle + "'" + ".")
+        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:confirmed" + " " + "'" + faelle + "'" + ".")
     else:
-        lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:confirmed" + " " + "'0'" + ".")
+        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:confirmed" + " " + "'0'" + ".")
     if int(todesfall) > -1:
-        lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:deaths" + " " + "'" + todesfall + "'" + ".")
+        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:deaths" + " " + "'" + todesfall + "'" + ".")
     else:
-        lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:deaths" + " " + "'0'" + ".")
+        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:deaths" + " " + "'0'" + ".")
     if int(genesen) > -1:
-        lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:recovered" + " " + "'" + genesen + "'" + ".")
+        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:recovered" + " " + "'" + genesen + "'" + ".")
     else:
-        lines2.append("covid19:" + str(item["properties"]["FID"]) + " " + "covid19:recovered" + " " + "'0'" + ".")
+        lines2.append("covid19:" + str(item["properties"]["ObjectId"]) + " " + "covid19:recovered" + " " + "'0'" + ".")
     lines2.append("")
 
 meldedaten = set()
